@@ -27,7 +27,7 @@ public class ODGetParksInfoRestService {
 	
 	@RequestMapping(value="/getParksinfo",method=RequestMethod.GET,produces={"application/json"})
 	 public String getParksinfo(HttpServletRequest request,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea,@RequestParam ("odRating") String odRating){
-		//Logger
+		//Logger class
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		  CommonCISValidation CommonCISValidation=new CommonCISValidation();
 		  CISResults cisResult=CommonCISValidation.ParksinfoValidation(metro,localArea,odRating,request);
