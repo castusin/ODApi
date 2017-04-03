@@ -8,6 +8,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/ODGetParksInfo"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/CommonCISValidation"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/CISDataCommon"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/SaveParkInfo"/>
         <property name="context-root" value="OD"/>
         <property name="java-output-path" value="/OD/target/classes"/>
     </wb-module>
