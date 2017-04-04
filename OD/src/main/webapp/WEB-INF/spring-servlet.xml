@@ -16,6 +16,9 @@
 		<property name="dataSource" ref="ds" />
 	</bean>
 	
+	<bean id="SaveParkInfoDAO" class="com.od.ODSaveParkInfoDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
 	
 	
  <!-- <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  

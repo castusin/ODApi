@@ -20,8 +20,6 @@ public class ODSaveParksInfoRestService {
 
 	@RequestMapping(value="/saveParkInfo",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
 	 public String saveParkInfo(HttpServletRequest request,@RequestBody ODGetParkInfoModel saveParkInfo){
-		  
-		
 		
 		 Logger logger = Logger.getLogger(ODSaveParksInfoRestService.class);
 		 /* String requestParameters = "appId=" + registration.appId + "&userId=" + registration.userId + "&firstName=" +           
@@ -36,7 +34,6 @@ public class ODSaveParksInfoRestService {
 		    }
 		  
 		
-		  
 		  
 		  return returnJsonData(cisResult);
 	}
