@@ -14,7 +14,7 @@ public class ODGetParkInfoMapper implements RowMapper{
 		
 		parksInfo.setAppId(rs.getString("Appid"));
 		parksInfo.setParktype(rs.getString("Parktype"));
-		parksInfo.setParkSubtype(rs.getString("Park_subtype"));
+		parksInfo.setParkSubtype(rs.getString("Park_subcategory"));
 		parksInfo.setMetro(rs.getString("Metro"));
 		parksInfo.setLocalArea(rs.getString("Local_area"));
 		parksInfo.setStreetAddress(rs.getString("Street_address"));

@@ -9,6 +9,7 @@ public class CISConstants {
 	public static final int OTP_TIME=10;
 	public static final int SESSION_TIME=1440;
 	public static final String TIME_ZONE="CST";
+	public static final String TIME_ZONE2="IST";
 	public static final String SESSION_STATUS="Session is Expired";
 	public static final String OTP_TIME_STATUS="OTP is expired";
 	public static final String USA_COUNTRY_CODE="1";

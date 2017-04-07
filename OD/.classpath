@@ -6,6 +6,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="GetParkDetails"/>
+	<classpathentry kind="src" path="CISSessions"/>
 	<classpathentry kind="src" path="SaveParkInfo"/>
 	<classpathentry kind="src" path="ODGetParksInfo"/>
 	<classpathentry kind="src" path="CommonCISValidation"/>

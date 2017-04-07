@@ -1,3 +1,4 @@
+
 package com.od;
 
 
@@ -15,13 +16,13 @@ import com.cis.CISResults;
 import com.cis.testServiceTime;
 
 
-public class ODGetParkInfoBL {
+public class ODGetParkDetailsBL {
 	
 	ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-servlet.xml"); 
-	ODGetParkInfoDAO parkInfoDAO=(ODGetParkInfoDAO)ctx.getBean("ParkInfoDAO");
+	ODGetParkDetailsDAO parkDetailsDAO=(ODGetParkDetailsDAO)ctx.getBean("ParkDetailsDAO");
 	
 
-	public CISResults getParksinfo(String metro,String localArea,String odRating) {
+	public CISResults getParksDetails(String parkId) {
 		// Capture service Start time
 			  testServiceTime seriveTimeCheck=new testServiceTime();
 			  Calendar current = Calendar.getInstance();
@@ -31,7 +32,7 @@ public class ODGetParkInfoBL {
 			  String serviceStartTime=formatterTime.format(current.getTime());
 		 			
 			 final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
-			 CISResults cisResult = parkInfoDAO.getParksinfo(metro,localArea,odRating);
+			 CISResults cisResult = parkDetailsDAO.getParksDetails( parkId);
 			 logger.debug("OD GetParkInfoBL service" +cisResult);
 			 
 			// Capture Service End time
