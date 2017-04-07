@@ -21,11 +21,12 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		Object[] inputs = new Object[]{parkId};
+		
 		try{
-			List result=getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILS,inputs,new ODGetParkDetailsMapper());
+			List res =getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILS,inputs,new ODGetParkDetailsMapper());
 	
 			
-			cisResults.setResultObject(result);
+			cisResults.setResultObject(res);
 			
 		} catch (DataAccessException e) {
 			e.printStackTrace();
@@ -33,9 +34,32 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
 			cisResults.setErrorMessage("Failed At DataAccess");
 		}
-
-   		return cisResults;  
+		return cisResults;  
 	}
+		
+		public CISResults getParksListDetails(String parkId) {
+			
+			ODGetParkDetailsModel parksDetails=new ODGetParkDetailsModel();
+			ODParkDetailsService parkDetailslist = new ODParkDetailsService();
+			CISResults cisResults=new CISResults();
+			cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+			Object[] inputs = new Object[]{parkId};
+			
+			try{
+				List result= getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILSLIST,inputs,new ODParkDetailsServiceMapper());
+		
+				
+				cisResults.setResultObject(result);
+				
+			} catch (DataAccessException e) {
+				e.printStackTrace();
+			
+				cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+				cisResults.setErrorMessage("Failed At DataAccess");
+			}
+
+	   		return cisResults;  
+		}
 
 }
 
