@@ -12,7 +12,7 @@ import com.cis.CISResults;
 public class ODSaveParkInfoDAO extends JdbcDaoSupport {
 
 	public CISResults saveParkInfo(String appId, String parktype,
-			String parkSubtype, String metro, String localArea,
+			String parkSubcategory, String metro, String localArea,
 			String streetAddress, String city, String state, String pin,
 			String name, String description, String details,int parkId, int odRating,
 			int sponsoredFeaturedFlag,  String overviewText, String faq,
@@ -22,14 +22,14 @@ public class ODSaveParkInfoDAO extends JdbcDaoSupport {
 			String popularity, Float minCost1, Float minCost1People,
 			Float minCost2, Float minCost2People, Float minCost3,
 			Float minCost3People, Float specialOfferPercentage,
-			Float specialRate, String photoUrl) {
+			Float specialRate, String photoUrl, String imagefoldername) {
 		
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		
 		try{
-			getJdbcTemplate().update(ODSaveParkInfoQuery.SQL_SAVEPARKSINFO,appId,parktype,parkSubtype,metro,localArea, streetAddress,  city,  state,  pin,
+			getJdbcTemplate().update(ODSaveParkInfoQuery.SQL_SAVEPARKSINFO,appId,parktype,parkSubcategory,metro,localArea, streetAddress,  city,  state,  pin,
 					 name,  description,  details, parkId, odRating,
 					 sponsoredFeaturedFlag,  overviewText,  faq,
 					 latitude,  longitude,  typeString,
@@ -38,7 +38,7 @@ public class ODSaveParkInfoDAO extends JdbcDaoSupport {
 					 popularity,  minCost1,  minCost1People,
 					 minCost2,  minCost2People,  minCost3,
 					 minCost3People,  specialOfferPercentage,
-					 specialRate,  photoUrl);
+					 specialRate,  photoUrl,imagefoldername);
 			//cisResults.setResultObject(result);
 			
 		} catch (DataAccessException e) {

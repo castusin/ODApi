@@ -14,7 +14,7 @@ public class ODGetParkInfoMapper implements RowMapper{
 		
 		parksInfo.setAppId(rs.getString("Appid"));
 		parksInfo.setParktype(rs.getString("Parktype"));
-		parksInfo.setParkSubtype(rs.getString("Park_subcategory"));
+		parksInfo.setParkSubcategory(rs.getString("Park_subcategory"));
 		parksInfo.setMetro(rs.getString("Metro"));
 		parksInfo.setLocalArea(rs.getString("Local_area"));
 		parksInfo.setStreetAddress(rs.getString("Street_address"));
@@ -47,6 +47,7 @@ public class ODGetParkInfoMapper implements RowMapper{
 		parksInfo.setSpecialOfferPercentage(rs.getFloat("Special_offer_percentage"));
 		parksInfo.setSpecialRate(rs.getFloat("Special_rate"));
 		parksInfo.setPhotoUrl(rs.getString("Main_photo_url"));
+		parksInfo.setImagefoldername(rs.getString("image_folder_name"));
 		return parksInfo;
 	}
 

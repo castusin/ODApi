@@ -10,8 +10,8 @@ public class ODGetParkInfoWebService {
 	static Logger logger = Logger.getLogger(ODGetParkInfoWebService.class);
 	ODGetParkInfoBL parkInfoBL=new ODGetParkInfoBL();
 
-	public CISResults getParksinfo(String metro,String localArea,String odRating) {
-		 CISResults cisResult = parkInfoBL.getParksinfo(metro,localArea,odRating);	
+	public CISResults getParksinfo(String metro,String localArea,String parkType) {
+		 CISResults cisResult = parkInfoBL.getParksinfo(metro,localArea,parkType);	
 		 logger.info("OD GetParkInfo WebService  " +cisResult );
 		 return cisResult;
 	}

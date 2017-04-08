@@ -19,14 +19,14 @@ public class ODGetParkDetailsMapper implements RowMapper{
 		
 
 		
-		parkDetailslist.setRoomType(rs.getString("Room_type_code"));
+		/*parkDetailslist.setRoomType(rs.getString("Room_type_code"));
 		parkDetailslist.setDescription(rs.getString("Room_type_desc"));
 		parkDetailslist.setMaxPeople(rs.getString("Max_qty"));
 		parkDetailslist.setMaxAdults(rs.getString("Max_adults"));
 		parkDetailslist.setMaxKids(rs.getString("Max_kids"));
 		parkDetailslist.setCurrentAvailableQuantity(rs.getString("Current_available_qty"));
-		parkDetailslist.setCurrentPrice(rs.getString("Regular_price"));
+		parkDetailslist.setCurrentPrice(rs.getString("Regular_price"));*/
 		
-		return parkDetailslist;
+		return parkDetails;
 	}
 }

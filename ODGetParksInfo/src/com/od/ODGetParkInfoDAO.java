@@ -11,12 +11,12 @@ import com.cis.CISResults;
 public class ODGetParkInfoDAO extends JdbcDaoSupport {
 
 
-	public CISResults getParksinfo(String metro, String localArea, String odRating) {
+	public CISResults getParksinfo(String metro, String localArea, String parkType) {
 		
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{metro,localArea,odRating};
+		Object[] inputs = new Object[]{metro,localArea,parkType};
 		try{
 			List result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSINFO,inputs,new ODGetParkInfoMapper());
 			cisResults.setResultObject(result);

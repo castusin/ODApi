@@ -13,7 +13,7 @@ import com.od.ODGetParkInfoModel;
 public class CommonCISValidation {
 	
 	
-	public CISResults  ParksinfoValidation(String metro,String localArea,String odRating,HttpServletRequest request) {
+	public CISResults  ParksinfoValidation(String metro,String localArea,String parkType,HttpServletRequest request) {
 		
 		CISResults cisResult=new CISResults();
 		ArrayList<String> registrationValues= new ArrayList<String>();

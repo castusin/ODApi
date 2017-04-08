@@ -21,7 +21,7 @@ public class ODGetParkInfoBL {
 	ODGetParkInfoDAO parkInfoDAO=(ODGetParkInfoDAO)ctx.getBean("ParkInfoDAO");
 	
 
-	public CISResults getParksinfo(String metro,String localArea,String odRating) {
+	public CISResults getParksinfo(String metro,String localArea,String parkType) {
 		// Capture service Start time
 			  testServiceTime seriveTimeCheck=new testServiceTime();
 			  Calendar current = Calendar.getInstance();
@@ -31,7 +31,7 @@ public class ODGetParkInfoBL {
 			  String serviceStartTime=formatterTime.format(current.getTime());
 		 			
 			 final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
-			 CISResults cisResult = parkInfoDAO.getParksinfo(metro,localArea,odRating);
+			 CISResults cisResult = parkInfoDAO.getParksinfo(metro,localArea,parkType);
 			 logger.debug("OD GetParkInfoBL service" +cisResult);
 			 
 			// Capture Service End time

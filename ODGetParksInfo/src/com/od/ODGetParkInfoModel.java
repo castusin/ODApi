@@ -5,7 +5,7 @@ public class ODGetParkInfoModel {
 	
 	public String appId;
 	public String parktype ;
-	public String parkSubtype ;
+	public String parkSubcategory ;
 	public String metro ;
 	public String localArea;
 	public String streetAddress;
@@ -38,12 +38,13 @@ public class ODGetParkInfoModel {
 	public Float specialOfferPercentage ;
 	public Float specialRate;
 	public String photoUrl;
+	public String imagefoldername;
 	
-	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, int odRating, int sponsoredFeaturedFlag, String overviewText, String faq, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl ) {
+	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, int odRating, int sponsoredFeaturedFlag, String overviewText, String faq, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername ) {
 		super();
 		this.appId= appId;
 		this.parktype= parktype ;
-		this.parkSubtype= parkSubtype ;
+		this.parkSubcategory= parkSubcategory ;
 		this.metro= metro ;
 		this.localArea= localArea;
 		this.streetAddress= streetAddress;
@@ -76,8 +77,17 @@ public class ODGetParkInfoModel {
 		this.specialOfferPercentage= specialOfferPercentage ;
 		this.specialRate= specialRate;
 		this.photoUrl= photoUrl;
+		this.imagefoldername=imagefoldername;
 	}
 		
+		public String getImagefoldername() {
+		return imagefoldername;
+	}
+
+	public void setImagefoldername(String imagefoldername) {
+		this.imagefoldername = imagefoldername;
+	}
+
 		public String getAppId() {
 		return appId;
 	}
@@ -94,12 +104,14 @@ public class ODGetParkInfoModel {
 		this.parktype = parktype;
 	}
 
-	public String getParkSubtype() {
-		return parkSubtype;
+	
+
+	public String getParkSubcategory() {
+		return parkSubcategory;
 	}
 
-	public void setParkSubtype(String parkSubtype) {
-		this.parkSubtype = parkSubtype;
+	public void setParkSubcategory(String parkSubcategory) {
+		this.parkSubcategory = parkSubcategory;
 	}
 
 	public String getMetro() {
