@@ -36,18 +36,18 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		return cisResults;  
 	}
 		
-		public CISResults getParksListDetails(String parkId) {
+		public List<ODParkDetailsService>  getParksListDetails(String parkId) {
 			
 			ODGetParkDetailsModel parksDetails=new ODGetParkDetailsModel();
-			ODParkDetailsService parkDetailslist = new ODParkDetailsService();
+			List<ODParkDetailsService> parkDetailslist = null;
 			CISResults cisResults=new CISResults();
 			cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 			Object[] inputs = new Object[]{parkId};
 			try{
-				List result= getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILSLIST,inputs,new ODParkDetailsServiceMapper());
+				parkDetailslist= getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILSLIST,inputs,new ODParkDetailsServiceMapper());
 		
 				
-				cisResults.setResultObject(result);
+				//cisResults.setResultObject(result);
 				
 			} catch (DataAccessException e) {
 				e.printStackTrace();
@@ -56,7 +56,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 				cisResults.setErrorMessage("Failed At DataAccess");
 			}
 
-	   		return cisResults;  
+	   		return parkDetailslist;  
 		}
 
 }
