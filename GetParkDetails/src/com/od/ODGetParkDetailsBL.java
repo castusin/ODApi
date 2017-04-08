@@ -10,6 +10,7 @@ import java.util.TimeZone;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.dao.DataAccessException;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
@@ -28,10 +29,12 @@ public class ODGetParkDetailsBL {
 				TimeCheck time=new TimeCheck();
 				 testServiceTime seriveTimeCheck=new testServiceTime();
 				 String serviceStartTime=time.getTimeZone();
-		 			
+		 			CISResults cisResult=new CISResults();
 			 final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
-			 CISResults cisResult = parkDetailsDAO.getParksDetails( parkId);
-			 cisResult = parkDetailsDAO.getParksListDetails( parkId);
+			
+			  cisResult = parkDetailsDAO.getParksDetails( parkId);
+	
+			  cisResult = parkDetailsDAO.getParksListDetails( parkId);
 			 
 			 logger.debug("OD GetParkInfoBL service" +cisResult);
 			 
