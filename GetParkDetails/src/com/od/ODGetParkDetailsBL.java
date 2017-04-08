@@ -35,6 +35,7 @@ public class ODGetParkDetailsBL {
 			  cisResult = parkDetailsDAO.getParksDetails( parkId);
 	
 			  cisResult = parkDetailsDAO.getParksListDetails( parkId);
+			  
 			 
 			 logger.debug("OD GetParkInfoBL service" +cisResult);
 			 
