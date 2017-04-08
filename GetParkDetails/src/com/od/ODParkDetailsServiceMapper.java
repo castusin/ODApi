@@ -18,7 +18,6 @@ public class ODParkDetailsServiceMapper implements RowMapper{
 		parkDetails.setMaxPeople(rs.getString("Max_qty"));
 		parkDetails.setMaxAdults(rs.getString("Max_adults"));
 		parkDetails.setMaxKids(rs.getString("Max_kids"));
-		
 		parkDetails.setCurrentPrice(rs.getString("Regular_price"));
 		
 		return parkDetails;

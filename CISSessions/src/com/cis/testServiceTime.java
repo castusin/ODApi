@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
 
 
-
 public class testServiceTime {
 	public long getServiceTime(String currentDateTime, String otpTimeGenerateTime) {
 		

@@ -44,6 +44,7 @@ public class ODGetParksDetailsRestService {
 		    {
 			  ODGetParkDetailsWebservice parkDetailsWebservice = new ODGetParkDetailsWebservice();
 		      cisResult = parkDetailsWebservice.getParksDetails(parkId);
+		      
 		    }
 		  
 		// Capture Service End time

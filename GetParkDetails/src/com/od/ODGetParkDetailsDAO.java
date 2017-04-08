@@ -44,7 +44,6 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 			CISResults cisResults=new CISResults();
 			cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 			Object[] inputs = new Object[]{parkId};
-			
 			try{
 				List result= getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILSLIST,inputs,new ODParkDetailsServiceMapper());
 		
