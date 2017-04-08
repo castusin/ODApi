@@ -31,6 +31,7 @@ public class ODGetParkDetailsBL {
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
 		 	CISResults cisResult=new CISResults();
+		 	ODGetParkDetailsModel parkDetails=new ODGetParkDetailsModel();
 		 	List<ODParkDetailsService> parkDetailslist = null;
 			final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
 			
@@ -43,7 +44,12 @@ public class ODGetParkDetailsBL {
 			parkDetailslist	 = parkDetailsDAO.getParksListDetails( parkId);
 			
 			
+<<<<<<< HEAD
 			cisResult.setResultObject(parkDetailslist);
+>>>>>>> origin/master
+=======
+			//cisResult.setResultObject(parkDetailslist);
+			cisResult.setParkDetails(parkDetailslist);
 >>>>>>> origin/master
 			 
 			logger.debug("OD GetParkDetailsBL service" +cisResult);
