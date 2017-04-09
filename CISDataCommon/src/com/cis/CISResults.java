@@ -1,5 +1,9 @@
 package com.cis;
 
+import java.util.List;
+
+import com.od.ODParkDetailsService;
+
 
 public class CISResults {
 	public static final String GS_DATE_FORMAT = "yyyy/MM/dd HH:mm:ss";
@@ -8,9 +12,18 @@ public class CISResults {
 	String warningMessage; // if any
 	String dateFormat;
 	Object resultObject;
+	public List<ODParkDetailsService> parkDetails;
 	
 	
 	
+	public List<ODParkDetailsService> getParkDetails() {
+		return parkDetails;
+	}
+
+	public void setParkDetails(List<ODParkDetailsService> parkDetails) {
+		this.parkDetails = parkDetails;
+	}
+
 	public String getDateErrorFormat() {
 		return dateFormat;
 	}
