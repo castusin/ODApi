@@ -45,7 +45,7 @@ public class ODGetParkDetailsBL {
 			String serviceEndTime=time.getTimeZone();
 			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			logger.info("Database time for get park details service:: " +result );
-			 // seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			
 			  
 			 return cisResult;
 		}
