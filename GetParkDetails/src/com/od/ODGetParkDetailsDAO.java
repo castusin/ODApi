@@ -46,8 +46,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 			try{
 				parkDetailslist= getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILSLIST,inputs,new ODParkDetailsServiceMapper());
 		
-				
-			} catch (DataAccessException e) {
+				} catch (DataAccessException e) {
 				e.printStackTrace();
 			
 				cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
