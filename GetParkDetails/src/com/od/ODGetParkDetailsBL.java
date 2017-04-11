@@ -34,37 +34,12 @@ public class ODGetParkDetailsBL {
 		 	ODGetParkDetailsModel parkDetails=new ODGetParkDetailsModel();
 		 	List<ODParkDetailsService> parkDetailslist = null;
 			final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
-			
 			cisResult = parkDetailsDAO.getParksDetails( parkId);
-	
-<<<<<<< HEAD
-			  cisResult = parkDetailsDAO.getParksListDetails( parkId);
-			  
-=======
 			parkDetailslist	 = parkDetailsDAO.getParksListDetails( parkId);
-			
-			
-<<<<<<< HEAD
 			cisResult.setResultObject(parkDetailslist);
->>>>>>> origin/master
-=======
-			//cisResult.setResultObject(parkDetailslist);
-			cisResult.setParkDetails(parkDetailslist);
->>>>>>> origin/master
-			 
-			logger.debug("OD GetParkDetailsBL service" +cisResult);
-			 
-<<<<<<< HEAD
-			 String serviceEndTime=time.getTimeZone();
+			String serviceEndTime=time.getTimeZone();
 			  long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			  logger.info("Database time for login service:: " +result );
-=======
-			String serviceEndTime=time.getTimeZone();
-			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
-			logger.info("Database time for get park details service:: " +result );
->>>>>>> origin/master
-			
-			  
 			 return cisResult;
 		}
 
