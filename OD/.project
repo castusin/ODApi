@@ -65,10 +65,5 @@
 			<type>2</type>
 			<location>E:/GitHub/ODApi/ODGetParksInfo/src</location>
 		</link>
-		<link>
-			<name>SaveParkInfo</name>
-			<type>2</type>
-			<location>E:/GitHub/ODApi/SaveParkInfo/src</location>
-		</link>
 	</linkedResources>
 </projectDescription>

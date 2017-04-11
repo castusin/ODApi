@@ -15,15 +15,6 @@ public class CISResults {
 	public List<ODParkDetailsService> parkDetails;
 	
 	
-	
-	public List<ODParkDetailsService> getParkDetails() {
-		return parkDetails;
-	}
-
-	public void setParkDetails(List<ODParkDetailsService> parkDetails) {
-		this.parkDetails = parkDetails;
-	}
-
 	public String getDateErrorFormat() {
 		return dateFormat;
 	}
@@ -33,6 +24,14 @@ public class CISResults {
 	}
 	
 	
+
+	public List<ODParkDetailsService> getParkDetails() {
+		return parkDetails;
+	}
+
+	public void setParkDetails(List<ODParkDetailsService> parkDetails) {
+		this.parkDetails = parkDetails;
+	}
 
 	public Object getResultObject() {
 		return resultObject;

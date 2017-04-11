@@ -24,9 +24,9 @@ public class ODSaveParkInfoDAO extends JdbcDaoSupport {
 			Float minCost3People, Float specialOfferPercentage,
 			Float specialRate, String photoUrl, String imagefoldername) {
 		
-		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
-		CISResults cisResults=new CISResults();
-		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		ODSaveParkInfoModel parksInfo=new ODSaveParkInfoModel();
+		CISResults CISResults=new CISResults();
+		CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		
 		try{
 			getJdbcTemplate().update(ODSaveParkInfoQuery.SQL_SAVEPARKSINFO,appId,parktype,parkSubcategory,metro,localArea, streetAddress,  city,  state,  pin,
@@ -39,19 +39,101 @@ public class ODSaveParkInfoDAO extends JdbcDaoSupport {
 					 minCost2,  minCost2People,  minCost3,
 					 minCost3People,  specialOfferPercentage,
 					 specialRate,  photoUrl,imagefoldername);
-			//cisResults.setResultObject(result);
+			//CISResults.setResultObject(result);
 			
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		
-			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
-			cisResults.setErrorMessage("Failed At DataAccess");
+			CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			CISResults.setErrorMessage("Failed At DataAccess");
 		}
 
-   		return cisResults;  
+   		return CISResults;  
 	}
 
+
+	/*public List<ODParkRoomsModel> saveParkRooms(int parkId,
+			String roomTypeCode, String rommTypeDescription, String maxPeople,
+			String maxAdults, String maxKids, String maxQty,
+			String regularPrice, String oDDate) {
+		CISResults CISResults=new CISResults();
+		 List<ODParkRoomsModel> parkRooms = null;
+		CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		//Object[] inputs = new Object[]{parkId,roomTypeCode,rommTypeDescription,maxPeople,maxAdults,maxKids,maxQty,regularPrice,oDDate};
+		try{
+			 getJdbcTemplate().update(ODSaveParkInfoQuery.SQL_SAVEPARKSROOMS,parkId,roomTypeCode,rommTypeDescription,maxPeople,maxAdults,maxKids,maxQty,regularPrice,oDDate);
 	
+			} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			CISResults.setErrorMessage("Failed At DataAccess");
+		}
+
+  		return parkRooms;  
+	}*/
+
+
+	public List<ODParkFacilitiesModel> saveParkFacilities(int parkId,
+			String facilityTypeCode, String facilityTypeDescription,
+			String ticketType, int maxQty, int currentAvailableQty, Float price) {
+		CISResults CISResults=new CISResults();
+		 List<ODParkFacilitiesModel> parkFacilities=null;
+		CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		//Object[] inputs = new Object[]{parkId,roomTypeCode,rommTypeDescription,maxPeople,maxAdults,maxKids,maxQty,regularPrice,oDDate};
+		try{
+			 getJdbcTemplate().update(ODSaveParkInfoQuery.SQL_SAVEPARKSFACILITIES,parkId,facilityTypeCode,facilityTypeDescription,ticketType,maxQty,currentAvailableQty,price);
+	
+			} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			CISResults.setErrorMessage("Failed At DataAccess");
+		}
+
+ 		return parkFacilities;  
+	}
+
+
+	public List<ODParkPricingModel> saveParkFacilities(int parkId,
+			String roomTypeCode, Date fromDate, Date toDate, float currentPrice) {
+		CISResults CISResults=new CISResults();
+		 List<ODParkPricingModel> parkPricing=null;
+		CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		//Object[] inputs = new Object[]{parkId,roomTypeCode,rommTypeDescription,maxPeople,maxAdults,maxKids,maxQty,regularPrice,oDDate};
+		try{
+			 getJdbcTemplate().update(ODSaveParkInfoQuery.SQL_SAVEPARKSPRICING,parkId,roomTypeCode,fromDate,toDate,currentPrice);
+	
+			} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			CISResults.setErrorMessage("Failed At DataAccess");
+		}
+
+		return parkPricing;  
+	}
+
+
+	public List<ODParkRoomsModel> saveParkRooms(int parkId,
+			List<ODParkRoomsModel> parkRooms) {
+		CISResults CISResults=new CISResults();
+		 List<ODParkRoomsModel> parkRoom = null;
+		CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		
+		//Object[] inputs = new Object[]{parkId,roomTypeCode,rommTypeDescription,maxPeople,maxAdults,maxKids,maxQty,regularPrice,oDDate};
+		try{
+			 getJdbcTemplate().update(ODSaveParkInfoQuery.SQL_SAVEPARKSROOMS,parkId);
+	
+			} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			CISResults.setErrorMessage("Failed At DataAccess");
+		}
+
+ 		return parkRoom;  
+	}
 
 }
 

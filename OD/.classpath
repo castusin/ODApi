@@ -8,7 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="GetParkDetails"/>
 	<classpathentry kind="src" path="CISSessions"/>
-	<classpathentry kind="src" path="SaveParkInfo"/>
 	<classpathentry kind="src" path="ODGetParksInfo"/>
 	<classpathentry kind="src" path="CommonCISValidation"/>
 	<classpathentry kind="src" path="CISDataCommon"/>
@@ -51,5 +50,6 @@
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-context-4.1.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-dao-2.0.6.jar"/>
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-jdbc-4.0.6.RELEASE.jar"/>
+	<classpathentry kind="src" path="/GetParkDetails"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

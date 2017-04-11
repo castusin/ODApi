@@ -11,10 +11,10 @@ public class ODSaveParkInfoWebservice {
 	static Logger logger = Logger.getLogger(ODSaveParkInfoWebservice.class);
 	ODSaveParkInfoBL saveParkInfoBL=new ODSaveParkInfoBL();
 
-	public CISResults saveParkInfo(ODGetParkInfoModel saveParkInfo) {
-		 CISResults cisResult = saveParkInfoBL.saveParkInfo(saveParkInfo);	
-		 logger.info("save parkInfo Webservice " +cisResult );
-		 return cisResult;
+	public CISResults saveParkInfo(ODSaveParkInfoModel saveParkInfo) {
+		 CISResults CISResults = saveParkInfoBL.saveParkInfo(saveParkInfo);	
+		 logger.info("save parkInfo Webservice " +CISResults );
+		 return CISResults;
 	}
 
 }
