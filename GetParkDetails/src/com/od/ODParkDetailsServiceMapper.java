@@ -13,7 +13,7 @@ public class ODParkDetailsServiceMapper implements RowMapper{
 		
 		ODParkDetailsService parkDetails = new ODParkDetailsService();
 		
-		parkDetails.setRoomType(rs.getString("Room_type_code"));
+		
 		parkDetails.setDescription(rs.getString("Room_type_desc"));
 		parkDetails.setMaxPeople(rs.getString("Max_qty"));
 		parkDetails.setMaxAdults(rs.getString("Max_adults"));

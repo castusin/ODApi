@@ -7,7 +7,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
+
 import com.cis.testServiceTime;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -20,28 +22,43 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
+import com.cis.TimeCheck;
 import com.google.gson.Gson;
 import com.validation.CommonCISValidation;
 
 /**
- * @author Darshan
- *
+ * Rest Controller : Get park information
+ * 
+ * @author Castus Info Solutions
+ * 
+ *  
+ * 
+ * 
+ * 
  */
+
+
 @RestController
 public class ODGetParksInfoRestService {
 	
+
+	
+	/**
+	 * @param request
+	 * @param metro
+	 * @param localArea
+	 * @param parkType
+	 * @return 1 in case of error or 0 if successful
+	 */
 	@RequestMapping(value="/getParksinfo",method=RequestMethod.GET,produces={"application/json"})
 	 public String getParksinfo(HttpServletRequest request,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea,@RequestParam ("parkType") String parkType){
-		//Logger class
+		
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 
-		 // Capture service Start time
-		  testServiceTime sessionTimeCheck=new testServiceTime();
-		  Calendar currentdate = Calendar.getInstance();
-		  DateFormat formatter = new SimpleDateFormat(CISConstants.DATE_FORMAT);
-		  TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
-		  formatter.setTimeZone(obj);
-		  String serviceStartTime=formatter.format(currentdate.getTime());
+		// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
 				  
 		  CommonCISValidation CommonCISValidation=new CommonCISValidation();
 		  CISResults cisResult=CommonCISValidation.ParksinfoValidation(metro,localArea,parkType,request);
@@ -52,12 +69,9 @@ public class ODGetParksInfoRestService {
 		    }
 		  
 		// Capture Service End time
-		  Calendar ServiceEnd= Calendar.getInstance();
-	      DateFormat formatter1 = new SimpleDateFormat(CISConstants.DATE_FORMAT);
-	      TimeZone obj1 = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
-	      formatter1.setTimeZone(obj1);
-		  String serviceEndTime=formatter1.format(ServiceEnd.getTime());
-		  sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Total service time for get park info service:: " +result );
 		  
 		  return returnJsonData(cisResult);
 	}

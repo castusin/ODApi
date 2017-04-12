@@ -18,7 +18,7 @@ public class ODGetParkInfoModel {
 	public String details;
 	public int parkId;
 	public int odRating;
-	public int sponsoredFeaturedFlag ;
+	public String sponsoredFeaturedFlag ;
 	public String overviewText ;
 	public String faq;
 	public String latitude;
@@ -42,7 +42,7 @@ public class ODGetParkInfoModel {
 	public String imagefoldername;
 	
 	
-	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, int odRating, int sponsoredFeaturedFlag, String overviewText, String faq, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername ) {
+	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, int odRating, String sponsoredFeaturedFlag, String overviewText, String faq, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername ) {
 		super();
 		this.appId= appId;
 		this.parktype= parktype ;
@@ -208,11 +208,13 @@ public class ODGetParkInfoModel {
 		this.odRating = odRating;
 	}
 
-	public int getSponsoredFeaturedFlag() {
+	
+
+	public String getSponsoredFeaturedFlag() {
 		return sponsoredFeaturedFlag;
 	}
 
-	public void setSponsoredFeaturedFlag(int sponsoredFeaturedFlag) {
+	public void setSponsoredFeaturedFlag(String sponsoredFeaturedFlag) {
 		this.sponsoredFeaturedFlag = sponsoredFeaturedFlag;
 	}
 
