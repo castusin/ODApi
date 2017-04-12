@@ -13,7 +13,7 @@ public class ODGetParkDetailsWebservice {
 
 	public CISResults getParksDetails(String parkId) {
 		 CISResults cisResult = parkDetailsBL.getParksDetails(parkId);	
-		 logger.info("OD GetParkInfo WebService  " +cisResult );
+		 logger.info("OD GetParkDetails WebService  " +cisResult );
 		 return cisResult;
 	}
 

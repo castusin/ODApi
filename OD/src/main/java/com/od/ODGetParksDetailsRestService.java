@@ -5,7 +5,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
+
 import com.cis.testServiceTime;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
+import com.cis.TimeCheck;
 import com.google.gson.Gson;
 import com.validation.CommonCISValidation;
 
@@ -30,13 +33,11 @@ public class ODGetParksDetailsRestService {
 		//Logger class
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 
-		 // Capture service Start time
-		  testServiceTime sessionTimeCheck=new testServiceTime();
-		  Calendar currentdate = Calendar.getInstance();
-		  DateFormat formatter = new SimpleDateFormat(CISConstants.DATE_FORMAT);
-		  TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
-		  formatter.setTimeZone(obj);
-		  String serviceStartTime=formatter.format(currentdate.getTime());
+		// Capture service Start time
+			
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
 				  
 		  CommonCISValidation CommonCISValidation=new CommonCISValidation();
 		  CISResults cisResult=CommonCISValidation.ParksDetailsValidation(parkId,request);
@@ -48,12 +49,9 @@ public class ODGetParksDetailsRestService {
 		    }
 		  
 		// Capture Service End time
-		  Calendar ServiceEnd= Calendar.getInstance();
-	      DateFormat formatter1 = new SimpleDateFormat(CISConstants.DATE_FORMAT);
-	      TimeZone obj1 = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
-	      formatter1.setTimeZone(obj1);
-		  String serviceEndTime=formatter1.format(ServiceEnd.getTime());
-		  sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Total service time for get park details service:: " +result );
 		  
 		  return returnJsonData(cisResult);
 	}
