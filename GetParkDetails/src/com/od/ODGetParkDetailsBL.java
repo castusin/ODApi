@@ -25,6 +25,10 @@ public class ODGetParkDetailsBL {
 	ODGetParkDetailsDAO parkDetailsDAO=(ODGetParkDetailsDAO)ctx.getBean("ParkDetailsDAO");
 	
 
+	/**
+	 * @param parkId
+	 * @return  1 in case of error or 0 if successful
+	 */
 	public CISResults getParksDetails(String parkId) {
 		// Capture service Start time
 		    TimeCheck time=new TimeCheck();

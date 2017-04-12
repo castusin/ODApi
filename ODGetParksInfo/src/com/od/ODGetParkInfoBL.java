@@ -22,6 +22,12 @@ public class ODGetParkInfoBL {
 	ODGetParkInfoDAO parkInfoDAO=(ODGetParkInfoDAO)ctx.getBean("ParkInfoDAO");
 	
 
+	/**
+	 * @param metro
+	 * @param localArea
+	 * @param parkType
+	 * @return  1 in case of error or 0 if successful
+	 */
 	public CISResults getParksinfo(String metro,String localArea,String parkType) {
 		// Capture service Start time
 		

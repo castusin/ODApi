@@ -25,9 +25,27 @@ import com.google.gson.Gson;
 import com.validation.CommonCISValidation;
 
 
+
+
+/**
+ * Rest Controller : Get park details
+ * 
+ * @author Castus Info Solutions
+ * 
+ *  
+ * 
+ * 
+ * 
+ */
+
 @RestController
 public class ODGetParksDetailsRestService {
 	
+	/**
+	 * @param request
+	 * @param parkId
+	 * @return  1 in case of error or 0 if successful
+	 */
 	@RequestMapping(value="/getParksDetails",method=RequestMethod.GET,produces={"application/json"})
 	 public String getParksDetails(HttpServletRequest request,@RequestParam ("parkId") String parkId){
 		//Logger class

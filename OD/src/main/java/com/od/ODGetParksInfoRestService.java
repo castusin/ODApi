@@ -27,12 +27,29 @@ import com.google.gson.Gson;
 import com.validation.CommonCISValidation;
 
 /**
- * @author Darshan
- *
+ * Rest Controller : Get park information
+ * 
+ * @author Castus Info Solutions
+ * 
+ *  
+ * 
+ * 
+ * 
  */
+
+
 @RestController
 public class ODGetParksInfoRestService {
 	
+
+	
+	/**
+	 * @param request
+	 * @param metro
+	 * @param localArea
+	 * @param parkType
+	 * @return 1 in case of error or 0 if successful
+	 */
 	@RequestMapping(value="/getParksinfo",method=RequestMethod.GET,produces={"application/json"})
 	 public String getParksinfo(HttpServletRequest request,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea,@RequestParam ("parkType") String parkType){
 		

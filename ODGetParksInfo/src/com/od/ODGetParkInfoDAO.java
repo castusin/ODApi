@@ -15,6 +15,12 @@ import com.cis.testServiceTime;
 public class ODGetParkInfoDAO extends JdbcDaoSupport {
 
 
+	/**
+	 * @param metro
+	 * @param localArea
+	 * @param parkType
+	 * @return  1 in case of error or 0 if successful
+	 */
 	public CISResults getParksinfo(String metro, String localArea, String parkType) {
 		
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();

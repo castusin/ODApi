@@ -16,6 +16,10 @@ import com.cis.testServiceTime;
 public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 
 
+	/**
+	 * @param parkId
+	 * @return 1 in case of error or 0 if successful
+	 */
 	public CISResults getParksDetails(String parkId) {
 		
 		ODGetParkDetailsModel parksDetails=new ODGetParkDetailsModel();
@@ -45,6 +49,10 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		return cisResults;  
 	}
 		
+		/**
+		 * @param parkId
+		 * @return 1 in case of error or 0 if successful
+		 */
 		public List<ODParkDetailsService>  getParksListDetails(String parkId) {
 			
 			ODGetParkDetailsModel parksDetails=new ODGetParkDetailsModel();
