@@ -34,6 +34,7 @@ public class ODGetParkDetailsBL {
 		    TimeCheck time=new TimeCheck();
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
+			
 		 	CISResults cisResult=new CISResults();
 		 	ODGetParkDetailsModel parkDetails=new ODGetParkDetailsModel();
 		 	List<ODParkDetailsService> parkDetailslist = null;

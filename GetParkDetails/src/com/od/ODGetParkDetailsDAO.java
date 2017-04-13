@@ -22,7 +22,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 	 */
 	public CISResults getParksDetails(String parkId) {
 		
-		ODGetParkDetailsModel parksDetails=new ODGetParkDetailsModel();
+		ODGetParkDetailsModel parksDetails;
 		ODParkDetailsService parkDetailslist = new ODParkDetailsService();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
@@ -33,7 +33,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		    TimeCheck time=new TimeCheck();
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
-			List res =getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILS,inputs,new ODGetParkDetailsMapper());
+			List res = getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILS,inputs,new ODGetParkDetailsMapper());
 			// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();
 			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
