@@ -44,7 +44,7 @@ public class ODGetParksDetailsRestService {
 	/**
 	 * @param request
 	 * @param parkId
-	 * @return  1 in case of error or 0 if successful
+	 * @return  1 in case of error or 200 if successful
 	 */
 	@RequestMapping(value="/getParksDetails",method=RequestMethod.GET,produces={"application/json"})
 	 public String getParksDetails(HttpServletRequest request,@RequestParam ("parkId") String parkId){
