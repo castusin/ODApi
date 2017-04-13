@@ -55,7 +55,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		 */
 		public List<ODParkDetailsService>  getParksListDetails(String parkId) {
 			
-			ODGetParkDetailsModel parksDetails=new ODGetParkDetailsModel();
+			//ODGetParkDetailsModel parksDetails=new ODGetParkDetailsModel();
 			List<ODParkDetailsService> parkDetailslist = null;
 			CISResults cisResults=new CISResults();
 			cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);

@@ -11,6 +11,7 @@ public class ODParkDetailsService {
 	String currentPrice;
 	
 	
+	
 	public ODParkDetailsService(String roomType, String description, String maxPeople, String maxAdults, String maxKids, String currentAvailableQuantity, String currentPrice) {
 		super();
 		this.roomType = roomType;
