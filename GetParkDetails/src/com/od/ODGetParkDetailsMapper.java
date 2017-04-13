@@ -12,7 +12,7 @@ public class ODGetParkDetailsMapper implements RowMapper{
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
 		ODGetParkDetailsModel parkDetails = new ODGetParkDetailsModel();
-		ODParkDetailsService parkDetailslist = new ODParkDetailsService();
+		
 		parkDetails.setOverviewText(rs.getString("Overview_text"));
 		parkDetails.setFaq(rs.getString("Faq"));
 		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
