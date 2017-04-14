@@ -24,8 +24,26 @@ public class ODGetParkDetailsMapper implements RowMapper{
 		parkDetails.setCity(rs.getString("City"));
 		parkDetails.setState(rs.getString("State"));
 		parkDetails.setPin(rs.getInt("PIN"));
+		parkDetails.setDescription(rs.getString("Description"));
+		parkDetails.setDetails(rs.getString("Details"));
+		parkDetails.setLatitude(rs.getString("Latitude"));
+		parkDetails.setLongitude(rs.getString("Longitude"));
+		parkDetails.setTypeString(rs.getString("Type_string"));
+		parkDetails.setNatureString(rs.getString("Nature_string"));
+		parkDetails.setSubCategoryString(rs.getString("Sub_category_string"));
+		parkDetails.setDurationString(rs.getString("Duration_string"));
+		parkDetails.setMaxPeople(rs.getString("Max_people"));
 		
-	
+		parkDetails.setPopularity(rs.getString("Popularity"));
+		parkDetails.setMinCost1(rs.getFloat("Min_cost1"));
+		parkDetails.setMinCost1People(rs.getFloat("Min_cost1_people"));
+		parkDetails.setMinCost2(rs.getFloat("Min_cost2"));
+		parkDetails.setMinCost2People(rs.getFloat("Min_cost2_people"));
+		
+		parkDetails.setSpecialOfferPercentage(rs.getFloat("Special_offer_percentage"));
+		parkDetails.setSpecialRate(rs.getFloat("Special_rate"));
+		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
+		parkDetails.setImagefoldername(rs.getString("image_folder_name"));
 		return parkDetails;
 	}
 }

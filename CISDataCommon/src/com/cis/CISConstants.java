@@ -4,7 +4,7 @@ package com.cis;
 
 
 public class CISConstants {
-	public static final String RESPONSE_SUCCESS = "0";
+	public static final String RESPONSE_SUCCESS = "200";
 	public static final String RESPONSE_FAILURE="1";
 	public static final int OTP_TIME=10;
 	public static final int SESSION_TIME=1440;

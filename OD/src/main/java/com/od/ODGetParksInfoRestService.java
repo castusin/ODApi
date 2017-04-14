@@ -48,7 +48,7 @@ public class ODGetParksInfoRestService {
 	 * @param metro
 	 * @param localArea
 	 * @param parkType
-	 * @return 1 in case of error or 0 if successful
+	 * @return 1 in case of error or 200 if successful
 	 */
 	@RequestMapping(value="/getParksinfo",method=RequestMethod.GET,produces={"application/json"})
 	 public String getParksinfo(HttpServletRequest request,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea,@RequestParam ("parkType") String parkType){
