@@ -28,7 +28,7 @@ public class ODGetParkInfoBL {
 	 * @param parkType
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults getParksinfo(String metro,String localArea,String parkType) {
+	public CISResults getParksinfo(String parkType,String metro,String localArea) {
 		// Capture service Start time
 		
 	    TimeCheck time=new TimeCheck();
@@ -36,7 +36,7 @@ public class ODGetParkInfoBL {
 		String serviceStartTime=time.getTimeZone();
 		 			
 			 final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
-			 CISResults cisResult = parkInfoDAO.getParksinfo(metro,localArea,parkType);
+			 CISResults cisResult = parkInfoDAO.getParksinfo(parkType,metro,localArea);
 			 logger.debug("OD GetParkInfoBL service" +cisResult);
 			 
 			// Capture Service End time

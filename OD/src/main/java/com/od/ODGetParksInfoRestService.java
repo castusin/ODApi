@@ -51,7 +51,7 @@ public class ODGetParksInfoRestService {
 	 * @return 1 in case of error or 200 if successful
 	 */
 	@RequestMapping(value="/getParksinfo",method=RequestMethod.GET,produces={"application/json"})
-	 public String getParksinfo(HttpServletRequest request,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea,@RequestParam ("parkType") String parkType){
+	 public String getParksinfo(HttpServletRequest request,@RequestParam ("parkType") String parkType,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea){
 		
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 
@@ -61,11 +61,11 @@ public class ODGetParksInfoRestService {
 			String serviceStartTime=time.getTimeZone();
 				  
 		  CommonCISValidation CommonCISValidation=new CommonCISValidation();
-		  CISResults cisResult=CommonCISValidation.ParksinfoValidation(metro,localArea,parkType,request);
+		  CISResults cisResult=CommonCISValidation.ParksinfoValidation(parkType,metro,localArea,request);
 		  if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 		    {
 			  ODGetParkInfoWebService parkInfoWebService = new ODGetParkInfoWebService();
-		      cisResult = parkInfoWebService.getParksinfo(metro,localArea,parkType);
+		      cisResult = parkInfoWebService.getParksinfo(parkType,metro,localArea);
 		    }
 		  
 		// Capture Service End time

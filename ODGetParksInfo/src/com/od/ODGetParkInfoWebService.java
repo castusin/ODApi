@@ -16,8 +16,8 @@ public class ODGetParkInfoWebService {
 	 * @param parkType
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults getParksinfo(String metro,String localArea,String parkType) {
-		 CISResults cisResult = parkInfoBL.getParksinfo(metro,localArea,parkType);	
+	public CISResults getParksinfo(String parkType,String metro,String localArea) {
+		 CISResults cisResult = parkInfoBL.getParksinfo(parkType,metro,localArea);	
 		 logger.info("OD GetParkInfo WebService  " +cisResult );
 		 return cisResult;
 	}

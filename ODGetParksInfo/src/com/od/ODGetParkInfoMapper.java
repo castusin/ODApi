@@ -11,7 +11,7 @@ public class ODGetParkInfoMapper implements RowMapper{
 	
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		ODGetParkInfoModel parksInfo = new ODGetParkInfoModel();
-		
+		parksInfo.setParkId(rs.getInt("Park_Id"));
 		parksInfo.setAppId(rs.getString("Appid"));
 		parksInfo.setParktype(rs.getString("Parktype"));
 		parksInfo.setParkSubcategory(rs.getString("Park_subcategory"));
@@ -24,7 +24,6 @@ public class ODGetParkInfoMapper implements RowMapper{
 		parksInfo.setName(rs.getString("Name"));
 		parksInfo.setDescription(rs.getString("Description"));
 		parksInfo.setDetails(rs.getString("Details"));
-		parksInfo.setParkId(rs.getInt("Park_Id"));
 		parksInfo.setOdRating(rs.getInt("OD_Rating"));
 		parksInfo.setSponsoredFeaturedFlag(rs.getString("Sponsored_featured_flag"));
 		parksInfo.setOverviewText(rs.getString("Overview_text"));
