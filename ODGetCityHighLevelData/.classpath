@@ -20,5 +20,6 @@
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-dao-2.0.6.jar"/>
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-jdbc-4.0.6.RELEASE.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/CISDataCommon"/>
+	<classpathentry kind="src" path="/OD"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
