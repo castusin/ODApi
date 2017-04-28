@@ -15,7 +15,6 @@ public class ODGetCityDetailsWebservice {
 	static Logger logger = Logger.getLogger(ODGetCityDetailsWebservice.class);
 	ODGetCityDetailsBL cityInfoBL=new ODGetCityDetailsBL();
 
-
 	public CISResults getCityDetails(String cityId) {
 		// TODO Auto-generated method stub
 		 CISResults cisResult = cityInfoBL.getCityLevelinfo(cityId);	

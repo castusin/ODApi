@@ -52,8 +52,7 @@ public class ODGetParkLocalAreaRestService {
 		  
 		  return returnJsonData(cisResult);
 	}
-	 
-	 
+	 	 
 	 private String returnJsonData(Object src){
 			// TODO Auto-generated method stub
 	        Gson gson = new Gson();

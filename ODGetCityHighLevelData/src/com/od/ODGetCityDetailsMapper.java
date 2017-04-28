@@ -14,9 +14,9 @@ import org.springframework.jdbc.core.RowMapper;
  */
 @SuppressWarnings("rawtypes")
 public class ODGetCityDetailsMapper implements RowMapper{
-public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+public Object mapRow(ResultSet rs, int rowNum) throws SQLException { 
 		
-	ODGetCityDetailsModel cityInfoDetails = new ODGetCityDetailsModel();
+	    ODGetCityDetailsModel cityInfoDetails = new ODGetCityDetailsModel();
 		cityInfoDetails.setCityId(rs.getInt("city_key"));
 		cityInfoDetails.setCityName(rs.getString("city_name"));
 		cityInfoDetails.setLocalAreaId(rs.getInt("location_key"));

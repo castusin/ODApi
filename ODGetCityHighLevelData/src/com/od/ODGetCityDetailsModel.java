@@ -12,8 +12,7 @@ public class ODGetCityDetailsModel {
 	public String locaitonLat;
 	public Date date;
 	
-	
-	
+		
 	public ODGetCityDetailsModel(int localAreaId, String localArea, int cityId,
 			String cityName, String locationLang, String locaitonLat, Date date) {
 		super();

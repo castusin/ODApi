@@ -46,5 +46,4 @@ public class ODGetCityDetailsDAO extends JdbcDaoSupport  {
 		}
 		return cisResults;  
 	}
-
 }

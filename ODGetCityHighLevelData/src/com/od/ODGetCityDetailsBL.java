@@ -16,6 +16,7 @@ import com.cis.CISResults;
 public class ODGetCityDetailsBL {
 	ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-servlet.xml"); 
 	ODGetCityDetailsDAO cityInfoDAO=(ODGetCityDetailsDAO)ctx.getBean("cityInfoDAO");
+	
 	public CISResults getCityLevelinfo(String cityId) {
 		// TODO Auto-generated method stub
 		     final Logger logger = Logger.getLogger(ODGetCityDetailsBL.class);
