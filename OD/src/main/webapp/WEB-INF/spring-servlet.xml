@@ -16,6 +16,9 @@
 		<property name="dataSource" ref="ds" />
 	</bean>
 	
+	<bean id="cityInfoDAO" class="com.od.ODGetCityDetailsDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
 	
 	<bean id="ParkDetailsDAO" class="com.od.ODGetParkDetailsDAO">
 		<property name="dataSource" ref="ds" />

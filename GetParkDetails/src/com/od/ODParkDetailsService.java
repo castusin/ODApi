@@ -17,25 +17,76 @@ public class ODParkDetailsService {
 	String regularPrice;
 	Date dateAdded;
 	Date date;
+	String facilityTypeTitle;
+	String facilityInRoomFacilites;
+	String facilityImage;
 	
-	public ODParkDetailsService(String description, String maxPeople, String maxAdults, String maxKids, String currentAvailableQuantity, String currentPrice, String facilityTypeCode, String facilityType, String maxQty, String regularPrice, Date dateAdded, Date date) {
+	
+	
+	
+	
+
+	public ODParkDetailsService(String description, String maxPeople,
+			String maxAdults, String maxKids, String currentAvailableQuantity,
+			String currentPrice, String facilityTypeCode, String facilityType,
+			String maxQty, String regularPrice, Date dateAdded, Date date,
+			String facilityTypeTitle, String facilityInRoomFacilites,
+			String facilityImage) {
 		super();
-		
-		this.description=description;
-		this.maxPeople=maxPeople;
-		this.maxAdults=maxAdults;
-		this.maxKids=maxKids;
-		this.currentAvailableQuantity=currentAvailableQuantity;
-		this.currentPrice=currentPrice;
-		this.facilityTypeCode=facilityTypeCode;
-		this.facilityType=facilityType;
-		this.maxQty=maxQty;
-		this.regularPrice=regularPrice;
-		this.dateAdded=dateAdded;
-		this.date=date;
+		this.description = description;
+		this.maxPeople = maxPeople;
+		this.maxAdults = maxAdults;
+		this.maxKids = maxKids;
+		this.currentAvailableQuantity = currentAvailableQuantity;
+		this.currentPrice = currentPrice;
+		this.facilityTypeCode = facilityTypeCode;
+		this.facilityType = facilityType;
+		this.maxQty = maxQty;
+		this.regularPrice = regularPrice;
+		this.dateAdded = dateAdded;
+		this.date = date;
+		this.facilityTypeTitle = facilityTypeTitle;
+		this.facilityInRoomFacilites = facilityInRoomFacilites;
+		this.facilityImage = facilityImage;
 	}
-	
-	
+
+
+
+	public String getFacilityTypeTitle() {
+		return facilityTypeTitle;
+	}
+
+
+
+	public void setFacilityTypeTitle(String facilityTypeTitle) {
+		this.facilityTypeTitle = facilityTypeTitle;
+	}
+
+
+
+	public String getFacilityInRoomFacilites() {
+		return facilityInRoomFacilites;
+	}
+
+
+
+	public void setFacilityInRoomFacilites(String facilityInRoomFacilites) {
+		this.facilityInRoomFacilites = facilityInRoomFacilites;
+	}
+
+
+
+	public String getFacilityImage() {
+		return facilityImage;
+	}
+
+
+
+	public void setFacilityImage(String facilityImage) {
+		this.facilityImage = facilityImage;
+	}
+
+
 
 	public String getFacilityTypeCode() {
 		return facilityTypeCode;
