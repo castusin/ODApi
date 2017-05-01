@@ -21,6 +21,9 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 	 * @return 1 in case of error or 0 if successful
 	 */
 	public CISResults getParksDetails(String parkId) {
+		
+		ODGetParkDetailsModel parksDetails;
+		ODParkDetailsService parkDetailslist = new ODParkDetailsService();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		Object[] inputs = new Object[]{parkId};
