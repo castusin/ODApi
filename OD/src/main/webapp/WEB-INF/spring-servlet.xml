@@ -24,6 +24,9 @@
 		<property name="dataSource" ref="ds" />
 	</bean>
 	
+	<bean id="createUserDAO" class="com.od.ODCreateUserDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
 	
  <!-- <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 <property name="driverClassName" value="com.mysql.jdbc.Driver" />  

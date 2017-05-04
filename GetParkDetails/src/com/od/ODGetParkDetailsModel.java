@@ -10,7 +10,7 @@ public class ODGetParkDetailsModel {
 	public String faq;
 	public String photoUrl;
 	public String name;
-	public int odRating;
+	public Float odRating;
 	public String metro ;
 	public String localArea;
 	public String streetAddress;
@@ -38,7 +38,7 @@ public class ODGetParkDetailsModel {
 	public String imagefoldername;
 	public List<ODParkDetailsService> parkDetails;
 	
-	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, String parkId, String name, String metro, String localArea, String streetAddress, int odRating, String city, String state, int pin, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, Float minCost1People, Float minCost2, Float minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername ) {
+	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, String parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, Float minCost1People, Float minCost2, Float minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername ) {
 		super();
 		
 		this.parkId=parkId;
@@ -307,13 +307,12 @@ public class ODGetParkDetailsModel {
 		this.state = state;
 	}
 
-
-	public int getOdRating() {
+	public Float getOdRating() {
 		return odRating;
 	}
 
 
-	public void setOdRating(int odRating) {
+	public void setOdRating(Float odRating) {
 		this.odRating = odRating;
 	}
 

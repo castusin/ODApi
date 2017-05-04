@@ -17,7 +17,7 @@ public class ODGetParkDetailsMapper implements RowMapper{
 		parkDetails.setFaq(rs.getString("Faq"));
 		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
 		parkDetails.setName(rs.getString("Name"));
-		parkDetails.setOdRating(rs.getInt("OD_Rating"));
+		parkDetails.setOdRating(rs.getFloat("OD_Rating"));
 		parkDetails.setMetro(rs.getString("Metro"));
 		parkDetails.setLocalArea(rs.getString("Local_area"));
 		parkDetails.setStreetAddress(rs.getString("Street_address"));
