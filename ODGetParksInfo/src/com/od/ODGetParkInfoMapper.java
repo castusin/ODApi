@@ -10,7 +10,9 @@ import org.springframework.jdbc.core.RowMapper;
 public class ODGetParkInfoMapper implements RowMapper{
 	
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+		
 		ODGetParkInfoModel parksInfo = new ODGetParkInfoModel();
+		
 		parksInfo.setParkId(rs.getInt("Park_Id"));
 		parksInfo.setAppId(rs.getString("Appid"));
 		parksInfo.setParktype(rs.getString("Parktype"));
@@ -46,7 +48,8 @@ public class ODGetParkInfoMapper implements RowMapper{
 		parksInfo.setSpecialOfferPercentage(rs.getFloat("Special_offer_percentage"));
 		parksInfo.setSpecialRate(rs.getFloat("Special_rate"));
 		parksInfo.setPhotoUrl(rs.getString("Main_photo_url"));
-		parksInfo.setImagefoldername(rs.getString("image_folder_name"));
+		parksInfo.setImagefoldername(rs.getString("Park_sub_images"));
+		parksInfo.setTagName(rs.getString("Tag_name"));
 		return parksInfo;
 	}
 

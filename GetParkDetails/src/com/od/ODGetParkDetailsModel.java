@@ -27,18 +27,19 @@ public class ODGetParkDetailsModel {
 	
 	public String popularity;
 	public Float minCost1;
-	public Float minCost1People;
+	public int minCost1People;
 	public Float minCost2;
-	public Float minCost2People ;
+	public int minCost2People ;
 	
 	public Float specialOfferPercentage ;
 	public Float specialRate;
 	public String description;
 	public String details;
-	public String imagefoldername;
+	public String parkSubImages;
+	public String amenitiesString;
 	public List<ODParkDetailsService> parkDetails;
 	
-	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, String parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, Float minCost1People, Float minCost2, Float minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername ) {
+	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, String parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString ) {
 		super();
 		
 		this.parkId=parkId;
@@ -72,10 +73,21 @@ public class ODGetParkDetailsModel {
 		this.specialRate= specialRate;
 		this.description= description;
 		this.details= details;
-		this.imagefoldername=imagefoldername;
+		this.parkSubImages=parkSubImages;
+		this.amenitiesString=amenitiesString;
 	}
 	
 	
+	public String getAmenitiesString() {
+		return amenitiesString;
+	}
+
+
+	public void setAmenitiesString(String amenitiesString) {
+		this.amenitiesString = amenitiesString;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -178,13 +190,18 @@ public class ODGetParkDetailsModel {
 	}
 
 
-	public Float getMinCost1People() {
+	public int getMinCost1People() {
 		return minCost1People;
 	}
 
 
-	public void setMinCost1People(Float minCost1People) {
+	public void setMinCost1People(int minCost1People) {
 		this.minCost1People = minCost1People;
+	}
+
+
+	public void setMinCost2People(int minCost2People) {
+		this.minCost2People = minCost2People;
 	}
 
 
@@ -195,16 +212,6 @@ public class ODGetParkDetailsModel {
 
 	public void setMinCost2(Float minCost2) {
 		this.minCost2 = minCost2;
-	}
-
-
-	public Float getMinCost2People() {
-		return minCost2People;
-	}
-
-
-	public void setMinCost2People(Float minCost2People) {
-		this.minCost2People = minCost2People;
 	}
 
 
@@ -247,14 +254,18 @@ public class ODGetParkDetailsModel {
 		this.details = details;
 	}
 
-
-	public String getImagefoldername() {
-		return imagefoldername;
+	public String getParkSubImages() {
+		return parkSubImages;
 	}
 
 
-	public void setImagefoldername(String imagefoldername) {
-		this.imagefoldername = imagefoldername;
+	public void setParkSubImages(String parkSubImages) {
+		this.parkSubImages = parkSubImages;
+	}
+
+
+	public int getMinCost2People() {
+		return minCost2People;
 	}
 
 

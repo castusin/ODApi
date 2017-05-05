@@ -26,8 +26,8 @@ public class ODCreateUserBL {
 	ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-servlet.xml"); 
 	ODCreateUserDAO createUserDAO=(ODCreateUserDAO)ctx.getBean("createUserDAO");
 	
-	 private static final AtomicInteger count = new AtomicInteger(100001); 
-	  
+	 private static final AtomicInteger count = new AtomicInteger(110001); 
+	 private static final AtomicInteger count2 = new AtomicInteger(220001);  
 	  
 	/**
 	 * @param create user
@@ -42,7 +42,7 @@ public class ODCreateUserBL {
 	         String serviceStartTime=time.getTimeZone();
 		 			
 			 final Logger logger = Logger.getLogger(ODCreateUserBL.class);
-			// int parkId = count.incrementAndGet();
+			
 			 Calendar currentdate = Calendar.getInstance();
 		     DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
 		     TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE2);
@@ -56,23 +56,20 @@ public class ODCreateUserBL {
 		      String upToNCharacters2 = userId.substring(0, Math.min(userId.length(), 6));
 		      reservationId=upToNCharacters2;*/
 		     TimeCheck time1=new TimeCheck();
-		      String createDate=time.getTimeZone();
-		      
-		     Random rnd = new Random();
-		     int userId = 100000 + rnd.nextInt(900000);
+		     String createDate=time.getTimeZone();
 		     
-		     Random rnd2 = new Random();
-		     int reservationId = 100000000 + rnd.nextInt(900000000);
-		     
-			  CISResults cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
-			  cisResults = createUserDAO.createUser2(reservationId,createUser.getParkId(),createUser.getUserType(),createUser.getFaciltiyTypecode(),createUser.getFromDate(),createUser.getToDate(),createUser.getQty(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
-			  cisResults = createUserDAO.createUser3(userId,reservationId,createUser.getReservedDate(),createDate);
+		     int userId = count.incrementAndGet();
+			 int reservationId = count2.incrementAndGet();
+		   		     
+			 CISResults cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
+			 cisResults = createUserDAO.createUser2(reservationId,createUser.getParkId(),createUser.getUserType(),createUser.getFaciltiyTypecode(),createUser.getFromDate(),createUser.getToDate(),createUser.getQty(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
+		     cisResults = createUserDAO.createUser3(userId,reservationId,createUser.getReservedDate(),createDate);
 				
 			   // Capture Service End time
 
-			    String serviceEndTime=time.getTimeZone();
-			    long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
-			    logger.info("Database time for create user service:: " +result );
+			 String serviceEndTime=time.getTimeZone();
+			 long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			 logger.info("Database time for create user service:: " +result );
 
 			 return cisResults;
 		}

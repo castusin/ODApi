@@ -36,14 +36,15 @@ public class ODGetParkDetailsMapper implements RowMapper{
 		
 		parkDetails.setPopularity(rs.getString("Popularity"));
 		parkDetails.setMinCost1(rs.getFloat("Min_cost1"));
-		parkDetails.setMinCost1People(rs.getFloat("Min_cost1_people"));
+		parkDetails.setMinCost1People(rs.getInt("Min_cost1_people"));
 		parkDetails.setMinCost2(rs.getFloat("Min_cost2"));
-		parkDetails.setMinCost2People(rs.getFloat("Min_cost2_people"));
+		parkDetails.setMinCost2People(rs.getInt("Min_cost2_people"));
 		
 		parkDetails.setSpecialOfferPercentage(rs.getFloat("Special_offer_percentage"));
 		parkDetails.setSpecialRate(rs.getFloat("Special_rate"));
 		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
-		parkDetails.setImagefoldername(rs.getString("image_folder_name"));
+		parkDetails.setParkSubImages(rs.getString("Park_sub_images"));
+		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));
 		return parkDetails;
 	}
 }
