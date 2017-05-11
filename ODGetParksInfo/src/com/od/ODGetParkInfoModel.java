@@ -17,7 +17,7 @@ public class ODGetParkInfoModel {
 	public String description;
 	public String details;
 	public int parkId;
-	public int odRating;
+	public float odRating;
 	public String sponsoredFeaturedFlag ;
 	public String overviewText ;
 	public String faq;
@@ -42,7 +42,7 @@ public class ODGetParkInfoModel {
 	public String imagefoldername;
 	public String tagName;
 	
-	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, int odRating, String sponsoredFeaturedFlag, String overviewText, String faq, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername, String tagName ) {
+	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, float odRating, String sponsoredFeaturedFlag, String overviewText, String faq, String latitude, String longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername, String tagName ) {
 		super();
 		this.appId= appId;
 		this.parktype= parktype ;
@@ -209,15 +209,15 @@ public class ODGetParkInfoModel {
 		this.parkId = parkId;
 	}
 
-	public int getOdRating() {
+	
+
+	public float getOdRating() {
 		return odRating;
 	}
 
-	public void setOdRating(int odRating) {
+	public void setOdRating(float odRating) {
 		this.odRating = odRating;
 	}
-
-	
 
 	public String getSponsoredFeaturedFlag() {
 		return sponsoredFeaturedFlag;

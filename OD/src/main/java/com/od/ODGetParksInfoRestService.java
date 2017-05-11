@@ -61,12 +61,12 @@ public class ODGetParksInfoRestService {
 			String serviceStartTime=time.getTimeZone();
 				  
 		  CommonCISValidation CommonCISValidation=new CommonCISValidation();
-		  CISResults cisResult=CommonCISValidation.ParksinfoValidation(parkType,metro,localArea,request);
-		  if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
-		    {
+		 // CISResults cisResult=CommonCISValidation.ParksinfoValidation(parkType,metro,localArea,request);
+		  //if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+		   // {
 			  ODGetParkInfoWebService parkInfoWebService = new ODGetParkInfoWebService();
-		      cisResult = parkInfoWebService.getParksinfo(parkType,metro,localArea);
-		    }
+			  CISResults cisResult = parkInfoWebService.getParksinfo(parkType,metro,localArea);
+		   // }
 		  
 		// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();
