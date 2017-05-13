@@ -21,7 +21,7 @@ public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		cityInfoDetails.setCityName(rs.getString("city_name"));
 		cityInfoDetails.setLocalAreaId(rs.getInt("location_key"));
 		cityInfoDetails.setLocalArea(rs.getString("location_name"));
-		cityInfoDetails.setDate(rs.getDate("createdon"));
+		cityInfoDetails.setDate(rs.getDate("Creation_date"));
 		return cityInfoDetails;
 	}
 }

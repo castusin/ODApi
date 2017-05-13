@@ -37,13 +37,13 @@ public class ODGetParkLocalAreaRestService {
 			String serviceStartTime=time.getTimeZone();
 				  
 		  CommonCISValidation CommonCISValidation=new CommonCISValidation();
-		  CISResults cisResult=CommonCISValidation.ParksLocalAreaData(cityId,request);
-		  if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
-		    {
+		 // CISResults cisResult=CommonCISValidation.ParksLocalAreaData(cityId,request);
+		 // if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+		   // {
 			  ODGetCityDetailsWebservice cityLeveDeails = new ODGetCityDetailsWebservice();
-		      cisResult = cityLeveDeails.getCityDetails(cityId);
+			  CISResults cisResult = cityLeveDeails.getCityDetails(cityId);
 		      
-		    }
+		   // }
 		  
 		// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();

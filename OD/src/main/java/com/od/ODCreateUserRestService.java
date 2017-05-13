@@ -1,6 +1,8 @@
 package com.od;
 
 
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -35,9 +37,10 @@ public class ODCreateUserRestService {
 	 * @param request
 	 * @param createUser
 	 * @return 1 in case of error or 0 if successful
+	 * @throws NoSuchAlgorithmException 
 	 */
 	@RequestMapping(value="/createUser",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
-	 public String createUser(@RequestBody ODCreateUserModel createUser){
+	 public String createUser(@RequestBody ODCreateUserModel createUser) throws NoSuchAlgorithmException{
 		
 		 Logger logger = Logger.getLogger(ODCreateUserRestService.class);
 		

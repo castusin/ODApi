@@ -4,6 +4,7 @@ package com.od;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,15 +56,5 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
    		return cisResults;  
 	}
 
+} 
 	
-	
-	
-	
-	
-	
-	
-	
-}
-
-
-

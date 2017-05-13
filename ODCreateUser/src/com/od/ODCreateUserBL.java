@@ -1,6 +1,7 @@
 package com.od;
 
 
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,8 +33,9 @@ public class ODCreateUserBL {
 	/**
 	 * @param create user
 	 * @return 1 in case of error or 0 if successful
+	 * @throws NoSuchAlgorithmException 
 	 */
-	public CISResults createUser(ODCreateUserModel createUser) {
+	public CISResults createUser(ODCreateUserModel createUser) throws NoSuchAlgorithmException {
 		
 		 // Capture service Start time
 		
@@ -62,10 +64,16 @@ public class ODCreateUserBL {
 			 int reservationId = count2.incrementAndGet();
 		   		     
 			 CISResults cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
+			
 			 cisResults = createUserDAO.createUser2(reservationId,createUser.getParkId(),createUser.getUserType(),createUser.getFaciltiyTypecode(),createUser.getFromDate(),createUser.getToDate(),createUser.getQty(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
-		     cisResults = createUserDAO.createUser3(userId,reservationId,createUser.getReservedDate(),createDate);
-				
-			   // Capture Service End time
+			
+			
+			 cisResults = createUserDAO.createUser3(userId,reservationId,createUser.getReservedDate(),createDate);
+			
+			 String data = createUserDAO.pay();
+			 
+			 System.out.println("payu data " + data);
+			 // Capture Service End time
 
 			 String serviceEndTime=time.getTimeZone();
 			 long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
