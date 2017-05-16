@@ -37,10 +37,10 @@ public class ODCreateUserRestService {
 	 * @param request
 	 * @param createUser
 	 * @return 1 in case of error or 0 if successful
-	 * @throws NoSuchAlgorithmException 
+	 * @throws Throwable 
 	 */
 	@RequestMapping(value="/createUser",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
-	 public String createUser(@RequestBody ODCreateUserModel createUser) throws NoSuchAlgorithmException{
+	 public String createUser(@RequestBody ODCreateUserModel createUser) throws Throwable{
 		
 		 Logger logger = Logger.getLogger(ODCreateUserRestService.class);
 		

@@ -33,9 +33,9 @@ public class ODCreateUserBL {
 	/**
 	 * @param create user
 	 * @return 1 in case of error or 0 if successful
-	 * @throws NoSuchAlgorithmException 
+	 * @throws Throwable 
 	 */
-	public CISResults createUser(ODCreateUserModel createUser) throws NoSuchAlgorithmException {
+	public CISResults createUser(ODCreateUserModel createUser) throws Throwable {
 		
 		 // Capture service Start time
 		
@@ -71,6 +71,13 @@ public class ODCreateUserBL {
 			 cisResults = createUserDAO.createUser3(userId,reservationId,createUser.getReservedDate(),createDate);
 			
 			 String data = createUserDAO.pay();
+			 
+			 
+			
+			 
+			 
+			 
+			 
 			 
 			 System.out.println("payu data " + data);
 			 // Capture Service End time

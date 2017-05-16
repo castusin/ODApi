@@ -1,5 +1,10 @@
 package com.od;
 
+import java.io.BufferedReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
@@ -7,6 +12,8 @@ import java.sql.Date;
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import java.io.InputStreamReader;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
@@ -103,16 +110,17 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		
 	}
 
-	public String pay()throws NoSuchAlgorithmException {
+	public String pay()throws NoSuchAlgorithmException, Throwable {
 		
 		 byte[] dataBytes = new byte[1024];
-		/*String key="nScTz3tw" ;
+		 
+		String key="nScTz3tw" ;
 
 		float amount=100;
 		String productinfo="ODinfo";
 		String firstname="uday";
 		String email="udaykatikala@gmail.com";
-		String salt="A64STBWqP9";*/
+		String salt="A64STBWqP9";
 		String payUdata= "nScTz3tw|40359a951310ea72cbf1|100|ODinfo|uday|udaykatikala@gmail.com||||||||||A64STBWqP9";
 		
 		 MessageDigest md = MessageDigest.getInstance("SHA-512");
@@ -124,65 +132,39 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		 for (int i = 0; i < byteData.length; i++) {
 		 hashCodeBuffer.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
 		 }
+		/* Object _payment="key|amount|productinfo|firstname|email|payUdata|salt";
+		 String URL = "https://test.payu.in/_payment";*/
+		 
+		 
+		 String postData="";
+         String retval = "";
+       
+         postData += "key=" + key + "&amount=" + amount + "&productinfo=" +           
+        		 productinfo +"&firstname=" +firstname + "&email="+email+ "&payUdata="+payUdata+ "&salt="+salt;
+		 URL url = new URL("https://test.payu.in/_payment");
+		 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
+         urlconnection.setRequestMethod("POST");
+         urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+         urlconnection.setDoOutput(true);
+         OutputStreamWriter out = new            
+         OutputStreamWriter(urlconnection.getOutputStream());
+         out.write(postData);
+         out.close();
+         BufferedReader in = new BufferedReader( new  InputStreamReader(urlconnection.getInputStream()));
+         String decodedString;
+         while ((decodedString = in.readLine()) != null) {
+               retval += decodedString;
+         }
+         in.close();
+		 
+         System.out.println("PAY U STATUS: "+retval);
+		
+		 
 		return hashCodeBuffer.toString();
 		
 	}
-		/*public  String convertByteToHex(byte data[])
-		{
-		  StringBuffer hexData = new StringBuffer();
-		  for (int byteIndex = 0; byteIndex < data.length; byteIndex++)
-		      hexData.append(Integer.toString((data[byteIndex] & 0xff) + 0x100, 16).substring(1));
-		  
-		  return hexData.toString();
-		}
-	
-		public  String hashText(String textToHash) throws Exception
-		{
-		  final MessageDigest sha512 = MessageDigest.getInstance("SHA-512");
-		  sha512.update(textToHash.getBytes());
-		  
-		  return convertByteToHex(sha512.digest());
-		}
-		*/
 		
-		}
-
-		/*public class SHA512 {
-		public  void main(String args[]) throws Exception {
-		    String password = "pass@word1";
-		
-			    if ((args.length == 1) && (args[0].length() > 0))
-			    {
-			    	password = args[0];
-			    }
-		      System.out.println("Password: " + password + " in SHA512 is:");
-		      System.out.println(hashText(password));
-		}
-		
-		public  String convertByteToHex(byte data[])
-		{
-		  StringBuffer hexData = new StringBuffer();
-		  for (int byteIndex = 0; byteIndex < data.length; byteIndex++)
-		      hexData.append(Integer.toString((data[byteIndex] & 0xff) + 0x100, 16).substring(1));
-		  
-		  return hexData.toString();
-		}
-		
-		public  String hashText(String textToHash) throws Exception
-		{
-		  final MessageDigest sha512 = MessageDigest.getInstance("SHA-512");
-		  sha512.update(textToHash.getBytes());
-		  
-		  return convertByteToHex(sha512.digest());
-		}
-		}
-
-
-
-
-
-
-}*/
+}
 
 //String data= "nScTz3tw|40359a951310ea72cbf1|100|ODinfo|uday|udaykatikala@gmail.com||||||||||A64STBWqP9";
 

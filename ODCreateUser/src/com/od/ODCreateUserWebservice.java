@@ -15,9 +15,9 @@ public class ODCreateUserWebservice {
 	/**
 	 * @param create user
 	 * @return 1 in case of error or 0 if successful
-	 * @throws NoSuchAlgorithmException 
+	 * @throws Throwable 
 	 */
-	public CISResults createUser(ODCreateUserModel createUser) throws NoSuchAlgorithmException {
+	public CISResults createUser(ODCreateUserModel createUser) throws Throwable {
 		 CISResults cisResults = createUserBL.createUser(createUser);	
 		 logger.info("create user Webservice " +cisResults );
 		 return cisResults;
