@@ -110,10 +110,10 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		
 	}
 
-	public String pay()throws NoSuchAlgorithmException, Throwable {
+	public CISResults pay()throws NoSuchAlgorithmException, Throwable {
 		
 		 byte[] dataBytes = new byte[1024];
-		 
+		 CISResults cisResult=new CISResults(); 
 		String key="nScTz3tw" ;
 
 		float amount=100;
@@ -121,10 +121,13 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		String firstname="uday";
 		String email="udaykatikala@gmail.com";
 		String salt="A64STBWqP9";
-		String payUdata= "nScTz3tw|40359a951310ea72cbf1|100|ODinfo|uday|udaykatikala@gmail.com||||||||||A64STBWqP9";
+		String surl="www.google.com";
+		String phone="9440069067";
+		String txnid="40359a951310ea72cbf1";
+		String hash= "nScTz3tw|40359a951310ea72cbf1|100|ODinfo|uday|udaykatikala@gmail.com||||||||||A64STBWqP9";
 		
 		 MessageDigest md = MessageDigest.getInstance("SHA-512");
-		 md.update(payUdata.getBytes());
+		 md.update(hash.getBytes());
 		 byte byteData[] = md.digest();
 
 		 //convert the byte to hex format method 1
@@ -140,7 +143,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
          String retval = "";
        
          postData += "key=" + key + "&amount=" + amount + "&productinfo=" +           
-        		 productinfo +"&firstname=" +firstname + "&email="+email+ "&payUdata="+payUdata+ "&salt="+salt;
+        		 productinfo +"&firstname=" +firstname + "&email="+email+ "&hash="+hash+ "&surl="+surl+"&phone="+phone +"&txnid="+txnid +"&salt="+salt;
 		 URL url = new URL("https://test.payu.in/_payment");
 		 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
          urlconnection.setRequestMethod("POST");
@@ -160,7 +163,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
          System.out.println("PAY U STATUS: "+retval);
 		
 		 
-		return hashCodeBuffer.toString();
+		return cisResult;
 		
 	}
 		

@@ -27,8 +27,8 @@ public class ODCreateUserBL {
 	ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-servlet.xml"); 
 	ODCreateUserDAO createUserDAO=(ODCreateUserDAO)ctx.getBean("createUserDAO");
 	
-	 private static final AtomicInteger count = new AtomicInteger(110001); 
-	 private static final AtomicInteger count2 = new AtomicInteger(220001);  
+	 private static final AtomicInteger count = new AtomicInteger(000001); 
+	 private static final AtomicInteger count2 = new AtomicInteger(1000001);  
 	  
 	/**
 	 * @param create user
@@ -57,7 +57,7 @@ public class ODCreateUserBL {
 		      String reservationId=DigestUtils.sha1Hex(sessionId);
 		      String upToNCharacters2 = userId.substring(0, Math.min(userId.length(), 6));
 		      reservationId=upToNCharacters2;*/
-		     TimeCheck time1=new TimeCheck();
+		    // TimeCheck time1=new TimeCheck();
 		     String createDate=time.getTimeZone();
 		     
 		     int userId = count.incrementAndGet();
@@ -70,16 +70,9 @@ public class ODCreateUserBL {
 			
 			 cisResults = createUserDAO.createUser3(userId,reservationId,createUser.getReservedDate(),createDate);
 			
-			 String data = createUserDAO.pay();
-			 
+			 cisResults  = createUserDAO.pay();
 			 
 			
-			 
-			 
-			 
-			 
-			 
-			 System.out.println("payu data " + data);
 			 // Capture Service End time
 
 			 String serviceEndTime=time.getTimeZone();
