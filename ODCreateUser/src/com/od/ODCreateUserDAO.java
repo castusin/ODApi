@@ -122,9 +122,11 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		String email="udaykatikala@gmail.com";
 		String salt="A64STBWqP9";
 		String surl="www.google.com";
+		String furl="www.gmail.com";
+		String service_provider="payu_paisa ";
 		String phone="9440069067";
-		String txnid="40359a951310ea72cbf1";
-		String hash= "nScTz3tw|40359a951310ea72cbf1|100|ODinfo|uday|udaykatikala@gmail.com||||||||||A64STBWqP9";
+		String txnid="fcb5d37e4a816342a016";
+		String hash= "nScTz3tw|fcb5d37e4a816342a016|100|ODinfo|uday|udaykatikala@gmail.com||||||||||A64STBWqP9";
 		
 		 MessageDigest md = MessageDigest.getInstance("SHA-512");
 		 md.update(hash.getBytes());
@@ -135,15 +137,12 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		 for (int i = 0; i < byteData.length; i++) {
 		 hashCodeBuffer.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
 		 }
-		/* Object _payment="key|amount|productinfo|firstname|email|payUdata|salt";
-		 String URL = "https://test.payu.in/_payment";*/
-		 
-		 
+		
 		 String postData="";
          String retval = "";
        
          postData += "key=" + key + "&amount=" + amount + "&productinfo=" +           
-        		 productinfo +"&firstname=" +firstname + "&email="+email+ "&hash="+hash+ "&surl="+surl+"&phone="+phone +"&txnid="+txnid +"&salt="+salt;
+        		 productinfo +"&firstname=" +firstname + "&email="+email+ "&hash="+hash+ "&surl="+surl+ "&furl="+furl+ "&service_provider="+service_provider+"&phone="+phone +"&txnid="+txnid +"&salt="+salt;
 		 URL url = new URL("https://test.payu.in/_payment");
 		 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
          urlconnection.setRequestMethod("POST");
