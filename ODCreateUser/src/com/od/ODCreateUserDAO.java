@@ -123,27 +123,32 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		String salt="A64STBWqP9";
 		String surl="www.google.com";
 		String furl="www.gmail.com";
-		String service_provider="payu_paisa ";
+		String service_provider="payu_paisa";
 		String phone="9440069067";
 		String txnid="fcb5d37e4a816342a016";
-		String hash= "nScTz3tw|fcb5d37e4a816342a016|100|ODinfo|uday|udaykatikala@gmail.com||||||||||A64STBWqP9";
+		String hashstring= "nScTz3tw|fcb5d37e4a816342a016|100|ODinfo|uday|udaykatikala@gmail.com|udf1|udf2|udf3|udf4|udf5||||||A64STBWqP9";
 		
 		 MessageDigest md = MessageDigest.getInstance("SHA-512");
-		 md.update(hash.getBytes());
+		 md.update(hashstring.getBytes());
 		 byte byteData[] = md.digest();
 
 		 //convert the byte to hex format method 1
-		 StringBuffer hashCodeBuffer = new StringBuffer();
+		 StringBuffer hash = new StringBuffer();
 		 for (int i = 0; i < byteData.length; i++) {
-		 hashCodeBuffer.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+		 hash.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+		
 		 }
 		
 		 String postData="";
          String retval = "";
        
-         postData += "key=" + key + "&amount=" + amount + "&productinfo=" +           
-        		 productinfo +"&firstname=" +firstname + "&email="+email+ "&hash="+hash+ "&surl="+surl+ "&furl="+furl+ "&service_provider="+service_provider+"&phone="+phone +"&txnid="+txnid +"&salt="+salt;
-		 URL url = new URL("https://test.payu.in/_payment");
+       //  postData += "key=" + key + "&amount=" + amount + "&productinfo=" +           
+        //		 productinfo +"&firstname=" +firstname + "&email="+email+ "&hash="+hash+ "&surl="+surl+ "&furl="+furl+ "&service_provider="+service_provider+"&phone="+phone +"&txnid="+txnid +"&salt="+salt;
+		
+         postData += "key=" + key + "&amount=" + amount + "&productinfo=" +      
+        	       		 productinfo +"&firstname=" +firstname + "&email="+email+ "&hash="+hash+ "&surl="+surl+ "&furl="+furl+ "&service_provider="+service_provider+"&phone="+phone +"&txnid="+txnid;
+        		
+         URL url = new URL("https://test.payu.in/_payment");
 		 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
          urlconnection.setRequestMethod("POST");
          urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
