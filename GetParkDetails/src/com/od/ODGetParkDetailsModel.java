@@ -10,15 +10,15 @@ public class ODGetParkDetailsModel {
 	public String faq;
 	public String photoUrl;
 	public String name;
-	public Float odRating;
+	public float odRating;
 	public String metro ;
 	public String localArea;
 	public String streetAddress;
 	public String city;
 	public String state;
 	public int pin;
-	public float latitude;
-	public float longitude;
+	public double latitude;
+	public double longitude;
 	public String typeString;
 	public String natureString;
 	public String subCategoryString;
@@ -26,20 +26,20 @@ public class ODGetParkDetailsModel {
 	public String maxPeople;
 	
 	public String popularity;
-	public Float minCost1;
+	public float minCost1;
 	public int minCost1People;
-	public Float minCost2;
+	public float minCost2;
 	public int minCost2People ;
 	
-	public Float specialOfferPercentage ;
-	public Float specialRate;
+	public float specialOfferPercentage ;
+	public float specialRate;
 	public String description;
 	public String details;
 	public String parkSubImages;
 	public String amenitiesString;
 	public List<ODParkDetailsService> parkDetails;
 	
-	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, String parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, float latitude, float longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString ) {
+	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, String parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString ) {
 		super();
 		
 		this.parkId=parkId;
@@ -99,22 +99,24 @@ public class ODGetParkDetailsModel {
 
 
 
-	public float getLatitude() {
+	
+
+	public double getLatitude() {
 		return latitude;
 	}
 
 
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
 
-	public float getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
 
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 

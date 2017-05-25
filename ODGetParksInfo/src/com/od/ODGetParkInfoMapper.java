@@ -30,8 +30,8 @@ public class ODGetParkInfoMapper implements RowMapper{
 		parksInfo.setSponsoredFeaturedFlag(rs.getString("Sponsored_featured_flag"));
 		parksInfo.setOverviewText(rs.getString("Overview_text"));
 		parksInfo.setFaq(rs.getString("Faq"));
-		parksInfo.setLatitude(rs.getFloat("Latitude"));
-		parksInfo.setLongitude(rs.getFloat("Longitude"));
+		parksInfo.setLatitude(rs.getDouble("Latitude"));
+		parksInfo.setLongitude(rs.getDouble("Longitude"));
 		parksInfo.setTypeString(rs.getString("Type_string"));
 		parksInfo.setNatureString(rs.getString("Nature_string"));
 		parksInfo.setSubCategoryString(rs.getString("Sub_category_string"));
