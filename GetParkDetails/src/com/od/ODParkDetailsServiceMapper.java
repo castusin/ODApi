@@ -22,7 +22,7 @@ public class ODParkDetailsServiceMapper implements RowMapper{
 		parkDetails.setRegularPrice(rs.getString("Regular_price"));
 		parkDetails.setDateAdded(rs.getDate("Date_added"));
 		parkDetails.setDate(rs.getDate("Date"));
-		parkDetails.setCurrentPrice(rs.getString("Current_price"));
+		parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
 		parkDetails.setCurrentAvailableQuantity(rs.getString("Current_available_qty"));
 		parkDetails.setFacilityTypeCode(rs.getString("Facility_type_code"));
 		parkDetails.setFacilityImage(rs.getString("Facility_image"));

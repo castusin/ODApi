@@ -10,7 +10,7 @@ public class ODParkDetailsService {
 	String maxAdults;
 	String maxKids;
 	String currentAvailableQuantity;
-	String currentPrice;
+	float currentPrice;
 	String facilityTypeCode;
 	String facilityType;
 	String maxQty;
@@ -28,7 +28,7 @@ public class ODParkDetailsService {
 
 	public ODParkDetailsService(String description, String maxPeople,
 			String maxAdults, String maxKids, String currentAvailableQuantity,
-			String currentPrice, String facilityTypeCode, String facilityType,
+			float currentPrice, String facilityTypeCode, String facilityType,
 			String maxQty, String regularPrice, Date dateAdded, Date date,
 			String facilityTypeTitle, String facilityInRoomFacilites,
 			String facilityImage) {
@@ -200,13 +200,19 @@ public class ODParkDetailsService {
 		this.currentAvailableQuantity = currentAvailableQuantity;
 	}
 
-	public String getCurrentPrice() {
+	
+
+	public float getCurrentPrice() {
 		return currentPrice;
 	}
 
-	public void setCurrentPrice(String currentPrice) {
+
+
+	public void setCurrentPrice(float currentPrice) {
 		this.currentPrice = currentPrice;
 	}
+
+
 
 	public ODParkDetailsService(){
 		
