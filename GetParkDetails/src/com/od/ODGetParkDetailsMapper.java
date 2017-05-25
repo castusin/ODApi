@@ -26,8 +26,8 @@ public class ODGetParkDetailsMapper implements RowMapper{
 		parkDetails.setPin(rs.getInt("PIN"));
 		parkDetails.setDescription(rs.getString("Description"));
 		parkDetails.setDetails(rs.getString("Details"));
-		parkDetails.setLatitude(rs.getString("Latitude"));
-		parkDetails.setLongitude(rs.getString("Longitude"));
+		parkDetails.setLatitude(rs.getFloat("Latitude"));
+		parkDetails.setLongitude(rs.getFloat("Longitude"));
 		parkDetails.setTypeString(rs.getString("Type_string"));
 		parkDetails.setNatureString(rs.getString("Nature_string"));
 		parkDetails.setSubCategoryString(rs.getString("Sub_category_string"));
