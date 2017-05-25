@@ -10,7 +10,7 @@ public class ODGetParkDetailsModel {
 	public String faq;
 	public String photoUrl;
 	public String name;
-	public Float odRating;
+	public float odRating;
 	public String metro ;
 	public String localArea;
 	public String streetAddress;
@@ -26,13 +26,13 @@ public class ODGetParkDetailsModel {
 	public String maxPeople;
 	
 	public String popularity;
-	public float minCost1;
+	public Float minCost1;
 	public int minCost1People;
 	public Float minCost2;
 	public int minCost2People ;
 	
-	public float specialOfferPercentage ;
-	public float specialRate;
+	public Float specialOfferPercentage ;
+	public Float specialRate;
 	public String description;
 	public String details;
 	public String parkSubImages;
