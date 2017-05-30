@@ -111,65 +111,65 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 	}
 
 	public CISResults pay()throws NoSuchAlgorithmException, Throwable {
-		
-		 byte[] dataBytes = new byte[1024];
-		 CISResults cisResult=new CISResults(); 
-		String key="nScTz3tw" ;
+        
+        byte[] dataBytes = new byte[1024];
+        CISResults cisResult=new CISResults();
+       String key="nScTz3tw" ;
 
-		float amount=100;
-		String productinfo="ODinfo";
-		String firstname="uday";
-		String email="udaykatikala@gmail.com";
-		String salt="A64STBWqP9";
-		String surl="www.google.com";
-		String furl="www.gmail.com";
-		String service_provider="payu_paisa";
-		String phone="9440069067";
-		String txnid="fcb5d37e4a816342a016";
-		String hashstring= "nScTz3tw|fcb5d37e4a816342a016|100|ODinfo|uday|udaykatikala@gmail.com|udf1|udf2|udf3|udf4|udf5||||||A64STBWqP9";
-		
-		 MessageDigest md = MessageDigest.getInstance("SHA-512");
-		 md.update(hashstring.getBytes());
-		 byte byteData[] = md.digest();
+       float amount=100;
+       String productinfo="test";
+       String firstname="darshan";
+       String email="darshan1@gmail.com";
+       String salt="A64STBWqP9";
+       String surl="www.google.com";
+       String furl="www.gmail.com";
+       String service_provider="payu_paisa";
+       String phone="8686846199";
+       String txnid="e36afd8be1cd6bbaf1bd";
+       String hash= "nScTz3tw|e36afd8be1cd6bbaf1bd|100|test|darshan|darshan1@gmail.com|||||||||||A64STBWqP9";
+      
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        md.update(hash.getBytes());
+        byte byteData[] = md.digest();
 
-		 //convert the byte to hex format method 1
-		 StringBuffer hash = new StringBuffer();
-		 for (int i = 0; i < byteData.length; i++) {
-		 hash.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
-		
-		 }
-		
-		 String postData="";
-         String retval = "";
-       
-       //  postData += "key=" + key + "&amount=" + amount + "&productinfo=" +           
-        //		 productinfo +"&firstname=" +firstname + "&email="+email+ "&hash="+hash+ "&surl="+surl+ "&furl="+furl+ "&service_provider="+service_provider+"&phone="+phone +"&txnid="+txnid +"&salt="+salt;
-		
-         postData += "key=" + key + "&amount=" + amount + "&productinfo=" +      
-        	       		 productinfo +"&firstname=" +firstname + "&email="+email+ "&hash="+hash+ "&surl="+surl+ "&furl="+furl+ "&service_provider="+service_provider+"&phone="+phone +"&txnid="+txnid;
-        		
-         URL url = new URL("https://test.payu.in/_payment");
-		 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
-         urlconnection.setRequestMethod("POST");
-         urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-         urlconnection.setDoOutput(true);
-         OutputStreamWriter out = new            
-         OutputStreamWriter(urlconnection.getOutputStream());
-         out.write(postData);
-         out.close();
-         BufferedReader in = new BufferedReader( new  InputStreamReader(urlconnection.getInputStream()));
-         String decodedString;
-         while ((decodedString = in.readLine()) != null) {
-               retval += decodedString;
-         }
-         in.close();
-		 
-         System.out.println("PAY U STATUS: "+retval);
-		
-		 
-		return cisResult;
-		
-	}
+        //convert the byte to hex format method 1
+        StringBuffer hashCodeBuffer = new StringBuffer();
+        for (int i = 0; i < byteData.length; i++) {
+        hashCodeBuffer.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+        }
+      
+        String str = hashCodeBuffer.toString();
+        System.out.println(str);
+        
+        
+        
+        String postData="";
+    String retval = "";
+ 
+    postData += "key=" + key + "&txnid="+txnid +"&amount=" +amount+ "&productinfo=" +          
+              productinfo +"&firstname=" +firstname + "&email="+email+ "&phone="+phone+"&surl="+surl+ "&furl="+furl+"&hash="+str+"&service_provider="+service_provider;
+        URL url = new URL("https://test.payu.in/_payment");
+        HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
+    urlconnection.setRequestMethod("POST");
+    urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+    urlconnection.setDoOutput(true);
+    OutputStreamWriter out = new           
+    OutputStreamWriter(urlconnection.getOutputStream());
+    out.write(postData);
+    out.close();
+    BufferedReader in = new BufferedReader( new  InputStreamReader(urlconnection.getInputStream()));
+    String decodedString;
+    while ((decodedString = in.readLine()) != null) {
+          retval += decodedString;
+    }
+    in.close();
+        
+    System.out.println("PAY U STATUS: "+retval);
+      
+    cisResult.setResultObject(retval);
+       return cisResult;
+      
+ }
 		
 }
 
