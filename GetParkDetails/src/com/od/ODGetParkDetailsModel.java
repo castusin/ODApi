@@ -29,7 +29,6 @@ public class ODGetParkDetailsModel {
 	public int minCost1People;
 	public float minCost2;
 	public int minCost2People ;
-	
 	public float specialOfferPercentage ;
 	public float specialRate;
 	public String description;

@@ -83,8 +83,6 @@ public class ODGetParkInfoModel {
 		this.tagName=tagName;
 	}
 		
-
-
 		public String getAppId() {
 		return appId;
 	}

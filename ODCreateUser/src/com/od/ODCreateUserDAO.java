@@ -113,19 +113,19 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
         
         byte[] dataBytes = new byte[1024];
         CISResults cisResult=new CISResults();
-       String key="nScTz3tw" ;
+        String key="nScTz3tw" ;
 
-       float amount=100;
-       String productinfo="test";
-       String firstname="darshan";
-       String email="darshan1@gmail.com";
-       String salt="A64STBWqP9";
-       String surl="www.google.com";
-       String furl="www.gmail.com";
-       String service_provider="payu_paisa";
-       String phone="8686846199";
-       String txnid="e36afd8be1cd6bbaf1bd";
-       String hash= "nScTz3tw|e36afd8be1cd6bbaf1bd|100|test|darshan|darshan1@gmail.com|||||||||||A64STBWqP9";
+	       float amount=100;
+	       String productinfo="test";
+	       String firstname="darshan";
+	       String email="darshan1@gmail.com";
+	       String salt="A64STBWqP9";
+	       String surl="www.google.com";
+	       String furl="www.gmail.com";
+	       String service_provider="payu_paisa";
+	       String phone="8686846199";
+	       String txnid="e36afd8be1cd6bbaf1bd";
+	       String hash= "nScTz3tw|e36afd8be1cd6bbaf1bd|100|test|darshan|darshan1@gmail.com|||||||||||A64STBWqP9";
       
         MessageDigest md = MessageDigest.getInstance("SHA-512");
         md.update(hash.getBytes());

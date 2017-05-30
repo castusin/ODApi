@@ -54,5 +54,4 @@ public class ODGetParkInfoMapper implements RowMapper{
 	}
 
 	
-
 }

@@ -20,8 +20,7 @@ public class ODParkDetailsService {
 	String facilityTypeTitle;
 	String facilityInRoomFacilites;
 	String facilityImage;
-	
-	
+		
 
 	public ODParkDetailsService(String description, String maxPeople,
 			String maxAdults, String maxKids, String currentAvailableQuantity,

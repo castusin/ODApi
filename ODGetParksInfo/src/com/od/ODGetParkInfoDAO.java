@@ -37,8 +37,7 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
 			result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSINFO,inputs,new ODGetParkInfoMapper());
-			
-			
+						
 			// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();
 			long results=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);

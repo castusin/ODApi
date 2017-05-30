@@ -252,7 +252,6 @@ public class ODCreateUserModel {
 		this.status = status;
 	}
 
-
 		public ODCreateUserModel(){
 			
 		}

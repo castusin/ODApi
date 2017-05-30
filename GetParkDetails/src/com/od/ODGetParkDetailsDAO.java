@@ -64,6 +64,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 			    TimeCheck time=new TimeCheck();
 				testServiceTime seriveTimeCheck=new testServiceTime();
 				String serviceStartTime=time.getTimeZone();
+				
 				parkDetailslist= getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILSLIST,inputs,new ODParkDetailsServiceMapper());
 				// Capture Service End time
 			    String serviceEndTime=time.getTimeZone();

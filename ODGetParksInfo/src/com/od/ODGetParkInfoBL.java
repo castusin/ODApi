@@ -21,7 +21,6 @@ public class ODGetParkInfoBL {
 	ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-servlet.xml"); 
 	ODGetParkInfoDAO parkInfoDAO=(ODGetParkInfoDAO)ctx.getBean("ParkInfoDAO");
 	
-
 	/**
 	 * @param metro
 	 * @param localArea

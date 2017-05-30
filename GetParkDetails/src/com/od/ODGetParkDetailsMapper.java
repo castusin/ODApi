@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 public class ODGetParkDetailsMapper implements RowMapper{
 	
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+		
 		ODGetParkDetailsModel parkDetails = new ODGetParkDetailsModel();
 		
 		parkDetails.setOverviewText(rs.getString("Overview_text"));

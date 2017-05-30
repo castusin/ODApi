@@ -2,18 +2,12 @@
 package com.od;
 
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
-import java.util.TimeZone;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.dao.DataAccessException;
 
-import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
@@ -42,8 +36,7 @@ public class ODGetParkDetailsBL {
 			cisResult = parkDetailsDAO.getParksDetails( parkId);
 	
 			parkDetailslist	 = parkDetailsDAO.getParksListDetails( parkId);
-			
-			
+						
 			//cisResult.setResultObject(parkDetailslist);
 			cisResult.setParkDetails(parkDetailslist);
 			 
