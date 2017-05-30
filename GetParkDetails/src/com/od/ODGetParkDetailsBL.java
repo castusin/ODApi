@@ -24,7 +24,6 @@ public class ODGetParkDetailsBL {
 	ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-servlet.xml"); 
 	ODGetParkDetailsDAO parkDetailsDAO=(ODGetParkDetailsDAO)ctx.getBean("ParkDetailsDAO");
 	
-
 	/**
 	 * @param parkId
 	 * @return  1 in case of error or 0 if successful

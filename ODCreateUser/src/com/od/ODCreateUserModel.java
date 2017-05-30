@@ -26,7 +26,6 @@ public class ODCreateUserModel {
 	public float totalPrice;
 	public String status;
 	
-	
 	public ODCreateUserModel(int userId, String firstName, String lastName, int phoneNumber1, int phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status) {
 		super();
 		this.userId=userId;

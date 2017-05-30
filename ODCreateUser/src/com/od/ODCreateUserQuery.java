@@ -8,7 +8,4 @@ public class ODCreateUserQuery {
 
 	public static String SQL_USERTABLE3="insert into Park_current_reservation_hdr (User_id,Reservation_id,Transaction_date,Creation_date)"+"values(?,?,?,?)";     
 
-	
-	
-
 }

@@ -49,15 +49,7 @@ public class ODCreateUserBL {
 		     DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
 		     TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE2);
 		     formatter.setTimeZone(obj);
-		   //  String ODDate=formatter.format(currentdate.getTime());
-		     /* String sessionId = UUID.randomUUID().toString();
-		      String userId=DigestUtils.sha1Hex(sessionId);
-		      String upToNCharacters = userId.substring(0, Math.min(userId.length(), 8));
-		      userId=upToNCharacters;
-		      String reservationId=DigestUtils.sha1Hex(sessionId);
-		      String upToNCharacters2 = userId.substring(0, Math.min(userId.length(), 6));
-		      reservationId=upToNCharacters2;*/
-		    // TimeCheck time1=new TimeCheck();
+		  
 		     String createDate=time.getTimeZone();
 		     
 		     int userId = count.incrementAndGet();
@@ -72,7 +64,6 @@ public class ODCreateUserBL {
 			
 			 cisResults  = createUserDAO.pay();
 			 
-			
 			 // Capture Service End time
 
 			 String serviceEndTime=time.getTimeZone();

@@ -24,7 +24,6 @@ public class ODGetParkDetailsModel {
 	public String subCategoryString;
 	public String durationString;
 	public String maxPeople;
-	
 	public String popularity;
 	public float minCost1;
 	public int minCost1People;

@@ -15,7 +15,6 @@ import com.cis.testServiceTime;
 
 public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 
-
 	/**
 	 * @param parkId
 	 * @return 1 in case of error or 0 if successful
