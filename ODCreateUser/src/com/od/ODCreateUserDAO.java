@@ -22,9 +22,9 @@ import com.cis.testServiceTime;
 
 public class ODCreateUserDAO extends JdbcDaoSupport{
 
-	public CISResults createUser(int userId, String firstName, String lastName,
-			int phoneNumber1, int phoneNumber2, String address1,
-			String address2, String city, String state, int pincode, String createDate) {
+	public CISResults createUser(int userId, String firstName, String lastName,String emailId,
+			String phone1, String phone2, String address1,
+			String address2, String city, String state,  int pincode, String createDate) {
 		Logger logger = Logger.getLogger(ODCreateUserDAO.class);
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
@@ -33,8 +33,8 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE,userId,firstName,lastName,phoneNumber1,phoneNumber2,address1,address2,city,state,pincode,createDate);
-			cisResults.setResponseCode(CISConstants.YES); 
+			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE,userId,firstName,lastName,emailId,phone1,phone2,address1,address2,city,state,pincode,createDate);
+			//cisResults.setResponseCode(CISConstants.YES); 
 			String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("user table query time:: " +cisResults);
@@ -63,7 +63,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
 			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE2,reservationId,parkId,faciltiyTypecode,fromDate,toDate,qty,totalPrice,status,createDate,userType);
-			cisResults.setResponseCode(CISConstants.YES);  
+			//cisResults.setResponseCode(CISConstants.YES);  
 			String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("user table2 query time:: " +cisResults);
@@ -84,6 +84,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			Date reservedDate, String createDate) {
 		Logger logger = Logger.getLogger(ODCreateUserDAO.class);
 		CISResults cisResults=new CISResults();
+		ODCreateUserModel createUser = new ODCreateUserModel();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		try{
 			// Capture service Start time
@@ -91,7 +92,9 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
 			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE3,userId,reservationId,reservedDate,createDate);
-			cisResults.setResponseCode(CISConstants.YES); 
+			//createUser.setReservationId(reservationId);
+			cisResults.setResultObject(reservationId);
+			//cisResults.setResponseCode(CISConstants.YES); 
 			String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("user table3 query time:: " +cisResults);

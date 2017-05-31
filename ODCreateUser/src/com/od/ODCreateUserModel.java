@@ -8,8 +8,8 @@ public class ODCreateUserModel {
 	public int userId;
 	public String firstName ;
 	public String lastName ;
-	public int phoneNumber1 ;
-	public int phoneNumber2;
+	public String phoneNumber1 ;
+	public String phoneNumber2;
 	public String address1;
 	public String address2;
 	public String city;
@@ -25,8 +25,8 @@ public class ODCreateUserModel {
 	public int qty;
 	public float totalPrice;
 	public String status;
-	
-	public ODCreateUserModel(int userId, String firstName, String lastName, int phoneNumber1, int phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status) {
+	public String emailId;
+	public ODCreateUserModel(int userId, String firstName, String lastName, String phoneNumber1, String phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status, String emailId) {
 		super();
 		this.userId=userId;
 		this.firstName=firstName;
@@ -48,10 +48,20 @@ public class ODCreateUserModel {
 		this.qty=qty;
 		this.totalPrice=totalPrice;
 		this.status=status;
-		
+		this.emailId=emailId;
 	
 	}
 		
+
+		public String getEmailId() {
+		return emailId;
+	}
+
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
 
 		public int getUserId() {
 		return userId;
@@ -83,22 +93,25 @@ public class ODCreateUserModel {
 	}
 
 
-	public int getPhoneNumber1() {
+	
+
+
+	public String getPhoneNumber1() {
 		return phoneNumber1;
 	}
 
 
-	public void setPhoneNumber1(int phoneNumber1) {
+	public void setPhoneNumber1(String phoneNumber1) {
 		this.phoneNumber1 = phoneNumber1;
 	}
 
 
-	public int getPhoneNumber2() {
+	public String getPhoneNumber2() {
 		return phoneNumber2;
 	}
 
 
-	public void setPhoneNumber2(int phoneNumber2) {
+	public void setPhoneNumber2(String phoneNumber2) {
 		this.phoneNumber2 = phoneNumber2;
 	}
 

@@ -41,6 +41,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>CISCommunication</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/CISCommunication/src</location>
+		</link>
+		<link>
 			<name>CISDataCommon</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/CISDataCommon/src</location>
@@ -74,6 +79,11 @@
 			<name>ODGetParksInfo</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/ODGetParksInfo/src</location>
+		</link>
+		<link>
+			<name>PaymentSuccess</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/PaymentSuccess/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

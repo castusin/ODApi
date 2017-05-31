@@ -27,8 +27,8 @@ public class ODCreateUserBL {
 	ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-servlet.xml"); 
 	ODCreateUserDAO createUserDAO=(ODCreateUserDAO)ctx.getBean("createUserDAO");
 	
-	 private static final AtomicInteger count = new AtomicInteger(000001); 
-	 private static final AtomicInteger count2 = new AtomicInteger(1000001);  
+	 private static final AtomicInteger count = new AtomicInteger(1000001); 
+	 private static final AtomicInteger count2 = new AtomicInteger(1100001);  
 	  
 	/**
 	 * @param create user
@@ -55,13 +55,13 @@ public class ODCreateUserBL {
 		     int userId = count.incrementAndGet();
 			 int reservationId = count2.incrementAndGet();
 		   		     
-			 CISResults cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
+			 CISResults cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
 			
 			 cisResults = createUserDAO.createUser2(reservationId,createUser.getParkId(),createUser.getUserType(),createUser.getFaciltiyTypecode(),createUser.getFromDate(),createUser.getToDate(),createUser.getQty(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
 						
 			 cisResults = createUserDAO.createUser3(userId,reservationId,createUser.getReservedDate(),createDate);
 			
-			 cisResults  = createUserDAO.pay();
+			// cisResults  = createUserDAO.pay();
 			 
 			 // Capture Service End time
 			 

@@ -42,7 +42,10 @@ public class ODGetParkInfoModel {
 	public String imagefoldername;
 	public String tagName;
 	
-	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, float odRating, String sponsoredFeaturedFlag, String overviewText, String faq, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername, String tagName ) {
+	public Date checkInDate;
+	public Date checkOutDate;
+	
+	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, float odRating, String sponsoredFeaturedFlag, String overviewText, String faq, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername, String tagName, Date checkInDate, Date checkOutDate ) {
 		super();
 		this.appId= appId;
 		this.parktype= parktype ;
@@ -81,8 +84,27 @@ public class ODGetParkInfoModel {
 		this.photoUrl= photoUrl;
 		this.imagefoldername=imagefoldername;
 		this.tagName=tagName;
+		
+		this.checkInDate=checkInDate;
+		this.checkOutDate=checkOutDate;
 	}
 		
+		public Date getCheckInDate() {
+		return checkInDate;
+	}
+
+	public void setCheckInDate(Date checkInDate) {
+		this.checkInDate = checkInDate;
+	}
+
+	public Date getCheckOutDate() {
+		return checkOutDate;
+	}
+
+	public void setCheckOutDate(Date checkOutDate) {
+		this.checkOutDate = checkOutDate;
+	}
+
 		public String getAppId() {
 		return appId;
 	}
