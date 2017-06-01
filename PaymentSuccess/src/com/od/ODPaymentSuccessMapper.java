@@ -13,7 +13,7 @@ public class ODPaymentSuccessMapper implements RowMapper{
 		
 		ODPaymentSuccessModel paymentStatus = new ODPaymentSuccessModel();
 		paymentStatus.setEmailId(rs.getString("email_id"));
-	    
+	    paymentStatus.setFirstName(rs.getString("first_name"));
 		return paymentStatus;
 	}
 }

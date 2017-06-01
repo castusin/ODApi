@@ -1,6 +1,8 @@
 package com.od;
 
 
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -36,15 +38,34 @@ public class ODPaymentSuccessBL {
 			 
 	     cisResult = successDAO.paymentSuccess(transactionId,status);
 	    
+	     cisResult = successDAO.getRoomDetails(transactionId);
+	     
+	        String roomType="";
+	        GetRoomDetailsModel  type=(GetRoomDetailsModel)cisResult.getResultObject();
+			roomType=type.getFacilityType();
+			//Date checkIn="";
+	        GetRoomDetailsModel  in=(GetRoomDetailsModel)cisResult.getResultObject();
+	        Date checkIn=in.getFromDate();
+			//Date checkOut="";
+	        GetRoomDetailsModel  out=(GetRoomDetailsModel)cisResult.getResultObject();
+			Date checkOut=out.getToDate();
+			//int qty="";
+	        GetRoomDetailsModel  quan=(GetRoomDetailsModel)cisResult.getResultObject();
+			int qty=quan.getQuantity();
+			//float price="";
+	        GetRoomDetailsModel  rs=(GetRoomDetailsModel)cisResult.getResultObject();
+			float price=rs.getTotalPrice();
 	     
 	     if(status.equalsIgnoreCase(CISConstants.STATUS1)){
 	    	cisResult = successDAO.paymentEmail(transactionId);
 			String paymentEmail="";
 			ODPaymentSuccessModel  emailId=(ODPaymentSuccessModel)cisResult.getResultObject();
 			paymentEmail=emailId.getEmailId();
-			
+			String firstName="";
+			ODPaymentSuccessModel  name=(ODPaymentSuccessModel)cisResult.getResultObject();
+			firstName=name.getFirstName();
 				 
-			cisResult=sendMail.sendPaymentstatus(paymentEmail);
+			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,roomType,checkIn,checkOut,qty,price);
 	    	
 	    }
 	    else if(status.equalsIgnoreCase(CISConstants.STATUS2)){

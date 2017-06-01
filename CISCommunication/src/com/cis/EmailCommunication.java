@@ -1,5 +1,6 @@
 package com.cis;
 
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -170,7 +171,7 @@ public class EmailCommunication {
 		return cisResult;
 	}
 
-	public CISResults sendPaymentstatus(String paymentEmail) {
+	public CISResults sendPaymentstatus(String paymentEmail, String firstName, String roomType, Date checkIn, Date checkOut, int qty, float price) {
 		CISResults cisResult = new CISResults();
 		//String emailId=CISConstants.ADMINEMAILID;
 		
@@ -182,15 +183,22 @@ public class EmailCommunication {
                 "</head>\n" +
                 "\n" +
                 "<body>\n" +
-                 "<p>Outing Day</b><br />"+
+                 "<p>Hello "+firstName+"</b><br />"+
                  
                 "<p>Your payment is successful. "+
                  
+                
+  				"<p>RoomType : "+roomType+"</b><br />"+
+  				"<p>CheckIn Date :"+checkIn+"</b><br />"+
+				"<p>CheckOut Date :"+checkOut+"</b><br />"+
+				"<p>Quantity :"+qty+"</b><br />"+
+				"<p>Price : "+price+"</b><br />"+
+                
                 "<br />\n"+
                 "<br />\n"+
                 "  Thanks,<br />\n" +
                 "<br />\n"+
-                " Outing Day Team<br />\n" +
+                " Outingday.com<br />\n" +
 
                 "  <br />\n" +
 

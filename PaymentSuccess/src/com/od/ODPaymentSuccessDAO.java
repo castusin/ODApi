@@ -85,5 +85,32 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
 		return cisResults;  
 	}
 
+	public CISResults getRoomDetails(int transactionId) {
+		
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		Object[] inputs = new Object[]{transactionId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			GetRoomDetailsModel res = (GetRoomDetailsModel)getJdbcTemplate().queryForObject(ODPaymentSuccessQuery.SQL_GETROOMDETAILS,inputs,new GetRoomDetailsMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park details service:: " +result );
+			cisResults.setResultObject(res);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return cisResults;  
+	}
+
 } 
 	
