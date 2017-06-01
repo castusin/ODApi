@@ -1,16 +1,10 @@
 package com.od;
 
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.TimeZone;
-
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
@@ -25,9 +19,11 @@ public class ODGetParkInfoBL {
 	 * @param metro
 	 * @param localArea
 	 * @param parkType
+	 * @param checkOut 
+	 * @param checkIn 
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults getParksinfo(String parkType,String metro,String localArea) {
+	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkIn, String checkOut) {
 		// Capture service Start time
 		
 	    TimeCheck time=new TimeCheck();
@@ -35,7 +31,7 @@ public class ODGetParkInfoBL {
 		String serviceStartTime=time.getTimeZone();
 		 			
 			 final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
-			 CISResults cisResult = parkInfoDAO.getParksinfo(parkType,metro,localArea);
+			 CISResults cisResult = parkInfoDAO.getParksinfo(parkType,metro,localArea,checkIn,checkOut);
 			 logger.debug("OD GetParkInfoBL service" +cisResult);
 			 
 			// Capture Service End time

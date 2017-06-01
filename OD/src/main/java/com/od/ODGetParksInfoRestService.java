@@ -6,6 +6,7 @@ package com.od;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 
 import com.cis.testServiceTime;
@@ -51,7 +52,7 @@ public class ODGetParksInfoRestService {
 	 * @return 1 in case of error or 200 if successful
 	 */
 	@RequestMapping(value="/getParksinfo",method=RequestMethod.GET,produces={"application/json"})
-	 public String getParksinfo(HttpServletRequest request,@RequestParam ("parkType") String parkType,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea){
+	 public String getParksinfo(HttpServletRequest request,@RequestParam ("parkType") String parkType,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea,@RequestParam ("checkIn") String checkIn,@RequestParam ("checkOut") String checkOut){
 		
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 
@@ -65,7 +66,7 @@ public class ODGetParksInfoRestService {
 		  //if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 		   // {
 			  ODGetParkInfoWebService parkInfoWebService = new ODGetParkInfoWebService();
-			  CISResults cisResult = parkInfoWebService.getParksinfo(parkType,metro,localArea);
+			  CISResults cisResult = parkInfoWebService.getParksinfo(parkType,metro,localArea,checkIn,checkOut);
 		   // }
 		  
 		// Capture Service End time

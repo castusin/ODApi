@@ -172,7 +172,7 @@ public class EmailCommunication {
 
 	public CISResults sendPaymentstatus(String paymentEmail) {
 		CISResults cisResult = new CISResults();
-		String emailId=CISConstants.ADMINEMAILID;
+		//String emailId=CISConstants.ADMINEMAILID;
 		
 		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
                 "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
@@ -182,7 +182,7 @@ public class EmailCommunication {
                 "</head>\n" +
                 "\n" +
                 "<body>\n" +
-                 "<p>Arcturus Care </b><br />"+
+                 "<p>Outing Day</b><br />"+
                  
                 "<p>Your payment is successful. "+
                  
@@ -190,7 +190,7 @@ public class EmailCommunication {
                 "<br />\n"+
                 "  Thanks,<br />\n" +
                 "<br />\n"+
-                " Arcturus Team<br />\n" +
+                " Outing Day Team<br />\n" +
 
                 "  <br />\n" +
 
@@ -209,7 +209,7 @@ public class EmailCommunication {
 
 	public CISResults sendPaymentFailure(String paymentEmail) {
 		CISResults cisResult = new CISResults();
-		String emailId=CISConstants.ADMINEMAILID;
+		//String emailId=CISConstants.ADMINEMAILID;
 		
 		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
                 "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
@@ -219,7 +219,7 @@ public class EmailCommunication {
                 "</head>\n" +
                 "\n" +
                 "<body>\n" +
-                 "<p>Arcturus Care </b><br />"+
+                 "<p>Outing Day</b><br />"+
                  
                 "<p>Failed payment. "+
                  
@@ -227,7 +227,7 @@ public class EmailCommunication {
                 "<br />\n"+
                 "  Thanks,<br />\n" +
                 "<br />\n"+
-                " Arcturus Team<br />\n" +
+                " Outing Day Team<br />\n" +
 
                 "  <br />\n" +
 

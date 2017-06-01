@@ -24,13 +24,18 @@ public class CISConstants {
 	
 	public static final String ADMINPHONENUMBER="167846213390";
 	public static final String ADMINEMAILID="darshan2108@gmail.com";
+	public static final String EMAILHOST="outingday.com";
+	public static final String EMAILUSERNAME="admin@outingday.com";
+	public static final String EMAILPASSWORD="od1@34";
+	public static final String PORT="2525";
+	/*public static final String ADMINEMAILID="darshan2108@gmail.com";
 	public static final String EMAILHOST="castusinfo.com";
 	public static final String EMAILUSERNAME="arcturus@castusinfo.com";
 	public static final String EMAILPASSWORD="arcturus";
-	public static final String PORT="25";
+	public static final String PORT="2525";*/
 	public static final String SMS_FAILED = "Sms failed to delivery ";
 	public static final String MAIL_FAILED = "Email failed to delivery ";
-	public static final String SUBJECT ="Arcturus";
+	public static final String SUBJECT ="OutingDay";
 	public static final String CANCEL ="cancelled";
 	public CISConstants() {
 		// TODO Auto-generated constructor stub

@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.cis.CISConstants;
@@ -21,9 +22,11 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 	 * @param metro
 	 * @param localArea
 	 * @param parkType
+	 * @param checkOut 
+	 * @param checkIn 
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults getParksinfo(String parkType,String metro,String localArea) {
+	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkIn, String checkOut) {
 		
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();

@@ -1,6 +1,8 @@
 package com.od;
 
 
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 
 import com.cis.CISResults;
@@ -14,11 +16,13 @@ public class ODGetParkInfoWebService {
 	 * @param metro
 	 * @param localArea
 	 * @param parkType
+	 * @param checkOut 
+	 * @param checkIn 
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults getParksinfo(String parkType,String metro,String localArea) {
+	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkIn, String checkOut) {
 		
-		 CISResults cisResult = parkInfoBL.getParksinfo(parkType,metro,localArea);	
+		 CISResults cisResult = parkInfoBL.getParksinfo(parkType,metro,localArea,checkIn,checkOut);	
 		 logger.info("OD GetParkInfo WebService  " +cisResult );
 		 return cisResult;
 	}
