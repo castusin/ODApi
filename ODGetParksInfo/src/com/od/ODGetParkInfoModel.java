@@ -45,7 +45,10 @@ public class ODGetParkInfoModel {
 	public Date checkInDate;
 	public Date checkOutDate;
 	
-	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, float odRating, String sponsoredFeaturedFlag, String overviewText, String faq, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername, String tagName, Date checkInDate, Date checkOutDate ) {
+	public String facilityTypeCode;
+	public int avail;
+	
+	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, float odRating, String sponsoredFeaturedFlag, String overviewText, String faq, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername, String tagName, Date checkInDate, Date checkOutDate, String facilityTypeCode, int avail ) {
 		super();
 		this.appId= appId;
 		this.parktype= parktype ;
@@ -87,8 +90,37 @@ public class ODGetParkInfoModel {
 		
 		this.checkInDate=checkInDate;
 		this.checkOutDate=checkOutDate;
+		
+		this.facilityTypeCode=facilityTypeCode;
+		this.avail=avail;
 	}
 		
+	
+	
+		public String getFacilityTypeCode() {
+		return facilityTypeCode;
+	}
+
+
+
+	public void setFacilityTypeCode(String facilityTypeCode) {
+		this.facilityTypeCode = facilityTypeCode;
+	}
+
+
+
+	public int getAvail() {
+		return avail;
+	}
+
+
+
+	public void setAvail(int avail) {
+		this.avail = avail;
+	}
+
+
+
 		public Date getCheckInDate() {
 		return checkInDate;
 	}

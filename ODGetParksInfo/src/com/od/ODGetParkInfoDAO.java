@@ -22,16 +22,15 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 	 * @param metro
 	 * @param localArea
 	 * @param parkType
-	 * @param checkOut 
 	 * @param checkIn 
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkIn, String checkOut) {
+	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkdates) {
 		
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{parkType,metro,localArea};
+		Object[] inputs = new Object[]{localArea,checkdates};
 		List<ODGetParkInfoModel> result = new ArrayList<ODGetParkInfoModel>();;
 		try{
 			// Capture service Start time
@@ -40,6 +39,36 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
 			result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSINFO,inputs,new ODGetParkInfoMapper());
+						
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long results=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park info service:: " +results );
+			
+			cisResults.setResultObject(result);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+
+   		return cisResults;  
+	}
+
+	public CISResults getDates(String checkdates) {
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		Object[] inputs = new Object[]{checkdates};
+		//List<GetDatesModel> result = new ArrayList<GetDatesModel>();;
+		try{
+			// Capture service Start time
+			
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			List result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETDATES,inputs,new GetDatesMapper());
 						
 			// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();

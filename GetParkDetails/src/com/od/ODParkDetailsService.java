@@ -14,7 +14,7 @@ public class ODParkDetailsService {
 	String facilityTypeCode;
 	String facilityType;
 	String maxQty;
-	String regularPrice;
+	float regularPrice;
 	Date dateAdded;
 	Date date;
 	String facilityTypeTitle;
@@ -25,7 +25,7 @@ public class ODParkDetailsService {
 	public ODParkDetailsService(String description, String maxPeople,
 			String maxAdults, String maxKids, String currentAvailableQuantity,
 			float currentPrice, String facilityTypeCode, String facilityType,
-			String maxQty, String regularPrice, Date dateAdded, Date date,
+			String maxQty, float regularPrice, Date dateAdded, Date date,
 			String facilityTypeTitle, String facilityInRoomFacilites,
 			String facilityImage) {
 		super();
@@ -120,13 +120,15 @@ public class ODParkDetailsService {
 
 
 
-	public String getRegularPrice() {
+	
+
+	public float getRegularPrice() {
 		return regularPrice;
 	}
 
 
 
-	public void setRegularPrice(String regularPrice) {
+	public void setRegularPrice(float regularPrice) {
 		this.regularPrice = regularPrice;
 	}
 

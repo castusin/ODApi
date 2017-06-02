@@ -50,9 +50,10 @@ public class ODGetParksInfoRestService {
 	 * @param localArea
 	 * @param parkType
 	 * @return 1 in case of error or 200 if successful
+	 * @throws Throwable 
 	 */
 	@RequestMapping(value="/getParksinfo",method=RequestMethod.GET,produces={"application/json"})
-	 public String getParksinfo(HttpServletRequest request,@RequestParam ("parkType") String parkType,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea,@RequestParam ("checkIn") String checkIn,@RequestParam ("checkOut") String checkOut){
+	 public String getParksinfo(HttpServletRequest request,@RequestParam ("parkType") String parkType,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea,@RequestParam ("checkIn") String checkIn,@RequestParam ("checkOut") String checkOut) throws Throwable{
 		
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 

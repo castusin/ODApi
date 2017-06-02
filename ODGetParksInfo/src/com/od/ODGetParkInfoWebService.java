@@ -19,8 +19,9 @@ public class ODGetParkInfoWebService {
 	 * @param checkOut 
 	 * @param checkIn 
 	 * @return  1 in case of error or 0 if successful
+	 * @throws Throwable 
 	 */
-	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkIn, String checkOut) {
+	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkIn, String checkOut) throws Throwable {
 		
 		 CISResults cisResult = parkInfoBL.getParksinfo(parkType,metro,localArea,checkIn,checkOut);	
 		 logger.info("OD GetParkInfo WebService  " +cisResult );
