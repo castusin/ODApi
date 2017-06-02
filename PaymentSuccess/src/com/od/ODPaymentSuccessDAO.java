@@ -112,5 +112,56 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
 		return cisResults;  
 	}
 
+	public CISResults getAvailablility() {
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		//Object[] inputs = new Object[]{};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			GetAvailabilityModel res = (GetAvailabilityModel)getJdbcTemplate().queryForObject(ODPaymentSuccessQuery.SQL_GETAVAILABILITY,new GetAvailabilityMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park details service:: " +result );
+			cisResults.setResultObject(res);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return cisResults;  
+	}
+
+	public CISResults getUpdateAvailablility(int avail, int parkid, String facilitycode) {
+		
+CISResults cisResults=new CISResults();
+		
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		
+		Object[] inputs = new Object[]{avail,parkid,facilitycode};
+		try{
+			// Capture service Start time
+			 TimeCheck time=new TimeCheck();
+			 testServiceTime sessionTimeCheck=new testServiceTime();
+			 String serviceStartTime=time.getTimeZone();
+			 getJdbcTemplate().update(ODPaymentSuccessQuery.SQL_UPDATEAVAILABILITY,inputs);
+			 String serviceEndTime=time.getTimeZone();
+			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			 logger.info("edit scheludle plan query time:: " +result);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed to get Profile Data");
+		}
+   		return cisResults; 
+	}
 } 
 	

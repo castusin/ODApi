@@ -2,6 +2,7 @@ package com.cis;
 
 import java.util.List;
 
+import com.od.GetDatesModel;
 import com.od.ODParkDetailsService;
 
 
@@ -13,8 +14,16 @@ public class CISResults {
 	String dateFormat;
 	Object resultObject;
 	public List<ODParkDetailsService> parkDetails;
+	public List<GetDatesModel> dateList;
 	
-	
+	public List<GetDatesModel> getDateList() {
+		return dateList;
+	}
+
+	public void setDateList(List<GetDatesModel> dateList) {
+		this.dateList = dateList;
+	}
+
 	public String getDateErrorFormat() {
 		return dateFormat;
 	}

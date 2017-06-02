@@ -46,7 +46,7 @@ public class ODGetParkInfoBL {
 		final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
 		
 		
-		
+		List<GetDatesModel> datesslist = null;
 		List<Date> dates = new ArrayList<Date>();
 
 		String str_date =checkIn;
@@ -64,17 +64,20 @@ public class ODGetParkInfoBL {
 		    dates.add(new Date(curTime));
 		    curTime += interval;
 		}
+		 String checkdates="";
+				 
 		for(int i=0;i<dates.size();i++){
 		    Date lDate =(Date)dates.get(i);
-		    String checkdates = formatter.format(lDate);    
+		     checkdates = formatter.format(lDate);    
 		    System.out.println(" Date is ..." + checkdates);
 		   // cisResult = parkInfoDAO.getDates(checkdates);
 		   
 		    /*GetDatesModel  name=(GetDatesModel)cisResult.getResultObject();
 			Date checkDate=name.getDate();*/
-	    cisResult = parkInfoDAO.getParksinfo(parkType,metro,localArea,checkdates);
+	   
 		}  
-			  
+		 cisResult = parkInfoDAO.getParksinfo(parkType,metro,localArea,checkdates);
+		cisResult.setDateList(datesslist);
 		/*String checkDate="";
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"); 
 	    DateTime dt = formatter.parseDateTime(checkDate);*/

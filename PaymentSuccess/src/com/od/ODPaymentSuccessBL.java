@@ -57,6 +57,8 @@ public class ODPaymentSuccessBL {
 			float price=rs.getTotalPrice();
 	     
 	     if(status.equalsIgnoreCase(CISConstants.STATUS1)){
+	    	 
+	    	 // get emailId and firstname from db
 	    	cisResult = successDAO.paymentEmail(transactionId);
 			String paymentEmail="";
 			ODPaymentSuccessModel  emailId=(ODPaymentSuccessModel)cisResult.getResultObject();
@@ -64,9 +66,27 @@ public class ODPaymentSuccessBL {
 			String firstName="";
 			ODPaymentSuccessModel  name=(ODPaymentSuccessModel)cisResult.getResultObject();
 			firstName=name.getFirstName();
-				 
+			
+			//sending all parameters required	 
 			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,roomType,checkIn,checkOut,qty,price);
 	    	
+			
+			
+			// get current availability
+			 cisResult = successDAO.getAvailablility();
+			
+			 GetAvailabilityModel  quantity= (GetAvailabilityModel)cisResult.getResultObject();
+			 int avail=quantity.getAvailability();
+			 GetAvailabilityModel  id= (GetAvailabilityModel)cisResult.getResultObject();
+			 int parkid=id.getParkId();
+			 GetAvailabilityModel  facility= (GetAvailabilityModel)cisResult.getResultObject();
+			 String facilitycode=facility.getFacilityCode();
+			 // update availability
+			 avail=avail-qty;
+			
+			 cisResult = successDAO.getUpdateAvailablility(avail,parkid,facilitycode);
+			
+			
 	    }
 	    else if(status.equalsIgnoreCase(CISConstants.STATUS2)){
 		cisResult = successDAO.paymentEmail(transactionId);
