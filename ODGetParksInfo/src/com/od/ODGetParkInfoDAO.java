@@ -86,6 +86,44 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 
    		return cisResults;  
 	}
+	
+	
+	
+public List<GetDatesModel> getParkinfo(String parkType,String metro,String localArea, String checkdates) {
+		
+		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
+		 List<GetDatesModel> dateList=null;
+		
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		Object[] inputs = new Object[]{localArea,checkdates};
+		List<ODGetParkInfoModel> result = new ArrayList<ODGetParkInfoModel>();;
+		try{
+			// Capture service Start time
+			
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			dateList=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSINFO,inputs,new ODGetParkInfoMapper());
+						
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long results=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park info service:: " +results );
+			
+			cisResults.setResultObject(result);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+
+   		return dateList;  
+	}
+	
+	
 
 } 
 	

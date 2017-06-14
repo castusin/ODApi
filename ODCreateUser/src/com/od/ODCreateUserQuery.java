@@ -9,4 +9,10 @@ public class ODCreateUserQuery {
 
 	public static String SQL_USERTABLE3="insert into Park_current_reservation_hdr (User_id,Reservation_id,Transaction_date,Creation_date)"+"values(?,?,?,?)";     
 
+	//public static String SQL_GETFACILITYDETAILS ="SELECT A.Facility_type_code,A.Regular_price FROM Park_facility_inventory_pricing A JOIN Park_current_reservation_det B ON A.Park_id = B.Park_id  WHERE A.Park_id =?" ;
+	
+	//public static String SQL_GETFACILITYDETAILS ="SELECT Facility_type_code,Regular_price FROM Park_facility_inventory_pricing  WHERE Park_id =?" ;
+	
+	public static String SQL_CREATEFACILITYDETAILS="insert into Park_facility_inventory_pricing (park_id,Facility_type_code,Regular_price,Max_qty)"+"values(?,?,?,?)";     
+
 }

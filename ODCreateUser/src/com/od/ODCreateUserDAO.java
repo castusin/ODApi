@@ -8,6 +8,7 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
@@ -17,6 +18,7 @@ import java.io.InputStreamReader;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
+import com.cis.EmailCommunication;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
 
@@ -27,6 +29,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			String address2, String city, String state,  int pincode, String createDate) {
 		Logger logger = Logger.getLogger(ODCreateUserDAO.class);
 		CISResults cisResults=new CISResults();
+		
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		try{
 			// Capture service Start time
@@ -35,8 +38,15 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			 String serviceStartTime=time.getTimeZone();
 			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE,userId,firstName,lastName,emailId,phone1,phone2,address1,address2,city,state,pincode,createDate);
 			//cisResults.setResponseCode(CISConstants.YES); 
-			String serviceEndTime=time.getTimeZone();
+			 String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			 
+			 
+			 
+			
+			 
+			 
+			 
 			 logger.info("user table query time:: " +cisResults);
 			
 		} catch (DataAccessException e) {
@@ -112,7 +122,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		
 	}
 
-	public CISResults pay()throws NoSuchAlgorithmException, Throwable {
+	/*public CISResults pay()throws NoSuchAlgorithmException, Throwable {
         
         byte[] dataBytes = new byte[1024];
         CISResults cisResult=new CISResults();
@@ -146,7 +156,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
         
         
         String postData="";
-    String retval = "";
+        String retval = "";
  
     postData += "key=" + key + "&txnid="+txnid +"&amount=" +amount+ "&productinfo=" +          
               productinfo +"&firstname=" +firstname + "&email="+email+ "&phone="+phone+"&surl="+surl+ "&furl="+furl+"&hash="+str+"&service_provider="+service_provider;
@@ -171,8 +181,63 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
     cisResult.setResultObject(retval);
        return cisResult;
       
- }
+ }*/
+
+	/*public List<FacilityDetails> getFacilityDetails(int parkId) {
 		
+		CISResults cisResults=new CISResults();
+		List<FacilityDetails> facilityDetails=null;
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		Object[] inputs = new Object[]{parkId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			facilityDetails = getJdbcTemplate().query(ODCreateUserQuery.SQL_GETFACILITYDETAILS,inputs,new FacilityMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get facility details service:: " +result );
+			//cisResults.setResultObject(res);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return facilityDetails;  
+	}
+*/
+	public CISResults createFacilityDetails(int parkId,
+			String facilityCode, float rate, int qty) {
+		CISResults cisResults=new CISResults();
+		//List<FacilityDetails> facilityDetails=null;
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		//Object[] inputs = new Object[]{parkId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			 getJdbcTemplate().update(ODCreateUserQuery.SQL_CREATEFACILITYDETAILS,parkId,facilityCode,rate,qty);
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get facility details service:: " +result );
+			//cisResults.setResultObject(res);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return cisResults;  
+	}
 }
 
 //String data= "nScTz3tw|40359a951310ea72cbf1|100|ODinfo|uday|udaykatikala@gmail.com||||||||||A64STBWqP9";

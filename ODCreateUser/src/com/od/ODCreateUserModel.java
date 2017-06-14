@@ -2,6 +2,7 @@ package com.od;
 
 
 import java.sql.Date;
+import java.util.List;
  
 public class ODCreateUserModel {
 	
@@ -26,7 +27,10 @@ public class ODCreateUserModel {
 	public float totalPrice;
 	public String status;
 	public String emailId;
-	public ODCreateUserModel(int userId, String firstName, String lastName, String phoneNumber1, String phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status, String emailId) {
+	
+	public List<FacilityDetails> facilityList;
+	
+	public ODCreateUserModel(int userId, String firstName, String lastName, String phoneNumber1, String phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status, String emailId, List<FacilityDetails> facilityList) {
 		super();
 		this.userId=userId;
 		this.firstName=firstName;
@@ -49,9 +53,23 @@ public class ODCreateUserModel {
 		this.totalPrice=totalPrice;
 		this.status=status;
 		this.emailId=emailId;
+		
+		
+		
+		this.facilityList=facilityList;
 	
 	}
 		
+
+		public List<FacilityDetails> getFacilityList() {
+		return facilityList;
+	}
+
+
+	public void setFacilityList(List<FacilityDetails> facilityList) {
+		this.facilityList = facilityList;
+	}
+
 
 		public String getEmailId() {
 		return emailId;

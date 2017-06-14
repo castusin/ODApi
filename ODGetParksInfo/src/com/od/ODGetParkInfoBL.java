@@ -65,22 +65,46 @@ public class ODGetParkInfoBL {
 		    curTime += interval;
 		}
 		 String checkdates="";
-				 
+		 
+		 List<GetDatesModel> dateList=null;
+		 
+		// ArrayList<String> dateStringList = new ArrayList<String>();
+		   
+		// ArrayList<Date> dateList = new ArrayList<Date>();		
+		 
 		for(int i=0;i<dates.size();i++){
 		    Date lDate =(Date)dates.get(i);
-		     checkdates = formatter.format(lDate);    
+		    checkdates = formatter.format(lDate);    
 		    System.out.println(" Date is ..." + checkdates);
-		   // cisResult = parkInfoDAO.getDates(checkdates);
+		  //cisResult = parkInfoDAO.getDates(checkdates);
 		   
-		    /*GetDatesModel  name=(GetDatesModel)cisResult.getResultObject();
+		  /*GetDatesModel  name=(GetDatesModel)cisResult.getResultObject();
 			Date checkDate=name.getDate();*/
-	   
+		    dateList = parkInfoDAO.getParkinfo(parkType,metro,localArea,checkdates);
+		    
+		    
+		  /* List<String> dateStrings = new ArrayList<>();
+		    dateStrings.add(dateList);	*/	    
+		    
 		}  
-		 cisResult = parkInfoDAO.getParksinfo(parkType,metro,localArea,checkdates);
-		cisResult.setDateList(datesslist);
-		/*String checkDate="";
-		DateTimeFormatter formatter = DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"); 
-	    DateTime dt = formatter.parseDateTime(checkDate);*/
+		
+		cisResult.setDateList(dateList);
+		
+		/* int dateListSize= getdetails.getDateList().size();
+		 for (int i = 0; i < dateListSize; i++)
+		 {
+			Date checkdate= getdetails.getDateList().get(i).date;
+			 
+			  
+			 // cisResults = createUserDAO.createFacilityDetails(parkId,facilityCode,rate,qty);
+		     
+		 }*/
+		
+		 //cisResult = parkInfoDAO.getParksinfo(parkType,metro,localArea,checkdates);
+		 //cisResult.setDateList(datesslist);
+		 /*String checkDate="";
+	 	   DateTimeFormatter formatter = DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"); 
+	       DateTime dt = formatter.parseDateTime(checkDate);*/
 		
 			 
 			// Capture Service End time

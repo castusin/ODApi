@@ -2,6 +2,7 @@ package com.od;
 
 
 import java.util.Date;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
@@ -33,7 +34,7 @@ public class ODPaymentSuccessBL {
 	    CISResults cisResult= new CISResults();
 		testServiceTime seriveTimeCheck=new testServiceTime();
 		String serviceStartTime=time.getTimeZone();
-					
+		 List<GetDatesModel> dateList = null;		
 		final Logger logger = Logger.getLogger(ODPaymentSuccessBL.class);
 			 
 	     cisResult = successDAO.paymentSuccess(transactionId,status);
@@ -85,9 +86,9 @@ public class ODPaymentSuccessBL {
 			 avail=avail-qty;
 			
 			 cisResult = successDAO.getUpdateAvailablility(avail,parkid,facilitycode);
-			
-			
+		
 	    }
+	    
 	    else if(status.equalsIgnoreCase(CISConstants.STATUS2)){
 		cisResult = successDAO.paymentEmail(transactionId);
 		String paymentEmail="";
@@ -97,7 +98,8 @@ public class ODPaymentSuccessBL {
 			 
 		cisResult=sendMail.sendPaymentFailure(paymentEmail);
 			
-	    }	 
+	    }	
+	     
 			// Capture Service End time
 		String serviceEndTime=time.getTimeZone();
 		long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);

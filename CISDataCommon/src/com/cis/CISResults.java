@@ -2,6 +2,7 @@ package com.cis;
 
 import java.util.List;
 
+import com.od.FacilityDetails;
 import com.od.GetDatesModel;
 import com.od.ODParkDetailsService;
 
@@ -15,7 +16,17 @@ public class CISResults {
 	Object resultObject;
 	public List<ODParkDetailsService> parkDetails;
 	public List<GetDatesModel> dateList;
+	public List<FacilityDetails> facilityList;
 	
+	
+	public List<FacilityDetails> getFacilityList() {
+		return facilityList;
+	}
+
+	public void setFacilityList(List<FacilityDetails> facilityList) {
+		this.facilityList = facilityList;
+	}
+
 	public List<GetDatesModel> getDateList() {
 		return dateList;
 	}
