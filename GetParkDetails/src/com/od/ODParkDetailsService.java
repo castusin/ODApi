@@ -20,14 +20,15 @@ public class ODParkDetailsService {
 	String facilityTypeTitle;
 	String facilityInRoomFacilites;
 	String facilityImage;
-		
+	
+	int parkId;
 
 	public ODParkDetailsService(String description, String maxPeople,
 			String maxAdults, String maxKids, String currentAvailableQuantity,
 			float currentPrice, String facilityTypeCode, String facilityType,
 			String maxQty, float regularPrice, Date dateAdded, Date date,
 			String facilityTypeTitle, String facilityInRoomFacilites,
-			String facilityImage) {
+			String facilityImage, int parkId) {
 		super();
 		this.description = description;
 		this.maxPeople = maxPeople;
@@ -44,6 +45,20 @@ public class ODParkDetailsService {
 		this.facilityTypeTitle = facilityTypeTitle;
 		this.facilityInRoomFacilites = facilityInRoomFacilites;
 		this.facilityImage = facilityImage;
+		
+		this.parkId=parkId;
+	}
+
+
+
+	public int getParkId() {
+		return parkId;
+	}
+
+
+
+	public void setParkId(int parkId) {
+		this.parkId = parkId;
 	}
 
 

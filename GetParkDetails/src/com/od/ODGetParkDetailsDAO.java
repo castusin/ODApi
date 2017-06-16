@@ -17,22 +17,25 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 
 	/**
 	 * @param parkId
+	 * @param count 
+	 * @param checkOut 
+	 * @param checkIn 
 	 * @return 1 in case of error or 0 if successful
 	 */
-	public CISResults getParksDetails(String parkId) {
+	public CISResults getParksDetails(String checkIn, String checkOut, String parkId, int count) {
 		
 		ODGetParkDetailsModel parksDetails;
 		ODParkDetailsService parkDetailslist = new ODParkDetailsService();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{parkId};
+		Object[] inputs = new Object[]{checkIn,checkOut,parkId,count};
 		
 		try{
 			// Capture service Start time
 		    TimeCheck time=new TimeCheck();
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
-			List res = getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILS,inputs,new ODGetParkDetailsMapper());
+			List res = getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSDETAILS,inputs,new ODParkDetailsServiceMapper());
 			// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();
 			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
@@ -52,7 +55,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		 * @param parkId
 		 * @return 1 in case of error or 0 if successful
 		 */
-		public List<ODParkDetailsService>  getParksListDetails(String parkId) {
+		/*public List<ODParkDetailsService>  getParksListDetails(String parkId) {
 			
 			//ODGetParkDetailsModel parksDetails=new ODGetParkDetailsModel();
 			List<ODParkDetailsService> parkDetailslist = null;
@@ -78,7 +81,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 			}
 
 	   		return parkDetailslist;  
-		}
+		}*/
 
 }
 

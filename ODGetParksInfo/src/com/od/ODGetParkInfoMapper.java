@@ -24,7 +24,7 @@ public class ODGetParkInfoMapper implements RowMapper{
 		//parksInfo.setState(rs.getString("State"));	
 		//parksInfo.setPin(rs.getString("PIN"));
 		parksInfo.setName(rs.getString("Name"));
-		parksInfo.setDescription(rs.getString("Description"));
+		//parksInfo.setDescription(rs.getString("Description"));
 		//parksInfo.setDetails(rs.getString("Details"));
 		//parksInfo.setOdRating(rs.getFloat("OD_Rating"));
 		//parksInfo.setSponsoredFeaturedFlag(rs.getString("Sponsored_featured_flag"));
@@ -50,10 +50,11 @@ public class ODGetParkInfoMapper implements RowMapper{
 		//parksInfo.setPhotoUrl(rs.getString("Main_photo_url"));
 		//parksInfo.setImagefoldername(rs.getString("Park_sub_images"));
 		//parksInfo.setTagName(rs.getString("Tag_name"));
+		//parksInfo.setFacilitycode(rs.getString("Facility_type_code"));
+		//parksInfo.setFacilityTypeCode(rs.getString("Facility_type_code"));
+		//parksInfo.setAvail(rs.getInt("Current_available_qty"));
 		
-		parksInfo.setFacilityTypeCode(rs.getString("Facility_type_code"));
-		parksInfo.setAvail(rs.getInt("Current_available_qty"));
-		
+		//parksInfo.setCurrentprice(rs.getFloat("Current_price"));
 		return parksInfo;
 	}
 

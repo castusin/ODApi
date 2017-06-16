@@ -13,10 +13,13 @@ public class ODGetParkDetailsWebservice {
 
 	/**
 	 * @param parkId
+	 * @param checkOut 
+	 * @param checkIn 
 	 * @return  1 in case of error or 0 if successful
+	 * @throws Exception 
 	 */
-	public CISResults getParksDetails(String parkId) {
-		 CISResults cisResult = parkDetailsBL.getParksDetails(parkId);	
+	public CISResults getParksDetails(String parkId, String checkIn, String checkOut) throws Exception {
+		 CISResults cisResult = parkDetailsBL.getParksDetails(parkId,checkIn,checkOut);	
 		 logger.info("OD GetParkDetails WebService  " +cisResult );
 		 return cisResult;
 	}

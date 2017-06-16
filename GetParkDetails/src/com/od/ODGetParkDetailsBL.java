@@ -2,6 +2,9 @@
 package com.od;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -21,8 +24,9 @@ public class ODGetParkDetailsBL {
 	/**
 	 * @param parkId
 	 * @return  1 in case of error or 0 if successful
+	 * @throws Exception 
 	 */
-	public CISResults getParksDetails(String parkId) {
+	public CISResults getParksDetails(String parkId,String checkIn, String checkOut) throws Exception {
 		// Capture service Start time
 		    TimeCheck time=new TimeCheck();
 			testServiceTime seriveTimeCheck=new testServiceTime();
@@ -33,12 +37,28 @@ public class ODGetParkDetailsBL {
 		 	List<ODParkDetailsService> parkDetailslist = null;
 			final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
 			
-			cisResult = parkDetailsDAO.getParksDetails( parkId);
+			
+			
+			SimpleDateFormat myFormat = new SimpleDateFormat("yyyy/MM/dd");
+			Date date1 = myFormat.parse(checkIn);
+		    Date date2 = myFormat.parse(checkOut);
+			//long count=((date2.getTime()-date1.getTime())/ (1000 * 60 * 60 * 24));
+		  //  int days = Days.daysBetween(checkIn, checkOut).getDays();
+			
+			
+			int count=0;
+			long diff = date2.getTime() - date1.getTime();
+			long diffDays = diff / (24 * 60 * 60 * 1000)+1;
+			count = (int) diffDays;
+			
+			
+			
+			cisResult = parkDetailsDAO.getParksDetails(checkIn,checkOut,parkId,count);
 	
-			parkDetailslist	 = parkDetailsDAO.getParksListDetails( parkId);
+		//	parkDetailslist	 = parkDetailsDAO.getParksListDetails( parkId);
 						
 			//cisResult.setResultObject(parkDetailslist);
-			cisResult.setParkDetails(parkDetailslist);
+			//cisResult.setParkDetails(parkDetailslist);
 			 
 			logger.debug("OD GetParkDetailsBL service" +cisResult);
 			 

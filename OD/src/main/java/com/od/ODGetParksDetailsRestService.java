@@ -45,9 +45,10 @@ public class ODGetParksDetailsRestService {
 	 * @param request
 	 * @param parkId
 	 * @return  1 in case of error or 200 if successful
+	 * @throws Exception 
 	 */
 	@RequestMapping(value="/getParksDetails",method=RequestMethod.GET,produces={"application/json"})
-	 public String getParksDetails(HttpServletRequest request,@RequestParam ("parkId") String parkId){
+	 public String getParksDetails(HttpServletRequest request,@RequestParam ("parkId") String parkId,@RequestParam ("checkIn") String checkIn,@RequestParam ("checkOut") String checkOut) throws Exception{
 		//Logger class
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 
@@ -62,7 +63,7 @@ public class ODGetParksDetailsRestService {
 		//  if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 		  //  {
 			  ODGetParkDetailsWebservice parkDetailsWebservice = new ODGetParkDetailsWebservice();
-			  CISResults cisResult = parkDetailsWebservice.getParksDetails(parkId);
+			  CISResults cisResult = parkDetailsWebservice.getParksDetails(parkId,checkIn,checkOut);
 		      
 		   // }
 		  

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ODGetParkDetailsModel {
 	
-	public String parkId;
+	public int parkId;
 	public String overviewText ;
 	public String faq;
 	public String photoUrl;
@@ -37,7 +37,7 @@ public class ODGetParkDetailsModel {
 	public String amenitiesString;
 	public List<ODParkDetailsService> parkDetails;
 	
-	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, String parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString ) {
+	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString ) {
 		super();
 		
 		this.parkId=parkId;
@@ -337,13 +337,40 @@ public class ODGetParkDetailsModel {
 	}
 
 
-	public String getParkId() {
+	
+
+	public int getParkId() {
 		return parkId;
 	}
 
 
-	public void setParkId(String parkId) {
+	public void setParkId(int parkId) {
 		this.parkId = parkId;
+	}
+
+
+	public void setOdRating(float odRating) {
+		this.odRating = odRating;
+	}
+
+
+	public void setMinCost1(float minCost1) {
+		this.minCost1 = minCost1;
+	}
+
+
+	public void setMinCost2(float minCost2) {
+		this.minCost2 = minCost2;
+	}
+
+
+	public void setSpecialOfferPercentage(float specialOfferPercentage) {
+		this.specialOfferPercentage = specialOfferPercentage;
+	}
+
+
+	public void setSpecialRate(float specialRate) {
+		this.specialRate = specialRate;
 	}
 
 

@@ -1,6 +1,7 @@
 package com.od;
 
 
+import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.springframework.context.ApplicationContext;
@@ -37,80 +39,36 @@ public class ODGetParkInfoBL {
 	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkIn, String checkOut) throws Throwable {
 		// Capture service Start time
 		
-		CISResults cisResult=new CISResults();
-	    TimeCheck time=new TimeCheck();
-		testServiceTime seriveTimeCheck=new testServiceTime();
-		String serviceStartTime=time.getTimeZone();
-		ODGetParkInfoModel getdetails=new ODGetParkInfoModel();		
+			CISResults cisResult=new CISResults();
+			TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			ODGetParkInfoModel getdetails=new ODGetParkInfoModel();		
 		
-		final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
+			final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
+			SimpleDateFormat myFormat = new SimpleDateFormat("yyyy/MM/dd");
+			Date date1 = myFormat.parse(checkIn);
+		    Date date2 = myFormat.parse(checkOut);
+			//long count=((date2.getTime()-date1.getTime())/ (1000 * 60 * 60 * 24));
+		  //  int days = Days.daysBetween(checkIn, checkOut).getDays();
+			
+			
+			int count=0;
+			long diff = date2.getTime() - date1.getTime();
+			long diffDays = diff / (24 * 60 * 60 * 1000)+1;
+			count = (int) diffDays;
+			
+			
+			
+			
+			List<GetDatesModel> dateList=null;
 		
-		
-		List<GetDatesModel> datesslist = null;
-		List<Date> dates = new ArrayList<Date>();
-
-		String str_date =checkIn;
-		String end_date =checkOut;
-
-		DateFormat formatter ; 
-
-		formatter = new SimpleDateFormat("yyyy/MM/dd");
-		Date  startDate = (Date)formatter.parse(str_date); 
-		Date  endDate = (Date)formatter.parse(end_date);
-		long interval = 24*1000 * 60 * 60; // 1 hour in millis
-		long endTime =endDate.getTime() ; // create your endtime here, possibly using Calendar or Date
-		long curTime = startDate.getTime();
-		while (curTime <= endTime) {
-		    dates.add(new Date(curTime));
-		    curTime += interval;
-		}
-		 String checkdates="";
-		 
-		 List<GetDatesModel> dateList=null;
-		 
-		// ArrayList<String> dateStringList = new ArrayList<String>();
-		   
-		// ArrayList<Date> dateList = new ArrayList<Date>();		
-		 
-		for(int i=0;i<dates.size();i++){
-		    Date lDate =(Date)dates.get(i);
-		    checkdates = formatter.format(lDate);    
-		    System.out.println(" Date is ..." + checkdates);
-		  //cisResult = parkInfoDAO.getDates(checkdates);
-		   
-		  /*GetDatesModel  name=(GetDatesModel)cisResult.getResultObject();
-			Date checkDate=name.getDate();*/
-		    dateList = parkInfoDAO.getParkinfo(parkType,metro,localArea,checkdates);
+			cisResult = parkInfoDAO.getParkinfo(parkType,metro,localArea,checkIn,checkOut,count);
 		    
-		    
-		  /* List<String> dateStrings = new ArrayList<>();
-		    dateStrings.add(dateList);	*/	    
-		    
-		}  
-		
-		cisResult.setDateList(dateList);
-		
-		/* int dateListSize= getdetails.getDateList().size();
-		 for (int i = 0; i < dateListSize; i++)
-		 {
-			Date checkdate= getdetails.getDateList().get(i).date;
-			 
-			  
-			 // cisResults = createUserDAO.createFacilityDetails(parkId,facilityCode,rate,qty);
-		     
-		 }*/
-		
-		 //cisResult = parkInfoDAO.getParksinfo(parkType,metro,localArea,checkdates);
-		 //cisResult.setDateList(datesslist);
-		 /*String checkDate="";
-	 	   DateTimeFormatter formatter = DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"); 
-	       DateTime dt = formatter.parseDateTime(checkDate);*/
-		
-			 
 			// Capture Service End time
-		 String serviceEndTime=time.getTimeZone();
-		 long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
-		 logger.info("Database time for get park info service:: " +result );
+		    String serviceEndTime=time.getTimeZone();
+		    long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+		    logger.info("Database time for get park info service:: " +result );
 			  
 		 return cisResult;
 		}

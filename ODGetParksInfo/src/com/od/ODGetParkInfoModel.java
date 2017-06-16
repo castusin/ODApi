@@ -48,9 +48,13 @@ public class ODGetParkInfoModel {
 	public String facilityTypeCode;
 	public int avail;
 	
+	public String facilitycode;
+	
+	public float currentprice;
+	
 	public List<GetDatesModel> dateList;
 	
-	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, float odRating, String sponsoredFeaturedFlag, String overviewText, String faq, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername, String tagName, Date checkInDate, Date checkOutDate, String facilityTypeCode, int avail, List<GetDatesModel> dateList ) {
+	public ODGetParkInfoModel(String appId, String parktype, String parkSubtype, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String description, String details, int parkId, float odRating, String sponsoredFeaturedFlag, String overviewText, String faq, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, Date dateAdded, Float minCost1, String popularity, Float minCost1People, Float minCost2, Float minCost2People, Float minCost3, Float minCost3People, Float specialOfferPercentage, Float specialRate, String photoUrl, String parkSubcategory, String imagefoldername, String tagName, Date checkInDate, Date checkOutDate, String facilityTypeCode, int avail, List<GetDatesModel> dateList, String facilitycode, float currentprice ) {
 		super();
 		this.appId= appId;
 		this.parktype= parktype ;
@@ -96,11 +100,39 @@ public class ODGetParkInfoModel {
 		this.facilityTypeCode=facilityTypeCode;
 		this.avail=avail;
 		
+		this.facilitycode=facilitycode;
+		
+		this.currentprice=currentprice;
+		
 		this.dateList=dateList;
 	}
 		
 	
 	
+		public float getCurrentprice() {
+		return currentprice;
+	}
+
+
+
+	public void setCurrentprice(float currentprice) {
+		this.currentprice = currentprice;
+	}
+
+
+
+		public String getFacilitycode() {
+		return facilitycode;
+	}
+
+
+
+	public void setFacilitycode(String facilitycode) {
+		this.facilitycode = facilitycode;
+	}
+
+
+
 		public List<GetDatesModel> getDateList() {
 		return dateList;
 	}

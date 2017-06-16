@@ -25,12 +25,12 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 	 * @param checkIn 
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkdates) {
+	public CISResults getParkinfo(String parkType,String metro,String localArea, String checkIn, String checkOut, long count) {
 		
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{localArea,checkdates};
+		Object[] inputs = new Object[]{checkIn,checkOut,count};
 		List<ODGetParkInfoModel> result = new ArrayList<ODGetParkInfoModel>();;
 		try{
 			// Capture service Start time
@@ -89,15 +89,15 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 	
 	
 	
-public List<GetDatesModel> getParkinfo(String parkType,String metro,String localArea, String checkdates) {
+/*public List<GetDatesModel> getParkinfo(String parkType,String metro,String localArea, String checkIn, String checkOut, long count) {
 		
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		 List<GetDatesModel> dateList=null;
 		
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{localArea,checkdates};
-		List<ODGetParkInfoModel> result = new ArrayList<ODGetParkInfoModel>();;
+		Object[] inputs = new Object[]{localArea,checkIn,checkOut};
+		List<ODGetParkInfoModel> result = new ArrayList<ODGetParkInfoModel>();
 		try{
 			// Capture service Start time
 			
@@ -111,7 +111,7 @@ public List<GetDatesModel> getParkinfo(String parkType,String metro,String local
 			long results=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			logger.info("Query time for get park info service:: " +results );
 			
-			cisResults.setResultObject(result);
+			//cisResults.setResultObject(result);
 			
 		} catch (DataAccessException e) {
 			e.printStackTrace();
@@ -121,7 +121,7 @@ public List<GetDatesModel> getParkinfo(String parkType,String metro,String local
 		}
 
    		return dateList;  
-	}
+	}*/
 	
 	
 
