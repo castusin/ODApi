@@ -10,16 +10,18 @@ public class ODGetParkDetailsQuery {
 	//public static String SQL_GETPARKSDETAILSLIST ="SELECT Facility_type_code,Facility_type,Room_type_desc,Max_people,Max_adults,Max_kids,Max_qty,Regular_price,Date_added,Facility_type_title,Facility_in_Room_facilities,Facility_image FROM Park_facility_inventory_pricing  WHERE Park_id =?" ;
 	
 	
-	public static String SQL_GETPARKSDETAILS ="select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) from Park_current_pricing_availability pv, Park_facility_inventory_pricing p where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and pv.date between ? and ? and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code having count(*)=? ";
+	public static String SQL_GETPARKSDETAILS ="select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) AS Current_price from Park_current_pricing_availability pv, Park_facility_inventory_pricing p where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and pv.date between ? and ? and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code having count(*)=? ";
+	//public static String SQL_GETPARKSDETAILS ="select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) as Current_price from Park_current_pricing_availability pv, Park_facility_inventory_pricing p where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and pv.date between ? and ?  and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code having count(*)=?";
+
 }
 
 
 
-/*select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price)
-from Park_current_pricing_availability pv, Park_facility_inventory_pricing p
+/*select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) as Current_price
+from littlepa_ODDB.Park_current_pricing_availability pv, littlepa_ODDB.Park_facility_inventory_pricing p
 where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code
-and pv.date between ? and ? 
+and pv.date between '2017-06-14'and '2017-06-17' 
 and current_available_qty > 0
-and pv.park_id=?
+and pv.park_id=100254
 group by pv.Park_id, pv.Facility_type_code
-having count(*)=?;*/
+having count(*)=4;*/

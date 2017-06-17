@@ -54,7 +54,7 @@ public class ODGetParkInfoMapper implements RowMapper{
 		//parksInfo.setFacilityTypeCode(rs.getString("Facility_type_code"));
 		//parksInfo.setAvail(rs.getInt("Current_available_qty"));
 		
-		//parksInfo.setCurrentprice(rs.getFloat("Current_price"));
+		parksInfo.setCurrentprice(rs.getFloat("Current_price"));
 		return parksInfo;
 	}
 
