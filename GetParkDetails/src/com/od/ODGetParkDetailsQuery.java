@@ -10,18 +10,42 @@ public class ODGetParkDetailsQuery {
 	//public static String SQL_GETPARKSDETAILSLIST ="SELECT Facility_type_code,Facility_type,Room_type_desc,Max_people,Max_adults,Max_kids,Max_qty,Regular_price,Date_added,Facility_type_title,Facility_in_Room_facilities,Facility_image FROM Park_facility_inventory_pricing  WHERE Park_id =?" ;
 	
 	
-	public static String SQL_GETPARKSDETAILS ="select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) AS Current_price from Park_current_pricing_availability pv, Park_facility_inventory_pricing p where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and pv.date between ? and ? and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code having count(*)=? ";
-	//public static String SQL_GETPARKSDETAILS ="select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) as Current_price from Park_current_pricing_availability pv, Park_facility_inventory_pricing p where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and pv.date between ? and ?  and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code having count(*)=?";
+	//public static String SQL_GETPARKSDETAILS ="select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) AS Current_price from Park_current_pricing_availability pv, Park_facility_inventory_pricing p where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and pv.date between ? and ? and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code having count(*)=? ";
+	
+	//public static String SQL_GETPARKSDETAILS ="select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) as Current_price,A.Metro, A.Local_area, A.City, A.Name,A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text,A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string,A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people,A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,A.Special_rate,A.Amenities_string,A.Main_photo_url ,p.Facility_type,p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code from Park_current_pricing_availability pv, Park_facility_inventory_pricing p, Park_info A where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and p.park_id = A.park_id and pv.date between ? and ? and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code,A.Metro, A.Local_area, A.City, A.Name, A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text, A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string, A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people, A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,A.Special_rate,A.Amenities_string,A.Main_photo_url,p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code having count(*)=?";
 
+	 // public static String SQL_GETPARKSDETAILS ="select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) as Current_price,A.Metro, A.Local_area, A.City, A.Name,A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text,A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string,A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people,A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,A.Special_rate,A.Amenities_string,A.Main_photo_url ,p.Facility_type,p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code from Park_current_pricing_availability pv, Park_facility_inventory_pricing p, Park_info A where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and p.park_id = A.park_id and pv.date between ? and ? and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code,A.Metro, A.Local_area, A.City, A.Name, A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text, A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string, A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people, A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,A.Special_rate,A.Amenities_string,A.Main_photo_url,p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code  having count(*)=?";
+
+	 public static String SQL_GETPARKSDETAILS ="select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) as Current_price,A.Metro, A.Local_area, A.City, A.Name,A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text,A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string,A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people,A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,A.Special_rate,A.Amenities_string,A.Main_photo_url ,p.Facility_type,p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code from Park_current_pricing_availability pv, Park_facility_inventory_pricing p, Park_info A where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and p.park_id = A.park_id and pv.date between ? and ? and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code,A.Metro, A.Local_area, A.City, A.Name, A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text, A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string, A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people, A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,A.Special_rate,A.Amenities_string,A.Main_photo_url,p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code having count(*)=?";
+
+	
 }
 
+/*select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) as Current_price,A.Metro, A.Local_area, A.City, A.Name,A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text,A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string,A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people,A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,A.Special_rate,A.Amenities_string,A.Main_photo_url ,p.Facility_type,p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code
+from Park_current_pricing_availability pv, Park_facility_inventory_pricing p, Park_info A where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code and p.park_id = A.park_id and pv.date between ? and ? and current_available_qty > 0 and pv.park_id=? group by pv.Park_id, pv.Facility_type_code,A.Metro, A.Local_area, A.City, A.Name, A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text, A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string, A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people, A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,A.Special_rate,A.Amenities_string,A.Main_photo_url,p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code 
+  having count(*)=?
+*/
+
+/*select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) as Current_price, 
+A.Metro, A.Local_area, A.City, A.Name,
+A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text,
+A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string,
+A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people,
+A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,
+A.Special_rate,A.Amenities_string,A.Main_photo_url ,p.Facility_type, 
+p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code
 
 
-/*select pv.Park_id, pv.Facility_type_code, count(*) , min(Current_price) as Current_price
-from littlepa_ODDB.Park_current_pricing_availability pv, littlepa_ODDB.Park_facility_inventory_pricing p
+from littlepa_ODDB.Park_current_pricing_availability pv, littlepa_ODDB.Park_facility_inventory_pricing p, littlepa_ODDB.Park_info A
 where p.park_id = pv.Park_id and p.facility_type_code = pv.Facility_type_code
-and pv.date between '2017-06-14'and '2017-06-17' 
+and p.park_id = A.park_id
+and pv.date between ? and ? 
 and current_available_qty > 0
-and pv.park_id=100254
-group by pv.Park_id, pv.Facility_type_code
-having count(*)=4;*/
+and pv.park_id=?
+group by pv.Park_id, pv.Facility_type_code,A.Metro, A.Local_area, A.City, A.Name,
+A.Description,A.OD_Rating,A.Street_address,A.State,A.PIN,A.Details,A.Overview_text,
+A.Latitude,A.Longitude,A.Type_string,A.Nature_string,A.Sub_category_string,
+A.Duration_string,A.Max_people,A.Min_cost1,A.Min_cost1_people,
+A.Min_cost2,A.Min_cost2_people,A.Special_offer_percentage,
+A.Special_rate,A.Amenities_string,A.Main_photo_url,p.Room_type_desc,p.Max_people,p.Max_adults,p.Max_kids,p.Max_qty,p.Regular_price,p.Facility_image,p.Facility_in_Room_facilities,p.Facility_type_title,p.Facility_type_code
+having count(*)=?*/

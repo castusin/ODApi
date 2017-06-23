@@ -25,12 +25,12 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 	 * @param checkIn 
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults getParkinfo(String parkType,String metro,String localArea, String checkIn, String checkOut, long count) {
+	public CISResults getParkinfo(String parkType,String localArea, String checkIn, String checkOut, long count) {
 		
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{checkIn,checkOut,count};
+		Object[] inputs = new Object[]{checkIn,checkOut,count,localArea};
 		List<ODGetParkInfoModel> result = new ArrayList<ODGetParkInfoModel>();;
 		try{
 			// Capture service Start time

@@ -36,7 +36,7 @@ public class ODGetParkInfoBL {
 	 * @return  1 in case of error or 0 if successful
 	 * @throws Throwable 
 	 */
-	public CISResults getParksinfo(String parkType,String metro,String localArea, String checkIn, String checkOut) throws Throwable {
+	public CISResults getParksinfo(String parkType,String localArea, String checkIn, String checkOut) throws Throwable {
 		// Capture service Start time
 		
 			CISResults cisResult=new CISResults();
@@ -63,7 +63,7 @@ public class ODGetParkInfoBL {
 			
 			List<GetDatesModel> dateList=null;
 		
-			cisResult = parkInfoDAO.getParkinfo(parkType,metro,localArea,checkIn,checkOut,count);
+			cisResult = parkInfoDAO.getParkinfo(parkType,localArea,checkIn,checkOut,count);
 		    
 			// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();

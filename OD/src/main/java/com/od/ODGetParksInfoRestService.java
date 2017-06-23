@@ -53,7 +53,7 @@ public class ODGetParksInfoRestService {
 	 * @throws Throwable 
 	 */
 	@RequestMapping(value="/getParksinfo",method=RequestMethod.GET,produces={"application/json"})
-	 public String getParksinfo(HttpServletRequest request,@RequestParam ("parkType") String parkType,@RequestParam ("metro") String metro, @RequestParam ("localArea") String localArea,@RequestParam ("checkIn") String checkIn,@RequestParam ("checkOut") String checkOut) throws Throwable{
+	 public String getParksinfo(HttpServletRequest request,@RequestParam ("parkType") String parkType, @RequestParam ("localArea") String localArea,@RequestParam ("checkIn") String checkIn,@RequestParam ("checkOut") String checkOut) throws Throwable{
 		
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 
@@ -67,7 +67,7 @@ public class ODGetParksInfoRestService {
 		  //if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 		   // {
 			  ODGetParkInfoWebService parkInfoWebService = new ODGetParkInfoWebService();
-			  CISResults cisResult = parkInfoWebService.getParksinfo(parkType,metro,localArea,checkIn,checkOut);
+			  CISResults cisResult = parkInfoWebService.getParksinfo(parkType,localArea,checkIn,checkOut);
 		   // }
 		  
 		// Capture Service End time
