@@ -52,4 +52,12 @@
 <property name="username" value="castusin_od"/>  
 <property name="password" value="outingday1@3" />  
 </bean>
+<!-- <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+<property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+<property name="url" value="jdbc:mysql://204.93.169.64:3306/castusin_testod"/>  
+<property name="username" value="castusin_od"/>  
+<property name="password" value="outingday1@3" />  
+ 
+</bean> -->
+
 </beans>

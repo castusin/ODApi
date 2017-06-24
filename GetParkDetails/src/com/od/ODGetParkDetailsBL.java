@@ -52,13 +52,13 @@ public class ODGetParkDetailsBL {
 			count = (int) diffDays;
 			
 			
-			
-			cisResult = parkDetailsDAO.getParksDetails(checkIn,checkOut,parkId,count);
+			cisResult = parkDetailsDAO.getParksDetail(parkId);
+			parkDetailslist = parkDetailsDAO.getParksDetails(checkIn,checkOut,parkId,count);
 	
 		//	parkDetailslist	 = parkDetailsDAO.getParksListDetails( parkId);
-						
-			//cisResult.setResultObject(parkDetailslist);
-			//cisResult.setParkDetails(parkDetailslist);
+			 cisResult.setParkDetails(parkDetailslist);	
+			// cisResult.setResultObject(parkDetailslist);
+			
 			 
 			logger.debug("OD GetParkDetailsBL service" +cisResult);
 			 

@@ -11,11 +11,12 @@ public class ODGetParkDetailsMapper implements RowMapper{
 	
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
-		ODGetParkDetailsModel parkDetails = new ODGetParkDetailsModel();
-		
+       ODGetParkDetailsModel parkDetails = new ODGetParkDetailsModel();
+       
+        parkDetails.setParkId(rs.getInt("Park_id"));
 		parkDetails.setOverviewText(rs.getString("Overview_text"));
 		parkDetails.setFaq(rs.getString("Faq"));
-		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
+		//parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
 		parkDetails.setName(rs.getString("Name"));
 		parkDetails.setOdRating(rs.getFloat("OD_Rating"));
 		parkDetails.setMetro(rs.getString("Metro"));
@@ -39,12 +40,18 @@ public class ODGetParkDetailsMapper implements RowMapper{
 		parkDetails.setMinCost1People(rs.getInt("Min_cost1_people"));
 		parkDetails.setMinCost2(rs.getFloat("Min_cost2"));
 		parkDetails.setMinCost2People(rs.getInt("Min_cost2_people"));
-		
+		parkDetails.setMinCost3(rs.getFloat("Min_cost3"));
+		parkDetails.setMinCost3People(rs.getInt("Min_cost3_people"));
 		parkDetails.setSpecialOfferPercentage(rs.getFloat("Special_offer_percentage"));
 		parkDetails.setSpecialRate(rs.getFloat("Special_rate"));
 		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
 		parkDetails.setParkSubImages(rs.getString("Park_sub_images"));
 		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));
+		//parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
 		return parkDetails;
 	}
+
+		
+		
+		
 }

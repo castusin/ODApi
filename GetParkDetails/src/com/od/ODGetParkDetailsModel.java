@@ -6,6 +6,11 @@ import java.util.List;
 public class ODGetParkDetailsModel {
 	
 	public int parkId;
+	public String appId;
+	public String parkType;
+	public String facilityTypeCode;
+	
+	public String parksubcategory;
 	public String overviewText ;
 	public String faq;
 	public String photoUrl;
@@ -29,6 +34,8 @@ public class ODGetParkDetailsModel {
 	public int minCost1People;
 	public float minCost2;
 	public int minCost2People ;
+	public float minCost3;
+	public int minCost3People ;
 	public float specialOfferPercentage ;
 	public float specialRate;
 	public String description;
@@ -37,7 +44,7 @@ public class ODGetParkDetailsModel {
 	public String amenitiesString;
 	public List<ODParkDetailsService> parkDetails;
 	
-	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString ) {
+	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString, float minCost3, int minCost3People, String appId, String parkType, String parksubcategory, String facilityTypeCode ) {
 		super();
 		
 		this.parkId=parkId;
@@ -73,9 +80,87 @@ public class ODGetParkDetailsModel {
 		this.details= details;
 		this.parkSubImages=parkSubImages;
 		this.amenitiesString=amenitiesString;
+		this.minCost3=minCost3;
+		this.minCost3People=minCost3People;
+		
+		this.appId=appId;
+		this.parkType=parkType;
+		this.parksubcategory=parksubcategory;
+		
+		this.facilityTypeCode=facilityTypeCode;
 	}
 	
 	
+	public int getParkId() {
+		return parkId;
+	}
+
+
+	public void setParkId(int parkId) {
+		this.parkId = parkId;
+	}
+
+
+	public String getAppId() {
+		return appId;
+	}
+
+
+	public void setAppId(String appId) {
+		this.appId = appId;
+	}
+
+
+	public String getParkType() {
+		return parkType;
+	}
+
+
+	public void setParkType(String parkType) {
+		this.parkType = parkType;
+	}
+
+
+	public String getFacilityTypeCode() {
+		return facilityTypeCode;
+	}
+
+
+	public void setFacilityTypeCode(String facilityTypeCode) {
+		this.facilityTypeCode = facilityTypeCode;
+	}
+
+
+	public String getParksubcategory() {
+		return parksubcategory;
+	}
+
+
+	public void setParksubcategory(String parksubcategory) {
+		this.parksubcategory = parksubcategory;
+	}
+
+
+	public float getMinCost3() {
+		return minCost3;
+	}
+
+
+	public void setMinCost3(float minCost3) {
+		this.minCost3 = minCost3;
+	}
+
+
+	public int getMinCost3People() {
+		return minCost3People;
+	}
+
+
+	public void setMinCost3People(int minCost3People) {
+		this.minCost3People = minCost3People;
+	}
+
+
 	public String getAmenitiesString() {
 		return amenitiesString;
 	}
@@ -339,14 +424,14 @@ public class ODGetParkDetailsModel {
 
 	
 
-	public int getParkId() {
+	/*public int getParkId() {
 		return parkId;
 	}
 
 
 	public void setParkId(int parkId) {
 		this.parkId = parkId;
-	}
+	}*/
 
 
 	public void setOdRating(float odRating) {
@@ -417,5 +502,7 @@ public class ODGetParkDetailsModel {
 	public ODGetParkDetailsModel(){
 		
 	}
-
+	
+	
+	
 }

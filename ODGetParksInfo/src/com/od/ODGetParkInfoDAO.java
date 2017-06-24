@@ -31,14 +31,14 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		Object[] inputs = new Object[]{checkIn,checkOut,count,localArea};
-		List<ODGetParkInfoModel> result = new ArrayList<ODGetParkInfoModel>();;
+		//List<ODGetParkInfoModel> result = new ArrayList<ODGetParkInfoModel>();;
 		try{
 			// Capture service Start time
 			
 		    TimeCheck time=new TimeCheck();
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
-			result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSINFO,inputs,new ODGetParkInfoMapper());
+			List result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSINFO,inputs,new ODGetParkInfoMapper());
 						
 			// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();

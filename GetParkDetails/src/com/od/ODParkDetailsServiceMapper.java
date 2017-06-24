@@ -30,12 +30,12 @@ public class ODParkDetailsServiceMapper implements RowMapper{
 		parkDetails.setFacilityTypeTitle(rs.getString("Facility_type_title"));
 		parkDetails.setFacilityTypeCode(rs.getString("Facility_type_code"));
 		parkDetails.setParkId(rs.getInt("Park_id"));
-		//parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
+		parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
 		
 		
 		
 		
-		parkDetails.setOverviewText(rs.getString("Overview_text"));
+		/*parkDetails.setOverviewText(rs.getString("Overview_text"));
 		parkDetails.setMetro(rs.getString("Metro"));
 		parkDetails.setLocalArea(rs.getString("Local_area"));
 		parkDetails.setStreetAddress(rs.getString("Street_address"));
@@ -59,7 +59,7 @@ public class ODParkDetailsServiceMapper implements RowMapper{
 		parkDetails.setSpecialOfferPercentage(rs.getFloat("Special_offer_percentage"));
 		parkDetails.setSpecialRate(rs.getFloat("Special_rate"));
 		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
-		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));
+		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));*/
 	
 		return parkDetails;
 	}

@@ -86,7 +86,7 @@ public class ODCreateUserBL {
 			
 			// cisResults = createUserDAO.createFacilityDetails(parkId,facilityCode,rate,qty);
 			 
-			 //cisResults.setFacilityList(facilityList);
+			// cisResults.setFacilityList(facilityList);
 			 
 			 /* FacilityDetails  type=(FacilityDetails)cisResults.getResultObject();
 			  String facilityType=type.getFacilityType();
