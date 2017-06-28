@@ -113,6 +113,7 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
 	}
 
 	public CISResults getAvailablility() {
+		
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		//Object[] inputs = new Object[]{};
@@ -140,7 +141,7 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
 
 	public CISResults getUpdateAvailablility(int avail, int parkid, String facilitycode) {
 		
-CISResults cisResults=new CISResults();
+		CISResults cisResults=new CISResults();
 		
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		
@@ -162,6 +163,32 @@ CISResults cisResults=new CISResults();
 			cisResults.setErrorMessage("Failed to get Profile Data");
 		}
    		return cisResults; 
+	}
+
+	public CISResults SupplierEmail(int transactionId) {
+		// TODO Auto-generated method stub
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		Object[] inputs = new Object[]{transactionId};
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			SupplierModel res = (SupplierModel)getJdbcTemplate().queryForObject(ODPaymentSuccessQuery.SQL_GETSUPPLIERMAIL,inputs,new SupplierMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park details service:: " +result );
+			cisResults.setResultObject(res);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return cisResults;  
 	}
 } 
 	

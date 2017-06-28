@@ -61,6 +61,11 @@
 			<location>E:/GitHub/ODApi/CommonCISValidation/src</location>
 		</link>
 		<link>
+			<name>GetCities</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/GetCities/src</location>
+		</link>
+		<link>
 			<name>GetParkDetails</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/GetParkDetails/src</location>

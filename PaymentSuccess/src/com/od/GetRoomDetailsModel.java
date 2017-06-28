@@ -11,9 +11,9 @@ public class GetRoomDetailsModel {
 	public int quantity;
 	public float totalPrice;
 	public Date creationDate;
+	public int parkId;
 	
-	
-	public GetRoomDetailsModel(String facilityType, Date fromDate, Date toDate, int quantity, float totalPrice, Date creationDate) {
+	public GetRoomDetailsModel(String facilityType, Date fromDate, Date toDate, int quantity, float totalPrice, Date creationDate, int parkId) {
 		super();
 		
 		this.facilityType=facilityType;
@@ -22,9 +22,20 @@ public class GetRoomDetailsModel {
 		this.quantity=quantity;
 		this.totalPrice=totalPrice;
 		this.creationDate=creationDate;
+		this.parkId=parkId;
 	}
 	
 	
+	public int getParkId() {
+		return parkId;
+	}
+
+
+	public void setParkId(int parkId) {
+		this.parkId = parkId;
+	}
+
+
 	public String getFacilityType() {
 		return facilityType;
 	}

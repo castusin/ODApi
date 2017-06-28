@@ -19,6 +19,7 @@ public class GetRoomDetailsMapper implements RowMapper{
 	    paymentStatus.setQuantity(rs.getInt("qty"));
 	    paymentStatus.setTotalPrice(rs.getFloat("total_price"));
 	    paymentStatus.setCreationDate(rs.getDate("Creation_date"));
+	    paymentStatus.setParkId(rs.getInt("park_id"));
 		return paymentStatus;
 	}
 }

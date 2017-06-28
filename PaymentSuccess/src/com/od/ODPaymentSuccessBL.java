@@ -53,6 +53,8 @@ public class ODPaymentSuccessBL {
 			//int qty="";
 	        GetRoomDetailsModel  quan=(GetRoomDetailsModel)cisResult.getResultObject();
 			int qty=quan.getQuantity();
+			 GetRoomDetailsModel  id=(GetRoomDetailsModel)cisResult.getResultObject();
+			int parkid=id.getParkId();
 			//float price="";
 	        GetRoomDetailsModel  rs=(GetRoomDetailsModel)cisResult.getResultObject();
 			float price=rs.getTotalPrice();
@@ -68,24 +70,33 @@ public class ODPaymentSuccessBL {
 			ODPaymentSuccessModel  name=(ODPaymentSuccessModel)cisResult.getResultObject();
 			firstName=name.getFirstName();
 			
-			//sending all parameters required	 
-			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,roomType,checkIn,checkOut,qty,price);
-	    	
+			cisResult = successDAO.SupplierEmail(parkid);
+			String supplierEmail="";
+			SupplierModel  suppemailId=(SupplierModel)cisResult.getResultObject();
+			supplierEmail=suppemailId.getEmailId();
 			
+			//sending all parameters required	 
+			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,roomType,checkIn,checkOut,qty,price,transactionId);
+	    	
+			cisResult=sendMail.sendAdminSuccessMail(firstName,roomType,checkIn,checkOut,qty,price,transactionId);
+			
+			
+			cisResult=sendMail.sendSupplierSuccessMail(supplierEmail,firstName,roomType,checkIn,checkOut,qty,price,transactionId);
+            
 			
 			// get current availability
 			 cisResult = successDAO.getAvailablility();
 			
 			 GetAvailabilityModel  quantity= (GetAvailabilityModel)cisResult.getResultObject();
 			 int avail=quantity.getAvailability();
-			 GetAvailabilityModel  id= (GetAvailabilityModel)cisResult.getResultObject();
-			 int parkid=id.getParkId();
+			 GetAvailabilityModel  iD= (GetAvailabilityModel)cisResult.getResultObject();
+			 int parkId=iD.getParkId();
 			 GetAvailabilityModel  facility= (GetAvailabilityModel)cisResult.getResultObject();
 			 String facilitycode=facility.getFacilityCode();
 			 // update availability
 			 avail=avail-qty;
 			
-			 cisResult = successDAO.getUpdateAvailablility(avail,parkid,facilitycode);
+			 cisResult = successDAO.getUpdateAvailablility(avail,parkId,facilitycode);
 		
 	    }
 	    

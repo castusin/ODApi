@@ -14,6 +14,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/ODCreateUser"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/PaymentSuccess"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/CISCommunication"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/GetCities"/>
         <property name="context-root" value="OD"/>
         <property name="java-output-path" value="/OD/target/classes"/>
     </wb-module>

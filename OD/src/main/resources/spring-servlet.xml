@@ -34,6 +34,9 @@
 		<property name="dataSource" ref="ds" />
 	</bean>
 	
+	<bean id="viewCities" class="com.od.ODGetCitiesDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
 	
   <!-- <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
