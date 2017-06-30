@@ -39,7 +39,7 @@ public class ODGetParkDetailsBL {
 			
 			
 			
-			SimpleDateFormat myFormat = new SimpleDateFormat("yyyy/MM/dd");
+			SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date date1 = myFormat.parse(checkIn);
 		    Date date2 = myFormat.parse(checkOut);
 			//long count=((date2.getTime()-date1.getTime())/ (1000 * 60 * 60 * 24));

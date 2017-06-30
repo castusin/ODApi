@@ -696,9 +696,10 @@ public class ODGetParkInfoModel {
 	public String sponsoredFlag;
 	public String facilitytypecode;
 	public String tag;
+	public Date createDate;
 	public List<ODParkDetailsService> parkDetails;
 	
-	public ODGetParkInfoModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString, float minCost3, int minCost3People, float currentPrice, String appId, String parkType, String parksubcategory, String facilitytypecode, String sponsoredFlag, String tag ) {
+	public ODGetParkInfoModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString, float minCost3, int minCost3People, float currentPrice, String appId, String parkType, String parksubcategory, String facilitytypecode, String sponsoredFlag, String tag, Date createDate ) {
 		super();
 		
 		this.appId=appId;
@@ -743,9 +744,20 @@ public class ODGetParkInfoModel {
 		this.facilitytypecode=facilitytypecode;
 		this.sponsoredFlag=sponsoredFlag;
 		this.tag=tag;
+		this.createDate=createDate;
 	}
 	
 	
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+
 	public String getTag() {
 		return tag;
 	}

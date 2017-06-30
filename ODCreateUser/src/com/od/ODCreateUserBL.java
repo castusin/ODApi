@@ -15,7 +15,15 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.TimeZone;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.EmailCommunication;
@@ -28,8 +36,8 @@ public class ODCreateUserBL {
 	ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-servlet.xml"); 
 	ODCreateUserDAO createUserDAO=(ODCreateUserDAO)ctx.getBean("createUserDAO");
 	
-	 private static final AtomicInteger count = new AtomicInteger(12600002); 
-	 private static final AtomicInteger count2 = new AtomicInteger(1260002);  
+	// private static final AtomicInteger count = new AtomicInteger(12600002); 
+	// private static final AtomicInteger count2 = new AtomicInteger(1994343);  
 	  
 	/**
 	 * @param create user
@@ -44,34 +52,61 @@ public class ODCreateUserBL {
 	         TimeCheck time=new TimeCheck();
 	         testServiceTime seriveTimeCheck=new testServiceTime();
 	         String serviceStartTime=time.getTimeZone();
-	         List<FacilityDetails> facilityList=null;	
+	         List<PackageDetails> facilityList=null;	
 			 final Logger logger = Logger.getLogger(ODCreateUserBL.class);
 			
 			// FacilityDetails facilitydetails=new FacilityDetails();
-			 String facilityCode="";
+			 String Facilitytitle="";
+			 float Facilityprice=0;
+			 String Facilitycode="";
+			 
+			 String Roomtitle="";
+			 float Roomprice=0;
+			 String Roomcode="";
+			 
 			 float rate=0;
-			 int qty=0;
+			 int RoomQuantity=0;
+			 int FacilityQuantity=0;
 			 String createDate=time.getTimeZone();
 			 int parkId=createUser.getParkId();
 			 String email=createUser.getEmailId();
 		   	 String room=createUser.getFaciltiyTypecode();	 
 		   	 float roomPrice=createUser.getTotalPrice();
-		   	 
-			 int userId = count.incrementAndGet();
-		     int reservationId = count2.incrementAndGet();
+		     String firstName=createUser.getFirstName();
+		     Date checkIn=createUser.getFromDate();
+		     Date checkOut=createUser.getToDate();
+		    // SimpleDateFormat myFormat = new SimpleDateFormat("yyyy/MM/dd");
+		    
+			// int userId = count.incrementAndGet();
+		      String sessionId = UUID.randomUUID().toString();
+	          String userId=DigestUtils.sha256Hex(sessionId);
+	          String upToNCharacters = userId.substring(0, Math.min(userId.length(), 6));
+	          userId=upToNCharacters;
+	          
+		     //int reservationId = count2.incrementAndGet();
+	          String sessionId2 = UUID.randomUUID().toString();
+	           String reservationId=DigestUtils.sha256Hex(sessionId2);
+	           String upToNCharacters2 = reservationId.substring(0, Math.min(reservationId.length(),8));
+	           reservationId=upToNCharacters2;
 		     // To get list items
-			 int facilitySize= createUser.getFacilityList().size();
+			 int packageSize= createUser.getPackageList().size();
 			 
-			 for (int i = 0; i < facilitySize; i++)
+			 for (int i = 0; i < packageSize; i++)
 			 {
-				  facilityCode= createUser.getFacilityList().get(i).facilityType;
-				  rate =  createUser.getFacilityList().get(i).price;
-				  qty =  createUser.getFacilityList().get(i).quantity;
-				  
-				  cisResults = createUserDAO.createFacilityDetails(parkId,facilityCode,rate,qty);
-			     
+				 Facilitytitle = createUser.getPackageList().get(i).facilityTitle;
+				 Facilityprice = createUser.getPackageList().get(i).facilityPrice;
+				 Facilitycode =  createUser.getPackageList().get(i).facilityTypeCode;
+				 FacilityQuantity =  createUser.getPackageList().get(i).facilityQuantity;
+				 
+				 Roomtitle = createUser.getPackageList().get(i).roomTitle;
+				 Roomprice = createUser.getPackageList().get(i).roomPrice;
+				 Roomcode =  createUser.getPackageList().get(i).roomTypeCode;
+				 RoomQuantity =  createUser.getPackageList().get(i).roomQuantity;
+				 
+				 cisResults = createUserDAO.createUser2(reservationId,parkId,createUser.getUserType(),Facilitytitle,Facilityprice,Facilitycode,FacilityQuantity,Roomtitle,Roomprice,Roomcode,RoomQuantity,createUser.getFromDate(),createUser.getToDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
+					  
 			 }
-			 
+			
 			 Calendar currentdate = Calendar.getInstance();
 		     DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
 		     TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE2);
@@ -80,7 +115,8 @@ public class ODCreateUserBL {
 		     
 			  cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
 			
-			  cisResults = createUserDAO.createUser2(reservationId,createUser.getParkId(),createUser.getUserType(),createUser.getFaciltiyTypecode(),createUser.getFromDate(),createUser.getToDate(),createUser.getQty(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
+			 // cisResults = createUserDAO.createUser2(reservationId,createUser.getParkId(),createUser.getUserType(),createUser.getFaciltiyTypecode(),createUser.getFromDate(),createUser.getToDate(),createUser.getQty(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
+			 // cisResults = createUserDAO.createUser2(reservationId,parkId,createUser.getUserType(),Facilitytitle,Facilityprice,Facilitycode,Roomtitle,Roomprice,RoomQuantity,createUser.getFromDate(),createUser.getToDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
 						
 			  cisResults = createUserDAO.createUser3(userId,reservationId,createUser.getReservedDate(),createDate);
 			
@@ -94,10 +130,10 @@ public class ODCreateUserBL {
 				
 			 
 			 
-			 if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+			/* if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 			   {
-				  cisResults=sendMail.sendFacilityMail(facilityCode,rate,email,room,roomPrice);
-			   }
+				  cisResults=sendMail.sendPackageMail(email,reservationId,firstName,Facilitytitle,Facilityprice,FacilityQuantity,Roomtitle,Roomprice,RoomQuantity);
+			   }*/
 			 
 			 
 			// cisResults  = createUserDAO.pay();

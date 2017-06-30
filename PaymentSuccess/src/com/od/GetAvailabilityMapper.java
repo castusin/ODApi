@@ -15,7 +15,8 @@ public class GetAvailabilityMapper implements RowMapper{
 		avail.setParkId(rs.getInt("park_id"));
 		avail.setParkId(rs.getInt("Park_id"));
 		avail.setAvailability(rs.getInt("Current_available_qty"));
-	   avail.setFacilityCode(rs.getString("Facility_type_code"));
+	  // avail.setFacilityCode(rs.getString("Facility_type_code"));
+		avail.setRoomtypeCode(rs.getString("Room_type_code"));
 		return avail;
 	}
 }

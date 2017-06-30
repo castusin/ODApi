@@ -23,7 +23,7 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
 	
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults paymentSuccess(int transactionId, String status) {
+	public CISResults paymentSuccess(String transactionId, String status) {
 		
 		CISResults cisResults=new CISResults();
 		
@@ -57,7 +57,7 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
    		return cisResults;  
 	}
 
-	public CISResults paymentEmail(int transactionId) {
+	public CISResults paymentEmail(String transactionId) {
 		
 		
 		CISResults cisResults=new CISResults();
@@ -85,7 +85,7 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
 		return cisResults;  
 	}
 
-	public CISResults getRoomDetails(int transactionId) {
+	public CISResults getRoomDetails(String transactionId) {
 		
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
@@ -139,13 +139,13 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
 		return cisResults;  
 	}
 
-	public CISResults getUpdateAvailablility(int avail, int parkid, String facilitycode) {
+	public CISResults getUpdateAvailablility(int avail, int parkid, String roomtypecode) {
 		
 		CISResults cisResults=new CISResults();
 		
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		
-		Object[] inputs = new Object[]{avail,parkid,facilitycode};
+		Object[] inputs = new Object[]{avail,parkid,roomtypecode};
 		try{
 			// Capture service Start time
 			 TimeCheck time=new TimeCheck();

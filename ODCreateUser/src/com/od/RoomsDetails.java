@@ -2,17 +2,17 @@ package com.od;
 
 
 
-public class FacilityDetails {
+public class RoomsDetails {
 	
 	
-	String facilityType;
+	String roomType;
 	float price;
 	int quantity;
 	
 
-	public FacilityDetails(String facilityType, float price, int quantity) {
+	public RoomsDetails(float price, int quantity, String roomType) {
 		super();
-		this.facilityType = facilityType;
+		this.roomType = roomType;
 		this.price=price;
 		this.quantity=quantity;
 	
@@ -35,19 +35,16 @@ public class FacilityDetails {
 	}
 
 
-
-
-
-	public String getFacilityType() {
-		return facilityType;
+	public String getRoomType() {
+		return roomType;
 	}
 
 
 
 
 
-	public void setFacilityType(String facilityType) {
-		this.facilityType = facilityType;
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
 	}
 
 
@@ -70,7 +67,7 @@ public class FacilityDetails {
 
 
 
-	public FacilityDetails(){
+	public RoomsDetails(){
 		
 	}
 	

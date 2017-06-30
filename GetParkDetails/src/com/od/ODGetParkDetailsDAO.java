@@ -29,7 +29,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		//ODParkDetailsService parkDetailslist = new ODParkDetailsService();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{checkIn,checkOut,parkId,count};
+		Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
 		
 		try{
 			// Capture service Start time

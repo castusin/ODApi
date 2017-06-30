@@ -20,7 +20,7 @@ public class ODParkDetailsService {
 	String facilityTypeTitle;
 	String facilityInRoomFacilites;
 	String facilityImage;
-	
+	//String parkSubImages;
 	int parkId;
 	
 	
@@ -66,7 +66,7 @@ public class ODParkDetailsService {
 			float currentPrice, String facilityTypeCode, String facilityType,
 			String maxQty, float regularPrice, Date dateAdded, Date date,
 			String facilityTypeTitle, String facilityInRoomFacilites,
-			String facilityImage, int parkId, String overviewText, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String details, float odRating, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String popularity, float minCost1, float minCost1People, float minCost2, float minCost2People, float specialOfferPercentage, float specialRate, String photoUrl, String amenitiesString) {
+			String facilityImage, int parkId, String overviewText, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String details, float odRating, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String popularity, float minCost1, float minCost1People, float minCost2, float minCost2People, float specialOfferPercentage, float specialRate, String photoUrl, String amenitiesString, String parkSubImages) {
 		super();
 		this.description = description;
 		this.maxPeople = maxPeople;
@@ -85,7 +85,7 @@ public class ODParkDetailsService {
 		this.facilityImage = facilityImage;
 		
 		this.parkId=parkId;
-		
+		//this.parkSubImages=parkSubImages;
 		/*this.overviewText=overviewText;
 		this.metro=metro;
 		this.localArea=localArea;
@@ -114,20 +114,9 @@ public class ODParkDetailsService {
 	}
 
 
-
-	
-	
-	
-
 	public int getParkId() {
 		return parkId;
 	}
-
-
-
-
-
-
 
 	public void setParkId(int parkId) {
 		this.parkId = parkId;

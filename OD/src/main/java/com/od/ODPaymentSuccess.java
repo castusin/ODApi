@@ -43,7 +43,7 @@ public class ODPaymentSuccess {
 	 * @return 1 in case of error or 200 if successful
 	 */
 	@RequestMapping(value="/paymentStatus",method=RequestMethod.GET,produces={"application/json"})
-	 public String paymentSuccess(@RequestParam ("transactionId") int transactionId,@RequestParam ("status") String status){
+	 public String paymentSuccess(@RequestParam ("transactionId") String transactionId,@RequestParam ("status") String status){
 		
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 

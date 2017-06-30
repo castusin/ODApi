@@ -31,7 +31,7 @@ public class ODParkDetailsServiceMapper implements RowMapper{
 		parkDetails.setFacilityTypeCode(rs.getString("Facility_type_code"));
 		parkDetails.setParkId(rs.getInt("Park_id"));
 		parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
-		
+		//parkDetails.setParkSubImages(rs.getString("Park_sub_images"));
 		
 		
 		

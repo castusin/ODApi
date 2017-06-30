@@ -8,28 +8,28 @@ public class GetAvailabilityModel {
 	public int availability;
 	public int parkId;
 	public int ParkId;
-	public String facilityCode;
-	public GetAvailabilityModel(int availability, int parkId, int ParkId, String facilityCode) {
+	//public String facilityCode;
+	public String roomtypeCode;
+	public GetAvailabilityModel(int availability, int parkId, int ParkId, String roomtypeCode) {
 		super();
 		
 		this.availability=availability;
 		this.parkId=parkId;
 		this.ParkId=ParkId;
-		this.facilityCode=facilityCode;
+		this.roomtypeCode=roomtypeCode;
 	}
 	
 	
 
-	public String getFacilityCode() {
-		return facilityCode;
+
+	public String getRoomtypeCode() {
+		return roomtypeCode;
 	}
 
 
-
-	public void setFacilityCode(String facilityCode) {
-		this.facilityCode = facilityCode;
+	public void setRoomtypeCode(String roomtypeCode) {
+		this.roomtypeCode = roomtypeCode;
 	}
-
 
 
 	public int getAvailability() {

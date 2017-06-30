@@ -17,7 +17,7 @@ public class ODPaymentSuccessWebservice {
 	 * @param parkType
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults paymentSuccess(int transactionId, String status) {
+	public CISResults paymentSuccess(String transactionId, String status) {
 		
 		 CISResults cisResult = successBL.paymentSuccess(transactionId,status);	
 		 logger.info("OD GetParkInfo WebService  " +cisResult );

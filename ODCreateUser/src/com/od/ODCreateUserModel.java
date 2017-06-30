@@ -6,7 +6,7 @@ import java.util.List;
  
 public class ODCreateUserModel {
 	
-	public int userId;
+	public String userId;
 	public String firstName ;
 	public String lastName ;
 	public String phoneNumber1 ;
@@ -28,9 +28,9 @@ public class ODCreateUserModel {
 	public String status;
 	public String emailId;
 	
-	public List<FacilityDetails> facilityList;
-	
-	public ODCreateUserModel(int userId, String firstName, String lastName, String phoneNumber1, String phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status, String emailId, List<FacilityDetails> facilityList) {
+	public List<PackageDetails> packageList;
+	//public List<RoomsDetails> roomList;
+	public ODCreateUserModel(String userId, String firstName, String lastName, String phoneNumber1, String phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status, String emailId, List<PackageDetails> facilityList, List<RoomsDetails> roomList, List<PackageDetails> packageList) {
 		super();
 		this.userId=userId;
 		this.firstName=firstName;
@@ -56,19 +56,25 @@ public class ODCreateUserModel {
 		
 		
 		
-		this.facilityList=facilityList;
-	
+		this.packageList=packageList;
+		//this.roomList=roomList;
 	}
 		
 
-		public List<FacilityDetails> getFacilityList() {
-		return facilityList;
+
+
+		public List<PackageDetails> getPackageList() {
+		return packageList;
 	}
 
 
-	public void setFacilityList(List<FacilityDetails> facilityList) {
-		this.facilityList = facilityList;
+
+
+	public void setPackageList(List<PackageDetails> packageList) {
+		this.packageList = packageList;
 	}
+
+
 
 
 		public String getEmailId() {
@@ -81,12 +87,14 @@ public class ODCreateUserModel {
 	}
 
 
-		public int getUserId() {
+
+
+	public String getUserId() {
 		return userId;
 	}
 
 
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

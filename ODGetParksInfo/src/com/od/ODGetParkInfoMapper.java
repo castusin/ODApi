@@ -51,7 +51,10 @@ public class ODGetParkInfoMapper implements RowMapper{
 		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
 		parkDetails.setParkSubImages(rs.getString("Park_sub_images"));
 		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));
-		parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
+		parkDetails.setSponsoredFlag(rs.getString("Sponsored_featured_flag"));
+		parkDetails.setTag(rs.getString("Tag_name"));
+		//parkDetails.setCreateDate(rs.getDate("Creation_date"));
+		//parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
 		
 		/*parkDetails.setFacilitytypecode(rs.getString("Facility_type_code"));
 		parkDetails.setSponsoredFlag(rs.getString("Sponsored_featured_flag"));	

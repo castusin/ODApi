@@ -5,12 +5,12 @@ package com.od;
 public class ODPaymentSuccessModel {
 	
 	public String status;
-	public int reservationId ;
+	public String reservationId ;
 	public String emailId;
 	public String firstName;
 	
 	
-	public ODPaymentSuccessModel(String status, int reservationId, String emailId, String firstName) {
+	public ODPaymentSuccessModel(String status, String reservationId, String emailId, String firstName) {
 		super();
 		
 		this.status=status;
@@ -62,16 +62,14 @@ public class ODPaymentSuccessModel {
 	}
 
 
-
-
-	public int getReservationId() {
+	public String getReservationId() {
 		return reservationId;
 	}
 
 
 
 
-	public void setReservationId(int reservationId) {
+	public void setReservationId(String reservationId) {
 		this.reservationId = reservationId;
 	}
 

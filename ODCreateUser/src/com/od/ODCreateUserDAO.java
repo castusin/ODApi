@@ -24,7 +24,7 @@ import com.cis.testServiceTime;
 
 public class ODCreateUserDAO extends JdbcDaoSupport{
 
-	public CISResults createUser(int userId, String firstName, String lastName,String emailId,
+	public CISResults createUser(String userId, String firstName, String lastName,String emailId,
 			String phone1, String phone2, String address1,
 			String address2, String city, String state,  int pincode, String createDate) {
 		Logger logger = Logger.getLogger(ODCreateUserDAO.class);
@@ -61,7 +61,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		
 	}
 
-	public CISResults createUser2(int reservationId, int parkId,
+/*	public CISResults createUser2(int reservationId, int parkId,
 			String userType, String faciltiyTypecode, Date fromDate,
 			Date toDate, int qty, float totalPrice, String status, String createDate) {
 		Logger logger = Logger.getLogger(ODCreateUserDAO.class);
@@ -88,9 +88,9 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 
    		return cisResults; 
 		
-	}
+	}*/
 
-	public CISResults createUser3(int userId, int reservationId,
+	public CISResults createUser3(String userId, String reservationId,
 			Date reservedDate, String createDate) {
 		Logger logger = Logger.getLogger(ODCreateUserDAO.class);
 		CISResults cisResults=new CISResults();
@@ -122,6 +122,35 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		
 	}
 
+	/*public CISResults createPackageDetails(int parkId, String facilitytitle,
+			float facilityprice, String facilitycode, String roomtitle,
+			float roomprice, int roomQuantity) {
+		CISResults cisResults=new CISResults();
+		//List<FacilityDetails> facilityDetails=null;
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		//Object[] inputs = new Object[]{parkId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			 getJdbcTemplate().update(ODCreateUserQuery.SQL_CREATEPACKAGEDETAILS,parkId,facilitytitle,facilityprice,facilitycode,roomtitle,roomprice,roomQuantity);
+		     
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get facility details service:: " +result );
+			//cisResults.setResultObject(res);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return cisResults;  
+	}*/
 	/*public CISResults pay()throws NoSuchAlgorithmException, Throwable {
         
         byte[] dataBytes = new byte[1024];
@@ -183,6 +212,39 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
       
  }*/
 
+	public CISResults createUser2(String reservationId, int parkId,
+			String userType, String facilitytitle, float facilityprice,
+			String facilitycode, int facilityQuantity, String roomtitle, float roomprice,
+			String roomcode, int roomQuantity, Date fromDate, Date toDate, float totalPrice,
+			String status, String createDate) {
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		try{
+//reservationId,parkId,createUser.getUserType(),Facilitytitle,Facilityprice,Facilitycode,FacilityQuantity,Roomtitle,Roomprice,Roomcode,RoomQuantity,createUser.getFromDate(),createUser.getToDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
+			  			
+			// Capture service Start time
+			 TimeCheck time=new TimeCheck();
+			 testServiceTime sessionTimeCheck=new testServiceTime();
+			 String serviceStartTime=time.getTimeZone();
+			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE2,reservationId,parkId,userType,facilitytitle,facilityprice,facilitycode,facilityQuantity,roomtitle,roomprice,roomcode,roomQuantity,fromDate,toDate,totalPrice,status,createDate);
+			//cisResults.setResponseCode(CISConstants.YES);  
+			String serviceEndTime=time.getTimeZone();
+			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			 logger.info("user table2 query time:: " +cisResults);
+//			/,,,Room_type_code,,,,,,,,,,User_type
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			//cisResults.setResponseCode(CISConstants.NO); 
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+
+   		return cisResults; 
+		
+	}
+
+
 	/*public List<FacilityDetails> getFacilityDetails(int parkId) {
 		
 		CISResults cisResults=new CISResults();
@@ -211,7 +273,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		return facilityDetails;  
 	}
 */
-	public CISResults createFacilityDetails(int parkId,
+	/*public CISResults createFacilityDetails(int parkId,
 			String facilityCode, float rate, int qty) {
 		CISResults cisResults=new CISResults();
 		//List<FacilityDetails> facilityDetails=null;
@@ -238,6 +300,34 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		}
 		return cisResults;  
 	}
+
+	public CISResults createRoomDetails(int parkId, String roomtypeCode,
+			float rate, int qty) {
+		CISResults cisResults=new CISResults();
+		//List<FacilityDetails> facilityDetails=null;
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		//Object[] inputs = new Object[]{parkId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			 getJdbcTemplate().update(ODCreateUserQuery.SQL_CREATEROOMDETAILS,parkId,roomtypeCode,rate,qty);
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get facility details service:: " +result );
+			//cisResults.setResultObject(res);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return cisResults;  
+	}*/
 }
 
 //String data= "nScTz3tw|40359a951310ea72cbf1|100|ODinfo|uday|udaykatikala@gmail.com||||||||||A64STBWqP9";
