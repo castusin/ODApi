@@ -57,121 +57,9 @@ public class EmailCommunication {
 	    
 	}
 	
-	public CISResults sendStaffMail(String staffEmail) {
-		// TODO Auto-generated method stub
-		CISResults cisResult = new CISResults();
-		
-		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
-                "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
-                "<head>\n" +
-                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
-                "<title></title>\n" +
-                "</head>\n" +
-                "\n" +
-                "<body>\n" +
-                 "<p>Arcturus Care </b><br />"+
-                 
-  				"<p>Your schedule has been created. "+
-                 
-                "<br />\n"+
-                "<br />\n"+
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Arcturus Team<br />\n" +
-
-                "  <br />\n" +
-
-                "</body>\n" +
-                "</html>";
-	String subject = CISConstants.SUBJECT;
-	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,staffEmail, msg, subject);
-	  
-	 } catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-		return cisResult;
-	}
 	
-	
-	public CISResults sendPatientMail(String patientEmail) {
-		// TODO Auto-generated method stub
-		CISResults cisResult = new CISResults();
-		
-		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
-                "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
-                "<head>\n" +
-                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
-                "<title></title>\n" +
-                "</head>\n" +
-                "\n" +
-                "<body>\n" +
-                 "<p>Arcturus Care </b><br />"+
-                 
-  				"<p>Your schedule has been created. "+
-                 
-                "<br />\n"+
-                "<br />\n"+
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Arcturus Team<br />\n" +
 
-                "  <br />\n" +
-
-                "</body>\n" +
-                "</html>";
-	String subject = CISConstants.SUBJECT;
-	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,patientEmail, msg, subject);
-	  
-	 } catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-		return cisResult;
-	}
-	
-	
-	public CISResults sendAdminMail() {
-		// TODO Auto-generated method stub
-		CISResults cisResult = new CISResults();
-		String emailId=CISConstants.ADMINEMAILID;
-		
-		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
-                "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
-                "<head>\n" +
-                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
-                "<title></title>\n" +
-                "</head>\n" +
-                "\n" +
-                "<body>\n" +
-                 "<p>Arcturus Care </b><br />"+
-                 
-                "<p>Your schedule has been created. "+
-                 
-                "<br />\n"+
-                "<br />\n"+
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Arcturus Team<br />\n" +
-
-                "  <br />\n" +
-
-                "</body>\n" +
-                "</html>";
-	String subject = CISConstants.SUBJECT;
-	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,emailId, msg, subject);
-	  
-	 } catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-		return cisResult;
-	}
-
-	public CISResults sendPaymentstatus(String paymentEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName) {
+	public CISResults sendPaymentstatus(String paymentEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell, String suppLand, String suppEmail) {
 		CISResults cisResult = new CISResults();
 		//String emailId=CISConstants.ADMINEMAILID;
 		
@@ -370,7 +258,7 @@ public class EmailCommunication {
 		return cisResult;
 	}
 */
-	public CISResults sendAdminSuccessMail(String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName) {
+	public CISResults sendAdminSuccessMail(String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell, String suppLand, String suppEmail) {
 		CISResults cisResult = new CISResults();
 		String emailId=CISConstants.ADMINEMAILID;
 		
@@ -609,7 +497,7 @@ public class EmailCommunication {
 		return cisResult;
 	}
 
-	public CISResults sendSupplierSuccessMail(String supplierEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName) {
+	public CISResults sendSupplierSuccessMail(String supplierEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell, String suppLand) {
 		CISResults cisResult = new CISResults();
 		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
                 "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +

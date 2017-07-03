@@ -17,6 +17,8 @@ public class SupplierMapper implements RowMapper{
 		//supp.setCreatedBySup(rs.getString("CreatedBy"));
 		//supp.setReservationId(rs.getInt("Reservation_id"));
 		supp.setEmailId(rs.getString("Email_ID"));
+		supp.setCell(rs.getString("Cell_Phone"));
+		supp.setLand(rs.getString("Land_Line"));
 		return supp;
 	}
 }

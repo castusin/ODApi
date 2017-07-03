@@ -66,6 +66,11 @@
 			<location>E:/GitHub/ODApi/GetCities/src</location>
 		</link>
 		<link>
+			<name>GetCouponCodeService</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/GetCouponCodeService/src</location>
+		</link>
+		<link>
 			<name>GetParkDetails</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/GetParkDetails/src</location>

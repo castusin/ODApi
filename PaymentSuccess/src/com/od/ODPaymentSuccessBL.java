@@ -52,6 +52,8 @@ public class ODPaymentSuccessBL {
 	     float totalPrice=0;
 	     String type="";
 	     String  suppEmail="";
+	     String suppCell="";
+	     String suppLand="";
 			ArrayList<Object> roomDetails = new ArrayList<Object>();
 			 
 			for (int i = 0; i < details.size(); i++) {
@@ -109,8 +111,8 @@ public class ODPaymentSuccessBL {
 			//Color color = new Color();
 				
 				suppEmail= suppdetails.get(i).emailId;
-			    
-				
+			    suppCell=suppdetails.get(i).cell;
+				suppLand=suppdetails.get(i).land;
 				
 			     supplierDetails.add(supplierDetaisModel);
 				
@@ -124,13 +126,13 @@ public class ODPaymentSuccessBL {
 			supplierEmail=suppemailId.getEmailId();*/
 			
 			//sending all parameters required	 
-			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName);
+			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppLand,suppEmail);
 	    	
-			cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName);
+			cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppLand,suppEmail);
 	    	
 	    	
 			
-			cisResult=sendMail.sendSupplierSuccessMail(suppEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName);
+			cisResult=sendMail.sendSupplierSuccessMail(suppEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppLand);
             
 			
 			// get current availability

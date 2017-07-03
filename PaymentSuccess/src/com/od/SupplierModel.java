@@ -9,7 +9,9 @@ public class SupplierModel {
 	public int ParkId;
 	public int reservationId;
 	public String emailId;
-	public SupplierModel(String createdByPark, String createdBySup, int ParkId, int reservationId, String emailId) {
+	public String cell;
+	public String land;
+	public SupplierModel(String createdByPark, String createdBySup, int ParkId, int reservationId, String emailId, String cell, String land) {
 		super();
 		
 		this.createdByPark=createdByPark;
@@ -17,9 +19,39 @@ public class SupplierModel {
 		this.ParkId=ParkId;
 		this.reservationId=reservationId;
 		this.emailId=emailId;
+		this.cell=cell;
+		this.land=land;
 	}
 	
 	
+
+
+	public String getCell() {
+		return cell;
+	}
+
+
+
+
+	public void setCell(String cell) {
+		this.cell = cell;
+	}
+
+
+
+
+	public String getLand() {
+		return land;
+	}
+
+
+
+
+	public void setLand(String land) {
+		this.land = land;
+	}
+
+
 
 
 	public String getEmailId() {
