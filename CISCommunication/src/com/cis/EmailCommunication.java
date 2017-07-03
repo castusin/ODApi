@@ -89,9 +89,9 @@ public class EmailCommunication {
 				"<p><b>"+parkName+", "+city+"  </b><br />"+
 				"<p>"+streetAddress+"<br />"+
 				"<p>"+city+", IN<br />"+
-				"<p>Contact : 91-9140-66400000, 91-8885500055<br />"+
+				"<p>Contact : "+suppLand+", "+suppCell+"<br />"+
 				"<p>Fax : <br />"+
-				"<p>E-mail : grv@leonia.in, md.shah@leonia.in, leob1977@staah.net <br /><br />"+
+				"<p>E-mail : "+suppEmail+" <br /><br />"+
 				"<p><b>Primary Guest :</b>"+firstName+" <br />"+
 				/*"<p><b>Room Category :</b>"+roomTitle+" <br />"+*/
 				"<p><b>Meal Plan :</b>Breakfast <br /><br /><br />"+
@@ -288,9 +288,9 @@ public class EmailCommunication {
 				"<p><b>"+parkName+", "+city+"  </b><br />"+
 				"<p>"+streetAddress+"<br />"+
 				"<p>"+city+", IN<br />"+
-				"<p>Contact : 91-9140-66400000, 91-8885500055<br />"+
+				"<p>Contact : "+suppLand+", "+suppCell+"<br />"+
 				"<p>Fax : <br />"+
-				"<p>E-mail : grv@leonia.in, md.shah@leonia.in, leob1977@staah.net <br /><br />"+
+				"<p>E-mail : "+suppEmail+" <br /><br />"+
 				"<p><b>Primary Guest :</b>"+firstName+" <br />"+
 				/*"<p><b>Room Category :</b>"+roomTitle+" <br />"+*/
 				"<p><b>Meal Plan :</b>Breakfast <br /><br /><br />"+
@@ -525,9 +525,9 @@ public class EmailCommunication {
 				"<p><b>"+parkName+", "+city+"  </b><br />"+
 				"<p>"+streetAddress+"<br />"+
 				"<p>"+city+", IN<br />"+
-				"<p>Contact : 91-9140-66400000, 91-8885500055<br />"+
+				"<p>Contact : "+suppLand+", "+suppCell+"<br />"+
 				"<p>Fax : <br />"+
-				"<p>E-mail : grv@leonia.in, md.shah@leonia.in, leob1977@staah.net <br /><br />"+
+				"<p>E-mail : "+supplierEmail+" <br /><br />"+
 				"<p><b>Primary Guest :</b>"+firstName+" <br />"+
 				/*"<p><b>Room Category :</b>"+roomTitle+" <br />"+*/
 				"<p><b>Meal Plan :</b>Breakfast <br /><br /><br />"+
