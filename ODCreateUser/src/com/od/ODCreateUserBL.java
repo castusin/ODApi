@@ -56,17 +56,13 @@ public class ODCreateUserBL {
 			 final Logger logger = Logger.getLogger(ODCreateUserBL.class);
 			
 			// FacilityDetails facilitydetails=new FacilityDetails();
-			 String Facilitytitle="";
-			 float Facilityprice=0;
-			 String Facilitycode="";
-			 
-			 String Roomtitle="";
-			 float Roomprice=0;
-			 String Roomcode="";
-			 
+			 String title="";
+			 float price=0;
+			 String typeCode="";
+			 String type="";
 			 float rate=0;
-			 int RoomQuantity=0;
-			 int FacilityQuantity=0;
+			 int quantity=0;
+			
 			 String createDate=time.getTimeZone();
 			 int parkId=createUser.getParkId();
 			 String email=createUser.getEmailId();
@@ -93,17 +89,13 @@ public class ODCreateUserBL {
 			 
 			 for (int i = 0; i < packageSize; i++)
 			 {
-				 Facilitytitle = createUser.getPackageList().get(i).facilityTitle;
-				 Facilityprice = createUser.getPackageList().get(i).facilityPrice;
-				 Facilitycode =  createUser.getPackageList().get(i).facilityTypeCode;
-				 FacilityQuantity =  createUser.getPackageList().get(i).facilityQuantity;
-				 
-				 Roomtitle = createUser.getPackageList().get(i).roomTitle;
-				 Roomprice = createUser.getPackageList().get(i).roomPrice;
-				 Roomcode =  createUser.getPackageList().get(i).roomTypeCode;
-				 RoomQuantity =  createUser.getPackageList().get(i).roomQuantity;
-				 
-				 cisResults = createUserDAO.createUser2(reservationId,parkId,createUser.getUserType(),Facilitytitle,Facilityprice,Facilitycode,FacilityQuantity,Roomtitle,Roomprice,Roomcode,RoomQuantity,createUser.getFromDate(),createUser.getToDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
+				 title = createUser.getPackageList().get(i).title;
+				 price = createUser.getPackageList().get(i).price;
+				 typeCode =  createUser.getPackageList().get(i).typeCode;
+				 quantity =  createUser.getPackageList().get(i).quantity;
+				 type =  createUser.getPackageList().get(i).type;
+								 
+				 cisResults = createUserDAO.createUser2(reservationId,parkId,title,price,typeCode,quantity,type,createUser.getFromDate(),createUser.getToDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
 					  
 			 }
 			

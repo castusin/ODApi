@@ -16,21 +16,17 @@ public class PackageMapper implements RowMapper{
 		
 		
 		
-		packagedetails.setFacilityTypeCode(rs.getString("facility_type_code"));
-		packagedetails.setRoomTypeCode(rs.getString("Room_type_code"));
+		packagedetails.setTypeCode(rs.getString("type_code"));
 		
-		packagedetails.setFacilityQuantity(rs.getInt("Facility_quantity"));
-		packagedetails.setRoomQuantity(rs.getInt("Room_quantity"));
+		packagedetails.setQuantity(rs.getInt("Quantity"));
 		
-		packagedetails.setFacilityTitle(rs.getString("Facility_title"));
-		packagedetails.setRoomTitle(rs.getString("Room_title"));
+		packagedetails.setTitle(rs.getString("Title"));
 		
 
-		packagedetails.setRoomPrice(rs.getFloat("Room_price"));
-		packagedetails.setFacilityPrice(rs.getFloat("Facility_price"));
+		packagedetails.setPrice(rs.getFloat("Price"));
 		
 
-		//packagedetails.setFacilityQuantity(rs.getInt("Max_qty"));
+		packagedetails.setType(rs.getString("type"));
 		
 		
 		return packagedetails;

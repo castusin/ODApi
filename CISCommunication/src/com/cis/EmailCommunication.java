@@ -171,7 +171,7 @@ public class EmailCommunication {
 		return cisResult;
 	}
 
-	public CISResults sendPaymentstatus(String paymentEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String roomTitle, float roomPrice, int roomQuantity) {
+	public CISResults sendPaymentstatus(String paymentEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName) {
 		CISResults cisResult = new CISResults();
 		//String emailId=CISConstants.ADMINEMAILID;
 		
@@ -198,14 +198,14 @@ public class EmailCommunication {
  				"<p><b>Hotel Details </b><br />"+
  			    "<b>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</b> "+
 				
-				"<p><b>Leo Biz At Leonia, HYDERABAD  </b><br />"+
-				"<p>Bommaraspet, Shameerpet, Ranga Reddy, Hyderabad, Telangana<br />"+
-				"<p>Shameerpet Hyderabad , HYDERABAD, IN<br />"+
+				"<p><b>"+parkName+", "+city+"  </b><br />"+
+				"<p>"+streetAddress+"<br />"+
+				"<p>"+city+", IN<br />"+
 				"<p>Contact : 91-9140-66400000, 91-8885500055<br />"+
 				"<p>Fax : <br />"+
 				"<p>E-mail : grv@leonia.in, md.shah@leonia.in, leob1977@staah.net <br /><br />"+
 				"<p><b>Primary Guest :</b>"+firstName+" <br />"+
-				"<p><b>Room Category :</b>"+roomTitle+" <br />"+
+				/*"<p><b>Room Category :</b>"+roomTitle+" <br />"+*/
 				"<p><b>Meal Plan :</b>Breakfast <br /><br /><br />"+
 				
 				
@@ -216,9 +216,9 @@ public class EmailCommunication {
 				
 				
 				
-				"<p>Room Type "+roomTitle+"</b><br />"+
+				/*"<p>Room Type "+roomTitle+"</b><br />"+
 				"<p>Room Price "+roomPrice+"</b><br />"+
-				"<p>Room quantity "+roomQuantity+"</b><br /><br /><br />"+
+				"<p>Room quantity "+roomQuantity+"</b><br /><br /><br />"+*/
 				"<p>Facility quantity "+facilityQuantity+"</b><br />"+
 				"<p>Facility Type "+facilityTitle+"</b><br />"+
 				"<p>Facility Price "+facilityPrice+"</b><br /><br />"+
@@ -372,8 +372,7 @@ public class EmailCommunication {
 */
 	public CISResults sendAdminSuccessMail(String firstName, Date checkIn,
 			Date checkOut, float price, String transactionId,
-			String facilityTitle, float facilityPrice, int facilityQuantity,
-			String roomTitle, float roomPrice, int roomQuantity) {
+			String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName) {
 		CISResults cisResult = new CISResults();
 		String emailId=CISConstants.ADMINEMAILID;
 		
@@ -400,14 +399,14 @@ public class EmailCommunication {
  				"<p><b>Hotel Details </b><br />"+
  			    "<b>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</b> "+
 				
-				"<p><b>Leo Biz At Leonia, HYDERABAD  </b><br />"+
-				"<p>Bommaraspet, Shameerpet, Ranga Reddy, Hyderabad, Telangana<br />"+
-				"<p>Shameerpet Hyderabad , HYDERABAD, IN<br />"+
+				"<p><b>"+parkName+", "+city+"  </b><br />"+
+				"<p>"+streetAddress+"<br />"+
+				"<p>"+city+", IN<br />"+
 				"<p>Contact : 91-9140-66400000, 91-8885500055<br />"+
 				"<p>Fax : <br />"+
 				"<p>E-mail : grv@leonia.in, md.shah@leonia.in, leob1977@staah.net <br /><br />"+
 				"<p><b>Primary Guest :</b>"+firstName+" <br />"+
-				"<p><b>Room Category :</b>"+roomTitle+" <br />"+
+				/*"<p><b>Room Category :</b>"+roomTitle+" <br />"+*/
 				"<p><b>Meal Plan :</b>Breakfast <br /><br /><br />"+
 				
 				
@@ -418,9 +417,9 @@ public class EmailCommunication {
 				
 				
 				
-				"<p>Room Type "+roomTitle+"</b><br />"+
+				/*"<p>Room Type "+roomTitle+"</b><br />"+
 				"<p>Room Price "+roomPrice+"</b><br />"+
-				"<p>Room quantity "+roomQuantity+"</b><br /><br /><br />"+
+				"<p>Room quantity "+roomQuantity+"</b><br /><br /><br />"+*/
 				"<p>Facility quantity "+facilityQuantity+"</b><br />"+
 				"<p>Facility Type "+facilityTitle+"</b><br />"+
 				"<p>Facility Price "+facilityPrice+"</b><br /><br />"+

@@ -213,9 +213,8 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
  }*/
 
 	public CISResults createUser2(String reservationId, int parkId,
-			String userType, String facilitytitle, float facilityprice,
-			String facilitycode, int facilityQuantity, String roomtitle, float roomprice,
-			String roomcode, int roomQuantity, Date fromDate, Date toDate, float totalPrice,
+			String title, float price,
+			String typeCode, int quantity, String type, Date fromDate, Date toDate, float totalPrice,
 			String status, String createDate) {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
@@ -226,7 +225,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE2,reservationId,parkId,userType,facilitytitle,facilityprice,facilitycode,facilityQuantity,roomtitle,roomprice,roomcode,roomQuantity,fromDate,toDate,totalPrice,status,createDate);
+			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE2,reservationId,parkId,title,price,typeCode,quantity,type,fromDate,toDate,totalPrice,status,createDate);
 			//cisResults.setResponseCode(CISConstants.YES);  
 			String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);

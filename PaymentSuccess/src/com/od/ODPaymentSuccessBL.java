@@ -1,6 +1,7 @@
 package com.od;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,59 +40,40 @@ public class ODPaymentSuccessBL {
 			 
 	     cisResult = successDAO.paymentSuccess(transactionId,status);
 	    
-	     cisResult = successDAO.getRoomDetails(transactionId);
-	     
-	        String roomType="";
-	        GetRoomDetailsModel  type=(GetRoomDetailsModel)cisResult.getResultObject();
-			roomType=type.getFacilityType();
-			//Date checkIn="";
-	        GetRoomDetailsModel  in=(GetRoomDetailsModel)cisResult.getResultObject();
-	        Date checkIn=in.getFromDate();
-			//Date checkOut="";
-	        GetRoomDetailsModel  out=(GetRoomDetailsModel)cisResult.getResultObject();
-			Date checkOut=out.getToDate();
-			//int qty="";
-	        GetRoomDetailsModel  quan=(GetRoomDetailsModel)cisResult.getResultObject();
-			int qty=quan.getRoomQuantity();
-			 GetRoomDetailsModel  id=(GetRoomDetailsModel)cisResult.getResultObject();
-			int parkid=id.getParkId();
-			//float price="";
-	        GetRoomDetailsModel  rs=(GetRoomDetailsModel)cisResult.getResultObject();
-			float price=rs.getTotalPrice();
+	    // cisResult = successDAO.getRoomDetails(transactionId);
+	     List<GetRoomDetailsModel> details=successDAO.getRoomDetails(transactionId);
+	     String typecode="";
+	     String title="";
+	     Date checkIn = null;
+	     Date checkOut = null;
+	     int qty=0;
+	     int parkid=0;
+	     float price=0;
+	     String type="";
+			ArrayList<Object> roomDetails = new ArrayList<Object>();
+			 
+			for (int i = 0; i < details.size(); i++) {
+				
+			GetRoomDetailsModel roomDetaisModel = new GetRoomDetailsModel();
+			//Color color = new Color();
+				
+			     typecode= details.get(i).typeCode;
+			     title=details.get(i).title;
+			     type=details.get(i).type;
+			     checkIn=details.get(i).fromDate;
+			     checkOut=details.get(i).toDate;
+			     qty=details.get(i).quantity;
+			     parkid=details.get(i).parkId;
+			     price=details.get(i).price;
+				
+				
+			    roomDetails.add(roomDetaisModel);
+				
+			}
 			
-			String facilityTitle="";
-			float facilityPrice=0;
-			int facilityQuantity=0;
-			String facilityTypeCode="";
+
+			 cisResult.setResultObject(roomDetails);
 			
-			String roomTitle="";
-			float roomPrice=0;
-			int roomQuantity=0;
-			String roomTypeCode="";
-		
-	        GetRoomDetailsModel  ftitile=(GetRoomDetailsModel)cisResult.getResultObject();
-	        facilityTitle=ftitile.getFacilityTitle();
-			
-			
-	        GetRoomDetailsModel  fprice=(GetRoomDetailsModel)cisResult.getResultObject();
-	        facilityPrice=fprice.getFacilityPrice();
-			
-	        GetRoomDetailsModel  fquant=(GetRoomDetailsModel)cisResult.getResultObject();
-	        facilityQuantity=fquant.getFacilityQuantity();
-			
-	       
-			
-	        GetRoomDetailsModel  rtitle=(GetRoomDetailsModel)cisResult.getResultObject();
-	        roomTitle=rtitle.getRoomTitle();
-			
-	        GetRoomDetailsModel  rprice=(GetRoomDetailsModel)cisResult.getResultObject();
-	        roomPrice=rprice.getRoomPrice();
-			
-	        GetRoomDetailsModel  rquant=(GetRoomDetailsModel)cisResult.getResultObject();
-	        roomQuantity=rquant.getRoomQuantity();
-			
-	       
-	        
 	     if(status.equalsIgnoreCase(CISConstants.STATUS1)){
 	    	 
 	    	 // get emailId and firstname from db
@@ -103,24 +85,34 @@ public class ODPaymentSuccessBL {
 			ODPaymentSuccessModel  name=(ODPaymentSuccessModel)cisResult.getResultObject();
 			firstName=name.getFirstName();
 			
+			cisResult = successDAO.getParkAddress(parkid);
+			
+			
+			ParkAddress  address=(ParkAddress)cisResult.getResultObject();
+			String streetAddress=address.getStreetAddress();
+			String city=address.getCity();
+			String state=address.getState();
+			int pin=address.getPin();
+			String parkName=address.getResortname();
 		/*	cisResult = successDAO.SupplierEmail(parkid);
 			String supplierEmail="";
 			SupplierModel  suppemailId=(SupplierModel)cisResult.getResultObject();
 			supplierEmail=suppemailId.getEmailId();
 			*/
 			//sending all parameters required	 
-			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,facilityTitle,facilityPrice,facilityQuantity,roomTitle,roomPrice,roomQuantity);
+			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,price,qty,streetAddress,city,state,pin,parkName);
 	    	
-			cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,facilityTitle,facilityPrice,facilityQuantity,roomTitle,roomPrice,roomQuantity);
+			cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,title,price,qty,streetAddress,city,state,pin,parkName);
+	    	
 	    	
 			
 			//cisResult=sendMail.sendSupplierSuccessMail(supplierEmail,firstName,roomType,checkIn,checkOut,qty,price,transactionId);
             
 			
 			// get current availability
-			 cisResult = successDAO.getAvailablility();
+			 cisResult = successDAO.getAvailablility(transactionId);
 			
-			 GetAvailabilityModel  quantity= (GetAvailabilityModel)cisResult.getResultObject();
+			/* GetAvailabilityModel  quantity= (GetAvailabilityModel)cisResult.getResultObject();
 			 int avail=quantity.getAvailability();
 			 GetAvailabilityModel  iD= (GetAvailabilityModel)cisResult.getResultObject();
 			 int parkId=iD.getParkId();
@@ -128,9 +120,9 @@ public class ODPaymentSuccessBL {
 			 //String facilitycode=facility.getFacilityCode();
 			 String roomtypecode=facility.getRoomtypeCode();
 			 // update availability
-			 avail=avail-qty;
+			 avail=avail-qty;*/
 			
-			 cisResult = successDAO.getUpdateAvailablility(avail,parkId,roomtypecode);
+			 cisResult = successDAO.getUpdateAvailablility(transactionId);
 		
 	    }
 	    
