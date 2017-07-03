@@ -19,7 +19,7 @@ public class ODPaymentSuccessQuery {
 	
 	//public static String SQL_UPDATEAVAILABILITY="UPDATE Park_current_pricing_availability  set Current_available_qty =? where Park_id=? and Room_type_code=?" ;
 	
-	 public static String SQL_GETSUPPLIERMAIL = "SELECT A.Email_ID FROM park_suppliers A  JOIN Park_info B ON A.CreatedBy = B.Created_by  WHERE B.Park_id =?" ;
+	 public static String SQL_GETSUPPLIERMAIL = "SELECT A.Email_ID FROM park_suppliers A  JOIN Park_info B ON A.Supplier_Key = B.Created_by  WHERE B.Park_id =?" ;
 
 	 
 	 public static String SQL_GETAVAILABILITY = "SELECT A.Park_id,A.Room_type_code, A.Current_available_qty , B.Quantity FROM Park_current_pricing_availability A , Park_current_reservation_det B where A.Park_id = B.park_id and A.Room_type_code=B.type_code and B.Reservation_id = ? and A.Date between B.from_date and B.to_date";

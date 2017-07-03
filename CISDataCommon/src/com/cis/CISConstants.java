@@ -23,7 +23,7 @@ public class CISConstants {
 	public static final String STATUS2 = "F";
 	
 	public static final String ADMINPHONENUMBER="167846213390";
-	public static final String ADMINEMAILID="udaykatikala@gmail.com";
+	public static final String ADMINEMAILID="talk2molugu@gmail.com";
 	public static final String EMAILHOST="outingday.com";
 	public static final String EMAILUSERNAME="admin@outingday.com";
 	public static final String EMAILPASSWORD="od1@34";

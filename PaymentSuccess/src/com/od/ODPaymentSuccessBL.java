@@ -49,7 +49,9 @@ public class ODPaymentSuccessBL {
 	     int qty=0;
 	     int parkid=0;
 	     float price=0;
+	     float totalPrice=0;
 	     String type="";
+	     String  suppEmail="";
 			ArrayList<Object> roomDetails = new ArrayList<Object>();
 			 
 			for (int i = 0; i < details.size(); i++) {
@@ -65,7 +67,7 @@ public class ODPaymentSuccessBL {
 			     qty=details.get(i).quantity;
 			     parkid=details.get(i).parkId;
 			     price=details.get(i).price;
-				
+			     totalPrice=details.get(i).totalPrice;
 				
 			    roomDetails.add(roomDetaisModel);
 				
@@ -94,19 +96,41 @@ public class ODPaymentSuccessBL {
 			String state=address.getState();
 			int pin=address.getPin();
 			String parkName=address.getResortname();
-		/*	cisResult = successDAO.SupplierEmail(parkid);
-			String supplierEmail="";
+			
+			 List<SupplierModel> suppdetails= successDAO.SupplierEmail(parkid);
+			
+			
+			
+			ArrayList<Object> supplierDetails = new ArrayList<Object>();
+			 
+			for (int i = 0; i < suppdetails.size(); i++) {
+				
+				SupplierModel supplierDetaisModel = new SupplierModel();
+			//Color color = new Color();
+				
+				suppEmail= suppdetails.get(i).emailId;
+			    
+				
+				
+			     supplierDetails.add(supplierDetaisModel);
+				
+			}
+			
+
+			 cisResult.setResultObject(supplierDetails);
+			
+			/*String supplierEmail="";
 			SupplierModel  suppemailId=(SupplierModel)cisResult.getResultObject();
-			supplierEmail=suppemailId.getEmailId();
-			*/
+			supplierEmail=suppemailId.getEmailId();*/
+			
 			//sending all parameters required	 
-			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,price,qty,streetAddress,city,state,pin,parkName);
+			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName);
 	    	
-			cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,title,price,qty,streetAddress,city,state,pin,parkName);
+			cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName);
 	    	
 	    	
 			
-			//cisResult=sendMail.sendSupplierSuccessMail(supplierEmail,firstName,roomType,checkIn,checkOut,qty,price,transactionId);
+			cisResult=sendMail.sendSupplierSuccessMail(suppEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName);
             
 			
 			// get current availability

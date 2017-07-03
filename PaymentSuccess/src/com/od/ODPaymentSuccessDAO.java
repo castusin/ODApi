@@ -167,9 +167,10 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
    		return cisResults; 
 	}
 
-	public CISResults SupplierEmail(int transactionId) {
+	public List<SupplierModel> SupplierEmail(int transactionId) {
 		// TODO Auto-generated method stub
 		CISResults cisResults=new CISResults();
+		List<SupplierModel> supplierDetails=null;
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		Object[] inputs = new Object[]{transactionId};
 		try{
@@ -177,12 +178,12 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
 		    TimeCheck time=new TimeCheck();
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
-			SupplierModel res = (SupplierModel)getJdbcTemplate().queryForObject(ODPaymentSuccessQuery.SQL_GETSUPPLIERMAIL,inputs,new SupplierMapper());
+			supplierDetails  = getJdbcTemplate().query(ODPaymentSuccessQuery.SQL_GETSUPPLIERMAIL,inputs,new SupplierMapper());
 			// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();
 			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			logger.info("Query time for get park details service:: " +result );
-			cisResults.setResultObject(res);
+			//cisResults.setResultObject(res);
 			
 		} catch (DataAccessException e) {
 			e.printStackTrace();
@@ -190,7 +191,7 @@ public class ODPaymentSuccessDAO extends JdbcDaoSupport {
 			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
 			cisResults.setErrorMessage("Failed At DataAccess");
 		}
-		return cisResults;  
+		return supplierDetails;  
 	}
 
 	public CISResults getParkAddress(int parkid) {
