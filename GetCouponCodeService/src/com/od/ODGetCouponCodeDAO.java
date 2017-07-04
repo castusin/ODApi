@@ -39,7 +39,7 @@ public class ODGetCouponCodeDAO extends JdbcDaoSupport {
 			ODGetCouponCodeModel result=(ODGetCouponCodeModel)getJdbcTemplate().queryForObject(ODGetCouponCodeQuery.SQL_GETCOUPONCODE,inputs,new ODGetCouponCodeMapper());
 			String serviceEndTime=time.getTimeZone();
 			long results=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
-			logger.info("view cities query time:: " +results);
+			logger.info("coupon code query time:: " +results);
 			cisResults.setResultObject(result);
 		} catch (DataAccessException e) {
 			e.printStackTrace();

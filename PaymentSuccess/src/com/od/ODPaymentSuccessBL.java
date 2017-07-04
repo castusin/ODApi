@@ -39,8 +39,6 @@ public class ODPaymentSuccessBL {
 		final Logger logger = Logger.getLogger(ODPaymentSuccessBL.class);
 			 
 	     cisResult = successDAO.paymentSuccess(transactionId,status);
-	    
-	    // cisResult = successDAO.getRoomDetails(transactionId);
 	     List<GetRoomDetailsModel> details=successDAO.getRoomDetails(transactionId);
 	     String typecode="";
 	     String title="";
@@ -121,10 +119,6 @@ public class ODPaymentSuccessBL {
 
 			 cisResult.setResultObject(supplierDetails);
 			
-			/*String supplierEmail="";
-			SupplierModel  suppemailId=(SupplierModel)cisResult.getResultObject();
-			supplierEmail=suppemailId.getEmailId();*/
-			
 			//sending all parameters required	 
 			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
 	    	
@@ -138,15 +132,6 @@ public class ODPaymentSuccessBL {
 			// get current availability
 			 cisResult = successDAO.getAvailablility(transactionId);
 			
-			/* GetAvailabilityModel  quantity= (GetAvailabilityModel)cisResult.getResultObject();
-			 int avail=quantity.getAvailability();
-			 GetAvailabilityModel  iD= (GetAvailabilityModel)cisResult.getResultObject();
-			 int parkId=iD.getParkId();
-			 GetAvailabilityModel  facility= (GetAvailabilityModel)cisResult.getResultObject();
-			 //String facilitycode=facility.getFacilityCode();
-			 String roomtypecode=facility.getRoomtypeCode();
-			 // update availability
-			 avail=avail-qty;*/
 			
 			 cisResult = successDAO.getUpdateAvailablility(transactionId);
 		

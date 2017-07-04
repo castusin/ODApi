@@ -32,7 +32,7 @@ public class ODGetCouponCodeBL {
 		 testServiceTime seriveTimeCheck=new testServiceTime();
 		 String serviceStartTime=time.getTimeZone();
 		  
-		final Logger logger = Logger.getLogger(ODGetCitiesBL.class);
+		final Logger logger = Logger.getLogger(ODGetCouponCodeBL.class);
 		 
 		 cisResult = couponCodeDAO.getCouponcode(parkId,checkIn,couponCode);
 		
@@ -51,7 +51,7 @@ public class ODGetCouponCodeBL {
 	        }
 	        else {
 	        	cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
-				cisResult.setErrorMessage("Failed to login to the system");
+				cisResult.setErrorMessage("coupen code not matching ");
 	        }
 	   // }
 		

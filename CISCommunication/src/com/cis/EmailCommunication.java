@@ -216,48 +216,7 @@ public class EmailCommunication {
 		return cisResult;
 	}
 
-	/*public CISResults sendFacilityMail(String facilityCode, float rate, String email, String room, float roomPrice) {
-		CISResults cisResult = new CISResults();
-		//String emailId=CISConstants.ADMINEMAILID;
-		
-		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
-                "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
-                "<head>\n" +
-                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
-                "<title></title>\n" +
-                "</head>\n" +
-                "\n" +
-                "<body>\n" +
-                 "<p>Outing Day</b><br />"+
-                 
- 				"<p>Room Type "+room+"</b><br />"+
- 				"<p>Room Price "+roomPrice+"</b><br />"+
- 				"<p>Extra Facilities "+facilityCode+"</b><br />"+
- 				"<p> Facilities Price"+rate+"</b><br />"+
- 				
-                
-                 
-                "<br />\n"+
-                "<br />\n"+
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outing Day Team<br />\n" +
-
-                "  <br />\n" +
-
-                "</body>\n" +
-                "</html>";
-	String subject = CISConstants.SUBJECT;
-	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,email, msg, subject);
-	  
-	 } catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-		return cisResult;
-	}
-*/
+	
 	public CISResults sendAdminSuccessMail(String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell,  String suppEmail) {
 		CISResults cisResult = new CISResults();
 		String emailId=CISConstants.ADMINEMAILID;
@@ -379,7 +338,7 @@ public class EmailCommunication {
 	}
 
 	
-	public CISResults sendPackageMail(String email,String reservationId,String firstName,String facilitytitle,
+/*	public CISResults sendPackageMail(String email,String reservationId,String firstName,String facilitytitle,
 			float facilityprice, int facilityQuantity, String roomtitle, float roomprice,
 			int roomQuantity) {
 		CISResults cisResult = new CISResults();
@@ -495,7 +454,7 @@ public class EmailCommunication {
 		e.printStackTrace();
 	}
 		return cisResult;
-	}
+	}*/
 
 	public CISResults sendSupplierSuccessMail(String supplierEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell) {
 		CISResults cisResult = new CISResults();

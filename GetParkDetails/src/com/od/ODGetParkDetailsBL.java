@@ -42,10 +42,7 @@ public class ODGetParkDetailsBL {
 			SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date date1 = myFormat.parse(checkIn);
 		    Date date2 = myFormat.parse(checkOut);
-			//long count=((date2.getTime()-date1.getTime())/ (1000 * 60 * 60 * 24));
-		  //  int days = Days.daysBetween(checkIn, checkOut).getDays();
-			
-			
+		
 			int count=0;
 			long diff = date2.getTime() - date1.getTime();
 			long diffDays = diff / (24 * 60 * 60 * 1000)+1;
@@ -54,12 +51,8 @@ public class ODGetParkDetailsBL {
 			
 			cisResult = parkDetailsDAO.getParksDetail(parkId);
 			parkDetailslist = parkDetailsDAO.getParksDetails(checkIn,checkOut,parkId,count);
-	
-		//	parkDetailslist	 = parkDetailsDAO.getParksListDetails( parkId);
-			 cisResult.setParkDetails(parkDetailslist);	
-			// cisResult.setResultObject(parkDetailslist);
-			
-			 
+		    cisResult.setParkDetails(parkDetailslist);	
+		
 			logger.debug("OD GetParkDetailsBL service" +cisResult);
 			 
 			String serviceEndTime=time.getTimeZone();

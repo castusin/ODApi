@@ -1,6 +1,8 @@
 package com.od;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
@@ -35,7 +38,7 @@ public class ODCreateUserRestService {
 	 * @throws Throwable 
 	 */
 	@RequestMapping(value="/createUser",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
-	 public String createUser(@RequestBody ODCreateUserModel createUser) throws Throwable{
+	 public String createUser(HttpServletRequest request,@RequestBody ODCreateUserModel createUser) throws Throwable{
 		
 		 Logger logger = Logger.getLogger(ODCreateUserRestService.class);
 		
@@ -46,19 +49,19 @@ public class ODCreateUserRestService {
 	     String serviceStartTime=time.getTimeZone();
 	     
 		 CommonCISValidation CommonCISValidation=new CommonCISValidation();
-		//  CISResults cisResults=CommonCISValidation.CreateUserValidation(createUser);
-		 // if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
-		   // {
-			  ODCreateUserWebservice createUserWebservice = new ODCreateUserWebservice();
-			  CISResults cisResults = createUserWebservice.createUser(createUser);
-		   // }
+		 CISResults cisResult=CommonCISValidation.CreateUserValidation(request,createUser);
+		if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+		{
+		 ODCreateUserWebservice createUserWebservice = new ODCreateUserWebservice();
+		  cisResult = createUserWebservice.createUser(createUser);
+		}
 		   // Capture Service End time
 
 		    String serviceEndTime=time.getTimeZone();
 		    long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 		    logger.info("Total service time for create user service:: " +result );
 
-		  return returnJsonData(cisResults);
+		  return returnJsonData(cisResult);
 	}
 	 
 	 

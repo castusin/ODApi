@@ -49,20 +49,12 @@ public class ODGetParkInfoBL {
 			SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date date1 = myFormat.parse(checkIn);
 		    Date date2 = myFormat.parse(checkOut);
-			//long count=((date2.getTime()-date1.getTime())/ (1000 * 60 * 60 * 24));
-		  //  int days = Days.daysBetween(checkIn, checkOut).getDays();
-			
 			
 			int count=0;
 			long diff = date2.getTime() - date1.getTime();
 			long diffDays = diff / (24 * 60 * 60 * 1000)+1;
 			count = (int) diffDays;
 			
-			
-			
-			
-			List<GetDatesModel> dateList=null;
-		
 			cisResult = parkInfoDAO.getParkinfo(parkType,localArea,checkIn,checkOut,count);
 		    
 			// Capture Service End time

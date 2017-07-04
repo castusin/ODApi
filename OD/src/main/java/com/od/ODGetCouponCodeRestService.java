@@ -53,19 +53,18 @@ public class ODGetCouponCodeRestService {
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
 				  
-		  CommonCISValidation CommonCISValidation=new CommonCISValidation();
-		 // CISResults cisResult=CommonCISValidation.ParksDetailsValidation(parkId,request);
-		//  if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
-		  //  {
-		  ODGetCouponCodeWebservice couponCodeWebservice = new ODGetCouponCodeWebservice();
-			  CISResults cisResult = couponCodeWebservice.getCouponcode(parkId,checkIn,couponCode);
-		      
-		   // }
+		    CommonCISValidation CommonCISValidation=new CommonCISValidation();
+		    CISResults cisResult=CommonCISValidation.getCouponcodeValidation(request,parkId,checkIn,couponCode);
+			if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+			{
+		   ODGetCouponCodeWebservice couponCodeWebservice = new ODGetCouponCodeWebservice();
+		   cisResult = couponCodeWebservice.getCouponcode(parkId,checkIn,couponCode);
+			}
 		  
 		// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();
 			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
-			logger.info("Total service time for get park details service:: " +result );
+			logger.info("Total service time for get coupon code service:: " +result );
 		  
 		  return returnJsonData(cisResult);
 	}

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
@@ -43,7 +44,7 @@ public class ODPaymentSuccess {
 	 * @return 1 in case of error or 200 if successful
 	 */
 	@RequestMapping(value="/paymentStatus",method=RequestMethod.GET,produces={"application/json"})
-	 public String paymentSuccess(@RequestParam ("transactionId") String transactionId,@RequestParam ("status") String status){
+	 public String paymentSuccess(HttpServletRequest request,@RequestParam ("transactionId") String transactionId,@RequestParam ("status") String status){
 		
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 
@@ -53,12 +54,12 @@ public class ODPaymentSuccess {
 			String serviceStartTime=time.getTimeZone();
 				  
 		  CommonCISValidation CommonCISValidation=new CommonCISValidation();
-		 // CISResults cisResult=CommonCISValidation.ParksinfoValidation(parkType,metro,localArea,request);
-		  //if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
-		   // {
+		  CISResults cisResult=CommonCISValidation.paymentSuccessValidation(request,transactionId,status);
+		  if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+		  {
 		  ODPaymentSuccessWebservice successWebservice = new ODPaymentSuccessWebservice();
-			  CISResults cisResult = successWebservice.paymentSuccess(transactionId,status);
-		   // }
+		   cisResult = successWebservice.paymentSuccess(transactionId,status);
+		  }
 		  
 		// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();

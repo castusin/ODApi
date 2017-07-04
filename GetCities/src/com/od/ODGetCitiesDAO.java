@@ -25,8 +25,6 @@ public class ODGetCitiesDAO extends JdbcDaoSupport {
 		ODGetCitiesModel viewCities=new ODGetCitiesModel();
 		CISResults cisResults=new CISResults();
 		Calendar cal = Calendar.getInstance();
-		
-		//Object[] inputs = new Object[]{cityKey};
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		
 		try{

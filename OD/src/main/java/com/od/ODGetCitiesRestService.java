@@ -27,11 +27,9 @@ public class ODGetCitiesRestService {
 	
 	@RequestMapping(value="/viewCities",method=RequestMethod.GET,produces={"application/json"})
 	
-		public String viewCities(ODGetCitiesModel viewCities){	 
+		public String viewCities(HttpServletRequest request,ODGetCitiesModel viewCities){	 
 		 Logger logger = Logger.getLogger(ODGetCitiesRestService.class);
-		 /*String requestParameters = "firstName=" + firstName + "&lastName=" +lastName + "&phoneNumber="+phoneNumber+ "&emailId="+emailId+ "&gender="+gender;*/
-		  //logger.info("Digital HealthCare view patients Request Parameters :"+requestParameters);
-		 
+		
 		// Capture service Start time
 		  TimeCheck time=new TimeCheck();
 		 testServiceTime sessionTimeCheck=new testServiceTime();
@@ -39,19 +37,17 @@ public class ODGetCitiesRestService {
  
 		 
 		 CommonCISValidation CommonCISValidation=new CommonCISValidation();
-		// CISResults cisResults=CommonCISValidation.viewPatientsValidation(request,viewPatients);
-		//if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
-		 // {
+		 CISResults cisResult=CommonCISValidation.viewCitiesValidation(request,viewCities);
+		 if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+		 {
 		 ODGetCitiesWebservice viewCitiesWebservice= new ODGetCitiesWebservice();
-			 CISResults cisResults  = viewCitiesWebservice.viewCities(viewCities);
-		
-	//	}
-		
+		 cisResult = viewCitiesWebservice.viewCities(viewCities);
+		 }
 		// Capture Service End time
 		 String serviceEndTime=time.getTimeZone();
 		 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 		 logger.info("Total service time for view cities service in milli seconds :: " +result );
-		  return returnJsonData(cisResults);
+		  return returnJsonData(cisResult);
 	 }
 	 	 
 	 private String returnJsonData(Object src){

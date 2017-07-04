@@ -107,31 +107,10 @@ public class ODCreateUserBL {
 		     
 			  cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
 			
-			 // cisResults = createUserDAO.createUser2(reservationId,createUser.getParkId(),createUser.getUserType(),createUser.getFaciltiyTypecode(),createUser.getFromDate(),createUser.getToDate(),createUser.getQty(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
-			 // cisResults = createUserDAO.createUser2(reservationId,parkId,createUser.getUserType(),Facilitytitle,Facilityprice,Facilitycode,Roomtitle,Roomprice,RoomQuantity,createUser.getFromDate(),createUser.getToDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
-						
+					
 			  cisResults = createUserDAO.createUser3(userId,reservationId,createUser.getReservedDate(),createDate);
 			
-			// cisResults = createUserDAO.createFacilityDetails(parkId,facilityCode,rate,qty);
-			 
-			// cisResults.setFacilityList(facilityList);
-			 
-			 /* FacilityDetails  type=(FacilityDetails)cisResults.getResultObject();
-			  String facilityType=type.getFacilityType();
-			  float price=type.getPrice();*/
-				
-			 
-			 
-			/* if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
-			   {
-				  cisResults=sendMail.sendPackageMail(email,reservationId,firstName,Facilitytitle,Facilityprice,FacilityQuantity,Roomtitle,Roomprice,RoomQuantity);
-			   }*/
-			 
-			 
-			// cisResults  = createUserDAO.pay();
-			 
-			 // Capture Service End time
-			 
+			
 			 String serviceEndTime=time.getTimeZone();
 			 long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("Database time for create user service:: " +result );
