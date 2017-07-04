@@ -59,7 +59,7 @@ public class EmailCommunication {
 	
 	
 
-	public CISResults sendPaymentstatus(String paymentEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell, String suppLand, String suppEmail) {
+	public CISResults sendPaymentstatus(String paymentEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell, String suppEmail) {
 		CISResults cisResult = new CISResults();
 		//String emailId=CISConstants.ADMINEMAILID;
 		
@@ -89,7 +89,7 @@ public class EmailCommunication {
 				"<p><b>"+parkName+", "+city+"  </b><br />"+
 				"<p>"+streetAddress+"<br />"+
 				"<p>"+city+", IN<br />"+
-				"<p>Contact : "+suppLand+", "+suppCell+"<br />"+
+				"<p>Contact : "+suppCell+"<br />"+
 				"<p>Fax : <br />"+
 				"<p>E-mail : "+suppEmail+" <br /><br />"+
 				"<p><b>Primary Guest :</b>"+firstName+" <br />"+
@@ -258,7 +258,7 @@ public class EmailCommunication {
 		return cisResult;
 	}
 */
-	public CISResults sendAdminSuccessMail(String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell, String suppLand, String suppEmail) {
+	public CISResults sendAdminSuccessMail(String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell,  String suppEmail) {
 		CISResults cisResult = new CISResults();
 		String emailId=CISConstants.ADMINEMAILID;
 		
@@ -288,7 +288,7 @@ public class EmailCommunication {
 				"<p><b>"+parkName+", "+city+"  </b><br />"+
 				"<p>"+streetAddress+"<br />"+
 				"<p>"+city+", IN<br />"+
-				"<p>Contact : "+suppLand+", "+suppCell+"<br />"+
+				"<p>Contact :  "+suppCell+"<br />"+
 				"<p>Fax : <br />"+
 				"<p>E-mail : "+suppEmail+" <br /><br />"+
 				"<p><b>Primary Guest :</b>"+firstName+" <br />"+
@@ -497,7 +497,7 @@ public class EmailCommunication {
 		return cisResult;
 	}
 
-	public CISResults sendSupplierSuccessMail(String supplierEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell, String suppLand) {
+	public CISResults sendSupplierSuccessMail(String supplierEmail, String firstName, Date checkIn, Date checkOut, float price, String transactionId, String facilityTitle, float facilityPrice, int facilityQuantity, String streetAddress, String city, String state, int pin, String parkName, String suppCell) {
 		CISResults cisResult = new CISResults();
 		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
                 "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
@@ -525,7 +525,7 @@ public class EmailCommunication {
 				"<p><b>"+parkName+", "+city+"  </b><br />"+
 				"<p>"+streetAddress+"<br />"+
 				"<p>"+city+", IN<br />"+
-				"<p>Contact : "+suppLand+", "+suppCell+"<br />"+
+				"<p>Contact : "+suppCell+"<br />"+
 				"<p>Fax : <br />"+
 				"<p>E-mail : "+supplierEmail+" <br /><br />"+
 				"<p><b>Primary Guest :</b>"+firstName+" <br />"+

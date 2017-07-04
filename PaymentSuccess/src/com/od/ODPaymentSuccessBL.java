@@ -126,13 +126,13 @@ public class ODPaymentSuccessBL {
 			supplierEmail=suppemailId.getEmailId();*/
 			
 			//sending all parameters required	 
-			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppLand,suppEmail);
+			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
 	    	
-			cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppLand,suppEmail);
+			cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
 	    	
 	    	
 			
-			cisResult=sendMail.sendSupplierSuccessMail(suppEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppLand);
+			cisResult=sendMail.sendSupplierSuccessMail(suppEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell);
             
 			
 			// get current availability
