@@ -45,23 +45,32 @@ public class ODGetCouponCodeBL {
 		//if (date != null && fromDate != null && toDate != null) {
 	        if (date.after(fromDate) && date.before(toDate)) {
 	        	cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-	        	coupon.getDiscount();
-	        	coupon.getFromDate();
-	        	coupon.getToDate();
+	        	
 	        }
 	        else {
 	        	cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
+	        	coupon.setDiscount(0);
+	        	coupon.setFromDate(null);
+	        	coupon.setToDate(null);
+	        	coupon.setParkKey(null);
+	        	coupon.setCouponCode(null);
+	        	coupon.setCouponType(null);
+	        	coupon.setDescription(null);
+	        	coupon.setCreatedBy(0);
+	        	coupon.setCreatedOn(null);
+	        	coupon.setModifiedBy(0);
+	        	coupon.setStatus(null);
 				cisResult.setErrorMessage("coupen code not matching ");
 	        }
 	   // }
 		
 		
-		logger.info("coupon code BL  service" +cisResult );
+		
 		
 		// Capture Service End time
 		String serviceEndTime=time.getTimeZone();
 		long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
-		  logger.info("Database time for coupons code service:: " +result );
+		logger.info("Database time for coupons code service:: " +result );
 		  
 		return cisResult;
 	}

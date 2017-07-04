@@ -17,7 +17,7 @@ public class CISConstants {
 	public static final String Empty="";
 	public static final String DATE_FORMAT="yyyy-MM-dd HH:mm:ss.SSS";
 	public static final String HEADERS_AUTHROIZATION= "Authorization";
-	public static final String HEADERS_AUTHROIZATION_VAUE= "OD1@34";
+	public static final String HEADERS_AUTHROIZATION_VAUE= "od1@34";
 	public static final String EMAIL_REGEX= "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 	public static final String STATUS1 = "S";
 	public static final String STATUS2 = "F";
