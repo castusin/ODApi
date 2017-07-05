@@ -25,9 +25,10 @@ public class ODPaymentSuccessBL {
 	/**
 	 * @param transactionId
 	 * @param status 
+	 * @param cod 
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults paymentSuccess(String transactionId, String status) {
+	public CISResults paymentSuccess(String transactionId, String status, String cod) {
 		// Capture service Start time
 		
 	    TimeCheck time=new TimeCheck();
@@ -37,8 +38,23 @@ public class ODPaymentSuccessBL {
 		String serviceStartTime=time.getTimeZone();
 		 List<GetDatesModel> dateList = null;		
 		final Logger logger = Logger.getLogger(ODPaymentSuccessBL.class);
-			 
+	  		 
 	     cisResult = successDAO.paymentSuccess(transactionId,status);
+	     
+	     if(status.equalsIgnoreCase(CISConstants.STATUSFAILURE)){
+			 cisResult = successDAO.paymentEmail(transactionId);
+			 String paymentEmail2="";
+			 ODPaymentSuccessModel  emailId2=(ODPaymentSuccessModel)cisResult.getResultObject();
+			 paymentEmail2=emailId2.getEmailId();
+			
+				 
+			cisResult=sendMail.sendPaymentFailure(paymentEmail2);
+				
+		    }	
+	     
+	     else{
+	   //  if(status.equalsIgnoreCase(CISConstants.STATUS1)){
+	    	 
 	     List<GetRoomDetailsModel> details=successDAO.getRoomDetails(transactionId);
 	     String typecode="";
 	     String title="";
@@ -76,7 +92,7 @@ public class ODPaymentSuccessBL {
 
 			 cisResult.setResultObject(roomDetails);
 			
-	     if(status.equalsIgnoreCase(CISConstants.STATUS1)){
+	    
 	    	 
 	    	 // get emailId and firstname from db
 	    	cisResult = successDAO.paymentEmail(transactionId);
@@ -118,16 +134,26 @@ public class ODPaymentSuccessBL {
 			
 
 			 cisResult.setResultObject(supplierDetails);
+			 
+			 if(cod.equalsIgnoreCase(CISConstants.PAYMENTSUCCESS)){
 			
 			//sending all parameters required	 
 			cisResult=sendMail.sendPaymentstatus(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
 	    	
 			cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
 	    	
-	    	
-			
 			cisResult=sendMail.sendSupplierSuccessMail(suppEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell);
-            
+			}else if(cod.equalsIgnoreCase(CISConstants.COD)){
+				
+				cisResult=sendMail.sendPaymentstatusCOD(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
+		    	
+				cisResult=sendMail.sendAdminSuccessMailCOD(firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
+		    	
+				cisResult=sendMail.sendSupplierSuccessMailCOD(suppEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell);
+			
+				
+			}
+			
 			
 			// get current availability
 			 cisResult = successDAO.getAvailablility(transactionId);
@@ -135,18 +161,9 @@ public class ODPaymentSuccessBL {
 			
 			 cisResult = successDAO.getUpdateAvailablility(transactionId);
 		
-	    }
+	 //  }
 	    
-	    else if(status.equalsIgnoreCase(CISConstants.STATUS2)){
-		cisResult = successDAO.paymentEmail(transactionId);
-		String paymentEmail="";
-		ODPaymentSuccessModel  emailId=(ODPaymentSuccessModel)cisResult.getResultObject();
-		paymentEmail=emailId.getEmailId();
-		
-			 
-		cisResult=sendMail.sendPaymentFailure(paymentEmail);
-			
-	    }	
+	     } 
 	     
 			// Capture Service End time
 		String serviceEndTime=time.getTimeZone();

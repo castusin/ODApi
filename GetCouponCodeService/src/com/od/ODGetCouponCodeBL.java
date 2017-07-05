@@ -29,25 +29,26 @@ public class ODGetCouponCodeBL {
 		// Capture service Start time
 		CISResults cisResult=new CISResults();
 		TimeCheck time=new TimeCheck();
-		 testServiceTime seriveTimeCheck=new testServiceTime();
-		 String serviceStartTime=time.getTimeZone();
+		testServiceTime seriveTimeCheck=new testServiceTime();
+		String serviceStartTime=time.getTimeZone();
 		  
 		final Logger logger = Logger.getLogger(ODGetCouponCodeBL.class);
 		 
 		 cisResult = couponCodeDAO.getCouponcode(parkId,checkIn,couponCode);
-		
-		ODGetCouponCodeModel  coupon=(ODGetCouponCodeModel)cisResult.getResultObject();
-		Date fromDate=coupon.getFromDate();
-		Date toDate=coupon.getToDate();
-		//Date date = checkIn;
-		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = myFormat.parse(checkIn);
-		//if (date != null && fromDate != null && toDate != null) {
-	        if (date.after(fromDate) && date.before(toDate)) {
+		 if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+         {
+			 ODGetCouponCodeModel  coupon=(ODGetCouponCodeModel)cisResult.getResultObject();
+			 Date fromDate=coupon.getFromDate();
+			 Date toDate=coupon.getToDate();
+			 //Date date = checkIn;
+			 SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+			 Date date = myFormat.parse(checkIn);
+			 //if (date != null && fromDate != null && toDate != null) {
+			 if (date.after(fromDate) && date.before(toDate)) {
 	        	cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 	        	
-	        }
-	        else {
+			 }
+			 else {
 	        	cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
 	        	coupon.setDiscount(0);
 	        	coupon.setFromDate(null);
@@ -63,9 +64,9 @@ public class ODGetCouponCodeBL {
 				cisResult.setErrorMessage("coupen code not matching ");
 	        }
 	   // }
-		
-		
-		
+         }else{
+        	 cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
+         }
 		
 		// Capture Service End time
 		String serviceEndTime=time.getTimeZone();

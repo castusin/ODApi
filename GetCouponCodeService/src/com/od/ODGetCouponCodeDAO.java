@@ -45,7 +45,7 @@ public class ODGetCouponCodeDAO extends JdbcDaoSupport {
 			e.printStackTrace();
 		
 			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
-			cisResults.setErrorMessage("Failed to login to the system");
+			cisResults.setErrorMessage("Coupon code not valid");
 		}
 
    		return cisResults;  

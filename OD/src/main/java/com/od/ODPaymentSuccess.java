@@ -44,7 +44,7 @@ public class ODPaymentSuccess {
 	 * @return 1 in case of error or 200 if successful
 	 */
 	@RequestMapping(value="/paymentStatus",method=RequestMethod.GET,produces={"application/json"})
-	 public String paymentSuccess(HttpServletRequest request,@RequestParam ("transactionId") String transactionId,@RequestParam ("status") String status){
+	 public String paymentSuccess(HttpServletRequest request,@RequestParam ("transactionId") String transactionId,@RequestParam ("status") String status,@RequestParam ("cod") String cod){
 		
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 
@@ -54,11 +54,11 @@ public class ODPaymentSuccess {
 			String serviceStartTime=time.getTimeZone();
 				  
 		  CommonCISValidation CommonCISValidation=new CommonCISValidation();
-		  CISResults cisResult=CommonCISValidation.paymentSuccessValidation(request,transactionId,status);
+		  CISResults cisResult=CommonCISValidation.paymentSuccessValidation(request,transactionId,status,cod);
 		  if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 		  {
 		  ODPaymentSuccessWebservice successWebservice = new ODPaymentSuccessWebservice();
-		   cisResult = successWebservice.paymentSuccess(transactionId,status);
+		   cisResult = successWebservice.paymentSuccess(transactionId,status,cod);
 		  }
 		  
 		// Capture Service End time

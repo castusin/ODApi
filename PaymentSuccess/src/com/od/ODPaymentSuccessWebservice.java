@@ -12,14 +12,15 @@ public class ODPaymentSuccessWebservice {
 
 	/**
 	 * @param status 
+	 * @param cod 
 	 * @param metro
 	 * @param localArea
 	 * @param parkType
 	 * @return  1 in case of error or 0 if successful
 	 */
-	public CISResults paymentSuccess(String transactionId, String status) {
+	public CISResults paymentSuccess(String transactionId, String status, String cod) {
 		
-		 CISResults cisResult = successBL.paymentSuccess(transactionId,status);	
+		 CISResults cisResult = successBL.paymentSuccess(transactionId,status,cod);	
 		 logger.info("OD GetParkInfo WebService  " +cisResult );
 		 return cisResult;
 	}

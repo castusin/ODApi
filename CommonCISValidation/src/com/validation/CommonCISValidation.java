@@ -257,7 +257,7 @@ public CISResults getParksDetailsValidation(HttpServletRequest request,
 	 return CISResults;
 }
 public CISResults paymentSuccessValidation(HttpServletRequest request,
-		String transactionId, String status) {
+		String transactionId, String status, String cod) {
 	CISResults CISResults=new CISResults();
 	ArrayList<String> registrationValues= new ArrayList<String>();
 	
