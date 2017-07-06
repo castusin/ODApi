@@ -11,6 +11,7 @@ public class CISConstants {
 	public static final String YES = "Y";
 	public static final String GS_DATE_FORMAT = "yyyy/MM/dd HH:mm:ss";
 	public static final String GS_DATE_FORMAT2 ="yyyy-MM-dd'T'HH:mm:ss";
+	public static final String CHECKIN_DATE_FORMAT ="yyyy-MM-dd";
 	public static final String NO = "N";
 	public static final String SQL_ERROR = "GS - SQL Error";
 	public static final String SQL_ERROR_CODE = "1001";

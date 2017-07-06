@@ -119,4 +119,31 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 		
 	}
 
+
+	public CISResults getAvailablility(int parkId) {
+		// TODO Auto-generated method stub
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		Object[] inputs = new Object[]{parkId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			List res = getJdbcTemplate().query(ODCreateUserQuery.SQL_GETAVAILABILITY,inputs,new GetAvailabilityMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park details service:: " +result );
+			cisResults.setResultObject(res);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return cisResults;  
+	}
 }

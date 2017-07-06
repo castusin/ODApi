@@ -12,8 +12,8 @@ public class ODPaymentSuccessQuery {
 	 
     public static String SQL_GETAVAILABILITY = "SELECT A.Park_id,A.Room_type_code, A.Current_available_qty , B.Quantity FROM Park_current_pricing_availability A , Park_current_reservation_det B where A.Park_id = B.park_id and A.Room_type_code=B.type_code and B.Reservation_id = ? and A.Date between B.from_date and B.to_date";
 	 
-	 public static String SQL_UPDATEAVAILABILITY=" update Park_current_pricing_availability A , Park_current_reservation_det B set A.Current_available_qty = A.Current_available_qty-B.Quantity	 where A.Park_id = B.park_id and A.Room_type_code=B.type_code and B.Reservation_id = ? and A.Date between B.from_date and B.to_date";
+    public static String SQL_UPDATEAVAILABILITY=" update Park_current_pricing_availability A , Park_current_reservation_det B set A.Current_available_qty = A.Current_available_qty-B.Quantity	 where A.Park_id = B.park_id and A.Room_type_code=B.type_code and B.Reservation_id = ? and A.Date between B.from_date and B.to_date";
 	 
-	 public static String SQL_GETPARKADDRESS = "SELECT Street_address,City,State,PIN,Name FROM Park_info WHERE Park_id =? "; 
+	public static String SQL_GETPARKADDRESS = "SELECT Street_address,City,State,PIN,Name FROM Park_info WHERE Park_id =? "; 
 
 }

@@ -37,7 +37,7 @@ public class ODCreateUserRestService {
 	 * @return 1 in case of error or 0 if successful
 	 * @throws Throwable 
 	 */
-	@RequestMapping(value="/createUser",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/parkReservation",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
 	 public String createUser(HttpServletRequest request,@RequestBody ODCreateUserModel createUser) throws Throwable{
 		
 		 Logger logger = Logger.getLogger(ODCreateUserRestService.class);

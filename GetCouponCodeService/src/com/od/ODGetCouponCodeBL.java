@@ -40,10 +40,8 @@ public class ODGetCouponCodeBL {
 			 ODGetCouponCodeModel  coupon=(ODGetCouponCodeModel)cisResult.getResultObject();
 			 Date fromDate=coupon.getFromDate();
 			 Date toDate=coupon.getToDate();
-			 //Date date = checkIn;
-			 SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+			 SimpleDateFormat myFormat = new SimpleDateFormat(CISConstants.CHECKIN_DATE_FORMAT);
 			 Date date = myFormat.parse(checkIn);
-			 //if (date != null && fromDate != null && toDate != null) {
 			 if (date.after(fromDate) && date.before(toDate)) {
 	        	cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 	        	

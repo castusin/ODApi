@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
@@ -39,7 +40,7 @@ public class ODGetParkDetailsBL {
 			
 			
 			
-			SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat myFormat = new SimpleDateFormat(CISConstants.CHECKIN_DATE_FORMAT);
 			Date date1 = myFormat.parse(checkIn);
 		    Date date2 = myFormat.parse(checkOut);
 		

@@ -35,9 +35,6 @@ public class ODCreateUserBL {
 	
 	ApplicationContext ctx=new ClassPathXmlApplicationContext("spring-servlet.xml"); 
 	ODCreateUserDAO createUserDAO=(ODCreateUserDAO)ctx.getBean("createUserDAO");
-	
-	// private static final AtomicInteger count = new AtomicInteger(12600002); 
-	// private static final AtomicInteger count2 = new AtomicInteger(1994343);  
 	  
 	/**
 	 * @param create user
@@ -54,8 +51,6 @@ public class ODCreateUserBL {
 	         String serviceStartTime=time.getTimeZone();
 	         List<PackageDetails> facilityList=null;	
 			 final Logger logger = Logger.getLogger(ODCreateUserBL.class);
-			
-			// FacilityDetails facilitydetails=new FacilityDetails();
 			 String title="";
 			 float price=0;
 			 String typeCode="";
@@ -65,25 +60,19 @@ public class ODCreateUserBL {
 			
 			 String createDate=time.getTimeZone();
 			 int parkId=createUser.getParkId();
-			 String email=createUser.getEmailId();
-		   	 String room=createUser.getFaciltiyTypecode();	 
-		   	 float roomPrice=createUser.getTotalPrice();
-		     String firstName=createUser.getFirstName();
-		     Date checkIn=createUser.getFromDate();
-		     Date checkOut=createUser.getToDate();
-		    // SimpleDateFormat myFormat = new SimpleDateFormat("yyyy/MM/dd");
-		    
-			// int userId = count.incrementAndGet();
-		      String sessionId = UUID.randomUUID().toString();
+			 String sessionId = UUID.randomUUID().toString();
 	          String userId=DigestUtils.sha256Hex(sessionId);
 	          String upToNCharacters = userId.substring(0, Math.min(userId.length(), 6));
 	          userId=upToNCharacters;
-	          
-		     //int reservationId = count2.incrementAndGet();
 	          String sessionId2 = UUID.randomUUID().toString();
-	           String reservationId=DigestUtils.sha256Hex(sessionId2);
-	           String upToNCharacters2 = reservationId.substring(0, Math.min(reservationId.length(),8));
-	           reservationId=upToNCharacters2;
+	          String reservationId=DigestUtils.sha256Hex(sessionId2);
+	          String upToNCharacters2 = reservationId.substring(0, Math.min(reservationId.length(),8));
+	          reservationId=upToNCharacters2;
+	          
+	        //  cisResults = createUserDAO.getAvailablility(parkId);
+	          
+		         
+	          
 		     // To get list items
 			 int packageSize= createUser.getPackageList().size();
 			 
@@ -104,6 +93,8 @@ public class ODCreateUserBL {
 		     TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE2);
 		     formatter.setTimeZone(obj);
 		  
+		     
+	          
 		     
 			  cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
 			

@@ -10,4 +10,7 @@ public class ODCreateUserQuery {
 	public static String SQL_USERTABLE3="insert into Park_current_reservation_hdr (User_id,Reservation_id,Transaction_date,Creation_date)"+"values(?,?,?,?)";     
 
 	public static String SQL_CREATEPACKAGEDETAILS="insert into Park_current_reservation_det()"+"values()";
+	
+	public static String SQL_GETAVAILABILITY = "SELECT A.Park_id,A.Room_type_code, A.Current_available_qty , B.Quantity FROM Park_current_pricing_availability A , Park_current_reservation_det B where A.Park_id = B.park_id and A.Room_type_code=B.type_code and A.Park_id = ? and A.Date between B.from_date and B.to_date";
+	
 }

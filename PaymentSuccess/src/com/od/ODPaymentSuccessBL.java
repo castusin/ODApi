@@ -36,7 +36,6 @@ public class ODPaymentSuccessBL {
 	    CISResults cisResult= new CISResults();
 		testServiceTime seriveTimeCheck=new testServiceTime();
 		String serviceStartTime=time.getTimeZone();
-		List<GetDatesModel> dateList = null;		
 		final Logger logger = Logger.getLogger(ODPaymentSuccessBL.class);
 	  		 
 	     cisResult = successDAO.paymentSuccess(transactionId,status);
