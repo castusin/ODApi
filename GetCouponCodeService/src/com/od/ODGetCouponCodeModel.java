@@ -1,6 +1,7 @@
 
 package com.od;
 
+import java.time.Instant;
 import java.util.Date;
 
 
@@ -46,6 +47,28 @@ public class ODGetCouponCodeModel {
 	}
 	
 
+
+	public Date getFromDate() {
+		return fromDate;
+	}
+
+
+
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
+	}
+
+
+
+	public Date getToDate() {
+		return toDate;
+	}
+
+
+
+	public void setToDate(Date toDate) {
+		this.toDate = toDate;
+	}
 
 
 
@@ -108,40 +131,6 @@ public class ODGetCouponCodeModel {
 	public void setDiscount(int discount) {
 		this.discount = discount;
 	}
-
-
-
-
-
-	public Date getFromDate() {
-		return fromDate;
-	}
-
-
-
-
-
-	public void setFromDate(Date fromDate) {
-		this.fromDate = fromDate;
-	}
-
-
-
-
-
-	public Date getToDate() {
-		return toDate;
-	}
-
-
-
-
-
-	public void setToDate(Date toDate) {
-		this.toDate = toDate;
-	}
-
-
 
 
 

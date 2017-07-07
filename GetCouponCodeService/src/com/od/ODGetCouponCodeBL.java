@@ -42,10 +42,14 @@ public class ODGetCouponCodeBL {
 			 Date toDate=coupon.getToDate();
 			 SimpleDateFormat myFormat = new SimpleDateFormat(CISConstants.CHECKIN_DATE_FORMAT);
 			 Date date = myFormat.parse(checkIn);
-			 if (date.after(fromDate) && date.before(toDate)) {
+			 /*if (date.after(fromDate) && date.before(toDate)) {
 	        	cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 	        	
-			 }
+			 }*/
+			 if (date.compareTo(fromDate)>=0 && date.compareTo(toDate)<=0) {
+		        	cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		        	
+				 }
 			 else {
 	        	cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
 	        	coupon.setDiscount(0);
