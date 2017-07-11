@@ -1,11 +1,6 @@
 package com.od;
 
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.TimeZone;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;

@@ -51,7 +51,5 @@ public class ODGetParkDetailsMapper implements RowMapper{
 		return parkDetails;
 	}
 
-		
-		
-		
+
 }

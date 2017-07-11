@@ -57,7 +57,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 
 
 
-	public CISResults createUser3(String userId, String reservationId,
+	public CISResults createUserHeader(String userId, String reservationId,
 			Date reservedDate, String createDate) {
 		Logger logger = Logger.getLogger(ODCreateUserDAO.class);
 		CISResults cisResults=new CISResults();
@@ -68,7 +68,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE3,userId,reservationId,reservedDate,createDate);
+			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE_HEADER,userId,reservationId,reservedDate,createDate);
 			
 			cisResults.setResultObject(reservationId);
 			
@@ -91,7 +91,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 
 	
 
-	public CISResults createUser2(String reservationId, int parkId,
+	public CISResults createUserDetails(String reservationId, int parkId,
 			String title, float price,
 			String typeCode, int quantity, String type, Date fromDate, Date toDate, float totalPrice,
 			String status, String createDate) {
@@ -102,7 +102,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE2,reservationId,parkId,title,price,typeCode,quantity,type,fromDate,toDate,totalPrice,status,createDate);
+			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE_DETAILS,reservationId,parkId,title,price,typeCode,quantity,type,fromDate,toDate,totalPrice,status,createDate);
 			
 			String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
