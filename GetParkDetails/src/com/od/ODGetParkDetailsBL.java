@@ -38,12 +38,11 @@ public class ODGetParkDetailsBL {
 		 	List<ODParkDetailsService> parkDetailslist = null;
 			final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
 			
-			
-			
+			// converting string to date
 			SimpleDateFormat myFormat = new SimpleDateFormat(CISConstants.CHECKIN_DATE_FORMAT);
 			Date date1 = myFormat.parse(checkIn);
 		    Date date2 = myFormat.parse(checkOut);
-		
+		    // calculating count
 			int count=0;
 			long diff = date2.getTime() - date1.getTime();
 			long diffDays = diff / (24 * 60 * 60 * 1000)+1;

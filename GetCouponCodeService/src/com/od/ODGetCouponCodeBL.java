@@ -46,6 +46,7 @@ public class ODGetCouponCodeBL {
 	        	cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 	        	
 			 }*/
+			 //comparing a date between two dates
 			 if (date.compareTo(fromDate)>=0 && date.compareTo(toDate)<=0) {
 		        	cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		        	

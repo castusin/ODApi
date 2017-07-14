@@ -74,7 +74,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			
 			String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
-			 logger.info("user table3 query time:: " +cisResults);
+			 logger.info("user table header query time:: " +cisResults);
 		 
 			
 		} catch (DataAccessException e) {
@@ -106,7 +106,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			
 			String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
-			 logger.info("user table2 query time:: " +cisResults);
+			 logger.info("user table details query time:: " +cisResults);
 
 		} catch (DataAccessException e) {
 			e.printStackTrace();

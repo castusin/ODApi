@@ -61,13 +61,13 @@ public class ODCreateUserBL {
 			 String createDate=time.getTimeZone();
 			 int parkId=createUser.getParkId();
 			 String sessionId = UUID.randomUUID().toString();
-	          String userId=DigestUtils.sha256Hex(sessionId);
-	          String upToNCharacters = userId.substring(0, Math.min(userId.length(), 6));
-	          userId=upToNCharacters;
-	          String sessionId2 = UUID.randomUUID().toString();
-	          String reservationId=DigestUtils.sha256Hex(sessionId2);
-	          String upToNCharacters2 = reservationId.substring(0, Math.min(reservationId.length(),8));
-	          reservationId=upToNCharacters2;
+	         String userId=DigestUtils.sha256Hex(sessionId);
+	         String upToNCharacters = userId.substring(0, Math.min(userId.length(), 6));
+	         userId=upToNCharacters;
+	         String sessionId2 = UUID.randomUUID().toString();
+	         String reservationId=DigestUtils.sha256Hex(sessionId2);
+	         String upToNCharacters2 = reservationId.substring(0, Math.min(reservationId.length(),8));
+	         reservationId=upToNCharacters2;
 	          
 	        //  cisResults = createUserDAO.getAvailablility(parkId);
 	          
@@ -76,31 +76,36 @@ public class ODCreateUserBL {
 		     // To get list items
 			 int packageSize= createUser.getPackageList().size();
 			 
-			 for (int i = 0; i < packageSize; i++)
-			 {
-				 title = createUser.getPackageList().get(i).title;
-				 price = createUser.getPackageList().get(i).price;
-				 typeCode =  createUser.getPackageList().get(i).typeCode;
-				 quantity =  createUser.getPackageList().get(i).quantity;
-				 type =  createUser.getPackageList().get(i).type;
-								 
-				 cisResults = createUserDAO.createUserDetails(reservationId,parkId,title,price,typeCode,quantity,type,createUser.getFromDate(),createUser.getToDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
-					  
-			 }
 			
 			 Calendar currentdate = Calendar.getInstance();
 		     DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
 		     TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE2);
 		     formatter.setTimeZone(obj);
 		  
-		     
-	          
-		     
 			  cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
+            
+		     if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+             {
+		    	 // list of packages
+		    	 for (int i = 0; i < packageSize; i++)
+		    	 {
+		    		 title = createUser.getPackageList().get(i).title;
+		    		 price = createUser.getPackageList().get(i).price;
+		    		 typeCode =  createUser.getPackageList().get(i).typeCode;
+		    		 quantity =  createUser.getPackageList().get(i).quantity;
+		    		 type =  createUser.getPackageList().get(i).type;
+								 
+		    		 cisResults = createUserDAO.createUserDetails(reservationId,parkId,title,price,typeCode,quantity,type,createUser.getFromDate(),createUser.getToDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
+				 
+		    	 }
 			
-					
+             }
+		     
+		     
+		     if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+             {	
 			  cisResults = createUserDAO.createUserHeader(userId,reservationId,createUser.getReservedDate(),createDate);
-			
+             }
 			
 			 String serviceEndTime=time.getTimeZone();
 			 long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
