@@ -8,18 +8,33 @@ public class ODPaymentSuccessModel {
 	public String reservationId ;
 	public String emailId;
 	public String firstName;
+	public String phoneNumber;
 	
-	
-	public ODPaymentSuccessModel(String status, String reservationId, String emailId, String firstName) {
+	public ODPaymentSuccessModel(String status, String reservationId, String emailId, String firstName, String phoneNumber) {
 		super();
 		
 		this.status=status;
 		this.reservationId=reservationId;
 		this.emailId=emailId;
 		this.firstName=firstName;
+		this.phoneNumber=phoneNumber;
 	}
 	
 	
+
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+
+
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+
 
 
 	public String getFirstName() {

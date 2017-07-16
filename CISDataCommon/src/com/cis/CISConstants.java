@@ -40,6 +40,13 @@ public class CISConstants {
 	public static final String CANCEL ="cancelled";
 	public static final String PAYMENTSUCCESS ="N";
 	public static final String COD ="Y";
+	
+	public static final String WRONG_PHONE_NUMBER="Please check phone number";
+	public static final String PHONE_NUMBER_SERVER_ISSUE="SMS Server issue, Please try later";
+	public static final String USERNAME="kapbulk";
+	public static final String PASSWORD="kapbulk@trans!123";
+	public static final String SENDERID="KAPMSG";
+	public static final String TYPE="longsms";
 	public CISConstants() {
 		// TODO Auto-generated constructor stub
 	}
