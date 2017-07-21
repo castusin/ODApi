@@ -4,7 +4,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
 import java.net.URL;
+import java.util.Date;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,8 +15,10 @@ import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
+import com.od.ParkAddress;
+
 public class SMSCommunication {
-	public CISResults sendMessages(String phoneNumber) throws Throwable {
+	public CISResults sendMessages(String phoneNumber, String parkName, ParkAddress address, String city, String title, int qty, Date checkIn, Date checkOut, float totalPrice) throws Throwable {
 		// TODO Auto-generated method stub
 		final Logger logger = Logger.getLogger(SMSCommunication.class);
 		CISResults cisResult=new CISResults();
@@ -26,12 +30,29 @@ public class SMSCommunication {
          String Password =	CISConstants.PASSWORD;
          String SenderID = 	CISConstants.SENDERID; 
          String resp="Y";
+         String Key="166143ArYEP8niJe7859705566";
+         String sender="ABCDEF";
+         String route="4";
+         int country=0;
          //String Type=		CISConstants.TYPE;
         
-         String Message = "Your payment was successful " ;
-         postData += "username=" + Username + "&pass=" + Password + "&senderid=" +           
-        		 SenderID +"&message=" +Message + "&dest_mobileno="+phoneNumber+"&response="+resp;
-		 URL url = new URL("http://123.63.33.43/blank/sms/user/urlsmstemp.php?");
+         //String Message = "Your payment was successful " ;
+         String Message= "Your payment was successful "+parkName+", "+city+" "+
+			"CheckIn Date :"+checkIn+
+			"CheckOut Date :"+checkOut+
+			"Facility quantity :"+qty+
+			"Facility Type :"+title+
+			"Total Price : "+totalPrice;
+        /* postData += "username=" + Username + "&pass=" + Password + "&senderid=" +           
+        		 SenderID +"&message=" +Message + "&dest_mobileno="+phoneNumber+"&response="+resp;*/
+         postData += "authkey=" + Key + "&mobiles=" + phoneNumber + "&message=" +           
+        		 Message +"&sender=" +sender + "&route="+route+"&country="+country;
+         
+		// URL url = new URL("http://123.63.33.43/blank/sms/user/urlsmstemp.php?");
+         URL url = new URL("https://control.msg91.com/api/sendhttp.php?");
+		 
+ //https://control.msg91.com/api/sendhttp.php?authkey=YourAuthKey&mobiles=919999999990,919999999999&message=message&sender=ABCDEF&route=4&country=0
+		 
 		 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
          urlconnection.setRequestMethod("POST");
          urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
@@ -95,12 +116,23 @@ public class SMSCommunication {
          String Password =	CISConstants.PASSWORD;
          String SenderID = 	CISConstants.SENDERID; 
          String resp="Y";
+         
+         String Key="166143ArYEP8niJe7859705566";
+         String sender="ABCDEF";
+         String route="4";
+         int country=0;
          //String Type=		CISConstants.TYPE;
         
          String Message = "Sorry, your payment is un-successful " ;
-         postData += "username=" + Username + "&pass=" + Password + "&senderid=" +           
+        /* postData += "username=" + Username + "&pass=" + Password + "&senderid=" +           
         		 SenderID +"&message=" +Message + "&dest_mobileno="+phoneNumber+"&response="+resp;
-		 URL url = new URL("http://123.63.33.43/blank/sms/user/urlsmstemp.php?");
+		 URL url = new URL("http://123.63.33.43/blank/sms/user/urlsmstemp.php?");*/
+         
+         postData += "authkey=" + Key + "&mobiles=" + phoneNumber + "&message=" +           
+        		 Message +"&sender=" +sender + "&route="+route+"&country="+country;
+         
+		// URL url = new URL("http://123.63.33.43/blank/sms/user/urlsmstemp.php?");
+         URL url = new URL("https://control.msg91.com/api/sendhttp.php?");
 		 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
          urlconnection.setRequestMethod("POST");
          urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
@@ -118,6 +150,62 @@ public class SMSCommunication {
          logger.info("SMS STATUS: "+retval);  
          
 		return cisResult;
+	}
+
+	public CISResults sendMessagesCOD(String phoneNumber, String parkName,
+			ParkAddress address, String city, String title, int qty,
+			Date checkIn, Date checkOut, float totalPrice) throws Throwable {
+		final Logger logger = Logger.getLogger(SMSCommunication.class);
+		CISResults cisResult=new CISResults();
+		String postData="";
+         String retval = "";
+         //KAP SYSTEMS PROVIDERS LOGIN DETAILS DEMO ACCOUNT DETAILS
+         // TODO: Remove hard coded data.
+         String Username =	CISConstants.USERNAME;
+         String Password =	CISConstants.PASSWORD;
+         String SenderID = 	CISConstants.SENDERID; 
+         String resp="Y";
+         String Key="166143ArYEP8niJe7859705566";
+         String sender="ABCDEF";
+         String route="4";
+         int country=0;
+         //String Type=		CISConstants.TYPE;
+        
+         //String Message = "Your payment was successful " ;
+         String Message= "Your COD was registered "+parkName+", "+city+" "+
+			"CheckIn Date :"+checkIn+
+			"CheckOut Date :"+checkOut+
+			"Facility quantity :"+qty+
+			"Facility Type :"+title+
+			"Total Price : "+totalPrice;
+        /* postData += "username=" + Username + "&pass=" + Password + "&senderid=" +           
+        		 SenderID +"&message=" +Message + "&dest_mobileno="+phoneNumber+"&response="+resp;*/
+         postData += "authkey=" + Key + "&mobiles=" + phoneNumber + "&message=" +           
+        		 Message +"&sender=" +sender + "&route="+route+"&country="+country;
+         
+		// URL url = new URL("http://123.63.33.43/blank/sms/user/urlsmstemp.php?");
+         URL url = new URL("https://control.msg91.com/api/sendhttp.php?");
+		 
+ //https://control.msg91.com/api/sendhttp.php?authkey=YourAuthKey&mobiles=919999999990,919999999999&message=message&sender=ABCDEF&route=4&country=0
+		 
+		 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
+         urlconnection.setRequestMethod("POST");
+         urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+         urlconnection.setDoOutput(true);
+         OutputStreamWriter out = new            
+         OutputStreamWriter(urlconnection.getOutputStream());
+         out.write(postData);
+         out.close();
+         BufferedReader in = new BufferedReader( new  InputStreamReader(urlconnection.getInputStream()));
+         String decodedString;
+         while ((decodedString = in.readLine()) != null) {
+               retval += decodedString;
+         }
+         in.close();
+         logger.info("SMS STATUS: "+retval);  
+         // Get Status Of SMS 
+      
+         return cisResult;
 	}
 	
 	

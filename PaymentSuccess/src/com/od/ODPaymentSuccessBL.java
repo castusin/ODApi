@@ -52,7 +52,7 @@ public class ODPaymentSuccessBL {
 		 firstName=name.getFirstName();
 		 ODPaymentSuccessModel  phone=(ODPaymentSuccessModel)cisResult.getResultObject();
 		 String phoneNumber=phone.getPhoneNumber();
-		 String cell="9440069067";
+		// String cell="9440069067";
 		 if(status.equalsIgnoreCase(CISConstants.STATUSFAILURE)){
 			 cisResult = successDAO.paymentEmail(transactionId);
 			 String paymentEmail2="";
@@ -62,7 +62,7 @@ public class ODPaymentSuccessBL {
 				 
 			 cisResult=sendMail.sendPaymentFailure(paymentEmail2);
 			try {
-				cisResult=smsCommunicaiton.sendFailureMessages(cell);
+				cisResult=smsCommunicaiton.sendFailureMessages(phoneNumber);
 				} catch (Throwable e) {
 					
 					e.printStackTrace();
@@ -137,23 +137,32 @@ public class ODPaymentSuccessBL {
 				 cisResult=sendMail.sendAdminSuccessMail(firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
 			
 				 cisResult=sendMail.sendSupplierSuccessMail(suppEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell);
-			}else if(cod.equalsIgnoreCase(CISConstants.COD)){
+				 try {
+						cisResult=smsCommunicaiton.sendMessages(phoneNumber,parkName,address,city,title,qty,checkIn,checkOut,totalPrice);
+					 } catch (Throwable e) {
+							
+							e.printStackTrace();
+							cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
+							cisResult.setErrorMessage(CISConstants.SMS_FAILED);
+						} 
+			 
+			 }else if(cod.equalsIgnoreCase(CISConstants.COD)){
 				
 				cisResult=sendMail.sendPaymentstatusCOD(paymentEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
 		    	
 				cisResult=sendMail.sendAdminSuccessMailCOD(firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell,suppEmail);
 		    	
 				cisResult=sendMail.sendSupplierSuccessMailCOD(suppEmail,firstName,checkIn,checkOut,price,transactionId,title,totalPrice,qty,streetAddress,city,state,pin,parkName,suppCell);
+				try {
+					cisResult=smsCommunicaiton.sendMessagesCOD(phoneNumber,parkName,address,city,title,qty,checkIn,checkOut,totalPrice);
+				} catch (Throwable e) {
+					e.printStackTrace();
+					cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
+					cisResult.setErrorMessage(CISConstants.SMS_FAILED);
+				}
 				
 			}
-			 try {
-					cisResult=smsCommunicaiton.sendMessages(cell);
-				 } catch (Throwable e) {
-						
-						e.printStackTrace();
-						cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
-						cisResult.setErrorMessage(CISConstants.SMS_FAILED);
-					} 
+			 
 			
 			// get current availability
 			 cisResult = successDAO.getAvailablility(transactionId);

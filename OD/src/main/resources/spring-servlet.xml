@@ -41,6 +41,11 @@
 	<bean id="CouponsCode" class="com.od.ODGetCouponCodeDAO">
 		<property name="dataSource" ref="ds" />
 	</bean>
+	
+	<bean id="ParkRegistration" class="com.od.ODParkRegistrationDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
   <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
 <property name="url" value="jdbc:mysql://204.93.169.64:3306/littlepa_ODDB"/>  
@@ -61,6 +66,14 @@
 <property name="url" value="jdbc:mysql://204.93.169.64:3306/castusin_testod"/>  
 <property name="username" value="castusin_od"/>  
 <property name="password" value="outingday1@3" />  
+ 
+</bean> -->
+
+<!-- <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+<property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+<property name="url" value="jdbc:mysql://127.0.0.1:3306/castusin_ODDB"/>  
+<property name="username" value="root"/>  
+<property name="password" value="password" />  
  
 </bean> -->
 </beans>

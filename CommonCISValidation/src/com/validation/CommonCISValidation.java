@@ -8,6 +8,7 @@ import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.od.ODCreateUserModel;
 import com.od.ODGetCitiesModel;
+import com.od.ODParkRegistrationModel;
 
 
 public class CommonCISValidation {
@@ -258,6 +259,37 @@ public CISResults getParksDetailsValidation(HttpServletRequest request,
 }
 public CISResults paymentSuccessValidation(HttpServletRequest request,
 		String transactionId, String status, String cod) {
+	CISResults CISResults=new CISResults();
+	ArrayList<String> registrationValues= new ArrayList<String>();
+	
+	CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+	String headerAuthorization=request.getHeader(CISConstants.HEADERS_AUTHROIZATION);
+        
+	//Validate Headers AUTHROIZATION
+    if(headerAuthorization.equals(CISConstants.HEADERS_AUTHROIZATION_VAUE))
+    {
+    	CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+    }else
+    {
+    	CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+    }
+    
+    
+ // Validate Null Values in Profile Data
+    if(CISResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+	 {
+    
+	 for (String checkvalues : registrationValues) {
+            if  (checkvalues==null || checkvalues.equals(""))
+            	CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+          } 
+	 }     
+    
+	
+	 return CISResults;
+}
+public CISResults parkRegestrationValidation(HttpServletRequest request,
+		ODParkRegistrationModel parkregisteration) {
 	CISResults CISResults=new CISResults();
 	ArrayList<String> registrationValues= new ArrayList<String>();
 	
