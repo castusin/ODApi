@@ -76,6 +76,11 @@
 			<location>E:/GitHub/ODApi/GetParkDetails/src</location>
 		</link>
 		<link>
+			<name>LoginService</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/LoginService/LoginService/src</location>
+		</link>
+		<link>
 			<name>ODCreateUser</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/ODCreateUser/src</location>
@@ -99,6 +104,16 @@
 			<name>PaymentSuccess</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/PaymentSuccess/src</location>
+		</link>
+		<link>
+			<name>RequestOTPService</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/RequestOTPService/src</location>
+		</link>
+		<link>
+			<name>ValidateOTPService</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/ValidateOTPService/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

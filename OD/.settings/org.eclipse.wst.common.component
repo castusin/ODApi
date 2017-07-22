@@ -17,6 +17,9 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/GetCities"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/GetCouponCodeService"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/ParkRegistrationService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/RequestOTPService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/ValidateOTPService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/LoginService"/>
         <property name="context-root" value="OD"/>
         <property name="java-output-path" value="/OD/target/classes"/>
     </wb-module>

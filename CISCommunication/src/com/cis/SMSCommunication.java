@@ -207,6 +207,75 @@ public class SMSCommunication {
       
          return cisResult;
 	}
+
 	
+		public CISResults sendSMS(String phoneNumber,int otpNumber) throws Throwable {
+			// TODO Auto-generated method stub
+			CISResults cisResult=new CISResults();
+			String postData="";
+	         String retval = "";
+	         //KAP SYSTEMS PROVIDERS LOGIN DETAILS DEMO ACCOUNT DETAILS
+	         // TODO: Remove hard coded data.
+	         String Key="166143ArYEP8niJe7859705566";
+	         String sender="ABCDEF";
+	         String route="4";
+	         int country=0;
+	         String Message= "Your otp "+otpNumber+"";
+	     			
+	               postData += "authkey=" + Key + "&mobiles=" + phoneNumber + "&message=" +           
+	             		 Message +"&sender=" +sender + "&route="+route+"&country="+country;
+	              URL url = new URL("https://control.msg91.com/api/sendhttp.php?");
+	     		 
+			 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
+	         urlconnection.setRequestMethod("POST");
+	         urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+	         urlconnection.setDoOutput(true);
+	         OutputStreamWriter out = new            
+	         OutputStreamWriter(urlconnection.getOutputStream());
+	         out.write(postData);
+	         out.close();
+	         BufferedReader in = new BufferedReader( new  InputStreamReader(urlconnection.getInputStream()));
+	         String decodedString;
+	         while ((decodedString = in.readLine()) != null) {
+	               retval += decodedString;
+	         }
+	         in.close();
+	         System.out.println("SMS STATUS: "+retval);
+	         
+	    /*     // Get Status Of SMS 
+	         
+	           DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+	           InputSource src = new InputSource();
+	           src.setCharacterStream(new StringReader(retval));
+
+	           Document doc = builder.parse(src);
+	           String status = doc.getElementsByTagName("status").item(0).getTextContent();
+	           String messageId = doc.getElementsByTagName("messageid").item(0).getTextContent();
+	           
+	         //  System.out.println(status);
+	          // System.out.println(messageId);
+	           // TODO: Remove hard coded data.
+	           String  wrongNumber= "-13";
+	           String noBal = "-2";
+	           String statusSucess="0";
+	          
+	           if(status.equalsIgnoreCase(wrongNumber))
+	           {   //System.out.println("SMS FAILED DUE TO WRONG NUMBER ENTER.");
+	          	  cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
+	    			  cisResult.setErrorMessage(CISConstants.WRONG_PHONE_NUMBER);
+	           }
+	           if(status.equalsIgnoreCase(noBal))  
+	           {
+	          	// System.out.println("SMS FAILED DUE TO No Balance in account.");    	 
+	          	 cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
+	    			 cisResult.setErrorMessage(CISConstants.PHONE_NUMBER_SERVER_ISSUE);	 
+	           }
+	           if(status.equalsIgnoreCase(statusSucess))
+	           {
+	          	// System.out.println("SMS FAILED ");
+	          	 cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+	           }*/     
+		      return cisResult;
+		}
 	
 }

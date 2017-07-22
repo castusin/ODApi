@@ -79,7 +79,7 @@ public class ODCreateUserBL {
 			
 			 Calendar currentdate = Calendar.getInstance();
 		     DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
-		     TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE2);
+		     TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONEIND);
 		     formatter.setTimeZone(obj);
 		  
 			  cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);

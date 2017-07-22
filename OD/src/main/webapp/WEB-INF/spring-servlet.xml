@@ -40,6 +40,18 @@
 		<property name="dataSource" ref="ds" />
 	</bean>
 	
+	<bean id="Requestotp" class="com.od.RequestOTPDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="validateotp" class="com.od.ValidateOTPDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="login" class="com.od.LoginDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
  <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
 <property name="url" value="jdbc:mysql://204.93.169.64:3306/littlepa_homecare"/>  

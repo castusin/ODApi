@@ -7,7 +7,7 @@ public class CISConstants {
 	public static final String RESPONSE_SUCCESS = "200";
 	public static final String RESPONSE_FAILURE="1";
 	public static final String TIME_ZONE="CST";
-	public static final String TIME_ZONE2="IST";
+	public static final String TIME_ZONEIND="IST";
 	public static final String YES = "Y";
 	public static final String GS_DATE_FORMAT = "yyyy/MM/dd HH:mm:ss";
 	public static final String GS_DATE_FORMAT2 ="yyyy-MM-dd'T'HH:mm:ss";
@@ -49,6 +49,14 @@ public class CISConstants {
 	public static final String PASSWORD="kapbulk@trans!123";
 	public static final String SENDERID="KAPMSG";
 	public static final String TYPE="longsms";
+	
+	public static final String OTP_TIME_STATUS="OTP is expired";
+	public static final int OTP_TIME=10;
+	public static final String DELETE_IND="N";
+	public static final String DELETE_IND_Y="Y";
+	public static final String ACCOUNT_STATUS4="Invalid passcode";
+	public static final String USA_COUNTRY_CODE="1";
+	public static final String USER_LOGIN_STATUS="Please check password";
 	public CISConstants() {
 		// TODO Auto-generated constructor stub
 	}
