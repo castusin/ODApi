@@ -29,8 +29,8 @@ public class RequestOTPBL {
 		      checkOTPTime otpTimeCheck=new checkOTPTime();
 		   // Capture service Start time
 			  TimeCheck time=new TimeCheck();
-				 testServiceTime seriveTimeCheck=new testServiceTime();
-				 String serviceStartTime=time.getTimeZone();
+			  testServiceTime seriveTimeCheck=new testServiceTime();
+			  String serviceStartTime=time.getTimeZone();
 		      
 		      String contact = phoneNumber;
 		      String deleteInd=CISConstants.DELETE_IND;
@@ -59,9 +59,8 @@ public class RequestOTPBL {
 			  }
 			  else
 			  {
-				  cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
-				 
-			        cisResults = otpDAO.requestOTP(contact,otpNumber,formatter.format(currentdate.getTime()),deleteInd);
+				    cisResults = otpDAO.requestOTP(contact,otpNumber,formatter.format(currentdate.getTime()),deleteInd);
+			        cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
 			        cisResults.setResultObject(cisResults);
 				 
 			  }

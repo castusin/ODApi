@@ -46,7 +46,7 @@ public class RequestOTPDAO extends JdbcDaoSupport{
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			verifyModel=(ValidateOTP)getJdbcTemplate().queryForObject(ValidateOTPQuery.SQL_GET_OTP,inputs,new GetOTPMapper());
+			 verifyModel=(ValidateOTP)getJdbcTemplate().queryForObject(ValidateOTPQuery.SQL_GET_OTP,inputs,new GetOTPMapper());
 			 String serviceEndTime=time.getTimeZone();
 			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("get otp query time:: " +result);

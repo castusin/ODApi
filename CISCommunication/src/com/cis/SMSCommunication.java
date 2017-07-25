@@ -68,6 +68,8 @@ public class SMSCommunication {
          }
          in.close();
          logger.info("SMS STATUS: "+retval);  
+         
+        // String statusSucess="200";
          // Get Status Of SMS 
          
        /*  DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -203,7 +205,7 @@ public class SMSCommunication {
          }
          in.close();
          logger.info("SMS STATUS: "+retval);  
-         // Get Status Of SMS 
+         cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
       
          return cisResult;
 	}
@@ -242,7 +244,7 @@ public class SMSCommunication {
 	         in.close();
 	         System.out.println("SMS STATUS: "+retval);
 	         
-	    /*     // Get Status Of SMS 
+	        /* // Get Status Of SMS 
 	         
 	           DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 	           InputSource src = new InputSource();
@@ -255,9 +257,9 @@ public class SMSCommunication {
 	         //  System.out.println(status);
 	          // System.out.println(messageId);
 	           // TODO: Remove hard coded data.
-	           String  wrongNumber= "-13";
-	           String noBal = "-2";
-	           String statusSucess="0";
+	           String  wrongNumber= "202";
+	           String noBal = "301";
+	           String statusSucess="success";
 	          
 	           if(status.equalsIgnoreCase(wrongNumber))
 	           {   //System.out.println("SMS FAILED DUE TO WRONG NUMBER ENTER.");
@@ -274,7 +276,8 @@ public class SMSCommunication {
 	           {
 	          	// System.out.println("SMS FAILED ");
 	          	 cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-	           }*/     
+	           }     */
+	          cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		      return cisResult;
 		}
 	
