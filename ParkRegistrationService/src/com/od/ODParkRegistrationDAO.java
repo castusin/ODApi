@@ -26,7 +26,7 @@ public class ODParkRegistrationDAO extends JdbcDaoSupport {
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
 			 getJdbcTemplate().update(ODParkRegistrationQuery.SQL_PARKREGISTRATIONTABLE,userId,firstName,lastName,userName,password,phoneNumber,userType,googleFbId,profilePicUrl,userGender,userRole,createDate,createdBy,updationDate,updatedBy,passwordLastChangedOn,lastLoginDatetime);
-			
+			 register.setUserId(userId);
 			 register.setUsername(userName);
 			 register.setPhoneNumber(phoneNumber);
 			 register.setFirstName(firstName);

@@ -101,6 +101,11 @@
 			<location>E:/GitHub/ODApi/ParkRegistrationService/src</location>
 		</link>
 		<link>
+			<name>ParkUserCheckService</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/ParkUserCheckService/src</location>
+		</link>
+		<link>
 			<name>PaymentSuccess</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/PaymentSuccess/src</location>

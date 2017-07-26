@@ -33,6 +33,8 @@ public class LoginDAO extends JdbcDaoSupport {
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
 			 loginModel=(ODParkRegistrationModel)getJdbcTemplate().queryForObject(LoginQuery.SQL_LOGIN,inputs,new ODParkRegistrationMapper());
+			
+			 loginModel.setUserId(loginModel.getUserId());
 			 loginModel.setUsername(loginModel.getUsername());
 			 loginModel.setPhoneNumber(loginModel.getPhoneNumber());
 			 loginModel.setFirstName(loginModel.getFirstName());

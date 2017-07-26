@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 @SuppressWarnings("rawtypes")
-public class ODParkRegistrationMapper implements RowMapper {
+public class ODParkUserCheckMapper implements RowMapper {
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		ODParkRegistrationModel login = new ODParkRegistrationModel();	
 		
@@ -15,7 +15,7 @@ public class ODParkRegistrationMapper implements RowMapper {
 
 		//login.setPhoneNumber(rs.getString("phone_number"));
 		//login.setEmailId(rs.getString("username"));
-		login.setUsername(rs.getString("phone_number"));
+		login.setPhoneNumber(rs.getString("phone_number"));
 		login.setUsername(rs.getString("username"));
 		login.setUserId(rs.getString("userid"));
 		
