@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
@@ -34,7 +35,8 @@ public class ODParkRegistrationBL {
 			
 			
 			 String createDate=time.getTimeZone();
-			
+			 String user=parkregisteration.getUsername();
+			 
 			 String sessionId = UUID.randomUUID().toString();
 	         String userId=DigestUtils.sha256Hex(sessionId);
 	         String upToNCharacters = userId.substring(0, Math.min(userId.length(), 6));
@@ -63,10 +65,14 @@ public class ODParkRegistrationBL {
 	         {
 	             e.printStackTrace();
 	         }
-	         
-	       
-	         cisResults = registrationDAO.parkRegestration(userId,parkregisteration.getFirstName(),parkregisteration.getLastName(),parkregisteration.getUserName(),generatedPassword,parkregisteration.getPhoneNumber(),parkregisteration.getUserType(),parkregisteration.getGoogleFbId(),parkregisteration.getProfilePicUrl(),parkregisteration.getUserGender(),parkregisteration.getUserRole(),createDate,parkregisteration.getCreatedBy(),parkregisteration.getUpdationDate(),parkregisteration.getUpdatedBy(),parkregisteration.getPasswordLastChangedOn(),parkregisteration.getLastLoginDatetime());
-            
+	         cisResults = registrationDAO.checkEmail(parkregisteration.getEmailId(),parkregisteration.getPhoneNumber());
+	            
+	         if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
+             {
+	         cisResults = registrationDAO.parkRegestration(userId,parkregisteration.getFirstName(),parkregisteration.getLastName(),parkregisteration.getUsername(),generatedPassword,parkregisteration.getPhoneNumber(),parkregisteration.getUserType(),parkregisteration.getGoogleFbId(),parkregisteration.getProfilePicUrl(),parkregisteration.getUserGender(),parkregisteration.getUserRole(),createDate,parkregisteration.getCreatedBy(),createDate,parkregisteration.getUpdatedBy(),createDate,createDate);
+	       }else{
+	    	   cisResults.setErrorMessage("user already exists, please login");
+	       }
 			 String serviceEndTime=time.getTimeZone();
 			 long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("Database time for park registration service:: " +result );

@@ -49,22 +49,29 @@ public class RequestOTPBL {
 		        cisResults.setResultObject(cisResults);
 		        cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);*/
 			  
-			   cisResults = otpDAO.validateOTPTime(contact,deleteInd);
+			  cisResults = otpDAO.checkEmail(phoneNumber);
+			  
+			  if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
+	             {
+				  	cisResults = otpDAO.validateOTPTime(contact,deleteInd);
 			 
-			  if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
-			  {
-			     ValidateOTP validate=(ValidateOTP)cisResults.getResultObject();
-			     otpNumber=Integer.parseInt(validate.getOtp());
-			     cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
-			  }
-			  else
-			  {
-				    cisResults = otpDAO.requestOTP(contact,otpNumber,formatter.format(currentdate.getTime()),deleteInd);
-			        cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
-			        cisResults.setResultObject(cisResults);
+				  	if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+				  	{
+				  		ValidateOTP validate=(ValidateOTP)cisResults.getResultObject();
+				  		otpNumber=Integer.parseInt(validate.getOtp());
+				  		cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
+				  	}
+				  	else
+				  	{
+				  		cisResults = otpDAO.requestOTP(contact,otpNumber,formatter.format(currentdate.getTime()),deleteInd);
+				  		cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
+				  		cisResults.setResultObject(cisResults);
 				 
-			  }
-	
+				  	}
+	             }else{
+	            	 cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+	  	    	     cisResults.setErrorMessage("user already exists, please login");
+	  	       }
 			// Capture Service End time
 			  String serviceEndTime=time.getTimeZone();
 			  seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);

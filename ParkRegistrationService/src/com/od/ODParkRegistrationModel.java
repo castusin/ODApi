@@ -9,7 +9,7 @@ public class ODParkRegistrationModel {
 	public String userId;
 	public String firstName;
 	public String lastName;
-	public String userName;
+	public String emailId;
 	public String password;
 	public String phoneNumber;
 	public String userType;
@@ -24,13 +24,14 @@ public class ODParkRegistrationModel {
 	public String passwordLastChangedOn;
 	public String lastLoginDatetime;
 
+	public String username;
 	
-	public ODParkRegistrationModel(String userId, String firstName, String lastName, String userName, String password, String phoneNumber, String userType, String profilePicUrl, String googleFbId, String userGender, String userRole, String creationDate, String createdBy, String updationDate, String updatedBy, String passwordLastChangedOn, String lastLoginDatetime) {
+	public ODParkRegistrationModel(String userId, String firstName, String lastName, String password, String phoneNumber, String userType, String profilePicUrl, String googleFbId, String userGender, String userRole, String creationDate, String createdBy, String updationDate, String updatedBy, String passwordLastChangedOn, String lastLoginDatetime, String emailId, String username) {
 		super();
 		this.userId=userId;
 		this.firstName=firstName;
 		this.lastName=lastName;
-		this.userName=userName;
+		this.emailId=emailId;
 		this.password=password;
 		this.phoneNumber=phoneNumber;
 		this.userType=userType;
@@ -44,9 +45,24 @@ public class ODParkRegistrationModel {
 		this.updatedBy=updatedBy;
 		this.passwordLastChangedOn=passwordLastChangedOn;
 		this.lastLoginDatetime=lastLoginDatetime;
+		this.username=username;
 		
 	}
 		
+
+
+
+		public String getUsername() {
+		return username;
+	}
+
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 
 
 
@@ -90,17 +106,15 @@ public class ODParkRegistrationModel {
 	}
 
 
-
-
-	public String getUserName() {
-		return userName;
+	public String getEmailId() {
+		return emailId;
 	}
 
 
 
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 

@@ -11,7 +11,7 @@ public class TimeCheck {
 		
 		Calendar current = Calendar.getInstance();
 	    DateFormat formatterTime = new SimpleDateFormat(CISConstants.DATE_FORMAT);
-	    TimeZone objTime = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
+	    TimeZone objTime = TimeZone.getTimeZone(CISConstants.TIME_ZONEIND);
 	    formatterTime.setTimeZone( objTime);
 	    String serviceTime=formatterTime.format(current.getTime());
 		return serviceTime;

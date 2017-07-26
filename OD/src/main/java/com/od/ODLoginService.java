@@ -18,7 +18,7 @@ public class ODLoginService {
 
 	@RequestMapping(value="/loginService",method=RequestMethod.GET,produces={"application/json"})
 
-	 public String login(HttpServletRequest request,@RequestParam ("phoneNumber") String phoneNumber,@RequestParam ("emailId") String emailId,@RequestParam ("password") String password) throws Throwable{
+	 public String login(HttpServletRequest request,@RequestParam ("username") String username,@RequestParam ("password") String password) throws Throwable{
 		 Logger logger = Logger.getLogger(ODLoginService.class);
 		/* String loginServiceParameters = "userId=" +userId + "&accountType=" + accountType+"&password=" + password ;
 		 logger.info(" DigitalHealthCare: loginService :"+loginServiceParameters);*/
@@ -34,7 +34,7 @@ public class ODLoginService {
 		//  if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 		 // {
 		     LoginWebservice loginService= new LoginWebservice();
-		     CISResults cisResult  = loginService.login(phoneNumber,emailId,password);
+		     CISResults cisResult  = loginService.login(username,password);
 		 // }
 		  
 		  

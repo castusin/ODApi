@@ -62,4 +62,33 @@ public class RequestOTPDAO extends JdbcDaoSupport{
 		
 		return cisResults;
 	}
+
+	public CISResults checkEmail(String phoneNumber) {
+		// TODO Auto-generated method stub
+		CISResults cisResults=new CISResults();
+		
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		  Object[] inputs = new Object[]{phoneNumber};
+		try{
+			// Capture service Start time
+			 TimeCheck time=new TimeCheck();
+			 testServiceTime sessionTimeCheck=new testServiceTime();
+			 String serviceStartTime=time.getTimeZone();
+			 ODCheckMail res = (ODCheckMail)getJdbcTemplate().queryForObject(RequestOTPQuery.SQL_CHECKEMAILID,inputs,new ODCheckPhoneMapper());
+			 String serviceEndTime=time.getTimeZone();
+			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			 
+			 logger.info("park registration query time:: " +cisResults);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+		
+			cisResults.setErrorMessage("Failed to get data");
+		}
+
+   		return cisResults; 
+		
+	}
 }

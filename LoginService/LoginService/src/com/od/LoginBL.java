@@ -1,28 +1,15 @@
 package com.od;
 
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Random;
-import java.util.TimeZone;
-import java.util.UUID;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
-import com.cis.SMSCommunication;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
 /**
@@ -38,21 +25,51 @@ public class LoginBL {
 	LoginDAO loginDAO=(LoginDAO)ctx.getBean("login");
 
 	
-	public CISResults login(String phoneNumber,String emailId, String password) throws Throwable {
+	public CISResults login(String username, String password) throws Throwable {
 		
 		ODParkRegistrationModel loginUser = new ODParkRegistrationModel();
 		// Capture service Start time
 		TimeCheck time=new TimeCheck();
 		 testServiceTime seriveTimeCheck=new testServiceTime();
 		 String serviceStartTime=time.getTimeZone();
-		
+		 String createDate=time.getTimeZone();
+		 
+		 
+		  //password encryption
+         String passwordToHash = password;
+         String generatedPassword = null;
+         try {
+             // Create MessageDigest instance for MD5
+             MessageDigest md = MessageDigest.getInstance("MD5");
+             //Add password bytes to digest
+             md.update(passwordToHash.getBytes());
+             //Get the hash's bytes 
+             byte[] bytes = md.digest();
+             //This bytes[] has bytes in decimal format;
+             //Convert it to hexadecimal format
+             StringBuilder sb = new StringBuilder();
+             for(int i=0; i< bytes.length ;i++)
+             {
+                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+             }
+             //Get complete hashed password in hex format
+             generatedPassword = sb.toString();
+         } 
+         catch (NoSuchAlgorithmException e) 
+         {
+             e.printStackTrace();
+         }
+		 
+		 
 		final Logger logger = Logger.getLogger(LoginBL.class);
-		CISResults cisResult = loginDAO.getPassword(phoneNumber);
+		CISResults cisResult = loginDAO.getPassword(username);
 		
 		 ODParkRegistrationModel  loginuser=(ODParkRegistrationModel)cisResult.getResultObject();
          String userPassword=loginuser.getPassword();
-         if(userPassword.equalsIgnoreCase(password)){
-		 cisResult = loginDAO.login(phoneNumber,emailId,password);
+         if(userPassword.equalsIgnoreCase(generatedPassword)){
+        	 cisResult = loginDAO.Updatelogin(createDate,username);
+        	 cisResult = loginDAO.login(username,generatedPassword);
+		
          }
          else{
         	 cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
