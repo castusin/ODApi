@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Date;
@@ -30,7 +31,7 @@ public class SMSCommunication {
          String Password =	CISConstants.PASSWORD;
          String SenderID = 	CISConstants.SENDERID; 
          String resp="Y";
-         String Key="166143ArYEP8niJe7859705566";
+         String Key="167320AnSc8m60597a0a95";
          String sender="ABCDEF";
          String route="4";
          int country=0;
@@ -119,7 +120,7 @@ public class SMSCommunication {
          String SenderID = 	CISConstants.SENDERID; 
          String resp="Y";
          
-         String Key="166143ArYEP8niJe7859705566";
+         String Key="167320AnSc8m60597a0a95";
          String sender="ABCDEF";
          String route="4";
          int country=0;
@@ -167,7 +168,7 @@ public class SMSCommunication {
          String Password =	CISConstants.PASSWORD;
          String SenderID = 	CISConstants.SENDERID; 
          String resp="Y";
-         String Key="166143ArYEP8niJe7859705566";
+         String Key="167320AnSc8m60597a0a95";
          String sender="ABCDEF";
          String route="4";
          int country=0;
@@ -218,7 +219,7 @@ public class SMSCommunication {
 	         String retval = "";
 	         //KAP SYSTEMS PROVIDERS LOGIN DETAILS DEMO ACCOUNT DETAILS
 	         // TODO: Remove hard coded data.
-	         String Key="166143ArYEP8niJe7859705566";
+	         String Key="167320AnSc8m60597a0a95";
 	         String sender="ABCDEF";
 	         String route="4";
 	         int country=0;
@@ -279,6 +280,44 @@ public class SMSCommunication {
 	           }     */
 	          cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		      return cisResult;
+		}
+
+		public String sendRegisterSMS(String contact, String firstName) throws Throwable {
+			// TODO Auto-generated method stub
+			CISResults cisResult=new CISResults();
+			String postData="";
+	         String retval = "";
+	         //KAP SYSTEMS PROVIDERS LOGIN DETAILS DEMO ACCOUNT DETAILS
+	         // TODO: Remove hard coded data.
+	         String Key="167320AnSc8m60597a0a95";
+	         String sender="ABCDEF";
+	         String route="4";
+	         int country=0;
+	         String Message= "Hi "+firstName+" , you are successfully registered" ;
+	     			
+	               postData += "authkey=" + Key + "&mobiles=" + contact + "&message=" +           
+	             		 Message +"&sender=" +sender + "&route="+route+"&country="+country;
+	              URL url = new URL("https://control.msg91.com/api/sendhttp.php?");
+	     		 
+			 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
+	         urlconnection.setRequestMethod("POST");
+	         urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+	         urlconnection.setDoOutput(true);
+	         OutputStreamWriter out = new            
+	         OutputStreamWriter(urlconnection.getOutputStream());
+	         out.write(postData);
+	         out.close();
+	         BufferedReader in = new BufferedReader( new  InputStreamReader(urlconnection.getInputStream()));
+	         String decodedString;
+	         while ((decodedString = in.readLine()) != null) {
+	               retval += decodedString;
+	         }
+	         in.close();
+	         System.out.println("SMS STATUS: "+retval);
+	         
+	
+	          cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		      return "";
 		}
 	
 }

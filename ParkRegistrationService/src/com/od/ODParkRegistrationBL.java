@@ -13,6 +13,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
+import com.cis.EmailCommunication;
+import com.cis.SMSCommunication;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
 
@@ -25,7 +27,8 @@ public class ODParkRegistrationBL {
 	public CISResults parkRegestration(ODParkRegistrationModel parkregisteration) throws Throwable {
 		
 		 // Capture service Start time
-	       	
+			 EmailCommunication sendMail=new EmailCommunication();
+			 SMSCommunication smsCommunicaiton=new SMSCommunication();
 	         CISResults cisResults=new CISResults();
 	         TimeCheck time=new TimeCheck();
 	         testServiceTime seriveTimeCheck=new testServiceTime();
@@ -36,7 +39,7 @@ public class ODParkRegistrationBL {
 			
 			 String createDate=time.getTimeZone();
 			 String user=parkregisteration.getUsername();
-			 
+			 String contact=parkregisteration.getPhoneNumber();
 			 String sessionId = UUID.randomUUID().toString();
 	         String userId=DigestUtils.sha256Hex(sessionId);
 	         String upToNCharacters = userId.substring(0, Math.min(userId.length(), 6));
@@ -44,6 +47,9 @@ public class ODParkRegistrationBL {
 	         //password encryption
 	         String passwordToHash = parkregisteration.getPassword();
 	         String generatedPassword = null;
+	         String firstName=parkregisteration.getFirstName();
+	         String lastName=parkregisteration.getLastName();
+	         String emailId=parkregisteration.getUsername();
 	         try {
 	             // Create MessageDigest instance for MD5
 	             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -65,18 +71,25 @@ public class ODParkRegistrationBL {
 	         {
 	             e.printStackTrace();
 	         }
-	         cisResults = registrationDAO.checkEmail(parkregisteration.getEmailId(),parkregisteration.getPhoneNumber());
+	         cisResults = registrationDAO.checkEmail(emailId,parkregisteration.getPhoneNumber());
 	            
 	         if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
              {
 	         cisResults = registrationDAO.parkRegestration(userId,parkregisteration.getFirstName(),parkregisteration.getLastName(),parkregisteration.getUsername(),generatedPassword,parkregisteration.getPhoneNumber(),parkregisteration.getUserType(),parkregisteration.getGoogleFbId(),parkregisteration.getProfilePicUrl(),parkregisteration.getUserGender(),parkregisteration.getUserRole(),createDate,parkregisteration.getCreatedBy(),createDate,parkregisteration.getUpdatedBy(),createDate,createDate);
-	       }else{
+	        // cisResults.setResultObject(cisResults);
+	         	if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+	         	{
+	         		String mail=sendMail.sendRegisterMail(firstName,lastName,emailId);
+	         		String sms=smsCommunicaiton.sendRegisterSMS(contact,firstName);
+	         	}
+           
+             }else{
 	    	   cisResults.setErrorMessage("user already exists, please login");
 	       }
 			 String serviceEndTime=time.getTimeZone();
 			 long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("Database time for park registration service:: " +result );
-
+			// cisResults.setResultObject(cisResults);
 			 return cisResults;
 		}
 
