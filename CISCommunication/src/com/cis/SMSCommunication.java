@@ -31,7 +31,8 @@ public class SMSCommunication {
          String Password =	CISConstants.PASSWORD;
          String SenderID = 	CISConstants.SENDERID; 
          String resp="Y";
-         String Key="167320AnSc8m60597a0a95";
+        // String Key="167320AnSc8m60597a0a95";
+         String Key=CISConstants.key;
          String sender="ABCDEF";
          String route="4";
          int country=0;
@@ -120,7 +121,8 @@ public class SMSCommunication {
          String SenderID = 	CISConstants.SENDERID; 
          String resp="Y";
          
-         String Key="167320AnSc8m60597a0a95";
+         // String Key="167320AnSc8m60597a0a95";
+         String Key=CISConstants.key;
          String sender="ABCDEF";
          String route="4";
          int country=0;
@@ -168,7 +170,8 @@ public class SMSCommunication {
          String Password =	CISConstants.PASSWORD;
          String SenderID = 	CISConstants.SENDERID; 
          String resp="Y";
-         String Key="167320AnSc8m60597a0a95";
+         // String Key="167320AnSc8m60597a0a95";
+         String Key=CISConstants.key;
          String sender="ABCDEF";
          String route="4";
          int country=0;
@@ -219,7 +222,8 @@ public class SMSCommunication {
 	         String retval = "";
 	         //KAP SYSTEMS PROVIDERS LOGIN DETAILS DEMO ACCOUNT DETAILS
 	         // TODO: Remove hard coded data.
-	         String Key="167320AnSc8m60597a0a95";
+	         // String Key="167320AnSc8m60597a0a95";
+	         String Key=CISConstants.key;
 	         String sender="ABCDEF";
 	         String route="4";
 	         int country=0;
@@ -289,7 +293,8 @@ public class SMSCommunication {
 	         String retval = "";
 	         //KAP SYSTEMS PROVIDERS LOGIN DETAILS DEMO ACCOUNT DETAILS
 	         // TODO: Remove hard coded data.
-	         String Key="167320AnSc8m60597a0a95";
+	         // String Key="167320AnSc8m60597a0a95";
+	         String Key=CISConstants.key;
 	         String sender="ABCDEF";
 	         String route="4";
 	         int country=0;

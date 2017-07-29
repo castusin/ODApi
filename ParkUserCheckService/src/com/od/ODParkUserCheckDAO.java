@@ -26,7 +26,6 @@ public class ODParkUserCheckDAO extends JdbcDaoSupport{
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
 			 checkEmail = (ODParkRegistrationModel)getJdbcTemplate().queryForObject(ODParkUserCheckQuery.SQL_CHECKEMAILID,inputs,new ODParkUserCheckMapper());
-			
 			 
 			 checkEmail.setUsername(emailId);
 			 checkEmail.setUserId(checkEmail.getUserId());

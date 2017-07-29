@@ -57,6 +57,8 @@ public class CISConstants {
 	public static final String ACCOUNT_STATUS4="Invalid passcode";
 	public static final String USA_COUNTRY_CODE="1";
 	public static final String USER_LOGIN_STATUS="Please check password";
+	public static final String key="167320AnSc8m60597a0a95";
+	
 	public CISConstants() {
 		// TODO Auto-generated constructor stub
 	}
