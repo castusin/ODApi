@@ -76,6 +76,11 @@
 			<location>E:/GitHub/ODApi/GetParkDetails/src</location>
 		</link>
 		<link>
+			<name>GetStateCitiesService</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/GetStateCitiesService/src</location>
+		</link>
+		<link>
 			<name>LoginService</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/LoginService/LoginService/src</location>

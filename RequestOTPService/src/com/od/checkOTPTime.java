@@ -10,7 +10,7 @@ public class checkOTPTime {
 	// TODO Auto-generated method stub
 	public CISResults getOTPTime(String currentDateTime,
 			String otpTimeGenerateTime) {
-	SimpleDateFormat format = new SimpleDateFormat(CISConstants.DATE_FORMAT);
+	SimpleDateFormat format = new SimpleDateFormat(CISConstants.DATE_FORMATE);
 	CISResults cisResult=new CISResults();
 	Date d1 = null;
 	Date d2 = null;

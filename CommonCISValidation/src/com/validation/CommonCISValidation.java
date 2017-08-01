@@ -319,5 +319,37 @@ public CISResults parkRegestrationValidation(HttpServletRequest request,
 	
 	 return CISResults;
 }
+public CISResults viewStateCitiesValidation(HttpServletRequest request,
+		String stateId) {
+
+	CISResults CISResults=new CISResults();
+	ArrayList<String> registrationValues= new ArrayList<String>();
+	
+	CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+	String headerAuthorization=request.getHeader(CISConstants.HEADERS_AUTHROIZATION);
+        
+	//Validate Headers AUTHROIZATION
+    if(headerAuthorization.equals(CISConstants.HEADERS_AUTHROIZATION_VAUE))
+    {
+    	CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+    }else
+    {
+    	CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+    }
+    
+    
+ // Validate Null Values in Profile Data
+    if(CISResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+	 {
+    
+	 for (String checkvalues : registrationValues) {
+            if  (checkvalues==null || checkvalues.equals(""))
+            	CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+          } 
+	 }     
+    
+	
+	 return CISResults;
+}
 
 }

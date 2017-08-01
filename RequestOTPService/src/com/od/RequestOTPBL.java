@@ -36,22 +36,29 @@ public class RequestOTPBL {
 		      String deleteInd=CISConstants.DELETE_IND;
 			 
 		      Calendar currentdate = Calendar.getInstance();
-		      DateFormat formatter = new SimpleDateFormat(CISConstants.DATE_FORMAT);
+		      DateFormat formatter = new SimpleDateFormat(CISConstants.DATE_FORMATE);
 		      TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONEIND);
 		      formatter.setTimeZone(obj);
 		      
 		      Random random = new Random( System.currentTimeMillis() );
 			  int otpNumber= ((1 + random.nextInt(2)) * 10000 + random.nextInt(10000));
 			  
-			  
-			 
-		       /* cisResults = otpDAO.requestOTP(contact,otpNumber,formatter.format(currentdate.getTime()),deleteInd);
-		        cisResults.setResultObject(cisResults);
-		        cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);*/
-			  
 			  cisResults = otpDAO.checkEmail(phoneNumber);
 			  
 			  if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
+	             {
+				  	cisResults = otpDAO.requestOTP(contact,otpNumber,formatter.format(currentdate.getTime()),deleteInd);
+				  	cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
+				  	cisResults.setResultObject(cisResults);
+	             }else{
+	            	 cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+	  	    	     cisResults.setErrorMessage("user already exists, please login");
+	  	       }
+			  
+			  
+			  
+			  
+			  /*if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
 	             {
 				  	cisResults = otpDAO.validateOTPTime(contact,deleteInd);
 			 
@@ -71,7 +78,7 @@ public class RequestOTPBL {
 	             }else{
 	            	 cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
 	  	    	     cisResults.setErrorMessage("user already exists, please login");
-	  	       }
+	  	       }*/
 			// Capture Service End time
 			  String serviceEndTime=time.getTimeZone();
 			  seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
