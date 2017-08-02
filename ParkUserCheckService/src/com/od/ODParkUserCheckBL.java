@@ -23,7 +23,7 @@ public class ODParkUserCheckBL {
 	ODParkUserCheckDAO parkUserCheckDAO=(ODParkUserCheckDAO)ctx.getBean("OParkUserCheck");
 
 	
-	public CISResults parkUserCheck(String emailId) throws Exception {
+	public CISResults parkUserCheck(String emailId, String socialId) throws Exception {
 		
 		// Capture service Start time
 		CISResults cisResult=new CISResults();
@@ -33,7 +33,7 @@ public class ODParkUserCheckBL {
 		  
 		final Logger logger = Logger.getLogger(ODGetCouponCodeBL.class);
 		 
-		 cisResult = parkUserCheckDAO.parkUserCheck(emailId);
+		 cisResult = parkUserCheckDAO.parkUserCheck(emailId,socialId);
 		 if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
          {
 			 cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);

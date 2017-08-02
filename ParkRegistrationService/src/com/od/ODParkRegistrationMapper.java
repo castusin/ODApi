@@ -15,7 +15,7 @@ public class ODParkRegistrationMapper implements RowMapper {
 
 		//login.setPhoneNumber(rs.getString("phone_number"));
 		//login.setEmailId(rs.getString("username"));
-		login.setUsername(rs.getString("phone_number"));
+		login.setPhoneNumber(rs.getString("phone_number"));
 		login.setUsername(rs.getString("username"));
 		login.setUserId(rs.getString("userid"));
 		

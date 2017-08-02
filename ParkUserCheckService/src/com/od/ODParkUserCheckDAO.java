@@ -14,12 +14,12 @@ import com.cis.testServiceTime;
 
 public class ODParkUserCheckDAO extends JdbcDaoSupport{
 	
-	public CISResults parkUserCheck(String emailId) {
+	public CISResults parkUserCheck(String emailId, String socialId) {
 		// TODO Auto-generated method stub
 		CISResults cisResults=new CISResults();
 		ODParkRegistrationModel checkEmail;
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		  Object[] inputs = new Object[]{emailId};
+		  Object[] inputs = new Object[]{emailId,socialId};
 		try{
 			// Capture service Start time
 			 TimeCheck time=new TimeCheck();

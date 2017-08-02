@@ -17,7 +17,7 @@ public class ODParkUserCheckService {
 
 	@RequestMapping(value="/parkUserCheck",method=RequestMethod.GET,produces={"application/json"})
 
-	 public String parkUserCheck(@RequestParam ("emailId") String emailId) throws Throwable{
+	 public String parkUserCheck(@RequestParam ("emailId") String emailId,@RequestParam ("socialId") String socialId) throws Throwable{
 		  Logger logger = Logger.getLogger(ODParkUserCheckService.class);
 		  String parkUserCheckParameters = "emailId=" +emailId;
 		  logger.info("park user check :"+parkUserCheckParameters);
@@ -32,7 +32,7 @@ public class ODParkUserCheckService {
 		 // if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 		//  {
 		    ODParkUserCheckWebservice parkUserCheckWebservice= new ODParkUserCheckWebservice();
-		    CISResults cisResult  = parkUserCheckWebservice.parkUserCheck(emailId);    
+		    CISResults cisResult  = parkUserCheckWebservice.parkUserCheck(emailId,socialId);    
 		//  }
 		  
 		  
