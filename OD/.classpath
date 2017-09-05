@@ -6,6 +6,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="UpdatePassword"/>
+	<classpathentry kind="src" path="ForgetPasswordService"/>
 	<classpathentry kind="src" path="GetStateCitiesService"/>
 	<classpathentry kind="src" path="ParkUserCheckService"/>
 	<classpathentry kind="src" path="LoginService"/>
@@ -34,7 +36,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
@@ -58,7 +60,7 @@
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-dao-2.0.6.jar"/>
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-jdbc-4.0.6.RELEASE.jar"/>
 	<classpathentry kind="src" path="/GetParkDetails"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>

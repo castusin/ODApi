@@ -66,6 +66,14 @@
 		<property name="dataSource" ref="ds" />
 	</bean>
 	
+	<bean id="ForgetPassword" class="com.od.ForgotPasswordDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="UpdatePassword" class="com.od.UpdatePasswordServiceDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
 	
   <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 <property name="driverClassName" value="com.mysql.jdbc.Driver" />  

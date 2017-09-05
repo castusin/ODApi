@@ -8,13 +8,15 @@ public class ODCheckMail {
 	public String phoneNumber;
 
 	
-	public ODCheckMail(String emailId, String phoneNumber) {
+	public ODCheckMail(String userName, String emailId, String phoneNumber) {
 		super();
 		this.emailId=emailId;
 		this.phoneNumber=phoneNumber;
 	
 		
 	}
+		
+
 		
 
 
@@ -24,9 +26,13 @@ public class ODCheckMail {
 
 
 
+
+
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
+
+
 
 
 
@@ -36,9 +42,13 @@ public class ODCheckMail {
 
 
 
+
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+
 
 
 

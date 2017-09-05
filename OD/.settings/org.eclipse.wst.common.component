@@ -22,6 +22,8 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/LoginService"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/ParkUserCheckService"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/GetStateCitiesService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/ForgetPasswordService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/UpdatePassword"/>
         <property name="context-root" value="OD"/>
         <property name="java-output-path" value="/OD/target/classes"/>
     </wb-module>
