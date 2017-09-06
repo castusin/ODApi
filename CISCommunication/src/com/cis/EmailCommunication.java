@@ -78,10 +78,7 @@ public class EmailCommunication {
                  
                 "<br />\n"+
                 "<br />\n"+
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outing Day Team<br />\n" +
-
+              
                 "  <br />\n" +
 
                 "</body>\n" +
@@ -103,7 +100,7 @@ public class EmailCommunication {
 			String firstName, 
 			String transactionId, String finalString,float totalPrice,
 			String streetAddress, String city, String state, int pin,
-			String parkName, String suppCell, String suppEmail) {
+			String parkName, String suppCell, String suppEmail, String createDate) {
 		
 		String emailid="udaykatikala@gmail.com";
 				
@@ -118,11 +115,11 @@ public class EmailCommunication {
                 "</head>\n" +
                 "\n" +
                 "<body style='width:700px'>\n" +
-                "<div style='float:left;width:350px'><h2>Hotel/Resort Confirmation</h2><b>Voucher</b><p>Outing Day Booking ID - NH210293696613</p><p>Booking Date - Tue, 15 July 14 03:18 PM</p></div><div style='float:right;width:350px'><img style='float:right;' src='http://od.castusinfo.com/assets/images/outingday_strip.jpg' width='180' alt='outingday'></div>"+
+                "<div style='float:left;width:350px'><h2>Hotel/Resort Confirmation</h2><b>Voucher</b><p>Outing Day Booking ID - "+transactionId +"</p><p>Booking Date - "+createDate +"</p></div><div style='float:right;width:350px'><img style='float:right;' src='http://od.castusinfo.com/assets/images/outingday_strip.jpg' width='180' alt='outingday'></div>"+
                 "<div  style='width:700px;clear:both;background-color:blue;height:2px;'></div>\n"+
-                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>print Booking Confirmation</a><br />"+
+                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>Print Booking Confirmation</a><br />"+
                 "<p>Cash develiery sucesfully applyied, you will get call ASAP<br />"+
-                "<p>Thank you for using outingday.com to book your  accommodation.</b><br />"+
+                "<p>Thank you for using outingday.com to book your  "+parkName+" accommodation.</b><br />"+
                 "<p>For your reference, your OutingDay Booking ID is :"+transactionId +"</b><br />"+
                 "<p>Kindly note, your booking is <b> CONFIRMED</b> and you are not required to contact the hotel or  OutingDay.com to reconfirm the same. </b><br />"+
                 "<p>You will need to carry a printout of this e-mail and present it at the hotel at the time of check-in. </b><br />"+
@@ -192,9 +189,7 @@ public class EmailCommunication {
 				
 				
                 
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outingday.com<br />\n" +
+              
 
                 "  <br />\n" +
 
@@ -214,7 +209,7 @@ public class EmailCommunication {
 
 	public CISResults sendAdminSuccessMailCOD(String firstName, String transactionId, String finalString,float totalPrice,String streetAddress, String city,
 			String state, int pin, String parkName, String suppCell,
-			String suppEmail) {
+			String suppEmail, String createDate) {
 		CISResults cisResult = new CISResults();
 		String emailId=CISConstants.ADMINEMAILID;
 		
@@ -226,11 +221,11 @@ public class EmailCommunication {
                 "</head>\n" +
                 "\n" +
                 "<body style='width:700px'>\n" +
-                "<div style='float:left;width:350px'><h2>Hotel/Resort Confirmation</h2><b>Voucher</b><p>Outing Day Booking ID - NH210293696613</p><p>Booking Date - Tue, 15 July 14 03:18 PM</p></div><div style='float:right;width:350px'><img style='float:right;' src='http://od.castusinfo.com/assets/images/outingday_strip.jpg' width='180' alt='outingday'></div>"+
+                "<div style='float:left;width:350px'><h2>Hotel/Resort Confirmation</h2><b>Voucher</b><p>Outing Day Booking ID - "+transactionId +"</p><p>Booking Date - "+createDate +"</p></div><div style='float:right;width:350px'><img style='float:right;' src='http://od.castusinfo.com/assets/images/outingday_strip.jpg' width='180' alt='outingday'></div>"+
                 "<div  style='width:700px;clear:both;background-color:blue;height:2px;'></div>\n"+
-                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>print Booking Confirmation</a><br />"+
+                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>Print Booking Confirmation</a><br />"+
                 "<p>Cash develiery sucesfully applyied, you will get call ASAP<br />"+
-                "<p>Thank you for using outingday.com to book your  accommodation.</b><br />"+
+                "<p>Thank you for using outingday.com to book your "+parkName+" accommodation.</b><br />"+
                 "<p>For your reference, your OutingDay Booking ID is :"+transactionId +"</b><br />"+
                 "<p>Kindly note, your booking is <b> CONFIRMED</b> and you are not required to contact the hotel or  OutingDay.com to reconfirm the same. </b><br />"+
                 "<p>You will need to carry a printout of this e-mail and present it at the hotel at the time of check-in. </b><br />"+
@@ -300,9 +295,7 @@ public class EmailCommunication {
 				
 				
                 
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outingday.com<br />\n" +
+              
 
                 "  <br />\n" +
 
@@ -325,7 +318,7 @@ public class EmailCommunication {
 			String firstName, 
 			String transactionId, String finalString,float totalPrice,
 			String streetAddress, String city, String state, int pin,
-			String parkName, String suppCell) {
+			String parkName, String suppCell, String createDate) {
 		CISResults cisResult = new CISResults();
 		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
                 "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
@@ -335,11 +328,11 @@ public class EmailCommunication {
                 "</head>\n" +
                 "\n" +
                 "<body style='width:700px'>\n" +
-                "<div style='float:left;width:350px'><h2>Hotel/Resort Confirmation</h2><b>Voucher</b><p>Outing Day Booking ID - NH210293696613</p><p>Booking Date - Tue, 15 July 14 03:18 PM</p></div><div style='float:right;width:350px'><img style='float:right;' src='http://od.castusinfo.com/assets/images/outingday_strip.jpg' width='180' alt='outingday'></div>"+
+                "<div style='float:left;width:350px'><h2>Hotel/Resort Confirmation</h2><b>Voucher</b><p>Outing Day Booking ID - "+transactionId +"</p><p>Booking Date - "+createDate +"</p></div><div style='float:right;width:350px'><img style='float:right;' src='http://od.castusinfo.com/assets/images/outingday_strip.jpg' width='180' alt='outingday'></div>"+
                 "<div  style='width:700px;clear:both;background-color:blue;height:2px;'></div>\n"+
-                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>print Booking Confirmation</a><br />"+
+                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>Print Booking Confirmation</a><br />"+
                 "<p>Cash develiery sucesfully applyied, you will get call ASAP<br />"+
-                "<p>Thank you for using outingday.com to book your  accommodation.</b><br />"+
+                "<p>Thank you for using outingday.com to book your "+parkName+" accommodation.</b><br />"+
                 "<p>For your reference, your OutingDay Booking ID is :"+transactionId +"</b><br />"+
                 "<p>Kindly note, your booking is <b> CONFIRMED</b> and you are not required to contact the hotel or  OutingDay.com to reconfirm the same. </b><br />"+
                 "<p>You will need to carry a printout of this e-mail and present it at the hotel at the time of check-in. </b><br />"+
@@ -409,9 +402,7 @@ public class EmailCommunication {
 				
 				
                 
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outingday.com<br />\n" +
+              
 
                 "  <br />\n" +
 
@@ -447,9 +438,9 @@ public class EmailCommunication {
                 "<body style='width:700px'>\n" +
                 "<div style='float:left;width:350px'><h2>Hotel/Resort Confirmation</h2><b>Voucher</b><p>Outing Day Booking ID - "+transactionId +"</p><p>Booking Date - "+createDate +"</p></div><div style='float:right;width:350px'><img style='float:right;' src='http://od.castusinfo.com/assets/images/outingday_strip.jpg' width='180' alt='outingday'></div>"+
                 "<div  style='width:700px;clear:both;background-color:blue;height:2px;'></div>\n"+
-                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>print Booking Confirmation</a><br />"+
+                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>Print Booking Confirmation</a><br />"+
                 "<p><b>Your Booking is confirmed.</b> "+
-                "<p>Thank you for using outingday.com to book your  accommodation.</b><br />"+
+                "<p>Thank you for using outingday.com to book your "+parkName+" accommodation.</b><br />"+
                 "<p>For your reference, your OutingDay Booking ID is :"+transactionId +"</b><br />"+
                 "<p>Kindly note, your booking is <b> CONFIRMED</b> and you are not required to contact the hotel or  OutingDay.com to reconfirm the same. </b><br />"+
                 "<p>You will need to carry a printout of this e-mail and present it at the hotel at the time of check-in. </b><br />"+
@@ -519,10 +510,7 @@ public class EmailCommunication {
 				
 				
                 
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outingday.com<br />\n" +
-
+              
                 "  <br />\n" +
 
                 "</body>\n" +
@@ -555,9 +543,8 @@ public class EmailCommunication {
                 "<body style='width:700px'>\n" +
                 "<div style='float:left;width:350px'><h2>Hotel/Resort Confirmation</h2><b>Voucher</b><p>Outing Day Booking ID - "+transactionId +"</p><p>Booking Date - "+createDate +"</p></div><div style='float:right;width:350px'><img style='float:right;' src='http://od.castusinfo.com/assets/images/outingday_strip.jpg' width='180' alt='outingday'></div>"+
                 "<div  style='width:700px;clear:both;background-color:blue;height:2px;'></div>\n"+
-                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>print Booking Confirmation</a><br />"+
+                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>Print Booking Confirmation</a><br />"+
                 "<p><b>Your Booking is confirmed.</b> "+
-                "<p>Thank you for using outingday.com to book your  accommodation.</b><br />"+
                 "<p>For your reference, your OutingDay Booking ID is :"+transactionId +"</b><br />"+
                 "<p>Kindly note, your booking is <b> CONFIRMED</b> and you are not required to contact the hotel or  OutingDay.com to reconfirm the same. </b><br />"+
                 "<p>You will need to carry a printout of this e-mail and present it at the hotel at the time of check-in. </b><br />"+
@@ -626,11 +613,6 @@ public class EmailCommunication {
 				"<p><b>Note:</b> Please do not reply to this email. It has been sent from an email account that is not monitored. To ensure that you receive communication related to your booking from outingday.com, please add connect@outingday.com to your contact list and address book. </b><br /></b><br />"+
 				
 				
-                
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outingday.com<br />\n" +
-
                 "  <br />\n" +
 
                 "</body>\n" +
@@ -665,9 +647,9 @@ public class EmailCommunication {
                 "<body style='width:700px'>\n" +
                 "<div style='float:left;width:350px'><h2>Hotel/Resort Confirmation</h2><b>Voucher</b><p>Outing Day Booking ID - "+transactionId +"</p><p>Booking Date - "+createDate +"</p></div><div style='float:right;width:350px'><img style='float:right;' src='http://od.castusinfo.com/assets/images/outingday_strip.jpg' width='180' alt='outingday'></div>"+
                 "<div  style='width:700px;clear:both;background-color:blue;height:2px;'></div>\n"+
-                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>print Booking Confirmation</a><br />"+
+                "<p >Dear <b style='color:#000'>"+firstName+"</b><a style='float:right' href='#'>Print Booking Confirmation</a><br />"+
                 "<p><b>Your Booking is confirmed.</b> "+
-                "<p>Thank you for using outingday.com to book your  accommodation.</b><br />"+
+                "<p>Thank you for using outingday.com to book your "+parkName+" accommodation.</b><br />"+
                 "<p>For your reference, your OutingDay Booking ID is :"+transactionId +"</b><br />"+
                 "<p>Kindly note, your booking is <b> CONFIRMED</b> and you are not required to contact the hotel or  OutingDay.com to reconfirm the same. </b><br />"+
                 "<p>You will need to carry a printout of this e-mail and present it at the hotel at the time of check-in. </b><br />"+
@@ -735,12 +717,7 @@ public class EmailCommunication {
 
 				"<p><b>Note:</b> Please do not reply to this email. It has been sent from an email account that is not monitored. To ensure that you receive communication related to your booking from outingday.com, please add connect@outingday.com to your contact list and address book. </b><br /></b><br />"+
 				
-				
-                
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outingday.com<br />\n" +
-
+			
                 "  <br />\n" +
 
                 "</body>\n" +
@@ -822,10 +799,7 @@ public class EmailCommunication {
 				"<p><b>Note:</b> Please do not reply to this email. It has been sent from an email account that is not monitored. To ensure that you receive communication related to your booking from outingday.com, please add connect@outingday.com to your contact list and address book. </b><br /></b><br />"+
 				
 				
-                
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outingday.com<br />\n" +
+              
 
                 "  <br />\n" +
 
@@ -863,7 +837,7 @@ public class EmailCommunication {
              "<p>Dear "+firstName+"</b><br />"+
              
             "<p><b>Your booking is confirmed.</b> "+
-            "<p>Thank you for using outingday.com to book your  accommodation.</b><br />"+
+            "<p>Thank you for using outingday.com to book your "+parkName+"  accommodation.</b><br />"+
             "<p>For your reference, your OutingDay Booking ID is :"+transactionId +"</b><br />"+
             "<p>Kindly note, your booking is <b> CONFIRMED</b> and you are not required to contact the hotel or  OutingDay.com to reconfirm the same. </b><br />"+
             "<p>You will need to carry a printout of this e-mail and present it at the hotel at the time of check-in. </b><br />"+
@@ -935,10 +909,7 @@ public class EmailCommunication {
 			"<p><b>Note:</b> Please do not reply to this email. It has been sent from an email account that is not monitored. To ensure that you receive communication related to your booking from outingday.com, please add connect@outingday.com to your contact list and address book. </b><br /></b><br />"+
 			
 			
-            
-            "  Thanks,<br />\n" +
-            "<br />\n"+
-            " Outingday.com<br />\n" +
+           
 
             "  <br />\n" +
 
@@ -974,10 +945,7 @@ String subject = CISConstants.SUBJECT;
                  
                 "<br />\n"+
                 "<br />\n"+
-                "  Thanks,<br />\n" +
-                "<br />\n"+
-                " Outing Day Team<br />\n" +
-
+              
                 "  <br />\n" +
 
                 "</body>\n" +
