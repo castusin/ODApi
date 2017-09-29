@@ -13,27 +13,28 @@ public class ODParkDetailsServiceMapper implements RowMapper{
 		
 		ODParkDetailsService parkDetails = new ODParkDetailsService();
 		
-		parkDetails.setFacilityType(rs.getString("Facility_type"));
+		/*parkDetails.setFacilityType(rs.getString("Facility_type"));
 		parkDetails.setDescription(rs.getString("Room_type_desc"));
 		parkDetails.setMaxPeople(rs.getString("Max_people"));
 		parkDetails.setMaxAdults(rs.getString("Max_adults"));
 		parkDetails.setMaxKids(rs.getString("Max_kids"));
 		parkDetails.setMaxQty(rs.getString("Max_qty"));
-		parkDetails.setRegularPrice(rs.getFloat("Regular_price"));
+		parkDetails.setRegularPrice(rs.getFloat("Regular_price"));*/
 		//parkDetails.setDateAdded(rs.getDate("Date_added"));
 		//parkDetails.setDate(rs.getDate("Date"));
 		//parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
 		//parkDetails.setCurrentAvailableQuantity(rs.getString("Current_available_qty"));
 		//parkDetails.setFacilityTypeCode(rs.getString("Facility_type_code"));
-		parkDetails.setFacilityImage(rs.getString("Facility_image"));
+		/*parkDetails.setFacilityImage(rs.getString("Facility_image"));
 		parkDetails.setFacilityInRoomFacilites(rs.getString("Facility_in_Room_facilities"));
 		parkDetails.setFacilityTypeTitle(rs.getString("Facility_type_title"));
 		parkDetails.setFacilityTypeCode(rs.getString("Facility_type_code"));
-		parkDetails.setParkId(rs.getInt("Park_id"));
+		parkDetails.setParkId(rs.getInt("Park_id"));*/
+		parkDetails.setFacilityTypeTitle(rs.getString("Facility_type_title"));
 		parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
 		//parkDetails.setParkSubImages(rs.getString("Park_sub_images"));
 		
-		
+		parkDetails.setFacilityImage(rs.getString("Facility_image"));
 		
 		/*parkDetails.setOverviewText(rs.getString("Overview_text"));
 		parkDetails.setMetro(rs.getString("Metro"));
@@ -59,8 +60,13 @@ public class ODParkDetailsServiceMapper implements RowMapper{
 		parkDetails.setSpecialOfferPercentage(rs.getFloat("Special_offer_percentage"));
 		parkDetails.setSpecialRate(rs.getFloat("Special_rate"));
 		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
-		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));*/
+		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));
 	
+		parkDetails.setParkRoomFac(rs.getString("park_room_fac"));*/
+		parkDetails.setDiscount(rs.getInt("Discount"));
+		parkDetails.setDiscountMode(rs.getString("Discount_Mode"));
+		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));
+		
 		return parkDetails;
 	}
 }

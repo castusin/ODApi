@@ -11,7 +11,7 @@ public class RequestOTPMapper implements RowMapper{
 	
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		RequestOTP requestOTP = new RequestOTP();
-		requestOTP.setPhoneNumber(rs.getString("Registered_Phone_Number"));
+		//requestOTP.setPhoneNumber(rs.getString("Registered_Phone_Number"));
 		return requestOTP;
 	}
 

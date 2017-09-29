@@ -43,8 +43,13 @@ public class ODGetParkDetailsModel {
 	public String parkSubImages;
 	public String amenitiesString;
 	public List<ODParkDetailsService> parkDetails;
+	public List<ODParkDetailsService> roomDetails;
+	public List<ODParkDetailsService> addOnDetails;
+	public List<ODAminitiesService> amenities;
+	public List<ODParkPackageDetailsService> parkPackageDetails;
 	
-	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString, float minCost3, int minCost3People, String appId, String parkType, String parksubcategory, String facilityTypeCode ) {
+	
+	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString, float minCost3, int minCost3People, String appId, String parkType, String parksubcategory, String facilityTypeCode, List<ODParkPackageDetailsService> parkPackageDetails, List<ODParkDetailsService> roomDetails, List<ODParkDetailsService> addOnDetails ) {
 		super();
 		
 		this.parkId=parkId;
@@ -88,9 +93,44 @@ public class ODGetParkDetailsModel {
 		this.parksubcategory=parksubcategory;
 		
 		this.facilityTypeCode=facilityTypeCode;
+		
+		this.parkPackageDetails=parkPackageDetails;
+		this.roomDetails=roomDetails;
+		this.addOnDetails=addOnDetails;
 	}
 	
 	
+	public List<ODParkDetailsService> getAddOnDetails() {
+		return addOnDetails;
+	}
+
+
+	public void setAddOnDetails(List<ODParkDetailsService> addOnDetails) {
+		this.addOnDetails = addOnDetails;
+	}
+
+
+	public List<ODParkDetailsService> getRoomDetails() {
+		return roomDetails;
+	}
+
+
+	public void setRoomDetails(List<ODParkDetailsService> roomDetails) {
+		this.roomDetails = roomDetails;
+	}
+
+
+	public List<ODParkPackageDetailsService> getParkPackageDetails() {
+		return parkPackageDetails;
+	}
+
+
+	public void setParkPackageDetails(
+			List<ODParkPackageDetailsService> parkPackageDetails) {
+		this.parkPackageDetails = parkPackageDetails;
+	}
+
+
 	public int getParkId() {
 		return parkId;
 	}

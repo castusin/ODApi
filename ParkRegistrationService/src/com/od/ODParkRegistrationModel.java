@@ -134,6 +134,14 @@ public class ODParkRegistrationModel {
 
 
 
+	
+
+
+
+
+	
+
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}

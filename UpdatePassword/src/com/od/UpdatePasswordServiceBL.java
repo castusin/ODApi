@@ -5,11 +5,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import org.apache.log4j.Logger;
+import org.json.JSONException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
+import com.cis.EmailCommunication;
+import com.cis.SMSCommunication;
 
 
 public class UpdatePasswordServiceBL {
@@ -18,7 +21,11 @@ public class UpdatePasswordServiceBL {
 	
 	UpdatePasswordServiceDAO updatePasswordServiceDAO=(UpdatePasswordServiceDAO)ctx.getBean("UpdatePassword");
 
-	public CISResults updatePassword(String emailId,String otp,String password) {
+	public CISResults updatePassword(String userName,String otp,String password) throws Throwable, Throwable {
+		
+		CISResults cisResult = new CISResults();
+		SMSCommunication smsCommunicaiton=new SMSCommunication();
+		 EmailCommunication sendMail=new EmailCommunication();
 		final Logger logger = Logger.getLogger(ForgotPasswordBL.class);
 		// String passwordToHash = parkregisteration.getPassword();
          String generatedPassword = null;
@@ -45,16 +52,28 @@ public class UpdatePasswordServiceBL {
              e.printStackTrace();
          }
 		 
-		 CISResults cisResult = updatePasswordServiceDAO.validateOTP(emailId,otp);
+		 //CISResults cisResult = updatePasswordServiceDAO.validateOTP(userName,otp);
+		 
+		 // verify otp service integration
+		 cisResult=smsCommunicaiton.verifyOtp(userName,otp);
+		 
 		 if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 		  {
-		 cisResult = updatePasswordServiceDAO.updatePassword(emailId,generatedPassword);
+			 cisResult = updatePasswordServiceDAO.updatePassword(userName,generatedPassword);
+			 cisResult=updatePasswordServiceDAO.getemail(userName);	  
+			 
+			 ValidateOTP  emailId=(ValidateOTP)cisResult.getResultObject();
+			 String userEmail=emailId.getEmailId();
+			
+			 
+			 cisResult=sendMail.sendUpdatedPasswordMail(userEmail);
+			
 		  }
 		 else{
-         	 cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
-	    	     cisResult.setErrorMessage("Incorrect OTP");
-	       }
-		  
+			 
+			 
+			 cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
+		 }
 		 logger.info("OD: Update passwordBL  service" +cisResult );
 		
 		 return cisResult;

@@ -14,6 +14,7 @@ public class UpdatePasswordServiceMapper implements RowMapper{
 		//verifyModel.setPhoneNumber(rs.getString("Registered_Phone_Number"));
 		verifyModel.setOtp(rs.getString("OTP"));
 		verifyModel.setEmailId(rs.getString("Email_id"));
+		verifyModel.setPhoneNumber(rs.getString("Registered_Phone_Number"));
 		return verifyModel;
 	}
 }

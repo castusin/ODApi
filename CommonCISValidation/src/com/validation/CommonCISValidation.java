@@ -14,7 +14,7 @@ import com.od.ODParkRegistrationModel;
 public class CommonCISValidation {
 	
 	
-	public CISResults  ParksinfoValidation(String metro,String localArea,HttpServletRequest request) {
+	public CISResults  ParksinfoValidation(String metro,int localId,HttpServletRequest request) {
 		
 		CISResults CISResults=new CISResults();
 		ArrayList<String> registrationValues= new ArrayList<String>();
@@ -374,9 +374,29 @@ public CISResults forgotPasswordValidation(HttpServletRequest request,
 	 return CISResults;
 }
 public CISResults updatePasswordValidation(HttpServletRequest request,
-		String emailId,String otp, String password) {
+		String userName,String otp, String password) {
 
 
+	CISResults CISResults=new CISResults();
+
+	CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+	String headerAuthorization=request.getHeader(CISConstants.HEADERS_AUTHROIZATION);
+        
+	//Validate Headers AUTHROIZATION
+    if(headerAuthorization.equals(CISConstants.HEADERS_AUTHROIZATION_VAUE))
+    {
+    	CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+    }else
+    {
+    	CISResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+    }
+    
+    
+ 
+	 return CISResults;
+}
+public CISResults getCategoriesValidation(HttpServletRequest request,
+		int cityId, String parkType) {
 	CISResults CISResults=new CISResults();
 
 	CISResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);

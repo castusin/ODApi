@@ -12,7 +12,7 @@ public class ValidateOTPMapper implements RowMapper{
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		ValidateOTP verifyModel = new ValidateOTP();
 		verifyModel.setPhoneNumber(rs.getString("Registered_Phone_Number"));
-	//	verifyModel.setOtp(rs.getString("OTP"));
+	    verifyModel.setOtp(rs.getString("OTP"));
 		verifyModel.setTimeStamp(rs.getString("time_stamp"));
 		return verifyModel;
 	}

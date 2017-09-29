@@ -12,9 +12,9 @@ public class UpdatePasswordServiceWebservice {
 	
 	UpdatePasswordServiceBL updatePasswordServiceBL=new UpdatePasswordServiceBL();
 
-	public CISResults updatePassword(String emailId,String otp,String password) {
+	public CISResults updatePassword(String userName,String otp,String password) throws Throwable {
 		
-		 CISResults cisResult = updatePasswordServiceBL.updatePassword(emailId,otp,password);
+		 CISResults cisResult = updatePasswordServiceBL.updatePassword(userName,otp,password);
 		 logger.info(" OD: Update passwordWebService :"+cisResult);
 		return cisResult;
 	}

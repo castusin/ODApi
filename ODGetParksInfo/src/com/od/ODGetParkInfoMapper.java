@@ -40,7 +40,7 @@ public class ODGetParkInfoMapper implements RowMapper{
 		parkDetails.setMaxPeople(rs.getString("Max_people"));
 		
 		parkDetails.setPopularity(rs.getString("Popularity"));
-		parkDetails.setMinCost1(rs.getFloat("Min_cost1"));
+		parkDetails.setMinCost1(rs.getFloat("min_curr_price"));
 		parkDetails.setMinCost1People(rs.getInt("Min_cost1_people"));
 		parkDetails.setMinCost2(rs.getFloat("Min_cost2"));
 		parkDetails.setMinCost2People(rs.getInt("Min_cost2_people"));
@@ -53,6 +53,25 @@ public class ODGetParkInfoMapper implements RowMapper{
 		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));
 		parkDetails.setSponsoredFlag(rs.getString("Sponsored_featured_flag"));
 		parkDetails.setTag(rs.getString("Tag_name"));
+		
+		
+		parkDetails.setCreateDate(rs.getDate("Creation_date"));
+		//parkDetails.setUpdationDate(rs.getDate("Updation_date"));
+		parkDetails.setCreatedBy(rs.getString("Created_by"));
+		parkDetails.setUpdatedBy(rs.getString("Updated_by"));
+		parkDetails.setVideoLinks(rs.getString("Video_Links"));
+		parkDetails.setPolicyText(rs.getString("Policy_text"));
+		parkDetails.setStateId(rs.getInt("state_id"));
+		parkDetails.setCityId(rs.getInt("city_id"));
+		parkDetails.setDiscount(rs.getInt("Discount"));
+		parkDetails.setDiscountMode(rs.getString("Discount_Mode"));
+		parkDetails.setFromDate(rs.getDate("From_date"));
+		parkDetails.setToDate(rs.getDate("To_date"));
+		
+		//parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
+		//parkDetails.setParkrommFac(rs.getInt("park_room_fac"));
+		//parkDetails.setCurrentAvail(rs.getInt("Current_available_qty"));
+		
 		//parkDetails.setCreateDate(rs.getDate("Creation_date"));
 		//parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
 		

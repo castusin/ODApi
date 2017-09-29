@@ -1,6 +1,7 @@
 package com.od;
 
 import java.util.Date;
+import java.util.List;
 
 public class ODGetCityDetailsModel {
 	
@@ -13,10 +14,12 @@ public class ODGetCityDetailsModel {
 	public Date date;
 	public String name;
 	public String parktype;
+	public int parkId;
 	
+	public List<LocalAreaData> localareaList;
 		
 	public ODGetCityDetailsModel(int localAreaId, String localArea, int cityId,
-			String cityName, String locationLang, String locaitonLat, Date date, String name, String parktype) {
+			String cityName, String locationLang, String locaitonLat, Date date, String name, String parktype, int parkId) {
 		super();
 		this.localAreaId = localAreaId;
 		this.localArea = localArea;
@@ -27,9 +30,20 @@ public class ODGetCityDetailsModel {
 		this.date = date;
 		this.name=name;
 		this.parktype=parktype;
+		this.parkId=parkId;
 	}
 	
 	
+	public int getParkId() {
+		return parkId;
+	}
+
+
+	public void setParkId(int parkId) {
+		this.parkId = parkId;
+	}
+
+
 	public String getName() {
 		return name;
 	}

@@ -21,9 +21,15 @@ public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		//cityInfoDetails.setCityName(rs.getString("city_name"));
 		cityInfoDetails.setLocalAreaId(rs.getInt("location_key"));
 		cityInfoDetails.setLocalArea(rs.getString("location_name"));
-		cityInfoDetails.setDate(rs.getDate("Creation_date"));
+		//cityInfoDetails.setDate(rs.getDate("Creation_date"));
 		//cityInfoDetails.setParktype(rs.getString("Parktype"));
 		//cityInfoDetails.setName(rs.getString("Name"));
+		
+		//cityInfoDetails.setLocalArea(rs.getString("Local_area"));
+		cityInfoDetails.setName(rs.getString("Name"));
+		cityInfoDetails.setParkId(rs.getInt("Park_id"));
+		
+		
 		return cityInfoDetails;
 	}
 }

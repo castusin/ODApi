@@ -74,6 +74,13 @@
 		<property name="dataSource" ref="ds" />
 	</bean>
 	
+	<bean id="ManualRequest" class="com.od.ManualRequestOTPDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="GetCategories" class="com.od.ODGetCategoriesDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
 	
   <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 <property name="driverClassName" value="com.mysql.jdbc.Driver" />  

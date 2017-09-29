@@ -66,6 +66,11 @@
 			<location>E:/GitHub/ODApi/ForgetPasswordService/src</location>
 		</link>
 		<link>
+			<name>GetCategoriesService</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/GetCategoriesService/src</location>
+		</link>
+		<link>
 			<name>GetCities</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/GetCities/src</location>
@@ -89,6 +94,11 @@
 			<name>LoginService</name>
 			<type>2</type>
 			<location>E:/GitHub/ODApi/LoginService/LoginService/src</location>
+		</link>
+		<link>
+			<name>ManualRequestOTP</name>
+			<type>2</type>
+			<location>E:/GitHub/ODApi/ManualRequestOTP/src</location>
 		</link>
 		<link>
 			<name>ODCreateUser</name>

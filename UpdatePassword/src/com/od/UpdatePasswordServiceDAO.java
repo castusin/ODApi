@@ -13,11 +13,11 @@ import com.cis.testServiceTime;
 
 public class UpdatePasswordServiceDAO extends JdbcDaoSupport {
 
-	public CISResults updatePassword(String emailId,String password) {
+	public CISResults updatePassword(String userName,String password) {
 		
 		CISResults cisResult=new CISResults();
 		cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{emailId,password};
+		Object[] inputs = new Object[]{password,userName};
 		Logger logger = Logger.getLogger(UpdatePasswordServiceDAO.class);
 		try{
 			// Capture service Start time
@@ -38,13 +38,13 @@ public class UpdatePasswordServiceDAO extends JdbcDaoSupport {
    		return cisResult;  
 	}
 
-	public CISResults validateOTP(String emailId, String otp) {
+	public CISResults validateOTP(String userName, String otp) {
 
 
 		ValidateOTP verifyModel;
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{emailId,otp};
+		Object[] inputs = new Object[]{userName,userName,otp};
 		Logger logger = Logger.getLogger(ValidateOTPDAO.class);
 		try{	
 			TimeCheck time=new TimeCheck();
@@ -66,6 +66,35 @@ public class UpdatePasswordServiceDAO extends JdbcDaoSupport {
    		return cisResults;  
 	
 	}
+
+	public CISResults getemail(String userName) {
+		// TODO Auto-generated method stub
+		CISResults cisResults=new CISResults();
+		ValidateOTP verifyModel;
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		Object[] inputs = new Object[]{userName};
+		
+		try{	
+			TimeCheck time=new TimeCheck();
+			 testServiceTime sessionTimeCheck=new testServiceTime();
+			 String serviceStartTime=time.getTimeZone();
+			verifyModel=(ValidateOTP)getJdbcTemplate().queryForObject(UpdatePasswordServiceQuery.SQL_GETEMAIL,inputs,new UserEmailMapper());
+			String serviceEndTime=time.getTimeZone();
+			long result=sessionTimeCheck.getServiceTime(serviceStartTime,serviceEndTime);
+			 logger.info("validate otp query time:: " +result);
+			if(verifyModel!=null){		
+				cisResults.setResultObject(verifyModel);
+			}
+		
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed to get data");
+		}
+   		return cisResults;  
+	
+	}
+
 
 	
 

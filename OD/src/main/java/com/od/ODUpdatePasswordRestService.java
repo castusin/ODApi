@@ -20,16 +20,16 @@ public class ODUpdatePasswordRestService {
 	 
 	@RequestMapping(value="/updatePassword",method=RequestMethod.GET,produces={"application/json"})
 
-	 public String updatePassword(HttpServletRequest request,@RequestParam ("emailId") String emailId,@RequestParam ("otp") String otp, @RequestParam ("password") String password){
+	 public String updatePassword(HttpServletRequest request,@RequestParam ("userName") String userName,@RequestParam ("otp") String otp, @RequestParam ("password") String password) throws Throwable{
 		 Logger logger = Logger.getLogger(ODUpdatePasswordRestService.class);
 		 		
         CommonCISValidation CommonCISValidation=new CommonCISValidation();
 		
-		CISResults cisResults=CommonCISValidation.updatePasswordValidation(request,emailId,otp,password);
+		CISResults cisResults=CommonCISValidation.updatePasswordValidation(request,userName,otp,password);
 		if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 		 {
 			UpdatePasswordServiceWebservice updatePasswordService= new UpdatePasswordServiceWebservice();
-		  cisResults  = updatePasswordService.updatePassword(emailId,otp,password);
+		  cisResults  = updatePasswordService.updatePassword(userName,otp,password);
 		  logger.info(" OD: Update password rest :"+cisResults);
 		  }
 		  return returnJsonData(cisResults);

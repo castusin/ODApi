@@ -55,7 +55,7 @@ public class ForgotPasswordBL {
 			  else if(userName.equalsIgnoreCase(userPhone))
 			  {
 			                   
-			    cisResults=smsCommunicaiton.sendSMS(userName,otpNumber);
+			    //cisResults=smsCommunicaiton.sendSMS(userName,otpNumber);
 			    cisResults = forgotPasswordDAO.forgotPassword(userPhone,otpNumber,formatter.format(currentdate.getTime()),deleteInd,userEmail);
 				
 			  	cisResults.setResultObject(cisResults);

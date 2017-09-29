@@ -16,7 +16,7 @@ public class ODRequestOTP {
 
 	@RequestMapping(value="/requestOTPService",method=RequestMethod.GET,produces={"application/json"})
 
-	 public String requestOTP(@RequestParam ("phoneNumber") String phoneNumber) throws Throwable{
+	 public String requestOTP(@RequestParam String phoneNumber) throws Throwable{
 		  Logger logger = Logger.getLogger(ODRequestOTP.class);
 		  String requestOTPParameters = "phoneNumber=" +phoneNumber;
 		  logger.info("Request OTP :"+requestOTPParameters);

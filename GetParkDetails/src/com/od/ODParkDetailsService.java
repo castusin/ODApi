@@ -1,6 +1,9 @@
 package com.od;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.sun.jersey.core.impl.provider.entity.XMLJAXBElementProvider.Text;
 
 public class ODParkDetailsService {
 	
@@ -14,14 +17,14 @@ public class ODParkDetailsService {
 	String facilityTypeCode;
 	String facilityType;
 	String maxQty;
-	float regularPrice;
+	//float regularPrice;
 	/*Date dateAdded;
 	Date date;*/
 	String facilityTypeTitle;
 	String facilityInRoomFacilites;
 	String facilityImage;
 	//String parkSubImages;
-	int parkId;
+	//int parkId;
 	
 	
 	public String overviewText ;
@@ -57,16 +60,21 @@ public class ODParkDetailsService {
 	public String photoUrl;
 	public String amenitiesString;
 	*/
+	public String amenitiesString;
+	public Text addonPath;
+	public String parkRoomFac;
 	
+	public int discount;
+	public String discountMode;
 	
-	
+	public Object packageItems; 
 
 	public ODParkDetailsService(String description, String maxPeople,
 			String maxAdults, String maxKids, String currentAvailableQuantity,
 			float currentPrice, String facilityTypeCode, String facilityType,
 			String maxQty, float regularPrice, Date dateAdded, Date date,
 			String facilityTypeTitle, String facilityInRoomFacilites,
-			String facilityImage, int parkId, String overviewText, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String details, float odRating, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String popularity, float minCost1, float minCost1People, float minCost2, float minCost2People, float specialOfferPercentage, float specialRate, String photoUrl, String amenitiesString, String parkSubImages) {
+			String facilityImage, int parkId, String overviewText, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String details, float odRating, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String popularity, float minCost1, float minCost1People, float minCost2, float minCost2People, float specialOfferPercentage, float specialRate, String photoUrl, String amenitiesString, String parkSubImages, String parkRoomFac, int discount, String discountMode, Object packageItems, Text addonPath) {
 		super();
 		this.description = description;
 		this.maxPeople = maxPeople;
@@ -77,14 +85,14 @@ public class ODParkDetailsService {
 		this.facilityTypeCode = facilityTypeCode;
 		this.facilityType = facilityType;
 		this.maxQty = maxQty;
-		this.regularPrice = regularPrice;
+		//this.regularPrice = regularPrice;
 		//this.dateAdded = dateAdded;
 		//this.date = date;
 		this.facilityTypeTitle = facilityTypeTitle;
 		this.facilityInRoomFacilites = facilityInRoomFacilites;
 		this.facilityImage = facilityImage;
 		
-		this.parkId=parkId;
+		//this.parkId=parkId;
 		//this.parkSubImages=parkSubImages;
 		/*this.overviewText=overviewText;
 		this.metro=metro;
@@ -111,16 +119,78 @@ public class ODParkDetailsService {
 		this.specialRate=specialRate;
 		this.photoUrl=photoUrl;
 		this.amenitiesString=amenitiesString;*/
+		
+		this.parkRoomFac=parkRoomFac;
+		this.discount=discount;
+		this.discountMode=discountMode;
+		this.packageItems=packageItems;
+		
+		this.addonPath=addonPath;
+		this.amenitiesString=amenitiesString;
 	}
 
 
-	public int getParkId() {
-		return parkId;
+	public String getAmenitiesString() {
+		return amenitiesString;
 	}
 
-	public void setParkId(int parkId) {
-		this.parkId = parkId;
+
+	public void setAmenitiesString(String amenitiesString) {
+		this.amenitiesString = amenitiesString;
 	}
+
+
+	public Text getAddonPath() {
+		return addonPath;
+	}
+
+
+	public void setAddonPath(Text addonPath) {
+		this.addonPath = addonPath;
+	}
+
+
+	public Object getPackageItems() {
+		return packageItems;
+	}
+
+
+	public void setPackageItems(Object packageItems) {
+		this.packageItems = packageItems;
+	}
+
+
+	public int getDiscount() {
+		return discount;
+	}
+
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
+
+
+	public String getDiscountMode() {
+		return discountMode;
+	}
+
+
+	public void setDiscountMode(String discountMode) {
+		this.discountMode = discountMode;
+	}
+
+
+	public String getParkRoomFac() {
+		return parkRoomFac;
+	}
+
+
+	public void setParkRoomFac(String parkRoomFac) {
+		this.parkRoomFac = parkRoomFac;
+	}
+
+
+	
 
 
 
@@ -281,27 +351,6 @@ public class ODParkDetailsService {
 	public void setMaxQty(String maxQty) {
 		this.maxQty = maxQty;
 	}
-
-
-
-
-
-
-
-	public float getRegularPrice() {
-		return regularPrice;
-	}
-
-
-
-
-
-
-
-	public void setRegularPrice(float regularPrice) {
-		this.regularPrice = regularPrice;
-	}
-
 
 
 

@@ -46,4 +46,34 @@ public class ODGetCityDetailsDAO extends JdbcDaoSupport  {
 		}
 		return cisResults;  
 	}
+
+	public List<LocalAreaData> getLocalareainfo(String cityId) {
+		// TODO Auto-generated method stub
+
+
+		List<LocalAreaData> localarealist = null;
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		Object[] inputs = new Object[]{cityId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			localarealist = getJdbcTemplate().query(ODGetCityDetailsQuery.SQL_GETLOCALAREADETAILS,inputs,new LocalAreaMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park details service:: " +result );
+			cisResults.setResultObject(localarealist);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return localarealist;  
+	}
 }

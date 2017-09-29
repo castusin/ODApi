@@ -697,9 +697,27 @@ public class ODGetParkInfoModel {
 	public String facilitytypecode;
 	public String tag;
 	public Date createDate;
+	
+	public int localId;
+	
+	public Date updationDate;
+	public String createdBy;
+	public String updatedBy;
+	public String videoLinks;
+	public String policyText;
+	public int stateId;
+	public int cityId;
+	public int discount;
+	public String discountMode;
+	public Date fromDate;
+	public Date toDate;
+	
+	//public int parkrommFac;
+	//public int currentAvail;
+	
 	public List<ODParkDetailsService> parkDetails;
 	
-	public ODGetParkInfoModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString, float minCost3, int minCost3People, float currentPrice, String appId, String parkType, String parksubcategory, String facilitytypecode, String sponsoredFlag, String tag, Date createDate ) {
+	public ODGetParkInfoModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString, float minCost3, int minCost3People, float currentPrice, String appId, String parkType, String parksubcategory, String facilitytypecode, String sponsoredFlag, String tag, Date createDate, int localId, Date updationDate, String createdBy, String updatedBy, String videoLinks, String policyText, int stateId, int cityId, int discount, String discountMode, Date fromDate, Date toDate, int parkrommFac, int currentAvail ) {
 		super();
 		
 		this.appId=appId;
@@ -745,9 +763,149 @@ public class ODGetParkInfoModel {
 		this.sponsoredFlag=sponsoredFlag;
 		this.tag=tag;
 		this.createDate=createDate;
+		
+		
+		this.updationDate=updationDate;
+		this.createdBy=createdBy;
+		this.updatedBy=updatedBy;
+		this.videoLinks=videoLinks;
+		this.policyText=policyText;
+		this.stateId=stateId;
+		this.cityId=cityId;
+		this.discount=discount;
+		this.discountMode=discountMode;
+		this.fromDate=fromDate;
+		this.toDate=toDate;
+		
+		//this.parkrommFac=parkrommFac;
+		//this.currentAvail=currentAvail;
+		
+		this.localId=localId;
 	}
 	
 	
+
+
+	public Date getUpdationDate() {
+		return updationDate;
+	}
+
+
+	public void setUpdationDate(Date updationDate) {
+		this.updationDate = updationDate;
+	}
+
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+
+	public String getVideoLinks() {
+		return videoLinks;
+	}
+
+
+	public void setVideoLinks(String videoLinks) {
+		this.videoLinks = videoLinks;
+	}
+
+
+	public String getPolicyText() {
+		return policyText;
+	}
+
+
+	public void setPolicyText(String policyText) {
+		this.policyText = policyText;
+	}
+
+
+	public int getStateId() {
+		return stateId;
+	}
+
+
+	public void setStateId(int stateId) {
+		this.stateId = stateId;
+	}
+
+
+	public int getCityId() {
+		return cityId;
+	}
+
+
+	public void setCityId(int cityId) {
+		this.cityId = cityId;
+	}
+
+
+	public int getDiscount() {
+		return discount;
+	}
+
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
+
+
+	public String getDiscountMode() {
+		return discountMode;
+	}
+
+
+	public void setDiscountMode(String discountMode) {
+		this.discountMode = discountMode;
+	}
+
+
+	public Date getFromDate() {
+		return fromDate;
+	}
+
+
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
+	}
+
+
+	public Date getToDate() {
+		return toDate;
+	}
+
+
+	public void setToDate(Date toDate) {
+		this.toDate = toDate;
+	}
+
+
+	public int getLocalId() {
+		return localId;
+	}
+
+
+	public void setLocalId(int localId) {
+		this.localId = localId;
+	}
+
+
 	public Date getCreateDate() {
 		return createDate;
 	}

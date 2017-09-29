@@ -13,10 +13,10 @@ public class RequestOTPWebservice {
 	RequestOTPBL otpBL=new RequestOTPBL();
 
 	public CISResults requestOTP(String phoneNumber) throws Throwable {
-		CISResults cisResult = null;
+		CISResults cisResult = new CISResults();
 		
 			 cisResult = otpBL.requestOTP(phoneNumber);
-			// logger.info(" DigitalHealthCare:Webservice Request OTP :"+cisResult);
+			 logger.info(" DigitalHealthCare:Webservice Request OTP :"+cisResult);
 		
 
 		return cisResult;

@@ -6,6 +6,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="GetCategoriesService"/>
+	<classpathentry kind="src" path="ManualRequestOTP"/>
 	<classpathentry kind="src" path="UpdatePassword"/>
 	<classpathentry kind="src" path="ForgetPasswordService"/>
 	<classpathentry kind="src" path="GetStateCitiesService"/>
@@ -65,5 +67,8 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/java-json.jar"/>
+	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/json-lib.jar"/>
+	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/json-simple.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

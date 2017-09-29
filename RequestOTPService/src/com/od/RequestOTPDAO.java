@@ -74,7 +74,7 @@ public class RequestOTPDAO extends JdbcDaoSupport{
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			 ODCheckMail res = (ODCheckMail)getJdbcTemplate().queryForObject(RequestOTPQuery.SQL_CHECKEMAILID,inputs,new ODCheckPhoneMapper());
+			 ForgotPassword res = (ForgotPassword)getJdbcTemplate().queryForObject(RequestOTPQuery.SQL_CHECKEMAILID,inputs,new ODCheckPhoneMapper());
 			 String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 

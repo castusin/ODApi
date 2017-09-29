@@ -1,18 +1,9 @@
 
 package com.od;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.TimeZone;
-
-import com.cis.testServiceTime;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.TimeCheck;
+import com.cis.testServiceTime;
 import com.google.gson.Gson;
 import com.validation.CommonCISValidation;
 
@@ -48,7 +40,7 @@ public class ODGetParksDetailsRestService {
 	 * @throws Exception 
 	 */
 	@RequestMapping(value="/getParksDetails",method=RequestMethod.GET,produces={"application/json"})
-	 public String getParksDetails(HttpServletRequest request,@RequestParam ("parkId") String parkId,@RequestParam ("checkIn") String checkIn,@RequestParam ("checkOut") String checkOut) throws Exception{
+	 public String getParksDetails(HttpServletRequest request,@RequestParam ("parkId") String parkId,@RequestParam ("parkType") String parkType,@RequestParam ("checkIn") String checkIn,@RequestParam ("checkOut") String checkOut,@RequestParam ("reservationDate") String reservationDate) throws Exception{
 		//Logger class
 		 Logger logger = Logger.getLogger(ODGetParksInfoRestService.class);
 		 
@@ -63,7 +55,7 @@ public class ODGetParksDetailsRestService {
 			if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
 			{
 		    ODGetParkDetailsWebservice parkDetailsWebservice = new ODGetParkDetailsWebservice();
-			 cisResult = parkDetailsWebservice.getParksDetails(parkId,checkIn,checkOut);
+			 cisResult = parkDetailsWebservice.getParksDetails(parkId,parkType,checkIn,checkOut,reservationDate);
 			}
 		  
 		// Capture Service End time

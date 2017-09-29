@@ -73,7 +73,7 @@ public class ODParkRegistrationDAO extends JdbcDaoSupport {
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			 ODCheckMail res = (ODCheckMail)getJdbcTemplate().queryForObject(ODParkRegistrationQuery.SQL_CHECKEMAILID,inputs,new ODCheckMailMapper());
+			 ForgotPassword res = (ForgotPassword)getJdbcTemplate().queryForObject(ODParkRegistrationQuery.SQL_CHECKEMAILID,inputs,new ODCheckMailMapper());
 			 String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 

@@ -1,21 +1,12 @@
 package com.od;
 
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Random;
-import java.util.TimeZone;
-
-import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.SMSCommunication;
-import com.cis.TimeCheck;
-import com.cis.testServiceTime;
 
 public class RequestOTPBL {
 	
@@ -23,9 +14,36 @@ public class RequestOTPBL {
 	RequestOTPDAO otpDAO=(RequestOTPDAO)ctx.getBean("Requestotp");
 	
 	public CISResults requestOTP(String phoneNumber) throws Throwable  {
+		
 		SMSCommunication smsCommunicaiton=new SMSCommunication();
 		CISResults cisResults=new CISResults();
-		      final Logger logger = Logger.getLogger(RequestOTPBL.class);
+		
+		 cisResults = otpDAO.checkEmail(phoneNumber);
+		 if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+	       {
+				 cisResults=smsCommunicaiton.sendSMS(phoneNumber);
+	       }else{
+	        	 cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+		    	 cisResults.setErrorMessage("Incorrect credentials");
+		       }
+		 //String str=phoneNumber;
+		// cisResults = otpDAO.checkEmail(phoneNumber);
+		/* if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+         {
+			   try {   
+				   int number = Integer.parseInt(phoneNumber);
+				   cisResults=smsCommunicaiton.sendSMS(number);
+				} catch (NumberFormatException nfe) {
+				  nfe.printStackTrace();
+				}
+			
+         }else{
+        	 cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+	    	 cisResults.setErrorMessage("Incorrect credentials");
+	       }*/
+			
+			
+	/*	      final Logger logger = Logger.getLogger(RequestOTPBL.class);
 		      checkOTPTime otpTimeCheck=new checkOTPTime();
 		   // Capture service Start time
 			  TimeCheck time=new TimeCheck();
@@ -47,8 +65,11 @@ public class RequestOTPBL {
 			  
 			  if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
 	             {
+				   //cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
+				   
+				   
 				  	cisResults = otpDAO.requestOTP(contact,otpNumber,formatter.format(currentdate.getTime()),deleteInd);
-				  	cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
+				  	//cisResults=smsCommunicaiton.sendSMS(contact,otpNumber);
 				  	cisResults.setResultObject(cisResults);
 	             }else{
 	            	 cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
@@ -58,7 +79,7 @@ public class RequestOTPBL {
 			  
 			  
 			  
-			  /*if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
+			  if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
 	             {
 				  	cisResults = otpDAO.validateOTPTime(contact,deleteInd);
 			 
@@ -78,12 +99,12 @@ public class RequestOTPBL {
 	             }else{
 	            	 cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
 	  	    	     cisResults.setErrorMessage("user already exists, please login");
-	  	       }*/
+	  	       }
 			// Capture Service End time
 			  String serviceEndTime=time.getTimeZone();
 			  seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			  logger.info("Database time for request otp service:: " +cisResults );
-			
+			*/
 		return cisResults;
 		
 	}

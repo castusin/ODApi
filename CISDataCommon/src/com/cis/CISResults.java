@@ -2,6 +2,8 @@ package com.cis;
 
 import java.util.List;
 
+import com.od.LocalAreaData;
+import com.od.ODAminitiesService;
 import com.od.PackageDetails;
 import com.od.GetDatesModel;
 import com.od.ODParkDetailsService;
@@ -17,10 +19,39 @@ public class CISResults {
 	public List<ODParkDetailsService> parkDetails;
 	public List<GetDatesModel> dateList;
 	public List<PackageDetails> facilityList;
+	public List<LocalAreaData> localareaList;
+	public List<ODParkDetailsService> roomDetails;
+	public List<ODParkDetailsService> addOnDetails;
+	public List<ODAminitiesService> amenitieslist;
 	
 	
+	
+	public List<ODAminitiesService> getAmenitieslist() {
+		return amenitieslist;
+	}
+
+	public void setAmenitieslist(List<ODAminitiesService> amenitieslist) {
+		this.amenitieslist = amenitieslist;
+	}
+
+	public List<ODParkDetailsService> getAddOnDetails() {
+		return addOnDetails;
+	}
+
+	public void setAddOnDetails(List<ODParkDetailsService> addOnDetails) {
+		this.addOnDetails = addOnDetails;
+	}
+
 	public List<PackageDetails> getFacilityList() {
 		return facilityList;
+	}
+
+	public List<ODParkDetailsService> getRoomDetails() {
+		return roomDetails;
+	}
+
+	public void setRoomDetails(List<ODParkDetailsService> roomDetails) {
+		this.roomDetails = roomDetails;
 	}
 
 	public void setFacilityList(List<PackageDetails> facilityList) {
@@ -51,6 +82,14 @@ public class CISResults {
 
 	public void setParkDetails(List<ODParkDetailsService> parkDetails) {
 		this.parkDetails = parkDetails;
+	}
+
+	public List<LocalAreaData> getLocalareaList() {
+		return localareaList;
+	}
+
+	public void setLocalareaList(List<LocalAreaData> localareaList) {
+		this.localareaList = localareaList;
 	}
 
 	public Object getResultObject() {

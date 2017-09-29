@@ -2,10 +2,11 @@
 package com.od;
 
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
@@ -24,10 +25,11 @@ public class ODGetParkDetailsBL {
 	
 	/**
 	 * @param parkId
+	 * @param reservationDate 
 	 * @return  1 in case of error or 0 if successful
 	 * @throws Exception 
 	 */
-	public CISResults getParksDetails(String parkId,String checkIn, String checkOut) throws Exception {
+	public CISResults getParksDetails(String parkId,String parkType,String checkIn, String checkOut, String reservationDate) throws Exception {
 		// Capture service Start time
 		    TimeCheck time=new TimeCheck();
 			testServiceTime seriveTimeCheck=new testServiceTime();
@@ -36,6 +38,11 @@ public class ODGetParkDetailsBL {
 		 	CISResults cisResult=new CISResults();
 		 	ODGetParkDetailsModel parkDetails=new ODGetParkDetailsModel();
 		 	List<ODParkDetailsService> parkDetailslist = null;
+		 	List<ODParkDetailsService> roomDetailslist = null;
+		 	List<ODParkDetailsService> addOnDetailslist=null;
+		 	List<ODAminitiesService> amenitieslist=null;
+		 	//Map<String,List<ODParkDetailsService>> map = new HashMap<String,List<ODParkDetailsService>>();
+		 	
 			final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
 			
 			// converting string to date
@@ -49,10 +56,16 @@ public class ODGetParkDetailsBL {
 			count = (int) diffDays;
 			
 			
-			cisResult = parkDetailsDAO.getParksDetail(parkId);
-			parkDetailslist = parkDetailsDAO.getParksDetails(checkIn,checkOut,parkId,count);
+			//cisResult = parkDetailsDAO.getParksDetail(parkId);
+			
+			roomDetailslist = parkDetailsDAO.getParksRoomDetails(checkIn,checkOut,parkType,parkId,count);
+			parkDetailslist = parkDetailsDAO.getParksDetails(checkIn,checkOut,parkType,parkId,count);
+			addOnDetailslist = parkDetailsDAO.getAddonDetails(checkIn,checkOut,parkType,parkId,count);
+			amenitieslist = parkDetailsDAO.getAminitiesDetails(checkIn,checkOut,parkType,parkId,count);
 		    cisResult.setParkDetails(parkDetailslist);	
-		
+		    cisResult.setRoomDetails(roomDetailslist);
+		    cisResult.setAddOnDetails(addOnDetailslist);
+		    cisResult.setAmenitieslist(amenitieslist);
 			logger.debug("OD GetParkDetailsBL service" +cisResult);
 			 
 			String serviceEndTime=time.getTimeZone();

@@ -3,6 +3,7 @@ package com.od;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import org.json.JSONException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +17,7 @@ public class ODValidateOTP {
 
 	@RequestMapping(value="/validateOTPService",method=RequestMethod.GET,produces={"application/json"})
 
-	 public String validateOTP(HttpServletRequest request,@RequestParam ("phoneNumber") String phoneNumber,@RequestParam ("otp") String otp){
+	 public String validateOTP(HttpServletRequest request,@RequestParam ("phoneNumber") String phoneNumber,@RequestParam ("otp") String otp) throws JSONException, Throwable{
 		 Logger logger = Logger.getLogger(ODValidateOTP.class);
 		 String postData = "phoneNumber=" +phoneNumber + "&otp=" + otp ;
 		 CommonCISValidation CommonCISValidation=new CommonCISValidation();
