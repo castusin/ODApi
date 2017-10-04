@@ -173,6 +173,131 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		return aminitieslist;  
 	}
 
+	public List<ODParkDetailsService> getParksRoomDetailsRes(String reservationDate,
+			 String parkType, String parkId) {
+
+
+		ODGetParkDetailsModel parksDetails;
+		List<ODParkDetailsService> roomDetailslist = null;
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
+		Object[] inputs = new Object[]{reservationDate,parkType,parkId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			roomDetailslist = getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSROOMSLISTRES,inputs,new ODParkDetailsServiceMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park details service:: " +result );
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return roomDetailslist;  
+	}
+
+	public List<ODParkDetailsService> getParksDetailsRes(String reservationDate,
+			 String parkType, String parkId) {
+
+
+		ODGetParkDetailsModel parksDetails;
+		List<ODParkDetailsService> parkDetailslist = null;
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
+		Object[] inputs = new Object[]{reservationDate,parkType,parkId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			parkDetailslist = getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETPARKSPACKAGESLISTRES,inputs,new ODParkDetailsServiceMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park details service:: " +result );
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return parkDetailslist;  
+	}
+
+	public List<ODParkDetailsService> getAddonDetailsRes(String reservationDate,
+			 String parkType, String parkId) {
+
+
+		ODGetParkDetailsModel parksDetails;
+		List<ODParkDetailsService> addOnDetailslist = null;
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
+		Object[] inputs = new Object[]{reservationDate,parkType,parkId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			addOnDetailslist = getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETADDONSSLISTRES,inputs,new ODAddonsMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park details service:: " +result );
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return addOnDetailslist;  
+	}
+
+
+	public List<ODAminitiesService> getAminitiesDetailsRes(String reservationDate,
+			 String parkType, String parkId) {
+
+
+		List<ODAminitiesService> aminitieslist = null;
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
+		Object[] inputs = new Object[]{reservationDate,parkType,parkId};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			aminitieslist = getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETAMINITIESLISTRES,new ODAminitiesMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get aminities details service:: " +result );
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return aminitieslist;  
+	}
+
+
 		
 
 }

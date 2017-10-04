@@ -20,5 +20,8 @@
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-context-4.1.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-dao-2.0.6.jar"/>
 	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/spring-jdbc-4.0.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/java-json.jar"/>
+	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/json-lib.jar"/>
+	<classpathentry kind="lib" path="E:/GitHub/ODApi/JARS/json-simple.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

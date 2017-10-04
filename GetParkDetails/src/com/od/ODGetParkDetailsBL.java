@@ -46,28 +46,44 @@ public class ODGetParkDetailsBL {
 			final Logger logger = Logger.getLogger(ODGetParkInfoBL.class);
 			
 			// converting string to date
-			SimpleDateFormat myFormat = new SimpleDateFormat(CISConstants.CHECKIN_DATE_FORMAT);
-			Date date1 = myFormat.parse(checkIn);
-		    Date date2 = myFormat.parse(checkOut);
-		    // calculating count
-			int count=0;
-			long diff = date2.getTime() - date1.getTime();
-			long diffDays = diff / (24 * 60 * 60 * 1000)+1;
-			count = (int) diffDays;
+			
 			
 			
 			//cisResult = parkDetailsDAO.getParksDetail(parkId);
+			if(reservationDate.equalsIgnoreCase("")){
+				
+				SimpleDateFormat myFormat = new SimpleDateFormat(CISConstants.CHECKIN_DATE_FORMAT);
+				Date date1 = myFormat.parse(checkIn);
+			    Date date2 = myFormat.parse(checkOut);
+			    // calculating count
+				int count=0;
+				long diff = date2.getTime() - date1.getTime();
+				long diffDays = diff / (24 * 60 * 60 * 1000)+1;
+				count = (int) diffDays;
+				
+				roomDetailslist = parkDetailsDAO.getParksRoomDetails(checkIn,checkOut,parkType,parkId,count);
+				parkDetailslist = parkDetailsDAO.getParksDetails(checkIn,checkOut,parkType,parkId,count);
+				addOnDetailslist = parkDetailsDAO.getAddonDetails(checkIn,checkOut,parkType,parkId,count);
+				amenitieslist = parkDetailsDAO.getAminitiesDetails(checkIn,checkOut,parkType,parkId,count);
+				cisResult.setParkDetails(parkDetailslist);	
+				cisResult.setRoomDetails(roomDetailslist);
+				cisResult.setAddOnDetails(addOnDetailslist);
+				cisResult.setAmenitieslist(amenitieslist);
+				logger.debug("OD GetParkDetailsBL service" +cisResult);
+			}else{
+				
+				roomDetailslist = parkDetailsDAO.getParksRoomDetailsRes(reservationDate,parkType,parkId);
+				parkDetailslist = parkDetailsDAO.getParksDetailsRes(reservationDate,parkType,parkId);
+				addOnDetailslist = parkDetailsDAO.getAddonDetailsRes(reservationDate,parkType,parkId);
+				amenitieslist = parkDetailsDAO.getAminitiesDetailsRes(reservationDate,parkType,parkId);
+				cisResult.setParkDetails(parkDetailslist);	
+				cisResult.setRoomDetails(roomDetailslist);
+				cisResult.setAddOnDetails(addOnDetailslist);
+				cisResult.setAmenitieslist(amenitieslist);
+				logger.debug("OD GetParkDetailsBL service" +cisResult);
+				
+			}
 			
-			roomDetailslist = parkDetailsDAO.getParksRoomDetails(checkIn,checkOut,parkType,parkId,count);
-			parkDetailslist = parkDetailsDAO.getParksDetails(checkIn,checkOut,parkType,parkId,count);
-			addOnDetailslist = parkDetailsDAO.getAddonDetails(checkIn,checkOut,parkType,parkId,count);
-			amenitieslist = parkDetailsDAO.getAminitiesDetails(checkIn,checkOut,parkType,parkId,count);
-		    cisResult.setParkDetails(parkDetailslist);	
-		    cisResult.setRoomDetails(roomDetailslist);
-		    cisResult.setAddOnDetails(addOnDetailslist);
-		    cisResult.setAmenitieslist(amenitieslist);
-			logger.debug("OD GetParkDetailsBL service" +cisResult);
-			 
 			String serviceEndTime=time.getTimeZone();
 			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			logger.info("Database time for get park details service:: " +result );
