@@ -13,6 +13,7 @@ public class CISConstants {
 	public static final String GS_DATE_FORMAT2 ="yyyy-MM-dd'T'HH:mm:ss";
 	public static final String GS_DATE_FORMAT3 ="EEE, dd MMM yyyy HH:mm:ss";
 	public static final String CHECKIN_DATE_FORMAT ="yyyy-MM-dd";
+	public static final String CHECK_DATE_FORMAT =null;
 	public static final String NO = "N";
 	public static final String SQL_ERROR = "GS - SQL Error";
 	public static final String SQL_ERROR_CODE = "1001";
@@ -42,6 +43,8 @@ public class CISConstants {
 	public static final String SUBJECT ="OutingDay";
 	public static final String CANCEL ="cancelled";
 	public static final String PAYMENTSUCCESS ="N";
+	public static final String NULLVALUE_CONVERTION ="--";
+	
 	public static final String COD ="Y";
 	
 	public static final String WRONG_PHONE_NUMBER="Please check phone number";

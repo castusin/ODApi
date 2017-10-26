@@ -28,9 +28,13 @@ public class ODCreateUserModel {
 	public String status;
 	public String emailId;
 	
+	public Date reservationDate;
+	public int adults;
+	public int child;
+	
 	public List<PackageDetails> packageList;
 	//public List<RoomsDetails> roomList;
-	public ODCreateUserModel(String userId, String firstName, String lastName, String phoneNumber1, String phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status, String emailId, List<PackageDetails> facilityList, List<RoomsDetails> roomList, List<PackageDetails> packageList) {
+	public ODCreateUserModel(String userId, String firstName, String lastName, String phoneNumber1, String phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status, String emailId, List<PackageDetails> facilityList, List<RoomsDetails> roomList, List<PackageDetails> packageList, Date reservationDate, int adults, int child) {
 		super();
 		this.userId=userId;
 		this.firstName=firstName;
@@ -54,12 +58,56 @@ public class ODCreateUserModel {
 		this.status=status;
 		this.emailId=emailId;
 		
-		
+		this.reservationDate=reservationDate;
+		this.adults=adults;
+		this.child=child;
 		
 		this.packageList=packageList;
 		//this.roomList=roomList;
 	}
 		
+
+
+
+		public Date getReservationDate() {
+		return reservationDate;
+	}
+
+
+
+
+	public void setReservationDate(Date reservationDate) {
+		this.reservationDate = reservationDate;
+	}
+
+
+
+
+	public int getAdults() {
+		return adults;
+	}
+
+
+
+
+	public void setAdults(int adults) {
+		this.adults = adults;
+	}
+
+
+
+
+	public int getChild() {
+		return child;
+	}
+
+
+
+
+	public void setChild(int child) {
+		this.child = child;
+	}
+
 
 
 

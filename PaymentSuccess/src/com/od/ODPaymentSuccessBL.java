@@ -1,6 +1,8 @@
 package com.od;
 
 
+import java.text.DateFormat;
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -91,11 +93,12 @@ public class ODPaymentSuccessBL {
 	    	 int parkid=0;
 	    	 float price=0;
 	    	 float totalPrice=0;
+	    	 float total=0;
 	    	 String type="";
 	    	 String  suppEmail="";
 	    	 String suppCell="";
 	    	 String suppLand="";
-	    	 
+	    	 Date reservationDate=null;
 	    	
 			ArrayList<Object> roomDetails = new ArrayList<Object>();
 			
@@ -116,23 +119,34 @@ public class ODPaymentSuccessBL {
 			     parkid=details.get(i).parkId;
 			     price=details.get(i).price;
 			     totalPrice=details.get(i).totalPrice;
-			     
-			     String message=
-			    		 "Title :"+title+""+
-			    		
-			    		 "Quantity :"+qty+""+
-			    		 "Price :"+price+"";
-			    		 
-			    		 
-			    		// "<p>Total Price :"+totalPrice+"<p/>";
-			     String result="<tr style='border-bottom: 1px solid #ccc;padding:10px;'><td style='padding: 8px; text-align:center;'>"+title+"</td><td style='padding: 8px; text-align:center;'>"+checkIn+"</td><td style='padding: 8px; text-align:center;'>"+checkOut+"</td><td style='padding: 8px; text-align:center;'>"+qty+"</td><td style='padding: 8px; text-align:center;'>1 Adult</td><td style='padding: 8px; text-align:center;'>"+price+"</td><td style='padding: 8px; text-align:center;'>N0 Extra Charges</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr>";
-			    		 
-			     stringBuilder.append(result);
-			     msgstringBuilder.append(message);
-			     finalString = stringBuilder.toString();
-			     finalStringsms = msgstringBuilder.toString();
-			 	 roomDetails.add(roomDetaisModel);
-				
+			     reservationDate=details.get(i).reservationDate;
+			     String convertNullValue = CISConstants.NULLVALUE_CONVERTION;
+			     String result = "";
+			     total=qty*price;
+			    	 
+			    	 String message=
+				    		 "Title :"+title+""+
+				    		
+				    		 "Quantity :"+qty+""+
+				    		 "Price :"+price+"";
+				    		 
+			    	 if (checkIn == null) {
+				    		
+				    		// "<p>Total Price :"+totalPrice+"<p/>";
+				      result="<tr style='border-bottom: 1px solid #ccc;padding:10px;'><td style='padding: 8px; text-align:center;'>"+title+"</td><td style='padding: 8px; text-align:center;'>"+convertNullValue+"</td><td style='padding: 8px; text-align:center;'>"+convertNullValue+"</td><td style='padding: 8px; text-align:center;'>"+reservationDate+"</td><td style='padding: 8px; text-align:center;'>"+qty+"</td><td style='padding: 8px; text-align:center;'>1 Adult</td><td style='padding: 8px; text-align:center;'>"+price+"</td><td style='padding: 8px; text-align:center;'>N0 Extra Charges</td><td style='padding: 8px; text-align:center;'>"+total+"</td></tr>";
+				    	
+			    	 }
+			    	 
+			    	 if (reservationDate == null) {
+			    		 result="<tr style='border-bottom: 1px solid #ccc;padding:10px;'><td style='padding: 8px; text-align:center;'>"+title+"</td><td style='padding: 8px; text-align:center;'>"+checkIn+"</td><td style='padding: 8px; text-align:center;'>"+checkOut+"</td><td style='padding: 8px; text-align:center;'>"+convertNullValue+"</td><td style='padding: 8px; text-align:center;'>"+qty+"</td><td style='padding: 8px; text-align:center;'>1 Adult</td><td style='padding: 8px; text-align:center;'>"+price+"</td><td style='padding: 8px; text-align:center;'>N0 Extra Charges</td><td style='padding: 8px; text-align:center;'>"+total+"</td></tr>";	 
+			    	 }
+			    	 
+				     stringBuilder.append(result);
+				     msgstringBuilder.append(message);
+				     finalString = stringBuilder.toString();
+				     finalStringsms = msgstringBuilder.toString();
+				 	 roomDetails.add(roomDetaisModel);
+			    
 				}
 			
 			     System.out.println(finalString);

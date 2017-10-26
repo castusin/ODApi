@@ -42,6 +42,9 @@ public class ODGetParkDetailsModel {
 	public String details;
 	public String parkSubImages;
 	public String amenitiesString;
+	
+	public String parkMainImages;
+	
 	public List<ODParkDetailsService> parkDetails;
 	public List<ODParkDetailsService> roomDetails;
 	public List<ODParkDetailsService> addOnDetails;
@@ -49,7 +52,7 @@ public class ODGetParkDetailsModel {
 	public List<ODParkPackageDetailsService> parkPackageDetails;
 	
 	
-	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString, float minCost3, int minCost3People, String appId, String parkType, String parksubcategory, String facilityTypeCode, List<ODParkPackageDetailsService> parkPackageDetails, List<ODParkDetailsService> roomDetails, List<ODParkDetailsService> addOnDetails ) {
+	public ODGetParkDetailsModel(String overviewText, String faq, String photoUrl, List<ODParkDetailsService> parkDetails, int parkId, String name, String metro, String localArea, String streetAddress, Float odRating, String city, String state, int pin, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String maxPeople, String popularity, Float minCost1, int minCost1People, Float minCost2, int minCost2People, Float specialOfferPercentage, Float specialRate, String description, String details, String imagefoldername, String parkSubImages, String amenitiesString, float minCost3, int minCost3People, String appId, String parkType, String parksubcategory, String facilityTypeCode, List<ODParkPackageDetailsService> parkPackageDetails, List<ODParkDetailsService> roomDetails, List<ODParkDetailsService> addOnDetails, String parkMainImages ) {
 		super();
 		
 		this.parkId=parkId;
@@ -97,9 +100,21 @@ public class ODGetParkDetailsModel {
 		this.parkPackageDetails=parkPackageDetails;
 		this.roomDetails=roomDetails;
 		this.addOnDetails=addOnDetails;
+		
+		this.parkMainImages=parkMainImages;
 	}
 	
 	
+	public String getParkMainImages() {
+		return parkMainImages;
+	}
+
+
+	public void setParkMainImages(String parkMainImages) {
+		this.parkMainImages = parkMainImages;
+	}
+
+
 	public List<ODParkDetailsService> getAddOnDetails() {
 		return addOnDetails;
 	}

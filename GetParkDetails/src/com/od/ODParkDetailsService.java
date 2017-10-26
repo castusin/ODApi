@@ -26,7 +26,7 @@ public class ODParkDetailsService {
 	//String parkSubImages;
 	//int parkId;
 	
-	
+	public String parkMainImages;
 	public String overviewText ;
 	public String metro ;
 	public String localArea;
@@ -37,8 +37,7 @@ public class ODParkDetailsService {
 	public String name;
 	
 	public String details;
-	
-	/*public float odRating;
+		/*public float odRating;
 
 	
 	
@@ -63,9 +62,12 @@ public class ODParkDetailsService {
 	public String amenitiesString;
 	public Text addonPath;
 	public String parkRoomFac;
-	
+	public int addonId;
 	public int discount;
 	public String discountMode;
+	
+	public String inclusions;
+	public String status;
 	
 	public Object packageItems; 
 
@@ -74,7 +76,7 @@ public class ODParkDetailsService {
 			float currentPrice, String facilityTypeCode, String facilityType,
 			String maxQty, float regularPrice, Date dateAdded, Date date,
 			String facilityTypeTitle, String facilityInRoomFacilites,
-			String facilityImage, int parkId, String overviewText, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String details, float odRating, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String popularity, float minCost1, float minCost1People, float minCost2, float minCost2People, float specialOfferPercentage, float specialRate, String photoUrl, String amenitiesString, String parkSubImages, String parkRoomFac, int discount, String discountMode, Object packageItems, Text addonPath) {
+			String facilityImage, int parkId, String overviewText, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String details, float odRating, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String popularity, float minCost1, float minCost1People, float minCost2, float minCost2People, float specialOfferPercentage, float specialRate, String photoUrl, String amenitiesString, String parkSubImages, String parkRoomFac, int discount, String discountMode, Object packageItems, Text addonPath, int addonId, String parkMainImages, String inclusions, String status) {
 		super();
 		this.description = description;
 		this.maxPeople = maxPeople;
@@ -91,7 +93,7 @@ public class ODParkDetailsService {
 		this.facilityTypeTitle = facilityTypeTitle;
 		this.facilityInRoomFacilites = facilityInRoomFacilites;
 		this.facilityImage = facilityImage;
-		
+		this.addonId=addonId;
 		//this.parkId=parkId;
 		//this.parkSubImages=parkSubImages;
 		/*this.overviewText=overviewText;
@@ -127,6 +129,50 @@ public class ODParkDetailsService {
 		
 		this.addonPath=addonPath;
 		this.amenitiesString=amenitiesString;
+		this.parkMainImages=parkMainImages;
+		
+		this.inclusions=inclusions;
+		this.status=status;
+	}
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+	public String getInclusions() {
+		return inclusions;
+	}
+
+
+	public void setInclusions(String inclusions) {
+		this.inclusions = inclusions;
+	}
+
+
+	public String getParkMainImages() {
+		return parkMainImages;
+	}
+
+
+	public void setParkMainImages(String parkMainImages) {
+		this.parkMainImages = parkMainImages;
+	}
+
+
+	public int getAddonId() {
+		return addonId;
+	}
+
+
+	public void setAddonId(int addonId) {
+		this.addonId = addonId;
 	}
 
 

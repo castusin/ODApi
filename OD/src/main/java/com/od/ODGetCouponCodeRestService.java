@@ -1,19 +1,9 @@
 
 package com.od;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
-
-import com.cis.testServiceTime;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.TimeCheck;
+import com.cis.testServiceTime;
 import com.google.gson.Gson;
 import com.validation.CommonCISValidation;
 

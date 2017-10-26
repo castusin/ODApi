@@ -71,7 +71,7 @@ public class ODGetParkInfoBL {
 			     
 			}else if(parkType.equalsIgnoreCase("")){
 				
-				cisResult = parkInfoDAO.getAllParkinfo(localId);
+				cisResult = parkInfoDAO.getAllParkinfo(localId,reservationDate);
 			}
 				else{
 				cisResult = parkInfoDAO.getParkinfo(localId,parkType,adults,checkIn,checkOut,reservationDate);

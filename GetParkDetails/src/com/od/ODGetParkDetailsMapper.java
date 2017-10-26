@@ -47,6 +47,9 @@ public class ODGetParkDetailsMapper implements RowMapper{
 		parkDetails.setPhotoUrl(rs.getString("Main_photo_url"));
 		parkDetails.setParkSubImages(rs.getString("Park_sub_images"));
 		parkDetails.setAmenitiesString(rs.getString("Amenities_string"));
+		
+		//parkDetails.setParkMainImages(rs.getString("Facility_main_image"));
+		
 		//parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
 		return parkDetails;
 	}

@@ -19,10 +19,20 @@ public class ODGetCategoriesBL {
 		 TimeCheck time=new TimeCheck();
 		 testServiceTime seriveTimeCheck=new testServiceTime();
 		 String serviceStartTime=time.getTimeZone();
-		  
+		 CISResults cisResult = new CISResults();
 		final Logger logger = Logger.getLogger(ODGetCitiesBL.class);
 		 
-		CISResults cisResult = getCategoriesDAO.getCategories(cityId,parkType,adults,checkIn,checkOut,reservationDate);
+		if(parkType.equalsIgnoreCase("")){
+			
+			
+			cisResult = getCategoriesDAO.getAllParkinfo(cityId,reservationDate);
+		     
+		}else{
+		
+		    cisResult = getCategoriesDAO.getCategories(cityId,parkType,adults,checkIn,checkOut,reservationDate);
+		
+		}
+		
 		logger.info("viewCities BL  service" +cisResult );
 		
 		// Capture Service End time

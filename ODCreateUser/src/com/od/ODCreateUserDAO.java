@@ -26,7 +26,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 
 	public CISResults createUser(String userId, String firstName, String lastName,String emailId,
 			String phone1, String phone2, String address1,
-			String address2, String city, String state,  int pincode, String createDate) {
+			String address2, String city, String state,  int pincode, String createDate, Date reservedDate, int adults, int child) {
 		Logger logger = Logger.getLogger(ODCreateUserDAO.class);
 		CISResults cisResults=new CISResults();
 		
@@ -36,7 +36,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE,userId,firstName,lastName,emailId,phone1,phone2,address1,address2,city,state,pincode,createDate);
+			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE,userId,firstName,lastName,emailId,phone1,phone2,address1,address2,city,state,pincode,createDate,reservedDate,adults,child);
 		
 			 String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
@@ -93,7 +93,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 
 	public CISResults createUserDetails(String reservationId, int parkId,
 			String title, float price,
-			String typeCode, int quantity, String type, Date fromDate, Date toDate, float totalPrice,
+			String typeCode, int quantity, String type, Date fromDate, Date toDate, Date reservationDate, float totalPrice,
 			String status, String createDate) {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
@@ -102,7 +102,7 @@ public class ODCreateUserDAO extends JdbcDaoSupport{
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE_DETAILS,reservationId,parkId,title,price,typeCode,quantity,type,fromDate,toDate,totalPrice,status,createDate);
+			getJdbcTemplate().update(ODCreateUserQuery.SQL_USERTABLE_DETAILS,reservationId,parkId,title,price,typeCode,quantity,type,fromDate,toDate,reservationDate,totalPrice,status,createDate);
 			
 			String serviceEndTime=time.getTimeZone();
 			 sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);

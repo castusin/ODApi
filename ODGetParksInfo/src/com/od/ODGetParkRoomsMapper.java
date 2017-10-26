@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 @SuppressWarnings("rawtypes")
-public class GetAllParksInfoMapper implements RowMapper{
+public class ODGetParkRoomsMapper implements RowMapper{
 	
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
@@ -40,7 +40,7 @@ public class GetAllParksInfoMapper implements RowMapper{
 		parkDetails.setMaxPeople(rs.getString("Max_people"));
 		
 		parkDetails.setPopularity(rs.getString("Popularity"));
-		parkDetails.setMinCost1(rs.getFloat("min_curr_price"));
+		parkDetails.setMinCost1(rs.getFloat("min(mpp.min_price)"));
 		parkDetails.setMinCost1People(rs.getInt("Min_cost1_people"));
 		parkDetails.setMinCost2(rs.getFloat("Min_cost2"));
 		parkDetails.setMinCost2People(rs.getInt("Min_cost2_people"));
@@ -63,10 +63,12 @@ public class GetAllParksInfoMapper implements RowMapper{
 		parkDetails.setPolicyText(rs.getString("Policy_text"));
 		parkDetails.setStateId(rs.getInt("state_id"));
 		parkDetails.setCityId(rs.getInt("city_id"));
-		parkDetails.setDiscount(rs.getInt("Discount"));
-		parkDetails.setDiscountMode(rs.getString("Discount_Mode"));
-		/*parkDetails.setFromDate(rs.getDate("From_date"));
-		parkDetails.setToDate(rs.getDate("To_date"));*/
+		parkDetails.setDiscountMode(rs.getString("min(mpp.Discount_mode)"));
+
+
+		parkDetails.setDiscount(rs.getInt("min(mpp.Discount)"));
+		//parkDetails.setFromDate(rs.getDate("From_date"));
+		//parkDetails.setToDate(rs.getDate("To_date"));
 		
 		//parkDetails.setCurrentPrice(rs.getFloat("Current_price"));
 		//parkDetails.setParkrommFac(rs.getInt("park_room_fac"));

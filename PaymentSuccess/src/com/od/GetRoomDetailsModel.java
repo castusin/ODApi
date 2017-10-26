@@ -16,8 +16,8 @@ public class GetRoomDetailsModel {
 	float price;
 	String typeCode;
 	String type;
-	
-	public GetRoomDetailsModel(String facilityType, Date fromDate, Date toDate, int quantity, float totalPrice, Date creationDate, int parkId, String facilityTitle, float facilityPrice, String roomTypeCode, String facilityTypeCode, int facilityQuantity, String roomTitle, float roomPrice, int roomQuantity, String title, float price, String type, String typeCode) {
+	public Date reservationDate;
+	public GetRoomDetailsModel(String facilityType, Date fromDate, Date toDate, int quantity, float totalPrice, Date creationDate, int parkId, String facilityTitle, float facilityPrice, String roomTypeCode, String facilityTypeCode, int facilityQuantity, String roomTitle, float roomPrice, int roomQuantity, String title, float price, String type, String typeCode, Date reservationDate) {
 		super();
 		
 		
@@ -33,10 +33,26 @@ public class GetRoomDetailsModel {
 		this.type=type;
 		this.typeCode=typeCode;
 		
+		this.reservationDate=reservationDate;
+		
 	}
 	
 	
 	
+
+	public Date getReservationDate() {
+		return reservationDate;
+	}
+
+
+
+
+	public void setReservationDate(Date reservationDate) {
+		this.reservationDate = reservationDate;
+	}
+
+
+
 
 	public Date getFromDate() {
 		return fromDate;

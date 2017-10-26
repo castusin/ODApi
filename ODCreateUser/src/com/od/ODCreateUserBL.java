@@ -82,7 +82,7 @@ public class ODCreateUserBL {
 		     TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONEIND);
 		     formatter.setTimeZone(obj);
 		  
-			  cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate);
+			  cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate,createUser.getReservationDate(),createUser.getAdults(),createUser.getChild());
             
 		     if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
              {
@@ -95,7 +95,7 @@ public class ODCreateUserBL {
 		    		 quantity =  createUser.getPackageList().get(i).quantity;
 		    		 type =  createUser.getPackageList().get(i).type;
 								 
-		    		 cisResults = createUserDAO.createUserDetails(reservationId,parkId,title,price,typeCode,quantity,type,createUser.getFromDate(),createUser.getToDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
+		    		 cisResults = createUserDAO.createUserDetails(reservationId,parkId,title,price,typeCode,quantity,type,createUser.getFromDate(),createUser.getToDate(),createUser.getReservationDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
 				 
 		    	 }
 			

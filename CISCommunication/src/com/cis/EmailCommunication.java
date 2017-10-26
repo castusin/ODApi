@@ -153,8 +153,7 @@ public class EmailCommunication {
 				"<p style='text-align:right;color:#424242;'>All prices indicated below are in INR</p>"+
 				 "<div  style='background-color:#2c3091;height:2px;'></div>\n"+
 				
-				 "<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>#Nights</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<tr><td colspan='7' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='7' style='padding: 8px; text-align:right;''>E-Coupon Amount :  </td><td style='padding: 8px; text-align:center;'> - 0</td></tr><tr  style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='7' style='text-align:right;'>Grand Total:  </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+
-				// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
+				"<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>Reservation Date</th><th style='padding: 8px; text-align:center;'>#Quantity</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<!--<tr><td colspan='8' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='8' style='padding: 8px; text-align:right;''>E-Coupon Amount : </td><td style='padding: 8px; text-align:center;'> - 0</td></tr>--><tr style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='8' style='text-align:right;'>Grand Total: </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
 				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>Inclusions </p>"+
 				"<div  style='background-color:#2c3091;height:2px;'></div>"+
 				
@@ -252,8 +251,7 @@ String subject = CISConstants.SUBJECT;
 				"<p style='text-align:right;color:#424242;'>All prices indicated below are in INR</p>"+
 				 "<div  style='background-color:#2c3091;height:2px;'></div>\n"+
 				
-				 "<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>#Nights</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<tr><td colspan='7' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='7' style='padding: 8px; text-align:right;''>E-Coupon Amount :  </td><td style='padding: 8px; text-align:center;'> - 0</td></tr><tr  style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='7' style='text-align:right;'>Grand Total:  </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+
-				// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
+				"<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>Reservation Date</th><th style='padding: 8px; text-align:center;'>#Quantity</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<!--<tr><td colspan='8' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='8' style='padding: 8px; text-align:right;''>E-Coupon Amount : </td><td style='padding: 8px; text-align:center;'> - 0</td></tr>--><tr style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='8' style='text-align:right;'>Grand Total: </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
 				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>Inclusions </p>"+
 				"<div  style='background-color:#2c3091;height:2px;'></div>"+
 				
@@ -352,8 +350,7 @@ String subject = CISConstants.SUBJECT;
 				"<p style='text-align:right;color:#424242;'>All prices indicated below are in INR</p>"+
 				 "<div  style='background-color:#2c3091;height:2px;'></div>\n"+
 				
-				 "<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>#Nights</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<tr><td colspan='7' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='7' style='padding: 8px; text-align:right;''>E-Coupon Amount :  </td><td style='padding: 8px; text-align:center;'> - 0</td></tr><tr  style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='7' style='text-align:right;'>Grand Total:  </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+
-				// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
+				"<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>Reservation Date</th><th style='padding: 8px; text-align:center;'>#Quantity</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<!--<tr><td colspan='8' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='8' style='padding: 8px; text-align:right;''>E-Coupon Amount : </td><td style='padding: 8px; text-align:center;'> - 0</td></tr>--><tr style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='8' style='text-align:right;'>Grand Total: </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
 				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>Inclusions </p>"+
 				"<div  style='background-color:#2c3091;height:2px;'></div>"+
 				
@@ -453,8 +450,7 @@ String subject = CISConstants.SUBJECT;
 				"<p style='text-align:right;color:#424242;'>All prices indicated below are in INR</p>"+
 				 "<div  style='background-color:#2c3091;height:2px;'></div>\n"+
 				
-				 "<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>#Nights</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<tr><td colspan='7' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='7' style='padding: 8px; text-align:right;''>E-Coupon Amount :  </td><td style='padding: 8px; text-align:center;'> - 0</td></tr><tr  style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='7' style='text-align:right;'>Grand Total:  </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+
-				// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
+				"<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>Reservation Date</th><th style='padding: 8px; text-align:center;'>#Quantity</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<!--<tr><td colspan='8' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='8' style='padding: 8px; text-align:right;''>E-Coupon Amount : </td><td style='padding: 8px; text-align:center;'> - 0</td></tr>--><tr style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='8' style='text-align:right;'>Grand Total: </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
 				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>Inclusions </p>"+
 				"<div  style='background-color:#2c3091;height:2px;'></div>"+
 				
@@ -552,8 +548,7 @@ String subject = CISConstants.SUBJECT;
 				"<p style='text-align:right;color:#424242;'>All prices indicated below are in INR</p>"+
 				 "<div  style='background-color:#2c3091;height:2px;'></div>\n"+
 				
-				 "<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>#Nights</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<tr><td colspan='7' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='7' style='padding: 8px; text-align:right;''>E-Coupon Amount :  </td><td style='padding: 8px; text-align:center;'> - 0</td></tr><tr  style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='7' style='text-align:right;'>Grand Total:  </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+
-				// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
+				"<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>Reservation Date</th><th style='padding: 8px; text-align:center;'>#Quantity</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<!--<tr><td colspan='8' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='8' style='padding: 8px; text-align:right;''>E-Coupon Amount : </td><td style='padding: 8px; text-align:center;'> - 0</td></tr>--><tr style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='8' style='text-align:right;'>Grand Total: </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
 				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>Inclusions </p>"+
 				"<div  style='background-color:#2c3091;height:2px;'></div>"+
 				
@@ -655,8 +650,7 @@ String subject = CISConstants.SUBJECT;
 				"<p style='text-align:right;color:#424242;'>All prices indicated below are in INR</p>"+
 				 "<div  style='background-color:#2c3091;height:2px;'></div>\n"+
 				
-				 "<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>#Nights</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<tr><td colspan='7' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='7' style='padding: 8px; text-align:right;''>E-Coupon Amount :  </td><td style='padding: 8px; text-align:center;'> - 0</td></tr><tr  style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='7' style='text-align:right;'>Grand Total:  </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+
-				// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
+				"<table style='border-collapse: collapse;width: 100%;' ><tr style='border-bottom: 1px solid #FFD700;padding:10px;'><th style='padding: 8px; text-align:center;'>Room</th><th style='padding: 8px; text-align:center;'>Check In</th><th style='padding: 8px; text-align:center;'>Check Out</th><th style='padding: 8px; text-align:center;'>Reservation Date</th><th style='padding: 8px; text-align:center;'>#Quantity</th><th style='padding: 8px; text-align:center;'>Travelers</th><th style='padding: 8px; text-align:center;'>Daily Rate</th><th style='padding: 8px; text-align:center;'>Extra Charges</th><th>Total</th>"+finalString+"<!--<tr><td colspan='8' style='padding: 8px; text-align:right;'>Accomodation charges collected on behalf of hotel :</td><td style='padding: 8px; text-align:center;'>"+price+"</td></tr><tr> <td colspan='8' style='padding: 8px; text-align:right;''>E-Coupon Amount : </td><td style='padding: 8px; text-align:center;'> - 0</td></tr>--><tr style='background:#fdf7dd;padding:8px;text-align:right;color:#333;font-size:18px;font-weight:bold;'> <td colspan='8' style='text-align:right;'>Grand Total: </td><td style='padding: 8px; text-align:center;'>"+totalPrice+"</td></tr></table> "+// "<table style='border-collapse: collapse;width: 100%;' >"+finalString+"</table>"+
 				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>Inclusions </p>"+
 				"<div  style='background-color:#2c3091;height:2px;'></div>"+
 				
@@ -690,7 +684,7 @@ String subject = CISConstants.SUBJECT;
 				"</body>\n" +
                 "</html>";
 
-String subject = CISConstants.SUBJECT;
+			String subject = CISConstants.SUBJECT;
 	 try {
 		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,suppEmail, msg, subject);
 	  
@@ -706,125 +700,29 @@ String subject = CISConstants.SUBJECT;
 	public String sendRegisterMail(String firstName, String lastName, String emailId) {
 
 		CISResults cisResult = new CISResults();
-		/*String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
-                "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
-                "<head>\n" +
-                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
-                "<title></title>\n" +
-                "</head>\n" +
-                "\n" +
-                "<body>\n" +
-                 "<p>Dear "+firstName+"</b><br />"+
-                 
-                "<p><b>Successfully registered.</b> "+
-               
-
-				"<br />\n"+
-				"<br />\n"+
-				
-
-                
-                
-				"<p><b>Inclusions </b><br />"+
-				 "<b>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</b> "+
-					
-				"<p>Service Fee of INR 250 will be applicable for any change in Hotel Check-In dates.Any rate difference found will be charged separately. </b><br /></b><br />"+
-                
-                
-				"<p><b>Hotel Cancellation Policy </b><br />"+
-				 "<b>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</b> "+
-					
-				"<p>NON-REFUNDABLE rate: 100% of the total cost will be charged in case of cancellation </b><br />"+
-				"<p>You can cancel your booking by sending an email to Connect@OutingDay.com </b><br /><br />"+
-				
-				"<p><b>General Hotel Policy </b><br />"+
-				 "<b>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</b> "+
-					
-				"<p>If your booking involves a night stay Complementary Breakfast will  be applicable as per hotel policy. </b><br />"+
-				"<p>The primary guest checking in to the hotel must be at least 18 years of age. Children accompanying adults must be between 1-12 years. </b><br />"+
-				"<p>It is mandatory for guests to present valid photo identification at the time of check-in.  </b><br />"+
-				"<p>The inclusion of 'extra bed' with a booking is facilitated with a folding cot or a mattress as an extra bed. </b><br />"+
-				"<p>Early check-in or late check-out is subject to availability and may be chargeable by the hotel. The standard check-in time is 2PM local time and the standard check-out time is 12PM local time. After booking you will be sent an email confirmation with hotel phone number. You can contact the hotel directly for early check-in or late check-out. </b><br />"+
-				"<p>The room tariff includes all taxes unless specifically mentioned. The amount paid for the room does not include charges for optional services and facilities (such as room service, mini bar, snacks or telephone calls). These will be charged at the time of check-out. </b><br />"+
-				"<p>The hotel reserves the right of admission. Accommodation can be denied to guests posing as a 'couple' if suitable proof of identification is not presented at check-in. OutingDay will not be responsible for any check-in denied by the hotel due to the aforesaid reason. </b><br />"+
-				"<p>The hotel reserves the right of admission for local residents. Accommodation can be denied to guests residing in the same city. OutingDay will not be responsible for any check-in denied by the hotel due to the aforesaid reason. </b><br /><br />"+
-				
-				
-				"<p><b>OutingDay Contact Info </b><br />"+
-				 "<b>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</b> "+
-					
-				"<p>Anay Web Solutions., "+
-				"<p>1-5-95/21 sri Lakshmi nagar colony  "+
-				"<p>Old alwal"+
-				"<p>Secunderabad, "+
-				"<p>Hyderabad, "+
-				"<p>500010, "+
-				"<p>India "+
-				
-				"<p>Email	:	connect@outinday.com "+
-				"<p>Telephone	:	<Mobile NUmber> </b><br /></b><br />"+
-
-				"<p><b>Note:</b> Please do not reply to this email. It has been sent from an email account that is not monitored. To ensure that you receive communication related to your booking from outingday.com, please add connect@outingday.com to your contact list and address book. </b><br /></b><br />"+
-				
-				
-              
-
-                "  <br />\n" +
-
-                "</body>\n" +
-                "</html>";
-	String subject = CISConstants.SUBJECT;*/
 		
-		
-		
-		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
+			String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
+				
+                
 				"<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
-                "<head>\n" +
-                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
-                "<title></title>\n" +
-                "</head>\n" +
-                "\n" +
-                "<body>\n" +
-                "<p>Dear "+firstName+"</b><br />"+
-                
-                "<p><b>You are Successfully registered.</b> "+
-                 
- 				
- 			
-				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>Inclusions </p>"+
-				"<div  style='background-color:#2c3091;height:2px;'></div>"+
-				
-				"<p style='color:#000'>Service Fee of INR 250 will be applicable for any change in Hotel Check-In dates.Any rate difference found will be charged separately. </p>"+
-                
-                
-				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>Hotel Cancellation Policy </p>"+
-				"<div  style='background-color:#2c3091;height:2px;'></div>"+
-				
-				"<p style='color:#000'>NON-REFUNDABLE rate: 100% of the total cost will be charged in case of cancellation </p>"+
-				"<p style='color:#000'>You can cancel your booking by sending an email to Connect@OutingDay.com </p>"+
-				
-				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>General Hotel Policy </p>"+
-				"<div  style='background-color:#2c3091;height:2px;'></div>"+
-				
-				"<p style='color:#000'>If your booking involves a night stay Complementary Breakfast will  be applicable as per hotel policy. </p>"+
-				"<p style='color:#000'>The primary guest checking in to the hotel must be at least 18 years of age. Children accompanying adults must be between 1-12 years. </p>"+
-				"<p style='color:#000'>It is mandatory for guests to present valid photo identification at the time of check-in.  </p>"+
-				"<p style='color:#000'>The inclusion of 'extra bed' with a booking is facilitated with a folding cot or a mattress as an extra bed. </p>"+
-				"<p style='color:#000'>Early check-in or late check-out is subject to availability and may be chargeable by the hotel. The standard check-in time is 2PM local time and the standard check-out time is 12PM local time. After booking you will be sent an email confirmation with hotel phone number. You can contact the hotel directly for early check-in or late check-out. </p>"+
-				"<p style='color:#000'>The room tariff includes all taxes unless specifically mentioned. The amount paid for the room does not include charges for optional services and facilities (such as room service, mini bar, snacks or telephone calls). These will be charged at the time of check-out. </p>"+
-				"<p style='color:#000'>The hotel reserves the right of admission. Accommodation can be denied to guests posing as a 'couple' if suitable proof of identification is not presented at check-in. OutingDay will not be responsible for any check-in denied by the hotel due to the aforesaid reason. </p>"+
-				"<p style='color:#000'>The hotel reserves the right of admission for local residents. Accommodation can be denied to guests residing in the same city. OutingDay will not be responsible for any check-in denied by the hotel due to the aforesaid reason. </p>"+
-				
-				
-				"<p style='font-size:16px;font-weight:bold;color:#2c3091;'>OutingDay Contact Info </p>"+
-				"<div  style='background-color:#2c3091;height:2px;'></div><br/>"+
-				"<table><tr><td style='text-align:left;width: 300px !important;'><b>Anay Web Solutions.,</b><br>sri Lakshmi nagar colony,<br>Old alwal<br>Secunderabad,<br>Hyderabad - 500010,<br>India, <br></td><td style='text-align:right;float:right;'>Email:connect@outinday.com <br>Telephone:<Mobile NUmber><br /></td></tr></table>"+
-
-				"<p style='clear:both;color:#000'><b>Note:</b> Please do not reply to this email. It has been sent from an email account that is not monitored. To ensure that you receive communication related to your booking from outingday.com, please add connect@outingday.com to your contact list and address book. </p><br />"+
+				"<head>\n" +
+				"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
+				"<title></title>\n" +
+				"</head>\n" +
+				"\n" +
+				"<body>\n" +
+				"<table align='center' style='border:1px solid #ccc;width:760px;'><tr><td>"+
+				"<table align='center'><tr><td><a href='#'><img src='http://od.castusinfo.com/assets/images/email_banner.jpg' width='100%' ></a></td></tr></table>"+
+				"<table ><tr><td style='color:#000;padding:10px 0px;'>Dear <b>"+firstName+"</b>,<p>Welcome to OutingDay!</p><p>Just like you, millions of happy travellers have started their journeys right here on OutingDay. Whatever your idea of travel, you’ll find OutingDay is the right choice.</p><a href='#'><img src='http://od.castusinfo.com/assets/images/outingday_email.png'></a></td></tr><tr><td  style='color:#000;padding:10px 0px;'>We are delighted to have you onboard.<a href='#'> Click here</a> to explore now.</td></tr></table>"+
+				"<table ><tr><td style='color:#000;padding: 24px 22px 24px 0px;'><a href='#'><img src='http://od.castusinfo.com/assets/images//explore.gif'></a></td><td style='color:#000; padding: 24px 22px 24px 0px;'><b>EXPLORE</b><p style='color:#000'>Explore all outing choices and get ready to experience your city like never before </p></td></tr><tr><td style='color:#000;padding:10px 0px;'><a href='#'><img src='http://od.castusinfo.com/assets/images//purchase.gif'></a></td><td style='color:#000;padding: 24px 22px 24px 0px;'><b>PURCHASE</b><p style='color:#000'>Choose and buy the best from our extensive outings</p></td></tr><tr><td style='color:#000;padding:10px 0px;'><a href='#'><img src='http://od.castusinfo.com/assets/images//savemoney.gif'></a></td><td style='color:#000; padding: 24px 22px 24px 0px;'><b>SAVE MONEY</b><p style='color:#000'>With discounts and special offers save big and have great experiences</p></td></tr></table>"+
+				"<table><tr ><td style='padding:20px 0px;'><b>Best regards</b>,<br/>OutingDay <br/></td></tr></table>"+
+				"<table style='background:#ededed;color:rgb(139,139,139);padding:15px 0px;width:100%;' ><tr><td><a href='#'><img src='http://od.castusinfo.com/assets/images/mail.png' alt='email' width='32' style='margin: -10px 10px !important;'></a><span>connect@outingday.com</span></td><td><a href='https://www.facebook.com/outingday/'><img src='http://od.castusinfo.com/assets/images/fb.png' width='32' style='padding: 5px;'></a><a href='#'><img src='http://od.castusinfo.com/assets/images/twitter.png' width='32' style='padding: 5px;'></a><a href='#'><img src='http://od.castusinfo.com/assets/images/youtube.png' width='32' style='padding: 5px;'></a><a href='#'><img src='http://od.castusinfo.com/assets/images/blog.png' width='32' style='padding: 5px;'></a></td></tr></table>"+
+				"<table><tr><td><a href='#'>Click here</a> to view our contact details</td><td style='padding:10px 0px;'>Read our <a href='#'>Privacy Policy</a>, <a href='#'>Unsubscribe </a></td></tr></table>"+
+				"</td></tr></table>"+
 				"</body>\n" +
-                "</html>";
-
-				String subject = CISConstants.SUBJECT;
+				"</html>";
+			
+		String subject = CISConstants.SUBJECT;
 	 try {
 		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,emailId, msg, subject);
 	  

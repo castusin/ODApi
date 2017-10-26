@@ -36,8 +36,8 @@ public class ForgotPasswordBL {
 	      formatter.setTimeZone(obj);
 	      
 	      
-	      Random random = new Random( System.currentTimeMillis() );
-		  int otpNumber= ((1 + random.nextInt(2)) * 10000 + random.nextInt(10000));
+	     /* Random random = new Random( System.currentTimeMillis() );
+		  int otpNumber= ((1 + random.nextInt(2)) * 10000 + random.nextInt(10000));*/
 		  
 		  cisResults = forgotPasswordDAO.checkNumber(userName);
 		  if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
@@ -46,20 +46,21 @@ public class ForgotPasswordBL {
 			  String userEmail=user.getEmailId();
 			  String userPhone=user.getPhoneNumber();
           
-			  if(userName.equalsIgnoreCase(userEmail)){
-				  cisResults=emailCommunication.sendForgotMail(userName,otpNumber); 
-				  cisResults = forgotPasswordDAO.forgotPassword(userPhone,otpNumber,formatter.format(currentdate.getTime()),deleteInd,userEmail);
+			 // if(userName.equalsIgnoreCase(userEmail)){
+				  //cisResults=emailCommunication.sendForgotMail(userName,otpNumber);
+				  cisResults=smsCommunicaiton.sendForgotSMS(userPhone,userEmail);
+				//  cisResults = forgotPasswordDAO.forgotPassword(userPhone,otpNumber,formatter.format(currentdate.getTime()),deleteInd,userEmail);
 				
-			  }
+			 // }
 		  
-			  else if(userName.equalsIgnoreCase(userPhone))
-			  {
+			 // else if(userName.equalsIgnoreCase(userPhone))
+			 // {
 			                   
-			    //cisResults=smsCommunicaiton.sendSMS(userName,otpNumber);
-			    cisResults = forgotPasswordDAO.forgotPassword(userPhone,otpNumber,formatter.format(currentdate.getTime()),deleteInd,userEmail);
+			    
+			   // cisResults = forgotPasswordDAO.forgotPassword(userPhone,otpNumber,formatter.format(currentdate.getTime()),deleteInd,userEmail);
 				
 			  	cisResults.setResultObject(cisResults);
-			  }
+			 // }
 		  }
 		  else{
          	 cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);

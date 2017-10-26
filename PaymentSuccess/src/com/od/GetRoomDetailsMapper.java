@@ -23,7 +23,7 @@ public class GetRoomDetailsMapper implements RowMapper{
 	    paymentStatus.setTitle(rs.getString("Title"));
 	    paymentStatus.setPrice(rs.getFloat("Price"));
 	    paymentStatus.setType(rs.getString("Type"));
-		
+		paymentStatus.setReservationDate(rs.getDate("reservation_date"));
 		
 		return paymentStatus;
 	}

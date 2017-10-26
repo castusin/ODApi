@@ -3,9 +3,9 @@ package com.od;
 public class ODCreateUserQuery {
 	
 	
-	public static String SQL_USERTABLE="insert into User_table (User_id,first_name,last_name,email_id,phoneno1,phone2,address1,address2,city,state,pin_code,Creation_date)"+"values(?,?,?,?,?,?,?,?,?,?,?,?)";     
+	public static String SQL_USERTABLE="insert into User_table (User_id,first_name,last_name,email_id,phoneno1,phone2,address1,address2,city,state,pin_code,Creation_date,reserved_date,adults,child)"+"values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";     
 
-	public static String SQL_USERTABLE_DETAILS="insert into Park_current_reservation_det (Reservation_id,park_id,Title,Price,type_code,Quantity,type,from_date,to_date,total_price,Status,Creation_date)"+"values(?,?,?,?,?,?,?,?,?,?,?,?)";     
+	public static String SQL_USERTABLE_DETAILS="insert into Park_current_reservation_det (Reservation_id,park_id,Title,Price,type_code,Quantity,type,from_date,to_date,reservation_date,total_price,Status,Creation_date)"+"values(?,?,?,?,?,?,?,?,?,?,?,?,?)";     
 	
 	public static String SQL_USERTABLE_HEADER="insert into Park_current_reservation_hdr (User_id,Reservation_id,Transaction_date,Creation_date)"+"values(?,?,?,?)";     
 

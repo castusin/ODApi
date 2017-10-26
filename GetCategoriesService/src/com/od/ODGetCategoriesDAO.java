@@ -42,5 +42,37 @@ public class ODGetCategoriesDAO extends JdbcDaoSupport {
    		return cisResults;  
 	}
 
+	public CISResults getAllParkinfo(int cityId, String reservationDate) {
+
+
+		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		Object[] inputs = new Object[]{reservationDate,reservationDate,cityId};
+		try{
+			// Capture service Start time
+			
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			List result=getJdbcTemplate().query(ODGetCategoriesQuery.SQL_GETALLGETCATEGORIES_PARKSINFO,inputs,new GetAllParksInfoMapper());
+						
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long results=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park info service:: " +results );
+			
+			cisResults.setResultObject(result);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+
+   		return cisResults;  
+	}
+
 
 }

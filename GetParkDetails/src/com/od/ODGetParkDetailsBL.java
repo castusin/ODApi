@@ -49,7 +49,7 @@ public class ODGetParkDetailsBL {
 			
 			
 			
-			//cisResult = parkDetailsDAO.getParksDetail(parkId);
+			cisResult = parkDetailsDAO.getParksDetail(parkId);
 			if(reservationDate.equalsIgnoreCase("")){
 				
 				SimpleDateFormat myFormat = new SimpleDateFormat(CISConstants.CHECKIN_DATE_FORMAT);

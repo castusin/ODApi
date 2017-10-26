@@ -32,6 +32,7 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		int cityId=10000025;
 		Object[] inputs = new Object[]{reservationDate,reservationDate,localId,parkType};
 		try{
 			// Capture service Start time
@@ -39,7 +40,7 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 		    TimeCheck time=new TimeCheck();
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
-			List result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSINFO,inputs,new ODGetParkInfoMapper());
+			List result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSINFO,inputs,new GetAllParksInfoMapper());
 						
 			// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();
@@ -95,14 +96,14 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{checkIn,checkOut,checkOut,checkIn,localId,parkType};
+		Object[] inputs = new Object[]{checkIn,checkOut,checkIn,checkOut,checkOut,checkIn,localId,parkType};
 		try{
 			// Capture service Start time
 			
 		    TimeCheck time=new TimeCheck();
 			testServiceTime seriveTimeCheck=new testServiceTime();
 			String serviceStartTime=time.getTimeZone();
-			List result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSROOMSINFO,inputs,new ODGetParkInfoMapper());
+			List result=getJdbcTemplate().query(ODGetParkInfoQuery.SQL_GETPARKSROOMSINFO,inputs,new ODGetParkRoomsMapper());
 						
 			// Capture Service End time
 		    String serviceEndTime=time.getTimeZone();
@@ -121,13 +122,13 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
    		return cisResults;  
 	}
 
-	public CISResults getAllParkinfo(int localId) {
+	public CISResults getAllParkinfo(int localId,String reservationDate) {
 
 
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{localId};
+		Object[] inputs = new Object[]{reservationDate,reservationDate,localId};
 		try{
 			// Capture service Start time
 			
