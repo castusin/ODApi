@@ -96,7 +96,7 @@ public class ODGetParkInfoDAO extends JdbcDaoSupport {
 		ODGetParkInfoModel parksInfo=new ODGetParkInfoModel();
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		Object[] inputs = new Object[]{checkIn,checkOut,checkIn,checkOut,checkOut,checkIn,localId,parkType};
+		Object[] inputs = new Object[]{checkIn,checkOut,checkOut,checkIn,checkOut,checkOut,checkIn,localId,parkType};
 		try{
 			// Capture service Start time
 			

@@ -703,7 +703,7 @@ String subject = CISConstants.SUBJECT;
 		
 			String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
 				
-                
+				                
 				"<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
 				"<head>\n" +
 				"<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
@@ -711,14 +711,12 @@ String subject = CISConstants.SUBJECT;
 				"</head>\n" +
 				"\n" +
 				"<body>\n" +
-				"<table align='center' style='border:1px solid #ccc;width:760px;'><tr><td>"+
+				"<table align='center' style='border:1px solid #ccc;'><tr><td>"+
 				"<table align='center'><tr><td><a href='#'><img src='http://od.castusinfo.com/assets/images/email_banner.jpg' width='100%' ></a></td></tr></table>"+
 				"<table ><tr><td style='color:#000;padding:10px 0px;'>Dear <b>"+firstName+"</b>,<p>Welcome to OutingDay!</p><p>Just like you, millions of happy travellers have started their journeys right here on OutingDay. Whatever your idea of travel, you’ll find OutingDay is the right choice.</p><a href='#'><img src='http://od.castusinfo.com/assets/images/outingday_email.png'></a></td></tr><tr><td  style='color:#000;padding:10px 0px;'>We are delighted to have you onboard.<a href='#'> Click here</a> to explore now.</td></tr></table>"+
 				"<table ><tr><td style='color:#000;padding: 24px 22px 24px 0px;'><a href='#'><img src='http://od.castusinfo.com/assets/images//explore.gif'></a></td><td style='color:#000; padding: 24px 22px 24px 0px;'><b>EXPLORE</b><p style='color:#000'>Explore all outing choices and get ready to experience your city like never before </p></td></tr><tr><td style='color:#000;padding:10px 0px;'><a href='#'><img src='http://od.castusinfo.com/assets/images//purchase.gif'></a></td><td style='color:#000;padding: 24px 22px 24px 0px;'><b>PURCHASE</b><p style='color:#000'>Choose and buy the best from our extensive outings</p></td></tr><tr><td style='color:#000;padding:10px 0px;'><a href='#'><img src='http://od.castusinfo.com/assets/images//savemoney.gif'></a></td><td style='color:#000; padding: 24px 22px 24px 0px;'><b>SAVE MONEY</b><p style='color:#000'>With discounts and special offers save big and have great experiences</p></td></tr></table>"+
 				"<table><tr ><td style='padding:20px 0px;'><b>Best regards</b>,<br/>OutingDay <br/></td></tr></table>"+
-				"<table style='background:#ededed;color:rgb(139,139,139);padding:15px 0px;width:100%;' ><tr><td><a href='#'><img src='http://od.castusinfo.com/assets/images/mail.png' alt='email' width='32' style='margin: -10px 10px !important;'></a><span>connect@outingday.com</span></td><td><a href='https://www.facebook.com/outingday/'><img src='http://od.castusinfo.com/assets/images/fb.png' width='32' style='padding: 5px;'></a><a href='#'><img src='http://od.castusinfo.com/assets/images/twitter.png' width='32' style='padding: 5px;'></a><a href='#'><img src='http://od.castusinfo.com/assets/images/youtube.png' width='32' style='padding: 5px;'></a><a href='#'><img src='http://od.castusinfo.com/assets/images/blog.png' width='32' style='padding: 5px;'></a></td></tr></table>"+
-				"<table><tr><td><a href='#'>Click here</a> to view our contact details</td><td style='padding:10px 0px;'>Read our <a href='#'>Privacy Policy</a>, <a href='#'>Unsubscribe </a></td></tr></table>"+
-				"</td></tr></table>"+
+				"<table style='background:#ededed;color:rgb(139,139,139);padding:15px 0px;width:100%;' ><tr><td align='center'><img src='http://od.castusinfo.com/assets/images/mail.png' width='32px' height='32px'><br><a href='#' style='line-height: 16px;''> connect@outingday.com</a></td><td style='padding:0px 20px;'><a href='https://www.facebook.com/outingday/'><img src='http://od.castusinfo.com/assets/images/fb.png' width='32' style='padding: 1px;'></a><a href='#'><img src='http://od.castusinfo.com/assets/images/twitter.png' width='32' style='padding: 1px;'></a><a href='#'><img src='http://od.castusinfo.com/assets/images/youtube.png' width='32' style='padding: 1px;'></a><a href='#'><img src='http://od.castusinfo.com/assets/images/blog.png' width='32' style='padding: 1px;'></a></td><td style='color:#c19aab;font-size:14px;;><a style='style='color:#c19aab;font-size:14px;'<a href='http://od.castusinfo.com/#!/contact'>Click here</a> to view our contact details &nbsp;Read our <a href='#' style='color:#c19aab;font-size:14px;'>Privacy Policy</a>, <a href='#' style='color:#ccc;'>Unsubscribe </a></td></tr></table>"+
 				"</body>\n" +
 				"</html>";
 			

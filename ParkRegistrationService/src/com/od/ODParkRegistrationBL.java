@@ -84,6 +84,7 @@ public class ODParkRegistrationBL {
 	         	}
            
              }else{
+            	 cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
 	    	   cisResults.setErrorMessage("user already exists, please login");
 	       }
 			 String serviceEndTime=time.getTimeZone();

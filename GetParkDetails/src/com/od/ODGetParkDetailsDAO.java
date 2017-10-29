@@ -29,7 +29,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
-		Object[] inputs = new Object[]{checkIn,checkOut,parkType,parkId,count};
+		Object[] inputs = new Object[]{checkIn,checkOut,parkType,parkId,count,checkOut};
 		
 		try{
 			// Capture service Start time
@@ -90,7 +90,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
-		Object[] inputs = new Object[]{checkIn,checkOut,parkType,parkId,count};
+		Object[] inputs = new Object[]{checkIn,checkOut,parkType,parkId,count,checkOut};
 		
 		try{
 			// Capture service Start time
@@ -121,7 +121,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
-		Object[] inputs = new Object[]{checkIn,checkOut,parkType,parkId,count};
+		Object[] inputs = new Object[]{checkIn,checkOut,parkType,parkId,count,checkOut};
 		
 		try{
 			// Capture service Start time
@@ -151,7 +151,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
-		Object[] inputs = new Object[]{checkIn,checkOut,parkType,parkId,count};
+		Object[] inputs = new Object[]{checkIn,checkOut,parkType,parkId,count,checkOut};
 		
 		try{
 			// Capture service Start time
@@ -182,7 +182,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
-		Object[] inputs = new Object[]{reservationDate,parkType,parkId};
+		Object[] inputs = new Object[]{reservationDate,parkType,parkId,reservationDate};
 		
 		try{
 			// Capture service Start time
@@ -213,7 +213,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
-		Object[] inputs = new Object[]{reservationDate,parkType,parkId};
+		Object[] inputs = new Object[]{reservationDate,parkType,parkId,reservationDate};
 		
 		try{
 			// Capture service Start time
@@ -244,7 +244,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
-		Object[] inputs = new Object[]{reservationDate,parkType,parkId};
+		Object[] inputs = new Object[]{reservationDate,parkType,parkId,reservationDate};
 		
 		try{
 			// Capture service Start time
@@ -275,7 +275,7 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
-		Object[] inputs = new Object[]{reservationDate,parkType,parkId};
+		Object[] inputs = new Object[]{reservationDate,parkType,parkId,reservationDate};
 		
 		try{
 			// Capture service Start time
