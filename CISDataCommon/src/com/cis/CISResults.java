@@ -22,10 +22,19 @@ public class CISResults {
 	public List<LocalAreaData> localareaList;
 	public List<ODParkDetailsService> roomDetails;
 	public List<ODParkDetailsService> addOnDetails;
+	public List<ODParkDetailsService> addOnFullDetails;
 	public List<ODAminitiesService> amenitieslist;
 	
 	
 	
+	public List<ODParkDetailsService> getAddOnFullDetails() {
+		return addOnFullDetails;
+	}
+
+	public void setAddOnFullDetails(List<ODParkDetailsService> addOnFullDetails) {
+		this.addOnFullDetails = addOnFullDetails;
+	}
+
 	public List<ODAminitiesService> getAmenitieslist() {
 		return amenitieslist;
 	}

@@ -23,8 +23,14 @@ public class ODAddonsMapper implements RowMapper{
 		parkDetails.setFacilityType(rs.getString("Facility_type"));
 		parkDetails.setDiscountMode(rs.getString("Discount_Mode"));
 		parkDetails.setAddonId(rs.getInt("Pack_Addon_Id"));
+		
 		parkDetails.setFacilityTypeCode(rs.getString("Facility_type_code"));
 		parkDetails.setParkRoomFac(rs.getString("Park_Room_Fac"));
+		
+		
+		//parkDetails.setAddonPath(rs.getString("Addon_path"));
+		//parkDetails.setAddonName(rs.getString("Pack_Addon_Name"));
+		
 		return parkDetails;
 	}
 }

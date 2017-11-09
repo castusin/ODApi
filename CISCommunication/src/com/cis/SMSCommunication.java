@@ -40,7 +40,7 @@ public class SMSCommunication {
          String resp="Y";
         // String Key="167320AnSc8m60597a0a95";
          String Key=CISConstants.key;
-         String sender="OUTINGDAY";
+         String sender="OUTDAY";
          String route="4";
          int country=0;
          //String Type=		CISConstants.TYPE;
@@ -215,7 +215,7 @@ public class SMSCommunication {
          
          // String Key="167320AnSc8m60597a0a95";
          String Key=CISConstants.key;
-         String sender="OUTINGDAY";
+         String sender="OUTDAY";
          String route="4";
          int country=0;
          //String Type=		CISConstants.TYPE;
@@ -264,7 +264,7 @@ public class SMSCommunication {
          String resp="Y";
          // String Key="167320AnSc8m60597a0a95";
          String Key=CISConstants.key;
-         String sender="OUTINGDAY";
+         String sender="OUTDAY";
          String route="4";
          int country=0;
           String Message= "Your COD was registered "+parkName+", "+city+" "+
@@ -366,7 +366,7 @@ public class SMSCommunication {
 	         // TODO: Remove hard coded data.
 	         // String Key="167320AnSc8m60597a0a95";
 	         String Key=CISConstants.key;
-	         String sender="OUTINGDAY";
+	         String sender="OUTDAY";
 	         int time=10;
 	         int otpLength=5;
 	       //  String Message= "Your otp "+otpNumber+"";
@@ -467,7 +467,7 @@ public class SMSCommunication {
 	         // TODO: Remove hard coded data.
 	         // String Key="167320AnSc8m60597a0a95";
 	         String Key=CISConstants.key;
-	         String sender="OUTINGDAY";
+	         String sender="OUTDAY";
 	         String route="4";
 	         int country=0;
 	         String Message= "Hi "+firstName+" , you are successfully registered" ;
@@ -509,7 +509,7 @@ public class SMSCommunication {
 	         // TODO: Remove hard coded data.
 	         // String Key="167320AnSc8m60597a0a95";
 	         String Key=CISConstants.key;
-	         String sender="OUTINGDAY";
+	         String sender="OUTDAY";
 	         int time=10;
 	         int otpLength=5;
 	       //  String Message= "Your otp "+otpNumber+"";
@@ -572,7 +572,7 @@ public class SMSCommunication {
 	         // TODO: Remove hard coded data.
 	         // String Key="167320AnSc8m60597a0a95";
 	         String Key=CISConstants.key;
-	         String sender="OUTINGDAY";
+	         String sender="OUTDAY";
 	         int time=10;
 	         int otpLength=5;
 	       //  String Message= "Your otp "+otpNumber+"";
@@ -675,7 +675,7 @@ public class SMSCommunication {
 	         // TODO: Remove hard coded data.
 	         // String Key="167320AnSc8m60597a0a95";
 	         String Key=CISConstants.key;
-	         String sender="OUTINGDAY";
+	         String sender="OUTDAY";
 	         int time=10;
 	         int otpLength=5;
 	       //  String Message= "Your otp "+otpNumber+"";

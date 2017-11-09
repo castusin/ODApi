@@ -125,10 +125,10 @@ public class ODPaymentSuccessBL {
 			     total=qty*price;
 			    	 
 			    	 String message=
-				    		 "Title :"+title+""+
+			    			 " "+ "Title :"+title+""+" "+
 				    		
-				    		 "Quantity :"+qty+""+
-				    		 "Price :"+price+"";
+				    		 "Quantity :"+qty+""+" "+
+				    		 "Price :"+price+"" +" ";
 				    		 
 			    	 if (checkIn == null) {
 				    		

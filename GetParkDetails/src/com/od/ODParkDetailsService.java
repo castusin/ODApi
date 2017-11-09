@@ -60,7 +60,9 @@ public class ODParkDetailsService {
 	public String amenitiesString;
 	*/
 	public String amenitiesString;
-	public Text addonPath;
+	public String addonPath;
+	public String addonName;
+	
 	public String parkRoomFac;
 	public int addonId;
 	public int discount;
@@ -76,7 +78,7 @@ public class ODParkDetailsService {
 			float currentPrice, String facilityTypeCode, String facilityType,
 			String maxQty, float regularPrice, Date dateAdded, Date date,
 			String facilityTypeTitle, String facilityInRoomFacilites,
-			String facilityImage, int parkId, String overviewText, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String details, float odRating, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String popularity, float minCost1, float minCost1People, float minCost2, float minCost2People, float specialOfferPercentage, float specialRate, String photoUrl, String amenitiesString, String parkSubImages, String parkRoomFac, int discount, String discountMode, Object packageItems, Text addonPath, int addonId, String parkMainImages, String inclusions, String status) {
+			String facilityImage, int parkId, String overviewText, String metro, String localArea, String streetAddress, String city, String state, String pin, String name, String details, float odRating, double latitude, double longitude, String typeString, String natureString, String subCategoryString, String durationString, String popularity, float minCost1, float minCost1People, float minCost2, float minCost2People, float specialOfferPercentage, float specialRate, String photoUrl, String amenitiesString, String parkSubImages, String parkRoomFac, int discount, String discountMode, Object packageItems, String addonPath, int addonId, String parkMainImages, String inclusions, String status) {
 		super();
 		this.description = description;
 		this.maxPeople = maxPeople;
@@ -186,13 +188,26 @@ public class ODParkDetailsService {
 	}
 
 
-	public Text getAddonPath() {
+	
+
+
+	public String getAddonPath() {
 		return addonPath;
 	}
 
 
-	public void setAddonPath(Text addonPath) {
+	public void setAddonPath(String addonPath) {
 		this.addonPath = addonPath;
+	}
+
+
+	public String getAddonName() {
+		return addonName;
+	}
+
+
+	public void setAddonName(String addonName) {
+		this.addonName = addonName;
 	}
 
 

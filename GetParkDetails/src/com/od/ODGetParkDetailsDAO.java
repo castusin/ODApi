@@ -297,6 +297,37 @@ public class ODGetParkDetailsDAO extends JdbcDaoSupport {
 		return aminitieslist;  
 	}
 
+	public List<ODParkDetailsService> getAddonFullDetails(String checkIn,
+			String checkOut, String parkType, String parkId) {
+
+
+		ODGetParkDetailsModel parksDetails;
+		List<ODParkDetailsService> addOnDetailslist = null;
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		// Object[] inputs = new Object[]{checkIn,checkOut,parkId,count,parkId};
+		Object[] inputs = new Object[]{checkIn,checkOut,parkType,parkId,checkOut};
+		
+		try{
+			// Capture service Start time
+		    TimeCheck time=new TimeCheck();
+			testServiceTime seriveTimeCheck=new testServiceTime();
+			String serviceStartTime=time.getTimeZone();
+			addOnDetailslist = getJdbcTemplate().query(ODGetParkDetailsQuery.SQL_GETADDONSSFULLLIST,new ODAddonFullListMapper());
+			// Capture Service End time
+		    String serviceEndTime=time.getTimeZone();
+			long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			logger.info("Query time for get park details service:: " +result );
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed At DataAccess");
+		}
+		return addOnDetailslist;  
+	}
+
 
 		
 

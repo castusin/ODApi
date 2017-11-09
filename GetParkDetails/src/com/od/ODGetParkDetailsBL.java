@@ -40,6 +40,7 @@ public class ODGetParkDetailsBL {
 		 	List<ODParkDetailsService> parkDetailslist = null;
 		 	List<ODParkDetailsService> roomDetailslist = null;
 		 	List<ODParkDetailsService> addOnDetailslist=null;
+		 	List<ODParkDetailsService> addOnFullDetailslist=null;
 		 	List<ODAminitiesService> amenitieslist=null;
 		 	//Map<String,List<ODParkDetailsService>> map = new HashMap<String,List<ODParkDetailsService>>();
 		 	
@@ -64,21 +65,27 @@ public class ODGetParkDetailsBL {
 				roomDetailslist = parkDetailsDAO.getParksRoomDetails(checkIn,checkOut,parkType,parkId,count);
 				parkDetailslist = parkDetailsDAO.getParksDetails(checkIn,checkOut,parkType,parkId,count);
 				addOnDetailslist = parkDetailsDAO.getAddonDetails(checkIn,checkOut,parkType,parkId,count);
+				addOnFullDetailslist = parkDetailsDAO.getAddonFullDetails(checkIn,checkOut,parkType,parkId);
 				amenitieslist = parkDetailsDAO.getAminitiesDetails(checkIn,checkOut,parkType,parkId,count);
 				cisResult.setParkDetails(parkDetailslist);	
 				cisResult.setRoomDetails(roomDetailslist);
 				cisResult.setAddOnDetails(addOnDetailslist);
+				cisResult.setAddOnFullDetails(addOnFullDetailslist);
 				cisResult.setAmenitieslist(amenitieslist);
+				
 				logger.debug("OD GetParkDetailsBL service" +cisResult);
 			}else{
 				
 				roomDetailslist = parkDetailsDAO.getParksRoomDetailsRes(reservationDate,parkType,parkId);
 				parkDetailslist = parkDetailsDAO.getParksDetailsRes(reservationDate,parkType,parkId);
 				addOnDetailslist = parkDetailsDAO.getAddonDetailsRes(reservationDate,parkType,parkId);
+				addOnFullDetailslist = parkDetailsDAO.getAddonFullDetails(checkIn,checkOut,parkType,parkId);
+				
 				amenitieslist = parkDetailsDAO.getAminitiesDetailsRes(reservationDate,parkType,parkId);
 				cisResult.setParkDetails(parkDetailslist);	
 				cisResult.setRoomDetails(roomDetailslist);
 				cisResult.setAddOnDetails(addOnDetailslist);
+				cisResult.setAddOnFullDetails(addOnFullDetailslist);
 				cisResult.setAmenitieslist(amenitieslist);
 				logger.debug("OD GetParkDetailsBL service" +cisResult);
 				
