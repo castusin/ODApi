@@ -21,6 +21,14 @@ public class RoomDetailsMapper implements RowMapper{
 		
 		roomDetails.setQuantity(rs.getInt("Max_qty"));
 		
+		roomDetails.setOriginalamount(rs.getFloat("Original_amount"));
+		
+		roomDetails.setDiscountamount(rs.getFloat("Discount_amount"));
+		
+		
+		roomDetails.setCollectamount(rs.getFloat("Collect_amount"));
+
+		
 		return roomDetails;
 	}
 }

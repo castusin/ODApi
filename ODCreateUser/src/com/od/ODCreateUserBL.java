@@ -15,6 +15,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -24,6 +25,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.commons.codec.digest.DigestUtils;
+
 import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.cis.EmailCommunication;
@@ -70,9 +72,7 @@ public class ODCreateUserBL {
 	         reservationId=upToNCharacters2;
 	          
 	        //  cisResults = createUserDAO.getAvailablility(parkId);
-	          
-		         
-	          
+
 		     // To get list items
 			 int packageSize= createUser.getPackageList().size();
 			 
@@ -82,8 +82,10 @@ public class ODCreateUserBL {
 		     TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONEIND);
 		     formatter.setTimeZone(obj);
 		  
-			  cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate,createUser.getReservationDate(),createUser.getAdults(),createUser.getChild());
+			 // cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate,createUser.getReservationDate(),createUser.getAdults(),createUser.getChild(),createUser.getOriginalAmount(),createUser.getDiscountAmount(),createUser.getCollectAmount(),createUser.getCouponCode());
             
+		     cisResults = createUserDAO.createUser(userId,createUser.getFirstName(),createUser.getLastName(),createUser.getEmailId(),createUser.getPhoneNumber1(),createUser.getPhoneNumber2(),createUser.getAddress1(),createUser.getAddress2(),createUser.getCity(),createUser.getState(),createUser.getPincode(),createDate,createUser.getReservationDate(),createUser.getAdults(),createUser.getChild());
+
 		     if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
              {
 		    	 // list of packages
@@ -94,17 +96,37 @@ public class ODCreateUserBL {
 		    		 typeCode =  createUser.getPackageList().get(i).typeCode;
 		    		 quantity =  createUser.getPackageList().get(i).quantity;
 		    		 type =  createUser.getPackageList().get(i).type;
-								 
-		    		 cisResults = createUserDAO.createUserDetails(reservationId,parkId,title,price,typeCode,quantity,type,createUser.getFromDate(),createUser.getToDate(),createUser.getReservationDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate);
+		    		 float originalamount = createUser.getPackageList().get(i).originalamount;
+		    		  float discountamount = createUser.getPackageList().get(i).discountamount;
+		    		  
+		    		  float collectamount = createUser.getPackageList().get(i).collectamount;
+		    		  int packageId = createUser.getPackageList().get(i).packageId;
+		    		 
+		    		  
+					cisResults = createUserDAO.createUserDetails(reservationId,parkId,packageId,title,price,typeCode,quantity,type,createUser.getFromDate(),createUser.getToDate(),createUser.getReservationDate(),createUser.getTotalPrice(),createUser.getStatus(),createDate,discountamount,originalamount,collectamount);
 				 
 		    	 }
 			
              }
-		     
-		     
+
 		     if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
              {	
-			  cisResults = createUserDAO.createUserHeader(userId,reservationId,createUser.getReservedDate(),createDate);
+		    	 
+		    float originalAmount = 0;
+			float discountAmount = 0;
+			float collectAmount = 0;
+			String couponCode = " ";
+			int parkid = createUser.getParkId();
+			int adults = createUser.getAdults();
+			int child = createUser.getChild();
+			String fName=createUser.getFirstName();
+			String emailId=createUser.getEmailId();
+			String phone=createUser.getPhoneNumber1();
+			originalAmount=createUser.getOriginalAmount();
+			discountAmount=createUser.getDiscountAmount();
+			collectAmount=originalAmount-discountAmount;
+	
+			cisResults = createUserDAO.createUserHeader(userId,parkid,reservationId,fName,phone,emailId,createUser.getReservedDate(),createDate,adults,child,originalAmount,discountAmount,collectAmount,couponCode);
              }
 			
 			 String serviceEndTime=time.getTimeZone();

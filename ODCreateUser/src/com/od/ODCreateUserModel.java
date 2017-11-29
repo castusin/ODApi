@@ -27,14 +27,18 @@ public class ODCreateUserModel {
 	public float totalPrice;
 	public String status;
 	public String emailId;
-	
 	public Date reservationDate;
 	public int adults;
 	public int child;
+	public float originalAmount;
+	public float discountAmount;
+	public float collectAmount;
+	public String couponCode;
+
 	
 	public List<PackageDetails> packageList;
 	//public List<RoomsDetails> roomList;
-	public ODCreateUserModel(String userId, String firstName, String lastName, String phoneNumber1, String phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status, String emailId, List<PackageDetails> facilityList, List<RoomsDetails> roomList, List<PackageDetails> packageList, Date reservationDate, int adults, int child) {
+	public ODCreateUserModel(String userId, String firstName, String lastName, String phoneNumber1, String phoneNumber2, String address1, String address2, String city, String state, int pincode, int reservationId, Date reservedDate, int parkId, String userType, String faciltiyTypecode, Date fromDate, Date toDate, int qty, float totalPrice, String status, String emailId, List<PackageDetails> facilityList, List<RoomsDetails> roomList, List<PackageDetails> packageList, Date reservationDate, int adults, int child, float originalAmount, float discountAmount, float collectAmount, String couponCode) {
 		super();
 		this.userId=userId;
 		this.firstName=firstName;
@@ -57,15 +61,72 @@ public class ODCreateUserModel {
 		this.totalPrice=totalPrice;
 		this.status=status;
 		this.emailId=emailId;
-		
 		this.reservationDate=reservationDate;
 		this.adults=adults;
 		this.child=child;
-		
+		this.originalAmount=originalAmount;
+		this.discountAmount=discountAmount;
+		this.collectAmount=collectAmount;
 		this.packageList=packageList;
+		this.couponCode=couponCode;
+		
 		//this.roomList=roomList;
 	}
 		
+
+		public String getCouponCode() {
+		return couponCode;
+	}
+
+
+
+
+	public void setCouponCode(String couponCode) {
+		this.couponCode = couponCode;
+	}
+
+
+
+
+		public float getDiscountAmount() {
+		return discountAmount;
+	}
+
+
+
+
+	public void setDiscountAmount(float discountAmount) {
+		this.discountAmount = discountAmount;
+	}
+
+
+
+
+	public float getOriginalAmount() {
+		return originalAmount;
+	}
+
+
+
+
+	public void setOriginalAmount(float originalAmount) {
+		this.originalAmount = originalAmount;
+	}
+
+
+
+
+	public float getCollectAmount() {
+		return collectAmount;
+	}
+
+
+
+
+	public void setCollectAmount(float collectAmount) {
+		this.collectAmount = collectAmount;
+	}
+
 
 
 
